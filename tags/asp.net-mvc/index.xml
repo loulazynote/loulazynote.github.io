@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Asp.Net MVC - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/asp.net-mvc/</link>
+        <description>Asp.Net MVC - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/asp.net-mvc/" rel="self" type="application/rss+xml" /><item>
+    <title>MVC 5 專案之眉眉角角</title>
+    <link>https://loulazynote.github.io/posts/mvc5_meta/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/mvc5_meta/</guid>
+    <description><![CDATA[MVC 5 專案之眉眉角角 Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就]]></description>
+</item>
+</channel>
+</rss>

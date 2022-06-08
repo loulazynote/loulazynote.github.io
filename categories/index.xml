@@ -4,7 +4,31 @@
         <link>https://loulazynote.github.io/categories/</link>
         <description>Categories - 分類 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Asp.Net</title>
+    <link>https://loulazynote.github.io/categories/asp.net/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/asp.net/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>C＃</title>
+    <link>https://loulazynote.github.io/categories/c/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/c/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Maintain</title>
+    <link>https://loulazynote.github.io/categories/maintain/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/maintain/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Learning</title>
     <link>https://loulazynote.github.io/categories/learning/</link>
     <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
