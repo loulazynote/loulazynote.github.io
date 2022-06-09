@@ -10,7 +10,9 @@
     <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/posts/mvc5_meta/</guid>
-    <description><![CDATA[MVC 5 filter Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource]]></description>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/172867969-536885e4-152e-423b-9ca6-026634e4fd7e.jpg" referrerpolicy="no-referrer">
+            </div>MVC 5 filter Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource]]></description>
 </item>
 </channel>
 </rss>
