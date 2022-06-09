@@ -2,15 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/asp.net/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/asp.net-mvc/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/c/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/maintain/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/mvc5_meta/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/git/</loc><lastmod>2022-06-08T23:20:17&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/git-learning/</loc><lastmod>2022-06-08T23:20:17&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/learning/</loc><lastmod>2022-06-08T23:20:17&#43;08:00</lastmod></url></urlset>

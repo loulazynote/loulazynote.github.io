@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Single Sign on With Kerberos - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Single Sign on With Kerberos" />
+<meta property="og:description" content="Single Sign On with Kerberos Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-09T15:23:01+08:00" />
+<meta property="article:modified_time" content="2022-06-09T15:23:01+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="Single Sign on With Kerberos"/>
+<meta name="twitter:description" content="Single Sign On with Kerberos Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="images/logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" /><link rel="prev" href="https://loulazynote.github.io/posts/mvc5_meta/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Single Sign on With Kerberos",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/posts\/single-sign-on-with-kerberos\/"
+        },"genre": "posts","keywords": "Kerberos","wordcount":  3277 ,
+        "url": "https:\/\/loulazynote.github.io\/posts\/single-sign-on-with-kerberos\/","datePublished": "2022-06-09T15:23:01+08:00","dateModified": "2022-06-09T15:23:01+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note">The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 標籤 </a><a class="menu-item" href="/categories/"> 類別 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note">The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">標籤</a><a class="menu-item" href="/categories/" title="">類別</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Single Sign on With Kerberos</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/kerberos/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Kerberos</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 3277 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 7 分鐘&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#keberos-概述">Keberos 概述</a>
+      <ul>
+        <li><a href="#span-idneedham_schroederneedham-schroederspan"><!-- raw HTML omitted -->Needham-Schroeder<!-- raw HTML omitted --></a></li>
+        <li><a href="#span-idas認證伺服器authentication-serverasspan"><!-- raw HTML omitted -->認證伺服器（Authentication Server/AS）<!-- raw HTML omitted --></a></li>
+        <li><a href="#span-idkdc鑰匙分配中心key-distribution-centerkdcspan"><!-- raw HTML omitted -->鑰匙分配中心(Key Distribution Center/KDC)<!-- raw HTML omitted --></a></li>
+        <li><a href="#span-idtgs票據授權伺服器ticket-granting-servertgsspan"><!-- raw HTML omitted -->票據授權伺服器（Ticket Granting Server/TGS）<!-- raw HTML omitted --></a></li>
+        <li><a href="#span-idtgt票據授權票據票據的票據ticket-granting-tickettgtspan"><!-- raw HTML omitted -->票據授權票據，票據的票據（Ticket Granting Ticket/TGT）<!-- raw HTML omitted --></a></li>
+        <li><a href="#span-idst服務門票service-ticketstspan"><!-- raw HTML omitted -->服務門票（Service Ticket/ST）<!-- raw HTML omitted --></a></li>
+        <li><a href="#keberos-流程關係">Keberos 流程關係</a></li>
+      </ul>
+    </li>
+    <li><a href="#名詞解釋">名詞解釋</a>
+      <ul>
+        <li><a href="#principal">Principal</a></li>
+        <li><a href="#keytab">keytab</a></li>
+      </ul>
+    </li>
+    <li><a href="#single-sign-on-sso">Single Sign-On (SSO)</a></li>
+    <li><a href="#spnego">SPNEGO</a></li>
+    <li><a href="#spnservice-principal-names">SPN(Service Principal Names)</a>
+      <ul>
+        <li><a href="#browser-如何透過-kerberos-進行身分驗證">Browser 如何透過 Kerberos 進行身分驗證</a></li>
+      </ul>
+    </li>
+    <li><a href="#參考資料">參考資料</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="span-stylecolorbluesingle-sign-on-with-kerberosspan"><!-- raw HTML omitted -->Single Sign On with Kerberos<!-- raw HTML omitted --></h1>
+<h2 id="keberos-概述">Keberos 概述</h2>
+<p>Kerberos 是一種<!-- raw HTML omitted --><strong>計算機網絡認證協議</strong><!-- raw HTML omitted -->
+它允許某實體在非安全網絡環境下通信
+向另一個實體以一種安全的方式證明自己的身份
+Kerberos 伺服器本身稱為<!-- raw HTML omitted --><strong>鑰匙分配中心或 KDC</strong><!-- raw HTML omitted --></p>
+<blockquote>
+<p><em>一般來說，KDC 除了發放票據與金鑰之外，同時也負責身份驗證的功能 (Authentication Server, AS)</em></p>
+</blockquote>
+<p>Kerberos 使用 <strong><a href="#Needham_Schroeder" rel="">Needham-Schroeder</a></strong> 協議作為基礎</p>
+<p>它使用一個由兩個獨立的邏輯部分：
+<!-- raw HTML omitted --><strong>認證伺服器</strong><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><strong>票據授權伺服器</strong><!-- raw HTML omitted -->
+組成&quot;可信賴的第三方&quot;
+Kerberos 工作在用於證明用戶身份的&quot;票據&quot;基礎上</p>
+<h3 id="span-idneedham_schroederneedham-schroederspan"><!-- raw HTML omitted -->Needham-Schroeder<!-- raw HTML omitted --></h3>
+<p>Needham 與 Schroeder 於 1978 年提出一種<!-- raw HTML omitted --><strong>『多重盤問與回應』</strong><!-- raw HTML omitted -->的認證協定，它不但可以避免重播攻擊，也可以解決相互認證的問題。</p>
+<p>而協議的安全主要依賴於參加者對<!-- raw HTML omitted --><strong>時間的鬆散同步</strong><!-- raw HTML omitted -->和<!-- raw HTML omitted --><strong>短周期</strong><!-- raw HTML omitted -->的叫做 Kerberos 票據的認證聲明</p>
+<p>下面為 Kerberos 內容名詞縮寫及解釋：</p>
+<ul>
+<li><!-- raw HTML omitted --><a href="#AS" rel="">AS</a>（Authentication Server）: 認證伺服器<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><a href="#KDC" rel="">KDC</a>（Key Distribution Center）: 鑰匙分配中心<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><a href="#TGS" rel="">TGS</a>（Ticket Granting Server）: 票據授權伺服器<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><a href="#TGT" rel="">TGT</a>（Ticket Granting Ticket）: 票據授權票據，票據的票據<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><a href="#ST" rel="">ST</a>（Service Ticket）: 服務門票<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><a href="#SS" rel="">SS</a>（Service Server）: 特定服務提供端<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="span-idas認證伺服器authentication-serverasspan"><!-- raw HTML omitted -->認證伺服器（Authentication Server/AS）<!-- raw HTML omitted --></h3>
+<p>相當於『<a href="#KDC" rel="">鑰匙分配中心</a>』（KDC）
+<!-- raw HTML omitted --><strong>管理每一個使用者的主密鑰（或稱共享密鑰）</strong><!-- raw HTML omitted -->
+欲加入的使用者都必須向 AS 伺服器申請帳戶並取得主密鑰
+網路上任何一個使用者登入系統時，都會向認證中心取得通行證（Pass Book 或 TGT 票），有了通行證便可以在網路上索取所要的資源</p>
+<blockquote>
+<p>簡單來說就是 驗證 Client 端的身份（確定你是身份證上的本人）
+驗證通過就會給一張票證授予票證（<a href="#TGT" rel="">Ticket Granting Ticket/TGT</a>）給 Client</p>
+</blockquote>
+<h3 id="span-idkdc鑰匙分配中心key-distribution-centerkdcspan"><!-- raw HTML omitted -->鑰匙分配中心(Key Distribution Center/KDC)<!-- raw HTML omitted --></h3>
+<p><!-- raw HTML omitted --><strong>KDC 是一台伺服器，它與每位註冊的使用者分享不同的的私密對稱金鑰，當使用者第一次使用註冊時，這支金鑰可以利用人工輸入到伺服器</strong><!-- raw HTML omitted -->
+KDC 知道每位使用者的私密金鑰，而每位使用者可以使用此金鑰與 KDC 進行安全通訊</p>
+<p>以 Star 星狀方式配置，從中心集中管理對外分散的 Key
+採用 KDC 的管理方式可以減少 Key 的數量，它將所有的 Key 集中到一個中心點因此降降低了 Key 的數目，n 個 node 只需要 n 把 Key 即可，以 5 個點的拓樸系統來看只需要 5 把 Key，因此大大的降低系統對 Key 的需求</p>
+<!-- raw HTML omitted -->
+<h3 id="span-idtgs票據授權伺服器ticket-granting-servertgsspan"><!-- raw HTML omitted -->票據授權伺服器（Ticket Granting Server/TGS）<!-- raw HTML omitted --></h3>
+<p><!-- raw HTML omitted --><strong>TGS 管理網路上所有服務伺服器，並紀錄所有服務伺服器的秘密鑰匙</strong><!-- raw HTML omitted -->
+當有新的伺服器加入或退出時，都必須向 TGS 伺服器申請
+而且某一秘密鑰匙也只有 TGS 伺服器和該服務伺服器兩者所擁有，因此 TGS 伺服器必須管理網路上所有伺服器的秘密鑰匙
+使用者如要存取服務伺服器上資源時，必須向 TGS 提出它的身份證明，即 TGT 門票。
+TGT 門票是經過 TGS 伺服器的秘密鑰匙加密，因此只有 TGS 伺服器能觀察門票的內容，別人無法仿冒
+TGS 伺服器驗證完使用者的通行證後，再發給使用者有關使用者本身和所欲要求的服務伺服器的『服務門票』（Service Ticket, ST）
+有了 ST 門票之後，使用者才可以到服務伺服器上存取資源，ST 門票同時包含了會議鑰匙</p>
+<!-- raw HTML omitted -->
+<h3 id="span-idtgt票據授權票據票據的票據ticket-granting-tickettgtspan"><!-- raw HTML omitted -->票據授權票據，票據的票據（Ticket Granting Ticket/TGT）<!-- raw HTML omitted --></h3>
+<p>此票是由 AS 伺服器發給客戶端的身分證明使用；使用者可以持此票向 TGS 伺服器申請通往某一伺服器的請求
+<!-- raw HTML omitted --><strong>Kerberos 協議將 TGT 的使用設計成可以避免經常向用戶詢問密碼（Kerberos 用來派生主密鑰的密碼）或將主密鑰存儲在工作站上</strong><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="span-idst服務門票service-ticketstspan"><!-- raw HTML omitted -->服務門票（Service Ticket/ST）<!-- raw HTML omitted --></h3>
+<p>當使用者出示 TGT 門票，向 TGS 伺服器要求前往某一伺服器
+如果 TGS 伺服器同意其要求時，則發給所要求伺服器的 ST 門票給使用者，使用者持此票即可要求該伺服器提供服務</p>
+<blockquote>
+<p><em>ST（Service Ticket）也有資料稱為 TGS Ticket</em></p>
+</blockquote>
+<h3 id="keberos-流程關係">Keberos 流程關係</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/gTQCCOp.png"
+        data-srcset="https://i.imgur.com/gTQCCOp.png, https://i.imgur.com/gTQCCOp.png 1.5x, https://i.imgur.com/gTQCCOp.png 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/gTQCCOp.png"
+        title="https://i.imgur.com/gTQCCOp.png" /></p>
+<p>消息 A：使用 Client/User 的秘密密鑰加密的 Client/TGS Session Key。
+消息 B：使用 TGS 的密鑰加密的票證授予票證。
+消息 C：由消息 B 的 TGT 和所請求服務的 ID 組成。
+消息 D：使用 Client/TGS 會話密鑰加密的身份驗證器。
+消息 E：使用服務的秘密密鑰加密的 Client 到 Server 票證。
+消息 F：使用 Client/TGS Session Key 加密的 Client/Server Session Key。
+消息 G：一個新的身份驗證器，其中包括 Client ID，時間戳記，並使用 Client/Server Session Key 進行了加密。
+消息 H：在 Client 的身份驗證器中找到的時間戳已使用 Client/Server Session Key 進行了加密。</p>
+<h2 id="名詞解釋">名詞解釋</h2>
+<h3 id="principal">Principal</h3>
+<p>Kerberos principal（又稱為主體）用於在 kerberos 加密系統中標記一個唯一的身份
+主體可以是用戶（如 louis）或服務（如 namenode 或 hive）</p>
+<p>根據約定，主體名稱分為三個部分：
+主名稱、實例和領域。
+例如，典型的 Kerberos 主體可以是 <a href="mailto:louis/admin@EXAMPLE.COM" rel="">louis/admin@EXAMPLE.COM</a></p>
+<h3 id="keytab">keytab</h3>
+<blockquote>
+<p><em>keytab 是包含 principals 和加密 principal key 的文件</em> &gt; <em>keytab 用於將 SSO 帶到未加入 AD domain 的應用程序</em></p>
+</blockquote>
+<p>keytab 文件對於每個 host 是唯一的，因為 key 中包含 hostname
+keytab 文件用於不需要人工交互和保存純文本密碼，實現到 kerberos 上驗證一個主機上的 principal</p>
+<p>因為 Server 上可以訪問 keytab 文件即可以以 principal 的身份通過 kerberos 的認證，所以，keytab 文件應該被妥善保存，應該只有少數的用戶可以訪問</p>
+<p><strong>如何產生 Keytab?</strong>
+使用實用程序 KTPASS.EXE
+它是 RSAT 的一部分，如果啟用了 Active Directory 目錄服務工具將顯示在 RSAT 中
+<code>ktpass /out app1.keytab /princ http/app1.verenatex.com@verenatex.com /mapuser app1 /crypto AES256-SHA1 /ptype KRB5_NT_PRINCIPAL /pass Password2 /target vdc01.verenatex.com</code></p>
+<ul>
+<li><code>/out</code> 指定輸出文件的名稱，如 app1.keytab</li>
+<li><code>/princ</code> 指定 userPrincipalName 以及將其添加到對映帳戶的 servicePrincipalName 的值</li>
+<li><code>/mapuser</code> 是將為其生成 Keytab 的帳戶</li>
+<li><code>/crypto</code> 是用於 Keytab 的加密類型，此處為 AES256-SHA1</li>
+<li><code>/ptype</code> 通常應使用 KRB5_NT_PRINCIPAL，除非應用程序文檔另有說明</li>
+<li><code>/pass</code> 是對應帳戶的新密碼（默認情況下，它將執行密碼重置操作）</li>
+<li><code>/target</code> 用於指示將查詢哪個 domain 控制器(it is optional, but can be useful if you have more than one domain in your forest)</li>
+</ul>
+<h2 id="single-sign-on-sso">Single Sign-On (SSO)</h2>
+<p>單一登錄（SSO）協議（Kerberos，SAML，OpenID 等）允許用戶使用單個 ID 和密碼來訪問不同的應用程序。用戶登錄以獲得對連接系統的訪問權限，或者使用輕型目錄訪問協議（LDAP）和（目錄）服務器上存儲的 LDAP 數據庫來完成訪問。</p>
+<h2 id="spnego">SPNEGO</h2>
+<p>SPNEGO 代表&quot;<strong>簡單和受保護的 GSS_API 協商機制</strong>&quot;，用於擴展基於 Kerberos 的 SSO 環境以用於 Web Application，因為 SPNEGO 被設計用於 Client Server 桌面環境，通常不用於 Web Application 或簡易 Client 環境</p>
+<blockquote>
+<p><em>Spnego 是一種與身份驗證器協商使用哪種安全協議的機制
+例如 Kerberos，NTLM，摘要或 Basic.5t6</em></p>
+</blockquote>
+<h2 id="spnservice-principal-names">SPN(Service Principal Names)</h2>
+<p><!-- raw HTML omitted --><strong>服務主體名稱 (SPN) 是服務實例的唯一標識符</strong><!-- raw HTML omitted -->
+Kerberos 身份驗證使用 SPN 將服務實例與服務登錄帳戶關聯
+這允許用戶端應用程式請求服務對帳戶進行身份驗證，即使客戶端沒有帳戶名稱</p>
+<p>如果在整個林中的電腦上安裝多個服務實例，則每個實例必須有自己的 SPN
+如果用戶端可能使用多個名稱進行身份驗證，則給定的服務實例可以有多個 SPN
+例如，SPN 始終包含運行服務實例的主機的名稱，因此服務實例可能會為其主機的每個名稱或別名註冊 SPN</p>
+<p>在 Kerberos 身份驗證服務可以使用 SPN 對服務進行身份驗證之前，必須在服務實例用於登錄的帳戶物件上註冊 SPN
+給定的 SPN 只能在一個帳戶上註冊
+對於 Win32 服務，服務安裝程式在安裝服務實例時指定登錄帳戶
+然後，安裝程式組成 SPN，並將它們作為活動目錄域服務中的帳戶物件的屬性編寫
+如果服務實例的登錄帳戶發生更改，則必須在新帳戶下重新註冊 SPN</p>
+<p>當用戶端想要連接到服務時，它會查找服務的實例，為該實例編寫 SPN，連接到該服務，並顯示用於服務的 SPN 進行身份驗證</p>
+<!-- raw HTML omitted -->
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/0gGQ9mK.png"
+        data-srcset="https://i.imgur.com/0gGQ9mK.png, https://i.imgur.com/0gGQ9mK.png 1.5x, https://i.imgur.com/0gGQ9mK.png 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/0gGQ9mK.png"
+        title="https://i.imgur.com/0gGQ9mK.png" /></p>
+<ol>
+<li>Client 上的 Application（例如 Browser）嘗試訪問 Web Server 上的受保護頁面</li>
+<li>Server 響應要求授權</li>
+<li>Application 從 Kerberos KDC 請求 Service ticket</li>
+<li>獲得 ticket 後，Application 將其包裝為 SPNEGO 格式的請求，然後通過 Browser 將其發送回 Web Application</li>
+<li>執行已部署的 Web Application 的 web container（Tomcat、JBoss EAP 等）對請求進行解包並驗證 ticket</li>
+<li>認證成功後，將授予訪問權限</li>
+</ol>
+<ul>
+<li>
+<h3 id="browser-如何透過-kerberos-進行身分驗證">Browser 如何透過 Kerberos 進行身分驗證</h3>
+</li>
+</ul>
+<h4 id="循序圖">循序圖</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/kQ523BD.png"
+        data-srcset="https://i.imgur.com/kQ523BD.png, https://i.imgur.com/kQ523BD.png 1.5x, https://i.imgur.com/kQ523BD.png 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/kQ523BD.png"
+        title="https://i.imgur.com/kQ523BD.png" /></p>
+<ol>
+<li>User 登錄 Windows，並通過 KDC 進行了身份驗證(對於 Windows，KDC 將是主域控制器)</li>
+<li>OS 為 User 接收一個 TGT token</li>
+<li>當 User 嘗試連接到 Tomcat 服務器(或其他 web container)時，將<!-- raw HTML omitted -->協商身份驗證機制<!-- raw HTML omitted -->(紅字原文: <em>the authentication mechanism is negotiated</em>)</li>
+<li>User 的 token 被傳遞給 Tomcat，然後 Tomcat 通過 KDC 對其進行驗證</li>
+<li>驗證 User 身份後，Tomcat 隨後從 LDAP 服務器中檢索其角色<!-- raw HTML omitted -->（在 Windows 中為 Active Directory，這是一種專門處理諸如用戶名和密碼之類的身份信息的數據庫）</li>
+<li>並確定他是否有權訪問（Response 200 OK）他在服務器上請求的資源。</li>
+</ol>
+<h2 id="參考資料">參考資料</h2>
+<ol>
+<li><a href="https://tinyurl.com/y47k7wke" target="_blank" rel="noopener noreffer">Setting up Kerberos Authentication for a Website in IIS</a></li>
+<li><a href="https://tinyurl.com/y6abgv4q" target="_blank" rel="noopener noreffer">Single Sign On with Kerberos</a></li>
+<li><a href="https://tinyurl.com/y3n46j89" target="_blank" rel="noopener noreffer">Kerberos Wikipedia</a></li>
+<li><a href="https://tinyurl.com/y56quglw" target="_blank" rel="noopener noreffer">鳥哥的 Linux 私房菜</a></li>
+<li><a href="https://tinyurl.com/yyvyntg3" target="_blank" rel="noopener noreffer">看完您如果還不明白 Kerberos 原理，算我輸</a></li>
+<li><a href="https://tinyurl.com/y393eqc5" target="_blank" rel="noopener noreffer">翻轉工作室-資訊與網路安全技術：第十四章 Kerberos 認證系統</a></li>
+<li><a href="https://tinyurl.com/y697kz84" target="_blank" rel="noopener noreffer">The Secret Security Wiki</a></li>
+<li><a href="https://github.com/dotnet/Kerberos.NET" target="_blank" rel="noopener noreffer">Kerberos.NET</a></li>
+<li><a href="https://tinyurl.com/y3cuh2nh" target="_blank" rel="noopener noreffer">Guide To Setup Kerberos Single Sign-On (SSO)</a></li>
+<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer">瞭解 keytab 需求</a></li>
+<li><a href="https://tinyurl.com/y5adlxz5" target="_blank" rel="noopener noreffer">宅學習</a></li>
+<li><a href="https://tinyurl.com/y6ydnysx" target="_blank" rel="noopener noreffer">如何使用 Spn，當您在 [網際網路資訊服務上設定 裝載的 Web 應用程式]</a></li>
+<li><a href="https://tinyurl.com/yxs9ox83" target="_blank" rel="noopener noreffer">Microsoft Developer-Service Principal Names</a></li>
+<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer">瞭解 keytab 需求</a></li>
+<li><a href="https://tinyurl.com/y2f3yp82" target="_blank" rel="noopener noreffer">All you need to know about Keytab files</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-06-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign on With Kerberos" data-via="Lou_Chang" data-hashtags="Kerberos"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-hashtag="Kerberos"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign on With Kerberos"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign on With Kerberos"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign on With Kerberos"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kerberos/">Kerberos</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/mvc5_meta/" class="prev" rel="prev" title="MVC 5 filter"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>MVC 5 filter</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lou Chang</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
