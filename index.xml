@@ -14,17 +14,17 @@
     <guid>https://loulazynote.github.io/posts/csharpbasicpart1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" referrerpolicy="no-referrer">
-            </div>C# 基礎複習Note(型別系統) 型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變]]></description>
+            </div>型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最]]></description>
 </item>
 <item>
-    <title>Single Sign on With Kerberos</title>
+    <title>Single Sign On with Kerberos</title>
     <link>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</link>
     <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172865460-c29ef20d-59d0-4836-8e91-e87b397a6ead.png" referrerpolicy="no-referrer">
-            </div>Single Sign On with Kerberos Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分]]></description>
+            </div>Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC]]></description>
 </item>
 <item>
     <title>MVC 5 filter</title>
@@ -34,7 +34,7 @@
     <guid>https://loulazynote.github.io/posts/mvc5_meta/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172867969-536885e4-152e-423b-9ca6-026634e4fd7e.jpg" referrerpolicy="no-referrer">
-            </div>MVC 5 filter Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource]]></description>
+            </div>Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil]]></description>
 </item>
 <item>
     <title>Git 學習筆記</title>
@@ -44,7 +44,7 @@
     <guid>https://loulazynote.github.io/posts/git-learning/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>Git 學習筆記 位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟]]></description>
+            </div>位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中]]></description>
 </item>
 </channel>
 </rss>

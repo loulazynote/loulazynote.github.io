@@ -12,7 +12,7 @@
     <guid>https://loulazynote.github.io/posts/csharpbasicpart1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" referrerpolicy="no-referrer">
-            </div>C# 基礎複習Note(型別系統) 型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變]]></description>
+            </div>型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最]]></description>
 </item>
 <item>
     <title>Git 學習筆記</title>
@@ -22,7 +22,7 @@
     <guid>https://loulazynote.github.io/posts/git-learning/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>Git 學習筆記 位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟]]></description>
+            </div>位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中]]></description>
 </item>
 </channel>
 </rss>

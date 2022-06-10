@@ -12,7 +12,7 @@
     <guid>https://loulazynote.github.io/posts/git-learning/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>Git 學習筆記 位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟]]></description>
+            </div>位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中]]></description>
 </item>
 </channel>
 </rss>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Git 學習筆記 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Git 學習筆記" />
-<meta property="og:description" content="Git 學習筆記 位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟" />
+<meta property="og:description" content="位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://loulazynote.github.io/posts/git-learning/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-08T23:20:17+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
 <meta name="twitter:title" content="Git 學習筆記"/>
-<meta name="twitter:description" content="Git 學習筆記 位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟"/>
+<meta name="twitter:description" content="位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中"/>
 <meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/git-learning/" /><link rel="next" href="https://loulazynote.github.io/posts/mvc5_meta/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/git-learning\/"
-        },"genre": "posts","keywords": "Git","wordcount":  1290 ,
+        },"genre": "posts","keywords": "Git","wordcount":  1285 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/git-learning\/","datePublished": "2022-06-08T23:20:17+08:00","dateModified": "2022-06-08T23:20:17+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git 學習筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-08">2022-06-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1290 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-08">2022-06-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1285 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -119,7 +119,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#git-學習筆記">Git 學習筆記</a>
+    <li>
       <ul>
         <li><a href="#git-指令">Git 指令</a>
           <ul>
@@ -152,8 +152,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="git-學習筆記">Git 學習筆記</h1>
-<p>位於索引中的檔案 : Tracked files(追蹤的檔案)
+            </div><div class="content" id="content"><p>位於索引中的檔案 : Tracked files(追蹤的檔案)
 不再索引內的檔案 : Untracked files(未被追蹤的檔案)</p>
 <blockquote>
 <ul>

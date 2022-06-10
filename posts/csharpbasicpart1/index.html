@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>C# 基礎複習Note(型別系統) - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="C# 基礎複習Note(型別系統)" />
-<meta property="og:description" content="C# 基礎複習Note(型別系統) 型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變" />
+<meta property="og:description" content="型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://loulazynote.github.io/posts/csharpbasicpart1/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-09T22:37:31+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
 <meta name="twitter:title" content="C# 基礎複習Note(型別系統)"/>
-<meta name="twitter:description" content="C# 基礎複習Note(型別系統) 型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變"/>
+<meta name="twitter:description" content="型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最"/>
 <meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/csharpbasicpart1/" /><link rel="prev" href="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/csharpbasicpart1\/"
-        },"genre": "posts","keywords": "Basic Level, C＃","wordcount":  8849 ,
+        },"genre": "posts","keywords": "Basic Level, C＃","wordcount":  8834 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/csharpbasicpart1\/","datePublished": "2022-06-09T22:37:31+08:00","dateModified": "2022-06-09T22:37:31+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C# 基礎複習Note(型別系統)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>C＃</a>&nbsp;<a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 8849 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 8834 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 18 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -119,7 +119,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#c-基礎複習note型別系統">C# 基礎複習Note(型別系統)</a>
+    <li>
       <ul>
         <li><a href="#型別系統-概觀">型別系統 概觀</a>
           <ul>
@@ -164,8 +164,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="c-基礎複習note型別系統">C# 基礎複習Note(型別系統)</h1>
-<h2 id="型別系統-概觀">型別系統 概觀</h2>
+            </div><div class="content" id="content"><h2 id="型別系統-概觀">型別系統 概觀</h2>
 <p>❗ 是強型別語言, 每個變數和常數都有型別 ❗</p>
 <blockquote>
 <p>在 C# bool 中無法轉換成 int</p>
@@ -1828,7 +1827,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/single-sign-on-with-kerberos/" class="prev" rel="prev" title="Single Sign on With Kerberos"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Single Sign on With Kerberos</a></div>
+    <div class="post-nav"><a href="/posts/single-sign-on-with-kerberos/" class="prev" rel="prev" title="Single Sign On with Kerberos"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Single Sign On with Kerberos</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
