@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Azure-App-Server-Publish-問題 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Azure-App-Server-Publish-問題" />
+<meta property="og:description" content="問題 透過 VS2019 內的 Deploy 到 Azure App Server 出現以下問題 1 2 3 4 5 6 7 8 9 10 Application &#39;/LM/W3SVC/812567237/ROOT&#39; with physical root &#39;D:\home\site\wwwroot\&#39; hit unexpected managed exception, exception code = &#39;0xe0434352&#39;. First 30KB characters of captured stdout and stderr logs: Unhandled exception. System.IO.FileNotFoundException: The configuration file &#39;appsettings..json&#39; was not found and is not optional. The physical path is &#39;D:\home\site\wwwroot\appsettings..json&#39;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/note/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97/azure-app-server-publish-%E5%95%8F%E9%A1%8C/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2021-05-10T17:26:15+08:00" />
+<meta property="article:modified_time" content="2021-05-10T17:26:15+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="Azure-App-Server-Publish-問題"/>
+<meta name="twitter:description" content="問題 透過 VS2019 內的 Deploy 到 Azure App Server 出現以下問題 1 2 3 4 5 6 7 8 9 10 Application &#39;/LM/W3SVC/812567237/ROOT&#39; with physical root &#39;D:\home\site\wwwroot\&#39; hit unexpected managed exception, exception code = &#39;0xe0434352&#39;. First 30KB characters of captured stdout and stderr logs: Unhandled exception. System.IO.FileNotFoundException: The configuration file &#39;appsettings..json&#39; was not found and is not optional. The physical path is &#39;D:\home\site\wwwroot\appsettings..json&#39;."/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/note/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97/azure-app-server-publish-%E5%95%8F%E9%A1%8C/" /><link rel="prev" href="https://loulazynote.github.io/note/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97/how-to-deploy-website-on-azure-server-without-subscription-permission/" /><link rel="next" href="https://loulazynote.github.io/note/dot-net-core%E9%96%8B%E7%99%BC%E5%AF%A6%E6%88%B0%E7%AD%86%E8%A8%98/%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%B4%B9/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Azure-App-Server-Publish-問題",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/note\/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97\/azure-app-server-publish-%E5%95%8F%E9%A1%8C\/"
+        },"genre": "not-post-section","keywords": "Azure, Azure App Server, Publish","wordcount":  430 ,
+        "url": "https:\/\/loulazynote.github.io\/note\/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97\/azure-app-server-publish-%E5%95%8F%E9%A1%8C\/","datePublished": "2021-05-10T17:26:15+08:00","dateModified": "2021-05-10T17:26:15+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">Azure-App-Server-Publish-問題</h1><div class="content" id="content"><h2 id="問題">問題</h2>
+<ol>
+<li>
+<p>透過 VS2019 內的 Deploy 到 Azure App Server 出現以下問題
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132321885-1ae67a30-f17f-4742-bb29-796bfca345c1.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132321885-1ae67a30-f17f-4742-bb29-796bfca345c1.png, https://user-images.githubusercontent.com/33840759/132321885-1ae67a30-f17f-4742-bb29-796bfca345c1.png 1.5x, https://user-images.githubusercontent.com/33840759/132321885-1ae67a30-f17f-4742-bb29-796bfca345c1.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132321885-1ae67a30-f17f-4742-bb29-796bfca345c1.png"
+        title="image" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-terminfo" data-lang="terminfo"><span class="line"><span class="cl"><span class="nt">Application</span><span class="na"> &#39;/LM/W3SVC/812567237/ROOT&#39; with physical root &#39;D:\home\site\wwwroot\&#39; hit unexpected managed exception</span><span class="p">,</span> <span class="nc">exception</span><span class="err"> </span><span class="nc">code</span><span class="err"> </span><span class="o">=</span><span class="l"> &#39;0xe0434352&#39;. First 30KB characters of captured stdout and stderr logs:
+</span></span></span><span class="line"><span class="cl"><span class="l">Unhandled exception. System.IO.FileNotFoundException: The configuration file &#39;appsettings..json&#39; was not found and is not optional. The physical path is &#39;D:\home\site\wwwroot\appsettings..json&#39;.
+</span></span></span><span class="line"><span class="cl"><span class="l">   at Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(ExceptionDispatchInfo info)
+</span></span></span><span class="line"><span class="cl"><span class="l">   at Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(Boolean reload)
+</span></span></span><span class="line"><span class="cl"><span class="l">   at Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+</span></span></span><span class="line"><span class="cl"><span class="l">   at Microsoft.Extensions.Configuration.ConfigurationRoot..ctor(IList`1 providers)
+</span></span></span><span class="line"><span class="cl"><span class="l">   at Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+</span></span></span><span class="line"><span class="cl"><span class="l">   at BixLionDiscountNews.Program.Main(String[] args) in E:\Projects\BixlionDiscount\itri-discount-news-backend\BixLionDiscountNews\Program.cs:line 18
+</span></span></span><span class="line"><span class="cl"><span class="l">Process Id: 3512.
+</span></span></span><span class="line"><span class="cl"><span class="l">File Version: 15.0.21133.7. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 67acc3d331454956fc06d6de2218a625e3e596f8
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查詢到 <code>Program.cs</code> 的第 18 行有錯
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132322532-853045d1-a5b2-4b44-99cb-36652c1f415d.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132322532-853045d1-a5b2-4b44-99cb-36652c1f415d.png, https://user-images.githubusercontent.com/33840759/132322532-853045d1-a5b2-4b44-99cb-36652c1f415d.png 1.5x, https://user-images.githubusercontent.com/33840759/132322532-853045d1-a5b2-4b44-99cb-36652c1f415d.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132322532-853045d1-a5b2-4b44-99cb-36652c1f415d.png"
+        title="image" /></p>
+</li>
+</ol>
+<h2 id="解決方案">解決方案</h2>
+<ol>
+<li>
+<p>查詢到 <code>ASPNETCORE_ENVIRONMENT</code> 為環境變數,ASP .NET Core 使用它來標識運行時環境,且 ASP .NET Core 配置系統使用它來為應用程序的不同階段加載不同的配置</p>
+</li>
+<li>
+<p>而<code>AddEnvironmentVariables()</code>為使用系統環境變數作為參數設定檔的資料來源</p>
+</li>
+<li>
+<p>在 Azure App Server 需明確指定環境才能運作</p>
+</li>
+<li>
+<p>故程式碼<code>Program.cs</code> 的第 18 行開始需修改為</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">environment</span> <span class="p">=</span> <span class="n">Environment</span><span class="p">.</span><span class="n">GetEnvironmentVariable</span><span class="p">(</span><span class="s">&#34;ASPNETCORE_ENVIRONMENT&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">configuration</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ConfigurationBuilder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">&#34;appsettings.json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">$&#34;appsettings.{environment}.json&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>再次 Deploy 後即為正常運作
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132325503-04f6f47a-0232-417d-8407-c8aa4c63db68.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132325503-04f6f47a-0232-417d-8407-c8aa4c63db68.png, https://user-images.githubusercontent.com/33840759/132325503-04f6f47a-0232-417d-8407-c8aa4c63db68.png 1.5x, https://user-images.githubusercontent.com/33840759/132325503-04f6f47a-0232-417d-8407-c8aa4c63db68.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132325503-04f6f47a-0232-417d-8407-c8aa4c63db68.png"
+        title="image" /></p>
+</li>
+</ol>
+<h2 id="補充">補充</h2>
+<ul>
+<li>
+<p>使用以下 Command 可以模擬相同問題</p>
+<ul>
+<li>
+<p><code>dotnet publish -c Release -o dist</code></p>
+</li>
+<li>
+<p><code>dotnet dist\\BixLionDiscountNews.dll</code></p>
+<blockquote>
+<p>以上皆已在專案目錄底下</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132326279-868ecea8-0ab5-4d58-9b58-250a99172386.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132326279-868ecea8-0ab5-4d58-9b58-250a99172386.png, https://user-images.githubusercontent.com/33840759/132326279-868ecea8-0ab5-4d58-9b58-250a99172386.png 1.5x, https://user-images.githubusercontent.com/33840759/132326279-868ecea8-0ab5-4d58-9b58-250a99172386.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132326279-868ecea8-0ab5-4d58-9b58-250a99172386.png"
+        title="image" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132326363-b287d7fc-864e-4c82-9a33-fa99baf7f1a8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132326363-b287d7fc-864e-4c82-9a33-fa99baf7f1a8.png, https://user-images.githubusercontent.com/33840759/132326363-b287d7fc-864e-4c82-9a33-fa99baf7f1a8.png 1.5x, https://user-images.githubusercontent.com/33840759/132326363-b287d7fc-864e-4c82-9a33-fa99baf7f1a8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132326363-b287d7fc-864e-4c82-9a33-fa99baf7f1a8.png"
+        title="image" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用上述 Command 即可在本機發行，且在本機執行，不要用 <code>dotnet run</code> 就可以模擬出問題
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132326740-283434e2-1a0b-4919-8f66-7bdfbca1a5e6.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132326740-283434e2-1a0b-4919-8f66-7bdfbca1a5e6.png, https://user-images.githubusercontent.com/33840759/132326740-283434e2-1a0b-4919-8f66-7bdfbca1a5e6.png 1.5x, https://user-images.githubusercontent.com/33840759/132326740-283434e2-1a0b-4919-8f66-7bdfbca1a5e6.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132326740-283434e2-1a0b-4919-8f66-7bdfbca1a5e6.png"
+        title="image" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/132326809-29a81243-d4c0-4993-b250-dffaea850a43.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/132326809-29a81243-d4c0-4993-b250-dffaea850a43.png, https://user-images.githubusercontent.com/33840759/132326809-29a81243-d4c0-4993-b250-dffaea850a43.png 1.5x, https://user-images.githubusercontent.com/33840759/132326809-29a81243-d4c0-4993-b250-dffaea850a43.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/132326809-29a81243-d4c0-4993-b250-dffaea850a43.png"
+        title="image" /></p>
+</li>
+</ul>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li>
+<p><a href="https://tinyurl.com/yhjpg3x2" target="_blank" rel="noopener noreffer">ASPNETCORE_ENVIRONMENT Variable in ASP.NET Core</a></p>
+</li>
+<li>
+<p><a href="https://tinyurl.com/ygf3dadc" target="_blank" rel="noopener noreffer">CK&rsquo;s Notepad - [.NET Core] 加入設定參數</a></p>
+</li>
+<li>
+<p><a href="https://tinyurl.com/yhsopgw4" target="_blank" rel="noopener noreffer">John Wu&rsquo;s Blog - ASP.NET Core 教學 - 自訂組態設定檔</a></p>
+</li>
+<li>
+<p><a href="https://tinyurl.com/yjqhj53p" target="_blank" rel="noopener noreffer">Microsoft - Visual Studio 發佈設定檔 (. .pubxml) 以進行 ASP.NET Core 應用程式部署</a></p>
+</li>
+<li>
+<p><a href="https://tinyurl.com/yfkf4o8s" target="_blank" rel="noopener noreffer">Microsoft - 在 ASP.NET Core 中使用多個環境</a></p>
+</li>
+<li>
+<p><a href="https://tinyurl.com/ye3wylet" target="_blank" rel="noopener noreffer">Microsoft - ASP.NET Core Web 主機</a></p>
+</li>
+</ul>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

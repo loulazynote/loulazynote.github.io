@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MircoSoft Azure Fundamentals 認證課程(AZ-900) - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="MircoSoft Azure Fundamentals 認證課程(AZ-900)" />
+<meta property="og:description" content="1. 簡介 AZ-900 Azure 基礎知識測驗 評分規則及配重 考試規則: 測驗時間 : 60 分鐘 考題類型 : 選擇題(無實作) 比重如下圖 2. Azure 雲端概念(Cloud Concepts) 2.1. 雲端模型(Cl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/note/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2022-06-10T17:26:15+08:00" />
+<meta property="article:modified_time" content="2022-06-10T17:26:15+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="MircoSoft Azure Fundamentals 認證課程(AZ-900)"/>
+<meta name="twitter:description" content="1. 簡介 AZ-900 Azure 基礎知識測驗 評分規則及配重 考試規則: 測驗時間 : 60 分鐘 考題類型 : 選擇題(無實作) 比重如下圖 2. Azure 雲端概念(Cloud Concepts) 2.1. 雲端模型(Cl"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/note/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/" /><link rel="prev" href="https://loulazynote.github.io/note/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98part_1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MircoSoft Azure Fundamentals 認證課程(AZ-900)",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/note\/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98\/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98\/"
+        },"genre": "not-post-section","keywords": "Azure","wordcount":  14264 ,
+        "url": "https:\/\/loulazynote.github.io\/note\/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98\/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98\/","datePublished": "2022-06-10T17:26:15+08:00","dateModified": "2022-06-10T17:26:15+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">MircoSoft Azure Fundamentals 認證課程(AZ-900)</h1><div class="content" id="content"><h1 id="1-簡介">1. 簡介</h1>
+<ul>
+<li>AZ-900 Azure 基礎知識測驗 評分規則及配重
+<ul>
+<li>考試規則:
+<ol>
+<li>測驗時間 : 60 分鐘</li>
+<li>考題類型 : 選擇題(無實作)</li>
+<li>比重如下圖
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148341028-e9e40395-54d4-44db-8935-20dadf082c63.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148341028-e9e40395-54d4-44db-8935-20dadf082c63.png, https://user-images.githubusercontent.com/33840759/148341028-e9e40395-54d4-44db-8935-20dadf082c63.png 1.5x, https://user-images.githubusercontent.com/33840759/148341028-e9e40395-54d4-44db-8935-20dadf082c63.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148341028-e9e40395-54d4-44db-8935-20dadf082c63.png"
+        title="image" /></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-azure-雲端概念_cloud-concepts_">2. Azure 雲端概念(<em>Cloud Concepts</em>)</h1>
+<h2 id="21-雲端模型_cloud-models_">2.1. 雲端模型(<em>Cloud Models</em>)</h2>
+<blockquote>
+<p>公有, 私有 及 混合式雲端(<em>Public, Private, and Hybrid cloud</em>)</p>
+</blockquote>
+<ul>
+<li>
+<p>什麼是雲端運算(<em>What is Cloud Computing</em>)
+雲端運算是 通過網絡提供計算服務, 更快的實現創新、靈活的資源和規模經濟</p>
+<blockquote>
+<p>規模經濟(<em>economies of scale</em>) : 當廠商生產能力與產量增加時，由於大量採購原料使成本降低，產品每單位製造成本隨產量的擴大而下降所帶來的效益，稱為規模經濟</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148344845-873565d7-cb32-459f-9da6-2abc06a34177.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148344845-873565d7-cb32-459f-9da6-2abc06a34177.png, https://user-images.githubusercontent.com/33840759/148344845-873565d7-cb32-459f-9da6-2abc06a34177.png 1.5x, https://user-images.githubusercontent.com/33840759/148344845-873565d7-cb32-459f-9da6-2abc06a34177.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148344845-873565d7-cb32-459f-9da6-2abc06a34177.png"
+        title="image" />
+它是隨選存取自一個共用運算資源池, 通常位於世界各地, 這些資源可以是任何東西, 從伺服器、網絡、儲存體、資料庫、應用程式等, 使用的資源可以預配並以最少的力氣釋放</p>
+</li>
+<li>
+<p>公有雲(<em>Public Cloud</em>)</p>
+<ul>
+<li>由雲端服務供應商亦或是主機服務供應商所擁有</li>
+<li>提供資源及服務給多個組織與使用者</li>
+<li>使用者通常使用網路訪問服務(通常經由網路,透過安全連線訪問 <em>typically over the internet</em>)</li>
+<li>相關服務通常是開放給所有人使用</li>
+</ul>
+</li>
+<li>
+<p>私有雲(<em>Private Cloud</em>)</p>
+<ul>
+<li>組織或公司建立的雲端環境在他們的資料中心, 不過它不僅限於組織中</li>
+<li>組織或公司需要負擔所有責任, 負責運營其提供的服務(實際購買硬體.更新.到網路和安全性等等)</li>
+<li>通常不提供組織以外的使用者訪問他們的資源, 通常是私有的</li>
+</ul>
+</li>
+<li>
+<p>混合雲(<em>Hybrid Cloud</em>)</p>
+<ul>
+<li>結合公有及私有雲, 並由組織決定允許那些資源在公開雲端及那些資源保存在私人雲端中</li>
+<li>需擁有深厚的技術技能以維護私人雲端並確保兩種雲端模式能夠高效的一起運行且具備彈性</li>
+<li>他們可以滿足任何有關安全性的法規合規性</li>
+</ul>
+</li>
+<li>
+<p>三種模式差異(<em>Compare and contrast the three different cloud models</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148348139-58ff24ff-02ef-49a6-a6ea-6765399c4877.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148348139-58ff24ff-02ef-49a6-a6ea-6765399c4877.png, https://user-images.githubusercontent.com/33840759/148348139-58ff24ff-02ef-49a6-a6ea-6765399c4877.png 1.5x, https://user-images.githubusercontent.com/33840759/148348139-58ff24ff-02ef-49a6-a6ea-6765399c4877.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148348139-58ff24ff-02ef-49a6-a6ea-6765399c4877.png"
+        title="image" /></p>
+<ol>
+<li>
+<p>公有雲 :</p>
+<ul>
+<li>無需資本支出即可擴大規模</li>
+<li>應用可以快速的配置和取消配置</li>
+<li>組織或公司 使用多少就付多少費用</li>
+<li>它是向所有人開放的</li>
+</ul>
+</li>
+<li>
+<p>私有雲 :</p>
+<ul>
+<li>實體設備(硬體)是由企業或組織的購置或實際運作雲端者來買單</li>
+<li>企業或組織需要深厚的技術以維護和更新私人雲端</li>
+<li>企業或組織通常有對於資源的完整控制權並禁止公用讀取</li>
+</ul>
+</li>
+<li>
+<p>混合雲 :</p>
+<ul>
+<li>是三種模型中有最大的彈性</li>
+<li>企業或組織決定運作那部分應用和資源,以滿足任何資料的要求</li>
+<li>企業或組織控制安全以及法規遵循上符合那些要求</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="22-雲端的優點及相關問題考量_cloud-benefits-and-considerations_">2.2. 雲端的優點及相關問題考量(<em>Cloud Benefits and Considerations</em>)</h2>
+<blockquote>
+<ol>
+<li>雲端的優點</li>
+<li>雲端的相關問題選擇</li>
+</ol>
+</blockquote>
+<ol>
+<li>
+<p>雲端的優點:
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148351734-e87f76fa-134c-4ea3-92ae-1cdba829ffd8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148351734-e87f76fa-134c-4ea3-92ae-1cdba829ffd8.png, https://user-images.githubusercontent.com/33840759/148351734-e87f76fa-134c-4ea3-92ae-1cdba829ffd8.png 1.5x, https://user-images.githubusercontent.com/33840759/148351734-e87f76fa-134c-4ea3-92ae-1cdba829ffd8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148351734-e87f76fa-134c-4ea3-92ae-1cdba829ffd8.png"
+        title="image" /></p>
+<ul>
+<li>高可用性(<em>High availability</em>) : 維持資源的能力,保持長時間運轉不中斷,且很少停機</li>
+<li>容錯(<em>Fault tolerance</em>) : 如元件或服務出現問題或停止作業的狀況,確保能保持正常運作</li>
+<li>可延展性(<em>Scalability</em>) :
+<ol>
+<li>水平擴展(<em>Scaling Out</em>):增加更多資源或服務或虛擬機器</li>
+<li>垂直擴展(<em>Scaling Up</em>):在現有資源增加更多的 CPU、RAM</li>
+</ol>
+</li>
+<li>彈性(<em>Elasticity</em>) : 類似擴展性,自動增加的能力或根據需要減少資源</li>
+<li>全球觸及(<em>Global reach</em>) : 可以存取的資源,將其存放世界各地</li>
+<li>客戶延遲能力(<em>Customer lantency capabailities</em>) : 在存取資源時為客戶降低延遲</li>
+<li>靈活度(<em>Agility</em>) : 可以快速回應工作負載需求(如突然飆升的流量需要分配更多資源,相反亦是)</li>
+<li>預測成本(<em>Predictive cost considerations</em>) : 可以預先確定在雲端中有哪些支出的實際成本</li>
+</ul>
+</li>
+<li>
+<p>比較支出模式:</p>
+<ol>
+<li><strong>CapEx</strong> 資本支出(<em>Capital Expenditure</em>)
+<ul>
+<li>預先支出資金在實體基礎結構上</li>
+<li>資本支出的成本會隨著時間的推移而降低</li>
+</ul>
+</li>
+<li><strong>OpEx</strong> 業務支出(<em>Operational Expenditure</em>)
+<ul>
+<li>根據需要對服務或產品進行支出和計費</li>
+<li>費用在同一年扣除(每月或每年支付相關費用)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>使用量基礎模式(<em>Consumption-based model</em>)</p>
+<blockquote>
+<p>雲服務提供者以基於<strong>業務支出</strong>模式運作，這表示最終使用者只為他們所使用的資源付費</p>
+</blockquote>
+<ol>
+<li>更好的成本預測</li>
+<li>提供個別資源和服務的價格</li>
+<li>計費以實際使用方式為準</li>
+</ol>
+</li>
+</ol>
+<h2 id="23-雲端服務_cloud-services_">2.3. 雲端服務(<em>Cloud Services</em>)</h2>
+<blockquote>
+<ol>
+<li><em>IaaS, PaaS, and SaaS</em> 介紹</li>
+<li>共同責任(<em>Sharing Responsibility</em>)</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<p>雲端服務</p>
+<ul>
+<li>
+<p><strong>laaS</strong> 基礎結構即服務（<em>Infrastructure-as-a-Service</em>）: 像在 Azure 中可以裝載虛擬機器的模式
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148358181-afca4f2d-ea8e-4207-a7b6-4821e5473d03.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148358181-afca4f2d-ea8e-4207-a7b6-4821e5473d03.png, https://user-images.githubusercontent.com/33840759/148358181-afca4f2d-ea8e-4207-a7b6-4821e5473d03.png 1.5x, https://user-images.githubusercontent.com/33840759/148358181-afca4f2d-ea8e-4207-a7b6-4821e5473d03.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148358181-afca4f2d-ea8e-4207-a7b6-4821e5473d03.png"
+        title="image" /></p>
+<ul>
+<li>通過租用伺服器、虛擬機、存儲、來自雲供應商的網路和操作系統</li>
+<li>只要根據實際使用的內容付費</li>
+<li>基本上是為你所需要的資源付費</li>
+</ul>
+</li>
+<li>
+<p><strong>PaaS</strong> 平臺即服務（<em>Platform-as-a-Service</em>）: 像是在 Azure 可以使用 SQL 資料庫來儲存資料的模式
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148359190-a209dbe7-8c13-44e7-ae49-3bb23686ed38.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148359190-a209dbe7-8c13-44e7-ae49-3bb23686ed38.png, https://user-images.githubusercontent.com/33840759/148359190-a209dbe7-8c13-44e7-ae49-3bb23686ed38.png 1.5x, https://user-images.githubusercontent.com/33840759/148359190-a209dbe7-8c13-44e7-ae49-3bb23686ed38.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148359190-a209dbe7-8c13-44e7-ae49-3bb23686ed38.png"
+        title="image" /></p>
+<ul>
+<li>在此模型中,雲端解決方案供應商會負責一切,除了使用者自己的應用,雲端解決方案供應商需要負責,如 管理伺服器、基礎結構、作業系統、網路甚至服務配置</li>
+<li>此模型提供了一個環境予以建置、測試、採用軟體應用程式且不必擔心相關基礎結構</li>
+</ul>
+</li>
+<li>
+<p><strong>SaaS</strong> 軟體即服務（<em>Software-as-a-Service</em>）: 像是 office 365 的模式
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148360761-742728f0-57d5-444f-9d5b-11575b3efa46.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148360761-742728f0-57d5-444f-9d5b-11575b3efa46.png, https://user-images.githubusercontent.com/33840759/148360761-742728f0-57d5-444f-9d5b-11575b3efa46.png 1.5x, https://user-images.githubusercontent.com/33840759/148360761-742728f0-57d5-444f-9d5b-11575b3efa46.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148360761-742728f0-57d5-444f-9d5b-11575b3efa46.png"
+        title="image" /></p>
+<ul>
+<li>提供構建、測試和部署軟體應用程式的環境;沒有專注於管理底層基礎架構</li>
+<li>使用者通常使用網路連接並使用基於雲端的應用程式(EX: Office 365)</li>
+<li>基本上是租用該軟體,每月或每年</li>
+<li>基於此雲端解決方案供應商會照顧一切</li>
+</ul>
+</li>
+<li>
+<p>根據用例識別服務類型(<em>Cloud service comparison</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148360930-bf863558-e6dc-4170-95bd-4dc8e88b43d2.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148360930-bf863558-e6dc-4170-95bd-4dc8e88b43d2.png, https://user-images.githubusercontent.com/33840759/148360930-bf863558-e6dc-4170-95bd-4dc8e88b43d2.png 1.5x, https://user-images.githubusercontent.com/33840759/148360930-bf863558-e6dc-4170-95bd-4dc8e88b43d2.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148360930-bf863558-e6dc-4170-95bd-4dc8e88b43d2.png"
+        title="image" /></p>
+<ul>
+<li><strong>IaaS</strong> : 最靈活的雲端服務 | 在使用者的應用程式下運作配置和管理硬體(EX: 虛擬機器)</li>
+<li><strong>PaaS</strong> : 專注於應用發展 | 平臺管理是由雲端解決方案供應商管理(EX: Azure Server 或 Containers)</li>
+<li><strong>SaaS</strong> : 即用即付定價型 | 用戶為他們在訂閱上使用的軟體付費(EX: 訂閱 office 365)</li>
+</ul>
+</li>
+<li>
+<p>分擔責任模式(<em>Shared responsibility model</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148362783-1506de1f-1321-4b03-ae1e-cb4d0bc1022a.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148362783-1506de1f-1321-4b03-ae1e-cb4d0bc1022a.png, https://user-images.githubusercontent.com/33840759/148362783-1506de1f-1321-4b03-ae1e-cb4d0bc1022a.png 1.5x, https://user-images.githubusercontent.com/33840759/148362783-1506de1f-1321-4b03-ae1e-cb4d0bc1022a.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148362783-1506de1f-1321-4b03-ae1e-cb4d0bc1022a.png"
+        title="image" /></p>
+<ol>
+<li>私有雲(<em>Private Cloud</em>) : 圖示最左側的部分是客戶所有需要負責的</li>
+<li><strong>laaS</strong> 基礎結構即服務（<em>Infrastructure-as-a-Service</em>） :
+<ul>
+<li>微軟管理運算、網絡、儲存體(皆為物理硬體)</li>
+<li>客戶管理 他們的資料、應用程式、執行時期、作業系統、虛擬機器</li>
+</ul>
+</li>
+<li><strong>PaaS</strong> 平臺即服務（<em>Platform-as-a-Service</em>）:
+<ul>
+<li>客戶專注於 應用程式及資料</li>
+<li>其餘由微軟管理</li>
+</ul>
+</li>
+<li><strong>SaaS</strong> 軟體即服務（<em>Software-as-a-Service</em>）:
+<ul>
+<li>客戶管理 他們的資料及存取</li>
+<li>剩下皆由微軟管理</li>
+</ul>
+</li>
+<li>所有雲端模型 使用者皆有責任保護自己的<strong>資料</strong>和<strong>身份安全性</strong>及<strong>內部部署資源</strong>以及自己所管控因服務類型而異的 任何雲端元件</li>
+</ol>
+</li>
+<li>
+<p>無伺服器運算 (<em>Serverless Computing</em>) == <strong>FaaS</strong> 功能即服務（<em>Function-as-a-Service</em>）
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148365190-ad9e8468-ab74-4df0-b825-35d981b6f044.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148365190-ad9e8468-ab74-4df0-b825-35d981b6f044.png, https://user-images.githubusercontent.com/33840759/148365190-ad9e8468-ab74-4df0-b825-35d981b6f044.png 1.5x, https://user-images.githubusercontent.com/33840759/148365190-ad9e8468-ab74-4df0-b825-35d981b6f044.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148365190-ad9e8468-ab74-4df0-b825-35d981b6f044.png"
+        title="image" /></p>
+<ul>
+<li><code>Azure Functions</code> : 它創造了基於事件的基礎結構, 是運行服務的代碼,而不是底層平臺或基礎架構</li>
+<li><code>Azure Logic Apps</code> : 是一項雲端服務,當您需要集成應用程式、資料、系統和服務時, 可説明你自動執行和編排任務、業務流程和工作流</li>
+</ul>
+<blockquote>
+<p>借助無伺服器計算應用程式，雲服務提供者自動調配、擴展和管理所需的基礎架構以運行代碼。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-核心-azure-服務_core-azure-services_">3. 核心 Azure 服務(<em>Core Azure Services</em>)</h1>
+<h2 id="31-azure-體系結構元件_azure-architectural-components_">3.1. Azure 體系結構元件(<em>Azure Architectural Components</em>)</h2>
+<ol>
+<li>
+<p>區域和可用性區域</p>
+<ul>
+<li>
+<p>地區
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148366206-d445e6ad-dd79-4199-92e4-401fdfa7028c.jpg"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148366206-d445e6ad-dd79-4199-92e4-401fdfa7028c.jpg, https://user-images.githubusercontent.com/33840759/148366206-d445e6ad-dd79-4199-92e4-401fdfa7028c.jpg 1.5x, https://user-images.githubusercontent.com/33840759/148366206-d445e6ad-dd79-4199-92e4-401fdfa7028c.jpg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148366206-d445e6ad-dd79-4199-92e4-401fdfa7028c.jpg"
+        title="Regions" /></p>
+<blockquote>
+<p>藍點區域代表 Azure 區域</p>
+</blockquote>
+<ul>
+<li>Azure 有超過 60 個地區, 位於全球代表了 140 多個國家</li>
+<li>藍點表是資料中心的集合, 它可以來自一個到最多 16 個資料中心</li>
+<li>這些地區幫助企業或組織滿足他們對資料落地權的要求</li>
+<li>選擇地區時, 為了低延遲儘量選擇離用戶最近的區域</li>
+<li><strong>並不是所有地區內含相同功能</strong>, 因為他們建立並建構於不同時期</li>
+</ul>
+</li>
+<li>
+<p>區域配對
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148367337-39514b73-76d6-4074-9d6e-0aa8c21bf471.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148367337-39514b73-76d6-4074-9d6e-0aa8c21bf471.png, https://user-images.githubusercontent.com/33840759/148367337-39514b73-76d6-4074-9d6e-0aa8c21bf471.png 1.5x, https://user-images.githubusercontent.com/33840759/148367337-39514b73-76d6-4074-9d6e-0aa8c21bf471.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148367337-39514b73-76d6-4074-9d6e-0aa8c21bf471.png"
+        title="image" /></p>
+<ul>
+<li>同一地理中的兩藍點相隔至少距離 300 英里(角色分離), 以保護資料</li>
+<li>自動區域配對, 自動複製某些服務</li>
+<li>在發生如 Azure 中斷問題情況時每個配對中的一個區域將被優先考慮以幫助減少時間來還原資料及應用程式</li>
+<li>為了最大幅度降低 停機時間和應用程式中斷的風險, 更新會排程推出</li>
+</ul>
+</li>
+<li>
+<p>可用性區域(最多 3 個)</p>
+<blockquote>
+<p>建立旨在防止停機,起因為伺服器故障</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148369867-8f2dd383-40ee-4a0b-8997-a6df0d775928.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148369867-8f2dd383-40ee-4a0b-8997-a6df0d775928.png, https://user-images.githubusercontent.com/33840759/148369867-8f2dd383-40ee-4a0b-8997-a6df0d775928.png 1.5x, https://user-images.githubusercontent.com/33840759/148369867-8f2dd383-40ee-4a0b-8997-a6df0d775928.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148369867-8f2dd383-40ee-4a0b-8997-a6df0d775928.png"
+        title="image" /></p>
+<ul>
+<li>提供保護 針對如一個可用性區域碰巧中斷導致資料中心的停機, 以避免故障(Zone1 中斷 則 Zone2 and Zone3 不影響,因為各自獨立)
+<blockquote>
+<p><strong>並非所有地區都具有相同的可用性</strong> , 需要在部署資源前確保它們有你需要的結構</p>
+</blockquote>
+</li>
+<li>在 物理上將資料中心分隔在同一地區</li>
+<li>每個資料中心都配備了獨立電源、冷卻系統和網路</li>
+<li>通過專用光纖連接網路, 降低延遲</li>
+</ul>
+</li>
+<li>
+<p>可用性選項
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148371512-2b9371f9-1544-407d-bac6-824920b66e26.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148371512-2b9371f9-1544-407d-bac6-824920b66e26.png, https://user-images.githubusercontent.com/33840759/148371512-2b9371f9-1544-407d-bac6-824920b66e26.png 1.5x, https://user-images.githubusercontent.com/33840759/148371512-2b9371f9-1544-407d-bac6-824920b66e26.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148371512-2b9371f9-1544-407d-bac6-824920b66e26.png"
+        title="image" /></p>
+<blockquote>
+<p><em>SLA</em> 服務級別協定(<em>service-level agreement</em>) : 是服務提供商與客戶之間定義的正式承諾, 服務提供商與受服務使用者之間具體達成了承諾的服務指標——品質、可用性、責任</p>
+</blockquote>
+<ol>
+<li>一台具有 99.9% SLA 的虛擬機器 及 進階儲存體</li>
+<li>一樣有一台虛擬機器 但 SLA 等級 為 99.99%, 因為正在橫跨可用性區域分發那台虛擬機器並為它備份, 各可用性區域內的電源及冷卻系統和網路是獨立的</li>
+<li>分散虛擬機器橫跨數個區域, 會得到更高的 SLA, 因為分散了風險,最右側圖示 區域配對, 區域及區域間隔了至少 300 英哩</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>訂閱及資源群組</p>
+<ul>
+<li>
+<p>Azure 資源(<em>Azure Resources</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148373711-9a37fb0e-4bbf-46e1-b713-e198d2a0706f.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148373711-9a37fb0e-4bbf-46e1-b713-e198d2a0706f.png, https://user-images.githubusercontent.com/33840759/148373711-9a37fb0e-4bbf-46e1-b713-e198d2a0706f.png 1.5x, https://user-images.githubusercontent.com/33840759/148373711-9a37fb0e-4bbf-46e1-b713-e198d2a0706f.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148373711-9a37fb0e-4bbf-46e1-b713-e198d2a0706f.png"
+        title="image" /></p>
+</li>
+<li>
+<p>資源群組(<em>Resource Groups</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148373878-94d62b56-210e-412f-be05-f51c727301f9.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148373878-94d62b56-210e-412f-be05-f51c727301f9.png, https://user-images.githubusercontent.com/33840759/148373878-94d62b56-210e-412f-be05-f51c727301f9.png 1.5x, https://user-images.githubusercontent.com/33840759/148373878-94d62b56-210e-412f-be05-f51c727301f9.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148373878-94d62b56-210e-412f-be05-f51c727301f9.png"
+        title="image" /></p>
+<blockquote>
+<p>資源群組是要管理容器並將資源整合到單個單元中
+資源群組是依照某種邏輯組別分組, 它可以按照計劃類型、專案週期(較常見)..等
+當不在需要這些資源時, 可以將這些從雲端中解除分配</p>
+</blockquote>
+<ul>
+<li>資源只能存在於一個資源群組中</li>
+<li>資源可以存在於不同的區域</li>
+<li>資源可以移動到不同的資源群組</li>
+<li>應用程式可以利用多種資源群組</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 資源管理員(<em>Azure Resource Manager</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148374889-98627a0a-9945-497d-980c-1a542754aac8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148374889-98627a0a-9945-497d-980c-1a542754aac8.png, https://user-images.githubusercontent.com/33840759/148374889-98627a0a-9945-497d-980c-1a542754aac8.png 1.5x, https://user-images.githubusercontent.com/33840759/148374889-98627a0a-9945-497d-980c-1a542754aac8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148374889-98627a0a-9945-497d-980c-1a542754aac8.png"
+        title="image" /></p>
+<blockquote>
+<p><code>Azure</code> 資源管理員（ARM） 在 <code>Azure</code> 訂閱中提供了一個管理層使您能夠創建、更新和刪除資源</p>
+</blockquote>
+<ul>
+<li>優點 :
+<ol>
+<li>它可以自動部署及設定資源, 使用不同的自動化工具/腳本工具(EX: <code>Azure PowerShell</code>、<code>Azure CLI</code>、<code>CMD</code>)</li>
+<li>自動建立資源 保持一致性 和 整個部署的標準</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>有可使用的 ARM 範本</li>
+</ol>
+</li>
+<li>
+<p><code>Azure</code> 訂閱帳戶</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148375702-2cfcf5e7-7c33-46b7-bf87-95b58d9338f9.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148375702-2cfcf5e7-7c33-46b7-bf87-95b58d9338f9.png, https://user-images.githubusercontent.com/33840759/148375702-2cfcf5e7-7c33-46b7-bf87-95b58d9338f9.png 1.5x, https://user-images.githubusercontent.com/33840759/148375702-2cfcf5e7-7c33-46b7-bf87-95b58d9338f9.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148375702-2cfcf5e7-7c33-46b7-bf87-95b58d9338f9.png"
+        title="image" /></p>
+<blockquote>
+<p><code>Azure</code> 訂閱為你提供經過身份驗證和授權對 <code>Azure</code> 帳戶的授權訪問許可權</p>
+</blockquote>
+<ul>
+<li>計費邊界： 生成單獨的計費每個訂閱的報表和發票, 依照每個訂閱自動計費範圍, 同時也是存取控制範圍</li>
+<li>訪問控制邊界： 管理和控制對資源的訪問,用戶可以使用特定訂閱進行預配(一個帳戶可以有多個訂閱)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="32-核心-azure-資源_core-azure-resources_">3.2. 核心 Azure 資源(<em>Core Azure Resources</em>)</h2>
+<ol>
+<li>
+<p>計算(<em>Compute</em>)</p>
+<ul>
+<li>
+<p><code>Azure</code> 計算服務(<em>Azure compute Services</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148376952-f301519a-42e1-46f3-85f9-00db3a023103.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148376952-f301519a-42e1-46f3-85f9-00db3a023103.png, https://user-images.githubusercontent.com/33840759/148376952-f301519a-42e1-46f3-85f9-00db3a023103.png 1.5x, https://user-images.githubusercontent.com/33840759/148376952-f301519a-42e1-46f3-85f9-00db3a023103.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148376952-f301519a-42e1-46f3-85f9-00db3a023103.png"
+        title="image" /></p>
+<blockquote>
+<p>Azure 計算是一種隨選的計算服務, 提供計算磁碟、處理器、記憶體、網路和操作系統等資源</p>
+</blockquote>
+</li>
+<li>
+<p>虛擬機器(<em>Azure Virtual Machines</em>)</p>
+</li>
+</ul>
+<blockquote>
+<p>Azure 虛擬機器（VM）是實體電腦的軟體模擬</p>
+</blockquote>
+<ul>
+<li>
+<p>包括虛擬處理器、記憶體、存儲和網路</p>
+</li>
+<li>
+<p>屬於 <em>IaaS</em> 的一種產品，提供完全控制和客製化</p>
+</li>
+<li>
+<p>虛擬機器擴展集, 虛擬機器提供自動管理波動及工作負載</p>
+</li>
+<li>
+<p><em>Azure App Services</em></p>
+<blockquote>
+<p>Azure 應用服務是一個完全託管的平臺, 用於構建、快速部署和擴展 Web 應用和 API</p>
+</blockquote>
+<ul>
+<li>適用於<code>.Net</code>、<code>.Net Core</code>、<code>Node.js</code>、<code>Java</code>、<code>Python</code>或<code>php</code></li>
+<li>具有企業級性能、安全性的 <em>PaaS</em> 產品和合規性要求</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>容器服務(<em>Azure Container Services</em>)</p>
+<blockquote>
+<p>Azure 容器是一種輕量級的虛擬化環境, 不需要操作系統管理, 並可按需求回應更改</p>
+</blockquote>
+<ul>
+<li><code>Aci</code>(<em>Azure Container Instances</em>):
+<blockquote>
+<p>在 Azuer 中運行容器的 <em>PaaS</em> 產品/服務，無需管理虛擬機器或其他服務</p>
+</blockquote>
+<ol>
+<li>負責為使用者管理基礎結構, 可稱為 <code>Aci</code>端點</li>
+<li>可透過<code>Aci</code> 以事件為導向, 也能長期運行, 可運行 幾小時、幾天、幾週、幾個月</li>
+<li>基本上它們是容器, 可以根據需要來部署(EX: 公用/私用<code>Docker</code>的映射)</li>
+</ol>
+</li>
+<li><code>AKS</code>(<em>Azure Kubernetes Service</em>): 適用於具有分散式架構和大量容器的編排服務(EX: 使用<code>AKS</code>用於在執行多個容器與複雜的協調流程/管理、滾動升級、自動排程及自動擴展)</li>
+</ul>
+</li>
+<li>
+<p><code>WVD</code>虛擬桌面(<em>Windows Virtual Desktop</em>)</p>
+<blockquote>
+<p>Windows 虛擬桌面是在雲端中運行的桌面和應用虛擬化, 支援 <code>windows Server</code>、<code>Linux</code>、<code>SQL Server</code>、<code>Oracle</code>、<code>IBM</code>、<code>SAP</code>等以及其他， 所有的虛擬桌面內含的負載平衡和自動擴展是完全免費的</p>
+</blockquote>
+<ul>
+<li>創建完整的桌面虛擬化環境, 而無需運行其他閘道伺服器</li>
+<li><code>host pools</code> 無限發佈以適應各種工作負載</li>
+<li>利用 <code>pooled</code>、多 <code>session</code> 資源降低成本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>網路(<em>Networking</em>)</p>
+<ul>
+<li>
+<p><code>Azure</code>網路服務(<em>Azure networking services</em>)</p>
+<ul>
+<li><code>Azure</code>虛擬網路(<em>Azure Virtual Network(<strong>VNet</strong>)</em>):允許他人透過網路及本地網路連結<code>Azure</code>資源(EX:虛擬網路的作用範圍是單一區域,而多個虛擬網路來自不同地區,可以使用虛擬網路對等互相連結在一起)</li>
+<li>虛擬私人網路閘道(<em>vitual Privae Network Gateway(<strong>VPN</strong>)</em>):在 VNet 及本地網路之間通過公開網路位置發送加密流量</li>
+<li><code>Azure</code>快速路由(<em>Azure Express Route</em>): 本地網路由私人連接自內部佈署位置通過專用連結到 Azure 中(需透過連結供應商進行設定)</li>
+</ul>
+<blockquote>
+<p>示例中,使用兩台 VM 在同一資源群組內互相 ping 對方確認是否能連線,這裡要注意將 ICMP 開啟允許,否則會被 windows 內建防火牆擋住</p>
+</blockquote>
+<blockquote>
+<p>Allow ICMP for PowerShell CommandLine:
+<code>New-NetFirewallRule -DisplayName &quot;Allow ICMPv4-In&quot; -Protocol ICMPv4</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>存儲(<em>Storage</em>)</p>
+<ul>
+<li><code>Azure</code>儲存體服務(<em>Azure storage services</em>)
+<ul>
+<li>儲存體容器(<em>Container storage(<strong>blob</strong>)</em>): 針對儲存大量非結構化資料進行優化, 非結構化資料是未遵循特定資料模型或定義的資料, 例如文字或二進位資料</li>
+<li>硬碟儲存體(<em>Disk storage</em>): 為虛擬機器、應用程式以及其他要訪問和使用提供硬碟儲存的服務</li>
+<li><code>Azure</code>檔案共用(<em><a href="https://tinyurl.com/y56s936d" target="_blank" rel="noopener noreffer">Azure Files</a></em>): 完全管理的雲端檔案共用, 可透過產業標準伺服器訊息區塊 (<em>SMB</em>) 通訊協定或網路檔案系統 (<em>NFS</em>) 通訊協定來共用</li>
+</ul>
+</li>
+<li><code>Azure</code>儲存體訪問層(<em>Azure storage access tiers</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148520418-0f3eac2a-e9fe-4cf2-9dc5-6a9b8f6b6fc8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148520418-0f3eac2a-e9fe-4cf2-9dc5-6a9b8f6b6fc8.png, https://user-images.githubusercontent.com/33840759/148520418-0f3eac2a-e9fe-4cf2-9dc5-6a9b8f6b6fc8.png 1.5x, https://user-images.githubusercontent.com/33840759/148520418-0f3eac2a-e9fe-4cf2-9dc5-6a9b8f6b6fc8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148520418-0f3eac2a-e9fe-4cf2-9dc5-6a9b8f6b6fc8.png"
+        title="image" />
+<ol>
+<li>Hot : 針對存儲經常訪問的資料進行優化</li>
+<li>Cool : 針對存儲不常訪問且存儲至少 30 天的資料進行優化</li>
+<li>Archive : 針對存儲很少訪問和存儲至少 180 天的資料進行優化，具有靈活的延遲要求</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>資料庫(<em>Databases</em>)</p>
+<ul>
+<li>
+<p><code>Azure</code>資料庫服務(<em>Azure database services</em>)</p>
+<ul>
+<li><code>Azure Cosmos</code>資料庫(<em>Azure Cosmos Database</em>): 是一種全域散發式資料庫服務, 這可以彈性和獨立擴展傳輸量和儲存體跨越多個<code>Azure</code>地理區域(是一個非 SQL 的資料庫, EX: <code>Cassandra</code>、<code>Mongo DB</code>、<code>Gremlin</code>等, 是第一個也是唯一提供 <strong>59s SLA</strong> 的服務)</li>
+<li><code>Azure SQL</code>資料庫(<em>Azure SQL Database</em>): 是一種關係資料庫服務（<em>DaaS</em>）, 基於 Microsoft SQL Server 的最新穩定版本資料庫引擎</li>
+<li><code>MySQL</code>資料庫(<em>Azure Database for MySQL</em>): 是一個完全託管的 <code>sequel</code>關係 資料庫為應用程式開發人員提供服務, 基於 MySQL 社群版</li>
+<li><code>PostgreSQL</code>資料庫(<em>Azure Database for postgreSQL</em>): 是一種關係資料庫服務基於開源 <code>Postgres</code> 資料庫引擎</li>
+<li><code>Azure</code>資料庫轉移服務(<em>Azure Database Migration</em>): 資料庫轉移服務是完全受控服務, 旨在實現無縫遷移停機時間最短, 可從多個資料庫源到<code>Azure</code></li>
+</ul>
+</li>
+<li>
+<p><code>Azure SQL</code> 受控執行個體(<em>Azure SQL Managed Instance</em>)</p>
+<blockquote>
+<p>允許現有的 SQL Server 客戶將其本地應用程式提升並轉移到應用程式和資料庫最少更改的雲
+它有一個 99.9 作業時間(<em>point uptime</em>)及一個 99.99 奇偶選性(<em>Parity</em>)
+<em>Azure SQL Managed Instance</em> 結合最廣泛的 SQL 伺服器資料庫引擎相容性</p>
+</blockquote>
+<ul>
+<li>完全託管和常青平臺作為服務</li>
+<li>保留所有 PaaS 功能（自動修補和版本更新、自動備份和高可用性以及 <code>TCO</code> ）</li>
+<li>在 <code>SQL</code> 上以現有許可證換成折扣價 使用<code>Azure</code> 混合權益的託管實例</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>次模組(<em>Explore Azure Marketplace</em>)</p>
+</li>
+</ol>
+<blockquote>
+<p>允許客戶查找, 試用、購買和預配來自數百家領先服務提供者的應用程式和服務, 這些應用程式和服務都經過認證, 可在 Azure 上運行</p>
+</blockquote>
+<ul>
+<li>開源容器平臺</li>
+<li>虛擬機和資料庫映像</li>
+<li>應用程式構建和部署軟體</li>
+<li>開發人員工具</li>
+<li>還有更多，有 10000 多個來源</li>
+</ul>
+<h1 id="4-azure-解決方案和管理工具_core-solutions-and-management-tools_">4. Azure 解決方案和管理工具(<em>Core Solutions and Management Tools</em>)</h1>
+<h2 id="41-azure-解決方案_core-solutions_">4.1. <code>Azure</code> 解決方案(<em>Core Solutions</em>)</h2>
+<ol>
+<li>
+<p><code>Azure</code> 網路(<em>Azure Internet of Things</em>)</p>
+<blockquote>
+<p>是設備獲取中繼資訊以進行資料分析的能力</p>
+</blockquote>
+<ul>
+<li><code>Azure IoT</code>中心(<em><a href="https://tinyurl.com/y23rrs2d" target="_blank" rel="noopener noreffer">Azure IoT Central</a></em>): 是一套完全受控的全球<strong>IoT SaaS</strong>解決方案，使您的大規模 <code>IoT</code> 資產在連接、監控和管理網路變得容易</li>
+<li><code>Azure IoT</code>中樞(<em><a href="https://tinyurl.com/y62rkuvz" target="_blank" rel="noopener noreffer">Azure IoT Hub</a></em>): 是託管在雲中的託管服務, 充當 <code>IoT</code> 應用程式與其管理的設備之間雙向通信的中央訊息中樞</li>
+<li><em><a href="https://tinyurl.com/y4q8z5oh" target="_blank" rel="noopener noreffer">Azure Sphere</a></em> : 是一個全面的 <code>IoT</code> 安全的高階應用程式平台, 其配備適用於網際網路連線裝置的內建通訊及安全性功能, 它包含硬體、操作系統及雲端元件, 還包括 <code>Azure Sphere</code> 認證晶片、作業系統及安全服務</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 巨量資料及分析(<em>Big Data and analytics</em>)</p>
+<ul>
+<li><code>Azure Synapse</code> 資料總管(<em><a href="https://tinyurl.com/y57kddyb" target="_blank" rel="noopener noreffer">Azure Synapse Analytics</a></em>): 基於雲端的企業資料倉庫</li>
+<li><em><a href="https://tinyurl.com/yxnylhqe" target="_blank" rel="noopener noreffer">Azure HDInsight</a></em> : 一個完全受控的企業開源分析服務</li>
+<li><code>Databricks</code> 資料科學&amp;工程(<em><a href="https://tinyurl.com/y68obw5g" target="_blank" rel="noopener noreffer">Azure Databricks</a></em>): 基於 <code>Apache Spark</code>的分析服務, 其支援 <code>Python</code>、<code>Scala</code>、<code>R</code>、<code>Java</code>、<code>SQL</code>以及資料科學框架, 還有 函式庫, 其包括 <code>TensorFlow</code>、<code>Pytorch</code>、<code>Second Learn</code></li>
+</ul>
+</li>
+<li>
+<p>人工智慧及機器學習(<em>Artificial Intelligence &amp; Machine Learning</em>)</p>
+<ul>
+<li><code>Azure</code>機器學習(<em>Azure Machine Learning</em>): 基於雲端開發、訓練、佈署機器學習模組</li>
+<li><code>Azure</code>認知服務(<em><a href="https://tinyurl.com/y3yqkdta" target="_blank" rel="noopener noreffer">Cognitive Services</a></em>): 快速啟用應用程式看、聽、說, 理解和解釋使用者的需求</li>
+<li><code>Azure</code>機器人服務(<em>Azure Bot Service</em>): 開發專業的企業級機器人</li>
+</ul>
+</li>
+<li>
+<p><code>Azure DevOps</code>服務</p>
+<ul>
+<li><code>Azure DevOps</code>: <code>Pipelines</code>包含開發者協作工具及基於雲端的自動化負載測試</li>
+<li><code>GitHub</code>: 託管軟體開發者的原始碼管理及版本控制還有 Bug/Task 管理</li>
+<li><code>GitHub Actions for Azure</code>: 自動化軟體工作流程, 以使用 Github 建置、測試、佈署</li>
+<li><code>Azure DevTest Labs</code>: 快速在<code>Azure</code>建立開發使用可重用範本進行測試階段, 可預先建立 通過配額和政策最大限度地減少浪費及控制成本</li>
+</ul>
+</li>
+</ol>
+<h2 id="42-azure管理工具_azure-management-tools_">4.2. <code>Azure</code>管理工具(<em>Azure management tools</em>)</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148528768-dd56cdab-ea25-4324-921d-f79d7c9f74ce.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148528768-dd56cdab-ea25-4324-921d-f79d7c9f74ce.png, https://user-images.githubusercontent.com/33840759/148528768-dd56cdab-ea25-4324-921d-f79d7c9f74ce.png 1.5x, https://user-images.githubusercontent.com/33840759/148528768-dd56cdab-ea25-4324-921d-f79d7c9f74ce.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148528768-dd56cdab-ea25-4324-921d-f79d7c9f74ce.png"
+        title="image" /></p>
+<ol>
+<li>
+<p><code>Azure Portal</code>: 入口網站</p>
+</li>
+<li>
+<p><code>Azure PowerShell</code>: 是一套指令, 讓其管理<code>Azure</code>資源</p>
+</li>
+<li>
+<p><code>Azure Mobile APP</code>: 可以快速診斷及修復問題, 且可執行命令以管理<code>Azure</code>資源, 也能執行臨時<code>Azure CLI</code>或<code>PowerShell</code>命令直接在行動應用程式中</p>
+</li>
+<li>
+<p><code>Command-Line Interface(CLI)</code>: <code>CLI</code>是一個跨平台命令行應用程式連接<code>Azure</code>並執行管理命令<code>Azure</code>資源</p>
+</li>
+<li>
+<p><code>Azure Cloud Shell</code>: 是基於瀏覽器的<code>Azure</code>入口網站中的腳本環境(有<code>PowerShell</code>及<code>Bash</code>可選)</p>
+<blockquote>
+<p>首次登入需要設定 記憶體</p>
+</blockquote>
+</li>
+<li>
+<p><code>Azure Resource Manager</code>(<strong>ARM</strong>): 允許自動建立使用不同自動化的資源及腳本工具(EX: <code>PowerShell</code>、<code>CLI</code>、入口網站、<code>REST API</code>及客戶端開發套件)</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148530684-155a6554-1119-4611-b471-7d75d17b6160.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148530684-155a6554-1119-4611-b471-7d75d17b6160.png, https://user-images.githubusercontent.com/33840759/148530684-155a6554-1119-4611-b471-7d75d17b6160.png 1.5x, https://user-images.githubusercontent.com/33840759/148530684-155a6554-1119-4611-b471-7d75d17b6160.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148530684-155a6554-1119-4611-b471-7d75d17b6160.png"
+        title="ARM" /></p>
+<blockquote>
+<p>範本是 JavaScript 物件表示法 （JSON） 檔可用於創建和部署 Azure 基礎結構，而無需編寫程式命令</p>
+</blockquote>
+<ul>
+<li>聲明性語法(<em>Declarative syntax</em>)</li>
+<li>可重複的結果(<em>Repeatable results</em>)</li>
+<li>編排(<em>Orchestration</em>)</li>
+<li>模組化檔(<em>Modular files</em>)</li>
+<li>內建驗證(<em>Built-in validation</em>)</li>
+<li>可匯出原始碼(<em>Exportable code</em>)</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 顧問(<em>Azure Advisor</em>)</p>
+<blockquote>
+<p>分析已部署的 Azure 資源，並根據最佳做法提出建議以優化 Azure 部署</p>
+</blockquote>
+<ul>
+<li>可靠性(<em>Reliability</em>)</li>
+<li>安全(<em>Security</em>)</li>
+<li>性能(<em>Performance</em>)</li>
+<li>成本(<em>Cost</em>)</li>
+<li>卓越運營(<em>Operational Excellence</em>)</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>監視器(<em>Azure Monitor</em>)</p>
+<blockquote>
+<p>最大限度地提高應用程式的可用性和性能，以及通過收集、分析和處理來自雲端和本地的遙測資料來提供服務環境</p>
+</blockquote>
+<ul>
+<li>應用洞察(<em>Application Insights</em>)</li>
+<li>日誌分析(<em>Log Analytics</em>)</li>
+<li>智慧警報(<em>Smart Alerts</em>)</li>
+<li>自動化操作(<em>Automation Actions</em>)</li>
+<li>自定義儀錶板(<em>Customized Dashboards</em>)</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>服務健康狀況(<em>Azure Service Health</em>)</p>
+<ul>
+<li>
+<p>有關中斷的通訊</p>
+</li>
+<li>
+<p>計劃內維護</p>
+</li>
+<li>
+<p>其他健康建議</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<blockquote>
+<p>評估的影響 Azure 服務問題個性化指導和支援、通知和問題解決方法更新</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148533142-8c7e380d-c753-467a-8ef0-b389ef1408d2.jpg"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148533142-8c7e380d-c753-467a-8ef0-b389ef1408d2.jpg, https://user-images.githubusercontent.com/33840759/148533142-8c7e380d-c753-467a-8ef0-b389ef1408d2.jpg 1.5x, https://user-images.githubusercontent.com/33840759/148533142-8c7e380d-c753-467a-8ef0-b389ef1408d2.jpg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148533142-8c7e380d-c753-467a-8ef0-b389ef1408d2.jpg"
+        title="health" /></p>
+<blockquote>
+<p>提供 Azure 服務的運行狀況和正在使用的區域的個人化檢視</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/148538490-9b776a7f-09b6-48a1-b42b-2c38143a34e6.jpg"
+        data-srcset="https://user-images.githubusercontent.com/33840759/148538490-9b776a7f-09b6-48a1-b42b-2c38143a34e6.jpg, https://user-images.githubusercontent.com/33840759/148538490-9b776a7f-09b6-48a1-b42b-2c38143a34e6.jpg 1.5x, https://user-images.githubusercontent.com/33840759/148538490-9b776a7f-09b6-48a1-b42b-2c38143a34e6.jpg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/148538490-9b776a7f-09b6-48a1-b42b-2c38143a34e6.jpg"
+        title="health_info" /></p>
+</li>
+</ol>
+<h1 id="5-azure-安全性和網路安全性_general-security-and-network-security_">5. Azure 安全性和網路安全性(<em>General Security and Network Security</em>)</h1>
+<h2 id="51-安全性工具及功能_security-tools-and-features_">5.1. 安全性工具及功能(<em>Security tools and features</em>)</h2>
+<ol>
+<li>
+<p><code>Azure</code>資訊安全中心(<em>Azure Security Center</em>)
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/149711552-295cf11a-91ef-458a-82fb-8eb4b40b04fe.jpg"
+        data-srcset="https://user-images.githubusercontent.com/33840759/149711552-295cf11a-91ef-458a-82fb-8eb4b40b04fe.jpg, https://user-images.githubusercontent.com/33840759/149711552-295cf11a-91ef-458a-82fb-8eb4b40b04fe.jpg 1.5x, https://user-images.githubusercontent.com/33840759/149711552-295cf11a-91ef-458a-82fb-8eb4b40b04fe.jpg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/149711552-295cf11a-91ef-458a-82fb-8eb4b40b04fe.jpg"
+        title="ASC" /></p>
+<blockquote>
+<ul>
+<li><code>Azure</code> 安全中心是一項監控服務，可在 Azure 和本地資料中心兩者之間提供威脅防護(橫跨所有設備的威脅防護)</li>
+<li>所有安全相關的都會在此中心</li>
+</ul>
+</blockquote>
+<ul>
+<li>提供安全建議</li>
+<li>檢測和阻止惡意軟件</li>
+<li>分析和識別潛在的攻擊</li>
+<li>連接埠的即時存取控制
+<ul>
+<li>免費層(<em>Free Tier</em>) : 自動包含在<code>Azure</code>訂用帳戶中, 對您的<code>Azure</code>資源僅提供評估及建議</li>
+<li>標準層(<em>Standard Tier</em>) : 提供一組完整套件與安全有關的服務, 這其中包含持續監控威脅偵測..等, 可以連接至內部部署環境</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/149714536-326a22f0-db51-4429-8e41-f9bb6210d229.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/149714536-326a22f0-db51-4429-8e41-f9bb6210d229.png, https://user-images.githubusercontent.com/33840759/149714536-326a22f0-db51-4429-8e41-f9bb6210d229.png 1.5x, https://user-images.githubusercontent.com/33840759/149714536-326a22f0-db51-4429-8e41-f9bb6210d229.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/149714536-326a22f0-db51-4429-8e41-f9bb6210d229.png"
+        title="image" /></p>
+<ul>
+<li>原則合規性(<em>Policy Compliance</em>) :提供訂用帳戶跨管理組運行策略</li>
+<li>持續評估(<em>Continuous Assessments</em>) :評估新的和已部署的資源確保正確配置它們</li>
+<li>量身定做的建議(<em>Tailored Recommeendations</em>) :基於現有的建議工作量, 並說明如何實施它們</li>
+<li>威脅防護(<em>Threat Protection</em>) :通過警報分析嘗試的威脅和受影響的資源報告</li>
+</ul>
+</li>
+<li>
+<p><code>Azure Sentinel</code></p>
+<blockquote>
+<ul>
+<li>橫跨整個企業的鳥瞰圖, 可實施 威脅偵測 及 透過人工智慧來進行 回應, 藉此 即可不必維護任何類型的基礎架構設定及安全性</li>
+<li>是安全資訊管理 （SIEM） 和安全自動化回應 （SOAR） 解決方案，提供橫跨整個企業的安全分析和威脅情報</li>
+<li>是極具彈性且是自動的, 所以可以自行彈性調整規模以滿足安全性需求, 同時關注成本 且在某方面來降低成本</li>
+<li>它內建 AI 其建構在調查及檢測階段, 在當中查詢可疑的活動, 之後透過自動保護提供回應</li>
+</ul>
+</blockquote>
+<ul>
+<li>連接工具及整合：
+<ul>
+<li>Office 365</li>
+<li><em>Azure Active Director</em></li>
+<li><code>Azure</code> 進階威脅保護(<em>Azure Advanced Threat Protection</em>)</li>
+<li>微軟雲端應用程式安全性(<em>Microsoft Cloud App Security</em>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>金鑰保存庫(<em>Azure Key Vault</em>)</p>
+<blockquote>
+<ul>
+<li>將應用程式機密存儲在集中的雲端位置，以便安全地控制存取許可權和存取日誌記錄</li>
+<li>可以透過記錄檔看到誰存取檔案及何時存取</li>
+</ul>
+</blockquote>
+<ul>
+<li>機密管理</li>
+<li>金鑰管理</li>
+<li>憑證管理</li>
+<li>儲存由硬體安全性支援的機密模組 （HSM）</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>專用主機(<em>Azure Dedicated Host</em>)</p>
+<blockquote>
+<ul>
+<li>提供託管一個或多個 Azure 虛擬機的實體伺服器，這些虛擬機僅適用於單一 Azure 訂用帳戶</li>
+<li>屬於公有雲實體基礎結構的一部分</li>
+<li>不支援 虛擬技能集(<em>Virtual Skill Set</em>)</li>
+</ul>
+</blockquote>
+<ul>
+<li>優點
+<ul>
+<li>針對實體伺服器級別的硬體隔離</li>
+<li>控制維護工作(即表示可以不用親自維護)</li>
+<li>可用自己的憑證去使用 <code>Azure</code> 混合使用權益(<em>Azure Hybrid Benefit</em>)
+<blockquote>
+<p>使用 <em>Hybrid Benefit</em> 可以節省成本, 並可以讓你透過現有的<code>Windows</code>及<code>SQL</code>授權帶進<code>Azure</code> 使用</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="52-網路連接安全性_security-network-connectivity_">5.2. 網路連接安全性(<em>Security Network Connectivity</em>)</h2>
+<h3 id="521-深度防禦_dfense-in-depth_">5.2.1. 深度防禦(<em>Dfense in depth</em>)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/149730685-ad3910f8-83c1-43b8-a665-cc9defa04f9f.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/149730685-ad3910f8-83c1-43b8-a665-cc9defa04f9f.png, https://user-images.githubusercontent.com/33840759/149730685-ad3910f8-83c1-43b8-a665-cc9defa04f9f.png 1.5x, https://user-images.githubusercontent.com/33840759/149730685-ad3910f8-83c1-43b8-a665-cc9defa04f9f.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/149730685-ad3910f8-83c1-43b8-a665-cc9defa04f9f.png"
+        title="image" /></p>
+<blockquote>
+<p>什麼是深度防禦, 它是一種策略, 它採用一系列機制, 是設計來減緩那些未經授權存取你的資訊、資料、資源的攻擊</p>
+</blockquote>
+<blockquote>
+<p>即每一層都提供保護, 即使此層遭到破壞, 在它下方還有一層保護來幫助防止任何進一步的攻擊接觸</p>
+</blockquote>
+<blockquote>
+<p>安全性是共同的責任</p>
+</blockquote>
+<ul>
+<li>
+<p>保護計算機系統的分層方法</p>
+</li>
+<li>
+<p>提供多級保護</p>
+</li>
+<li>
+<p>針對一層的攻擊與後續層隔離</p>
+</li>
+<li>
+<p>結合網路安全解決方案:</p>
+<ul>
+<li>具有 <code>Azure</code> 防火牆的 <em>NSG</em>，可實現縱深防禦</li>
+<li>週邊層使用 <code>Azure DDoS</code> 保護和 <code>Azure</code> 防火牆保護網路邊界</li>
+<li>網路層僅允許流量在具有網路安全群組(<em>NSG</em>)入站和出站規則的網路資源之間傳遞</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/149732464-8ee01391-04e3-495f-afd1-2c62ddc4790a.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/149732464-8ee01391-04e3-495f-afd1-2c62ddc4790a.png, https://user-images.githubusercontent.com/33840759/149732464-8ee01391-04e3-495f-afd1-2c62ddc4790a.png 1.5x, https://user-images.githubusercontent.com/33840759/149732464-8ee01391-04e3-495f-afd1-2c62ddc4790a.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/149732464-8ee01391-04e3-495f-afd1-2c62ddc4790a.png"
+        title="image" /></p>
+<blockquote>
+<p>參照圖表會發現不論何種服務或部署類型, 用戶都會擁有自己的資料及自己的身份, 用戶有責任協助保護這些資料及身份, 且需負責資料、端點、帳戶管理的安全</p>
+</blockquote>
+<ol>
+<li>內部部署資料中心(圖表最左側) : 所有工作都需要用戶負責, 從實體資料中心到資料及管理</li>
+<li>基礎設施即服務(<em>IaaS</em>) : 用戶需負責維護 作業系統及軟體的安全, 也需要負責進行設定來確保網路是安全的, <code>Azure</code>負責保護實體主機、實體網路、實體資料中心, 除此之外都需要用戶負責</li>
+<li>平台即服務(<em>PaaS</em>) : <code>Azure</code>負責保護的是作業系統、實體主機、實體網路、實體資料中心及大部分的基礎軟體(EX: 資料庫管理系統), 用戶除卻 共同責任的部分外(應用程式的安全性、網路控制、身份識別)皆需要自行維護其餘項目, 甚至可以與存取控制的 _Azure Active Directory_進行整合</li>
+<li>軟體即服務(<em>SaaS</em>) : 在 _PaaS_基礎上 <code>Azure</code>更加了負責保護的部分, 像是應用程式的安全性、網路控制, 用戶也有 共同責任 來負責身份識別以及目錄基礎結構, 其餘皆需用戶負責</li>
+</ol>
+<ul>
+<li>共同安全性(<em>Shared Security</em>)
+<ul>
+<li>從客戶控制的資料中心遷移到基於雲端的資料中心會轉移安全責任</li>
+<li>安全性成為雲端供應商和客戶共同關注的問題</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+<p>網路安全性群組<strong>NSG</strong>(<em>Network Security Groups</em>) : Network Level</p>
+<blockquote>
+<p>篩選 Azure 虛擬網路上與 Azure 資源之間的往來網路流量, 可以自行選擇在多個不同級別上進行篩選入站及出站規則</p>
+</blockquote>
+<ul>
+<li>設置入站和出站規則以按源和目標 IP 位址、埠和協定</li>
+<li>根據需要在訂閱限制內添加多個規則</li>
+<li>Azure 將預設的基線安全規則應用於新的 <strong>NSG</strong></li>
+<li>使用新的、優先順序更高的規則覆蓋預設規則</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code>防火牆(<em>Azure Firewall</em>) : Perimeter Level</p>
+<blockquote>
+<ul>
+<li>此層級會保護任何入站/出站流量</li>
+<li>一種有狀態的託管防火牆即服務 (<em>FaaS</em>)，它根據原始 IP 地址授予/拒絕服務器存取權限, 以保護網絡資源</li>
+<li>完全受管的並基於雲端的網路安全服務, 用來保護虛擬網路資源, 且它已經連接到<code>Azure</code>, 所以所有的報告都會從防火牆直接進入<code>Azure</code>監視器(<em>Azure Monitor</em>)</li>
+</ul>
+</blockquote>
+<ul>
+<li>應用入站和出站流量篩選規則</li>
+<li>內建高可用性</li>
+<li>不受限制的雲端可擴充性</li>
+<li>使用 <code>Azure</code>監視器(<em>Azure Monitor</em>) 紀錄記錄</li>
+<li><code>Azure</code>應用程式閘道(<em>Azure Application Gateway</em>) : <code>Azure</code> 應用程式閘道還提供防火牆，即 Web 應用程式防火牆(<em>WAF</em>), <em>WAF</em> 為您的 Web 應用程式提供集中式入站保護
+<blockquote>
+<p>這是一個負載平衡器, 其中包括 Web 應用程式及 Web 應用程式防火牆, 它提供可以防止網站上的常見漏洞的保護</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 分散式阻斷服務(<em>DDoS</em>)保護(<em>Azure Distributed Denial of Service (DDoS) protection</em>) : Perimeter Level</p>
+<blockquote>
+<p>DDoS 攻擊使網絡資源不堪重負，導致應用程式變慢或無回應, 也就是利用 龐大的流量發送到你的<code>Azure</code>網路或資源中時, 使其資源超載, 並且變慢或完全癱瘓資源</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/149752662-f5cfc0b0-3be3-4f59-986d-11b8ef208eeb.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/149752662-f5cfc0b0-3be3-4f59-986d-11b8ef208eeb.png, https://user-images.githubusercontent.com/33840759/149752662-f5cfc0b0-3be3-4f59-986d-11b8ef208eeb.png 1.5x, https://user-images.githubusercontent.com/33840759/149752662-f5cfc0b0-3be3-4f59-986d-11b8ef208eeb.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/149752662-f5cfc0b0-3be3-4f59-986d-11b8ef208eeb.png"
+        title="DDOS" /></p>
+<ul>
+<li>在不需要的網路流量影響服務可用性之前對其進行清理</li>
+<li>在 <code>Azure</code> 中自動啟用基本服務層</li>
+<li>標準服務層添加了經過優化以保護 <code>Azure</code> 虛擬網路資源的緩解功能(非自動包含在<code>Azure</code>內, 是屬於額外的成本, 此功能收取金額稍高, 建議使用在關鍵的商務應用程式)</li>
+</ul>
+</li>
+</ol>
+<h1 id="6-身分識別治理隱私和合規性_identity-governance-privacy-and-compliance_">6. 身分識別、治理、隱私和合規性(<em>Identity, Governance, Privacy and Compliance</em>)</h1>
+<h2 id="61-核心身份識別服務_core-azure-identity-services_">6.1. 核心身份識別服務(<em>Core Azure identity services</em>)</h2>
+<h3 id="611-比較驗證及授權_compare-authentication-and-authorization_">6.1.1. 比較驗證及授權(<em>Compare Authentication and Authorization</em>)</h3>
+<ul>
+<li>驗證(<em>Authentication</em>)
+<ul>
+<li>標識尋求存取資源的人員或服務</li>
+<li>請求合法的存取憑證</li>
+<li>創建安全身份和存取控制原則的基礎</li>
+</ul>
+</li>
+<li>授權(<em>Authorization</em>)
+<ul>
+<li>確定經過身份驗證的人員或服務的存取級別</li>
+<li>定義他們可以存取哪些資料, 以及他們可以用這些資料做什麼</li>
+</ul>
+</li>
+</ul>
+<h3 id="612-多重要素驗證_azure-multi-factor-authentication_">6.1.2. 多重要素驗證(<em>Azure Multi-Factor Authentication</em>)</h3>
+<blockquote>
+<ol>
+<li>透過要求兩個或更多元素進行完全身份驗證以確認你的身份</li>
+<li>它限制了可公開的憑證數量</li>
+</ol>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150748189-cdbd13cf-849d-4fd0-81a0-784529846ae7.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150748189-cdbd13cf-849d-4fd0-81a0-784529846ae7.png, https://user-images.githubusercontent.com/33840759/150748189-cdbd13cf-849d-4fd0-81a0-784529846ae7.png 1.5x, https://user-images.githubusercontent.com/33840759/150748189-cdbd13cf-849d-4fd0-81a0-784529846ae7.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150748189-cdbd13cf-849d-4fd0-81a0-784529846ae7.png"
+        title="Multi-Factor" /></p>
+<ul>
+<li>你知道的東西(EX: 帳號密碼、安全問題)</li>
+<li>你擁有的東西(EX: 授權 APP、權杖產生裝置)</li>
+<li>是你本人的要素(EX: 生物識別、指紋掃描、人臉辨識) <strong><!-- raw HTML omitted -->還未支援屬於你的生物辨識<!-- raw HTML omitted --></strong></li>
+</ul>
+<h3 id="613-azure活動目錄_azure-active-directoryaad_">6.1.3. <code>Azure</code>活動目錄(<em>Azure Active Directory(AAD)</em>)</h3>
+<blockquote>
+<ul>
+<li>可視為常規活動目錄的額外目錄, 是微軟<code>Azure</code> 基於雲端的身份識別和存取管理服務, 也能使用於外部資源如 <code>Office 365</code> 、<code>Azure Portal</code>或其他 軟體即服務(<em>SaaS</em>)應用程式</li>
+<li>可自助密碼重置、多重要素驗證、自定義禁用密碼清單</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>身份驗證(員工登錄以存取資源)</p>
+</li>
+<li>
+<p>單一登入(SSO) : 只需記憶一組帳號密碼</p>
+</li>
+<li>
+<p>應用程式管理 : 可協助管理所有的應用程式, 不論存在 雲端中 或 內建佈署 的應用程式</p>
+</li>
+<li>
+<p>企業對企業(B2B) :</p>
+</li>
+<li>
+<p>企業對客戶(B2C)身份服務 :</p>
+<p>可以管理訪客或客戶去如何存取你的公司資料, 如果是為供應商或客戶, 可控制他們如何登入、註冊或如何透過你的應用程式服務來管理他們的個人資料</p>
+</li>
+<li>
+<p>設備管理 : 可管理雲端或內部部署設備存取公司資料的方式</p>
+</li>
+</ul>
+<h3 id="614-條件式存取_conditional-access_">6.1.4. 條件式存取(<em>Conditional Access</em>)</h3>
+<blockquote>
+<ul>
+<li>是與 <code>AAD</code> 一起使用的, 可以讓組織具有不同的身份識別來確定那些應用程序、資料, 是使用者可以存取的, 並且要取決於 使用者是那種類型, 其隸屬的團隊成員身份為何, 在何位置、使用何種設備、何種應用程式</li>
+<li>存取使用 Azure Active Directory、是根據組織策略來決定</li>
+</ul>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150755358-bb3e4703-f1d1-470e-840b-53199a11fea3.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150755358-bb3e4703-f1d1-470e-840b-53199a11fea3.png, https://user-images.githubusercontent.com/33840759/150755358-bb3e4703-f1d1-470e-840b-53199a11fea3.png 1.5x, https://user-images.githubusercontent.com/33840759/150755358-bb3e4703-f1d1-470e-840b-53199a11fea3.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150755358-bb3e4703-f1d1-470e-840b-53199a11fea3.png"
+        title="ConditionalAccess" /></p>
+<ul>
+<li>用戶或組成員身份</li>
+<li>IP 位置</li>
+<li>設備</li>
+<li>應用</li>
+<li>風險檢測</li>
+</ul>
+<h2 id="62-治理方法_azure-governance-methodologies_">6.2. 治理方法(<em>Azure Governance Methodologies</em>)</h2>
+<h3 id="621-角色型存取控制_explore-role-based-access-control-rbac_">6.2.1. 角色型存取控制(<em>Explore Role-based access control (RBAC)</em>)</h3>
+<blockquote>
+<ul>
+<li>此功能包含在所有 <code>Azure</code>訂用帳戶內, 不需支付額外的費用</li>
+<li>可使用在 訂用帳戶層級、管理群組層級、資源群組層級或個別資源上</li>
+<li>_IAM_內也能自定角色</li>
+</ul>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150756823-7b5d9168-ec0a-47be-ad47-45058f05a9cd.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150756823-7b5d9168-ec0a-47be-ad47-45058f05a9cd.png, https://user-images.githubusercontent.com/33840759/150756823-7b5d9168-ec0a-47be-ad47-45058f05a9cd.png 1.5x, https://user-images.githubusercontent.com/33840759/150756823-7b5d9168-ec0a-47be-ad47-45058f05a9cd.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150756823-7b5d9168-ec0a-47be-ad47-45058f05a9cd.png"
+        title="image" /></p>
+<ul>
+<li>微調存取管理</li>
+<li>在團隊中劃分職責, 僅向使用者授予執行其工作所需的存取許可權</li>
+<li>啟用對 <code>Azure Portal</code>的存取並控制對資源的存取</li>
+</ul>
+<h3 id="622-資源鎖_resource-locks_">6.2.2. 資源鎖(<em>Resource locks</em>)</h3>
+<ul>
+<li>保護 <code>Azure</code> 資源免遭意外刪除或修改</li>
+<li>在 <code>Azure Portal</code> 中管理訂閱、資源組或個別資源級別的鎖</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150760443-a351c42a-dc6e-4a91-8951-619c9a7d94f5.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150760443-a351c42a-dc6e-4a91-8951-619c9a7d94f5.png, https://user-images.githubusercontent.com/33840759/150760443-a351c42a-dc6e-4a91-8951-619c9a7d94f5.png 1.5x, https://user-images.githubusercontent.com/33840759/150760443-a351c42a-dc6e-4a91-8951-619c9a7d94f5.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150760443-a351c42a-dc6e-4a91-8951-619c9a7d94f5.png"
+        title="image" /></p>
+<h3 id="623-標籤_tags_">6.2.3. 標籤(<em>Tags</em>)</h3>
+<blockquote>
+<ol>
+<li>牽涉到報表或帳單時, 是個可以明確標註分類的工具</li>
+<li>標籤不具有父子繼承關係, 如資源群組設定了標籤, 其底下的所有項目都不會有這些標籤</li>
+</ol>
+</blockquote>
+<ul>
+<li>將後設資料新增到 <code>Azure</code> 資源中
+<blockquote>
+<p>後設資料(<em>metadata</em>)又稱詮釋資料、中介資料、中繼資料、後設資料等, 為描述其他資料資訊的資料</p>
+</blockquote>
+</li>
+<li>以邏輯方式將資源組織到分類中</li>
+<li>由名稱-值組成一對</li>
+<li>對於匯總帳單資訊非常有用
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150762239-962f994c-346e-4aac-bf98-7a990a002bcf.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150762239-962f994c-346e-4aac-bf98-7a990a002bcf.png, https://user-images.githubusercontent.com/33840759/150762239-962f994c-346e-4aac-bf98-7a990a002bcf.png 1.5x, https://user-images.githubusercontent.com/33840759/150762239-962f994c-346e-4aac-bf98-7a990a002bcf.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150762239-962f994c-346e-4aac-bf98-7a990a002bcf.png"
+        title="image" /></li>
+</ul>
+<h3 id="624-azure原則_azure-policy_">6.2.4. <code>Azure</code>原則(<em>Azure Policy</em>)</h3>
+<blockquote>
+<ol>
+<li>有助於執行組織標準並大規模評估合規性(可設定你的組織標準是什麼, 而這些原則將自動在整個訂用帳戶中強制執行)</li>
+<li>通過法規遵從性、安全性、成本和管理提供治理和資源一致性</li>
+<li>也能設定只讓特定的人進行佈署並允許虛擬機 SKUS
+存貨單位(<em>Stock-keeping-Uni</em>):也翻譯為庫存單元, 是一個會計學名詞</li>
+</ol>
+</blockquote>
+<ul>
+<li>評估和識別不符合您的策略的 Azure 資源</li>
+<li>在存儲、網絡、計算、安全中心和監控等類別下提供內置策略和計劃定義</li>
+</ul>
+<h3 id="625-azure藍圖_azure-blueprints_">6.2.5. <code>Azure</code>藍圖(<em>Azure Blueprints</em>)</h3>
+<blockquote>
+<ol>
+<li>使開發團隊能夠快速構建和建立新環境</li>
+<li>開發團隊可以通過組織對一組內置元件（如網路）的合規性來快速建立信任, 以加快開發和交付速度</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<p>角色分配</p>
+</li>
+<li>
+<p>策略分配</p>
+</li>
+<li>
+<p><code>Azure</code>資源管理器範本</p>
+<blockquote>
+<p><strong><code>ARM</code>範本佈署時, 佈署的資源和佈署的來源 沒有關係, 但透過 <code>Azure</code>藍圖佈署, 每個佈署將會綁定在藍圖套組中, 所以佈署就會與資源產生關係, 且即使在佈署之後也會持續進行維護</strong></p>
+</blockquote>
+</li>
+<li>
+<p>資源群組</p>
+</li>
+</ul>
+<h3 id="626-雲端採用架構_cloud-adoption-framework_">6.2.6. 雲端採用架構(<em>Cloud Adoption Framework</em>)</h3>
+<blockquote>
+<p>建議可從此入手來設定<code>Azure</code>環境</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/150769289-72f25622-2aac-462c-9e26-6b46e4ef4b92.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/150769289-72f25622-2aac-462c-9e26-6b46e4ef4b92.png, https://user-images.githubusercontent.com/33840759/150769289-72f25622-2aac-462c-9e26-6b46e4ef4b92.png 1.5x, https://user-images.githubusercontent.com/33840759/150769289-72f25622-2aac-462c-9e26-6b46e4ef4b92.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/150769289-72f25622-2aac-462c-9e26-6b46e4ef4b92.png"
+        title="Cloud Adoption Framework" /></p>
+<ul>
+<li><em>Microsoft</em> 實現 <code>Azure</code> 雲端的方法</li>
+<li>來自 <em>Microsoft</em> 員工、合作夥伴和客戶的最佳實踐</li>
+<li>戰略和成果的工具、指導和敘述</li>
+</ul>
+<h2 id="63-合規性隱私權及資料保護標準_privacy-compliance-and-data-protection-standards_">6.3. 合規性、隱私權及資料保護標準(<em>Privacy, compliance, and data protection standards</em>)</h2>
+<h3 id="631-合規性隱私權及合規性_security-privacy-and-compliance_">6.3.1. 合規性、隱私權及合規性(<em>Security, Privacy, and Compliance</em>)</h3>
+<blockquote>
+<p>是微軟所做的一切基礎</p>
+</blockquote>
+<ul>
+<li>
+<p>安全性(<em>Security</em>) : 安全設計, 借助內置的智慧安全性, <code>Microsoft</code> 使用自動化和人工智慧説明防範已知和未知的網路威脅, 安全性是開發過程的一部分</p>
+</li>
+<li>
+<p>隱私權(<em>Privacy</em>) : 我們致力於履行對你的合約義務以及達到透明化, 並提供使用者控制來確保組織的隱私</p>
+<ol>
+<li>微軟隱私權聲明(<em>Microsoft privacy statement</em>)
+<blockquote>
+<p>微軟隱私聲明提供了有關微軟如何處理從其產品和服務中收集的用戶資料的開放性和誠實性</p>
+</blockquote>
+<ul>
+<li>微軟隱私聲明解釋：
+<ul>
+<li>微軟處理哪些資料</li>
+<li>微軟如何處理它</li>
+<li>資料的用途</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>線上服務條款及資料保護增訂版(<em>Online Services Terms and Data Protection Addendum</em>)
+<blockquote>
+<p>全適用於所有的<code>Microsoft</code>程式或所購買的軟體</p>
+</blockquote>
+<ul>
+<li>線上服務條款(<em>Online Services Terms</em>) : 許可條款定義了您通過 <code>Microsoft</code> 批量許可計劃購買的產品和線上服務的條款和條件</li>
+<li>資料保護增訂版(<em>Data Protection Addendum(DPA)</em>) : <code>DPA</code> 規定了與線上服務相關的客戶資料和個人資料的處理和安全方面的義務</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>合規性(<em>Compliance</em>) : 我們尊重當地法律法規, 並提供全面的合規產品</p>
+<ol>
+<li>
+<p>合規條款和要求(<em>Compliance Terms and Requirements</em>)</p>
+<blockquote>
+<p><code>Microsoft</code>提供任何雲端服務並提供者最全面的合規性產品/服務(包括認證和證明), 一些合規性產品包括在內</p>
+</blockquote>
+<ul>
+<li>
+<p>當要與任何一個雲端提供者合作時, 需提出幾個必要的問題</p>
+<ol>
+<li>當涉及到處理敏感資料時, 雲端提供者的合規性如何?</li>
+<li>當涉及合規性時, 雲端提供者提供了那些服務?</li>
+<li>可以如何部署自己的雲端式解決方案, 且仍保持合規性?</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/151152143-eed9ff09-816d-42d4-9777-5258f0c26827.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/151152143-eed9ff09-816d-42d4-9777-5258f0c26827.png, https://user-images.githubusercontent.com/33840759/151152143-eed9ff09-816d-42d4-9777-5258f0c26827.png 1.5x, https://user-images.githubusercontent.com/33840759/151152143-eed9ff09-816d-42d4-9777-5258f0c26827.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/151152143-eed9ff09-816d-42d4-9777-5258f0c26827.png"
+        title="image" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 合規性文件(<em>Azure Compliance Documentation</em>)</p>
+<blockquote>
+<p>Microsoft 提供了一套全面的合規性產品, 可幫助您的組織遵守管理資料收集和使用的國家、地區和行業特定要求</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/151153104-69f3e68e-18d3-4577-9a28-cd2427186dc7.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/151153104-69f3e68e-18d3-4577-9a28-cd2427186dc7.png, https://user-images.githubusercontent.com/33840759/151153104-69f3e68e-18d3-4577-9a28-cd2427186dc7.png 1.5x, https://user-images.githubusercontent.com/33840759/151153104-69f3e68e-18d3-4577-9a28-cd2427186dc7.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/151153104-69f3e68e-18d3-4577-9a28-cd2427186dc7.png"
+        title="image" /></p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="632-信任中心_trust-centerhttpstinyurlcomy8ge2dju_">6.3.2. 信任中心(<em><a href="https://tinyurl.com/y8ge2dju" target="_blank" rel="noopener noreffer">Trust Center</a></em>)</h3>
+<blockquote>
+<ul>
+<li>了解 <code>Microsoft</code> 雲端產品的安全性、隱私、合規性、策略、功能及實作</li>
+<li>記載著一切與隱私信任及合規性有關的內容</li>
+</ul>
+</blockquote>
+<ul>
+<li>信託中心網站提供：
+<ul>
+<li>深入的專家信息</li>
+<li>推薦資源的精選列表, 按主題排列</li>
+<li>針對經理角色、管理角色、工程師、風險工作角色、隱私官和法律事物人員角色的特定角色信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="633-azure-主權區域美國政府服務_azure-sovereign-regions-us-government-services_">6.3.3. <code>Azure</code> 主權區域（美國政府服務）(<em>Azure Sovereign Regions (US Government services)</em>)</h3>
+<blockquote>
+<ul>
+<li>兩個完全獨立的<code>Azure</code>的實體執行個體其一</li>
+<li>滿足美國聯邦機構、州和地方政府及其解決方案提供商的安全性和合規性需求</li>
+<li>相容標準示例：FedRAMP，NIST 800.171（DIB），ITER，IRS 1075，DoD L2，L4 和 L5 以及 CJIS</li>
+</ul>
+</blockquote>
+<ul>
+<li><em><code>Azure</code> Government</em>：
+<ul>
+<li><code>Azure</code> 的單獨實例(沒有連接任何其他的資料中心)</li>
+<li>物理上與非美國政府部署隔離</li>
+<li>只有經過篩選的授權人員才能存取</li>
+</ul>
+</li>
+</ul>
+<h3 id="634-azure-主權區域中國政府服務_azure-sovereign-regions-azure-china_">6.3.4. <code>Azure</code> 主權區域（中國政府服務）(<em>Azure Sovereign Regions (Azure China)</em>)</h3>
+<blockquote>
+<ul>
+<li>兩個完全獨立的<code>Azure</code>的實體執行個體其二</li>
+<li>微軟是中國第一家符合政府法規的外國公共雲端服務提供者</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>Azure</code> 中國功能：
+<ul>
+<li>由 <em>21Vianet</em> 操作的 <code>Azure</code> 雲端服務的物理分離實例</li>
+<li>所有資料都保留在中國境內, 以確保合規性</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-azure-定價和生活方式_azure-cost-management-and-service-level-agreements_">7. Azure 定價和生活方式(<em>Azure cost management and Service Level Agreements</em>)</h1>
+<h2 id="71-規劃及管理成本_planning-and-cost-management_">7.1. 規劃及管理成本(<em>Planning and Cost Management</em>)</h2>
+<h3 id="711-影響成本的因素_factors-affecting-costs_">7.1.1. 影響成本的因素(<em>Factors affecting costs</em>)</h3>
+<ul>
+<li>
+<p><strong>影響成本 6 要素</strong></p>
+<ol>
+<li>資源類型(<em>Resource Type</em>) : 成本是特定於資源的, 因此計量跟蹤的使用方式以及與資源關聯的使用計量取決於資源類型</li>
+<li>服務(<em>Services</em>) : <code>Azure</code> 使用率和計費週期可能因企業(<em>Enterprise</em>)、<code>Web Direct</code>和雲端解決方案供應商客戶而異
+<ul>
+<li><code>Web Direct</code> : 通常是沒有任何相關的折扣類型, 是以使用流量計價, 一般是按月計費</li>
+<li>企業(<em>Enterprise</em>) : 通常是已與 <code>Azure</code>簽約約一年一次, 由於此金額夠大通常會提供一個折扣, 一般是按年計費</li>
+<li>雲端解決方案供應商(<em>CSP Customers</em>) : 通常是第三方合作夥伴, 它將直接與客戶合作來設定客戶端的<code>Azure</code>帳戶, 因此在帳單上不僅要支付<code>Azure</code>服務的費用, 還需為 雲端解決方案供應商的 時間及勞動付費, 所以帳單不會透過 <code>Azure</code>提供會直接由雲端解決方案供應商來處理</li>
+</ul>
+</li>
+<li>位置(<em>Location</em>) : <code>Azure</code> 基礎結構分佈在全球, 使用成本可能因提供 <code>Azure</code> 產品、服務和資源的位置而異, <code>Azure</code>擁有 60 多個地區 140 個國家, 每個國家都有不同的成本(EX: 瑞士國家地區的營運資料中心的成本確實較高, 因此在瑞士或澳洲運作資源確實會花費更多的成本)</li>
+<li>頻寬(<em>Bandwidth</em>) : 按區域計費, 不同的地區或地域會被組織成區域
+<ul>
+<li>某些入站資料傳輸(<em>InBound</em>)是免費的(EX:進入 <code>Azure</code> 資料中心的資料)</li>
+<li>對於出站資料傳輸(<em>OutBound</em>)(EX:從 <code>Azure</code> 資料中心傳出的資料, 如果在美西部署了資源, 從美西傳輸資料到澳洲, 那出站費用將從美國到澳洲計算)</li>
+</ul>
+</li>
+<li>預付執行個體(<em>Reserved Instances</em>) : 使用 <code>Azure</code> 保留項目, 你承諾為多個產品購買一年或三年計劃, 預訂可以顯著降低您的資源成本, 最高可達即用即付價格的 72%</li>
+<li><code>Azure</code> 混合使用權益(<em>Azure Hybrid Use Benefit</em>) : 對於具有軟體保障的客戶, <code>Azure</code> 混合權益允許你以更低的成本在 <code>Azure</code> 上使用本地許可證</li>
+</ol>
+</li>
+<li>
+<p>定價計算機(<a href="https://tinyurl.com/y3der524" target="_blank" rel="noopener noreffer"><em>Pricing Calculator</em></a>) : 定價計算機是一種工具，可説明你估算 Azure 產品的成本, 您可以在定價計算機中配置的選項因產品而異，但基本配置選項包括以下內容</p>
+<ol>
+<li>地區</li>
+<li>等級</li>
+<li>計費選項</li>
+<li>支援選項</li>
+<li>計劃和優惠</li>
+<li><code>Azure</code> 開發/測試定價</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152674192-e181c6a8-2707-4c66-a925-188919309358.jpg"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152674192-e181c6a8-2707-4c66-a925-188919309358.jpg, https://user-images.githubusercontent.com/33840759/152674192-e181c6a8-2707-4c66-a925-188919309358.jpg 1.5x, https://user-images.githubusercontent.com/33840759/152674192-e181c6a8-2707-4c66-a925-188919309358.jpg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152674192-e181c6a8-2707-4c66-a925-188919309358.jpg"
+        title="Pricing Calculator" /></p>
+</li>
+<li>
+<p>總擁有成本計算機(<a href="https://tinyurl.com/y8rgdf9e" target="_blank" rel="noopener noreffer"><em>Total Cost of Ownership Calculator</em></a>)</p>
+<ul>
+<li>一種工具, 用於估算通過遷移到 <code>Azure</code> 可以實現的成本節約</li>
+<li>報表將本地基礎結構的成本與在雲端中使用 <code>Azure</code> 產品和服務的成本進行比較
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152674377-228e4448-b0be-4524-af70-b264b500799b.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152674377-228e4448-b0be-4524-af70-b264b500799b.png, https://user-images.githubusercontent.com/33840759/152674377-228e4448-b0be-4524-af70-b264b500799b.png 1.5x, https://user-images.githubusercontent.com/33840759/152674377-228e4448-b0be-4524-af70-b264b500799b.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152674377-228e4448-b0be-4524-af70-b264b500799b.png"
+        title="Total Cost of Ownership Calculator Compare1" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152674379-dec4c303-3f56-4344-9d4f-12e9831fd743.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152674379-dec4c303-3f56-4344-9d4f-12e9831fd743.png, https://user-images.githubusercontent.com/33840759/152674379-dec4c303-3f56-4344-9d4f-12e9831fd743.png 1.5x, https://user-images.githubusercontent.com/33840759/152674379-dec4c303-3f56-4344-9d4f-12e9831fd743.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152674379-dec4c303-3f56-4344-9d4f-12e9831fd743.png"
+        title="Total Cost of Ownership Calculator Compare2" /></li>
+</ul>
+</li>
+<li>
+<p><code>Azure</code> 成本管理工具(<em>Azure Cost Management</em>)</p>
+<ul>
+<li>報告 : 帳單報告
+<blockquote>
+<p>如果使用 標籤工具 可以更深入的研究</p>
+</blockquote>
+</li>
+<li>資料擴充</li>
+<li>預算 : 設置支出預算</li>
+<li>警報 : 當成本超過限制時或接近預算時</li>
+<li>建議(<em>Recommendation</em>) : 成本建議</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152674528-bc639a05-57ad-4a62-a73e-d12cbcd1ff61.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152674528-bc639a05-57ad-4a62-a73e-d12cbcd1ff61.png, https://user-images.githubusercontent.com/33840759/152674528-bc639a05-57ad-4a62-a73e-d12cbcd1ff61.png 1.5x, https://user-images.githubusercontent.com/33840759/152674528-bc639a05-57ad-4a62-a73e-d12cbcd1ff61.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152674528-bc639a05-57ad-4a62-a73e-d12cbcd1ff61.png"
+        title="Azure Cost Management" /></p>
+</li>
+<li>
+<p>成本最小化(<em>Minimizing costs</em>) : 依序往下</p>
+<table>
+<thead>
+<tr>
+<th>動作</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>執行(<em>Perform</em>)</td>
+<td>執行成本分析, 使用 <code>Azure</code> 定價(<em>Azure Pricing</em>)和 <em>TCO</em> 計算機(<em>TCO calculators</em>)</td>
+</tr>
+<tr>
+<td>監視器(<em>Monitor</em>)</td>
+<td>使用 <code>Azure</code> 顧問監視使用(<em>Monitor usage</em>)方式並實施建議(<em>Azure Advisor</em>)</td>
+</tr>
+<tr>
+<td>使用(<em>Use</em>)</td>
+<td>使用支出限制(<em>spending limits</em>), 通過免費試用客戶和一些基於信用額度的 <code>Azure</code> 訂閱使用</td>
+</tr>
+<tr>
+<td>使用(<em>Use</em>)</td>
+<td>使用 <em><code>Azure</code> Reservations</em> 和 <em><code>Azure</code> Hybrid Benefit</em>(HUB)</td>
+</tr>
+<tr>
+<td>選擇(<em>Choose</em>)</td>
+<td>選擇低成本位置和區域(<em>low-cost locations</em>), 如果可能, 請使用低成本位置</td>
+</tr>
+<tr>
+<td>保持(<em>Keep</em>)</td>
+<td>即時瞭解(<em>Keep up-to-date</em>)最新的 <code>Azure</code> 客戶和訂閱產品/服務</td>
+</tr>
+<tr>
+<td>適用(<em>Apply</em>)</td>
+<td>應用標記以標識成本擁有者, 使用標記標識使用擁有者(<em>cost owners</em>)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="72-服務等級協定及azure服務生命週期_azure-slas-and-service-lifecycles_">7.2. 服務等級協定及<code>Azure</code>服務生命週期(<em>Azure SLAs and service lifecycles</em>)</h2>
+<h3 id="721-服務層級協定_service-level-agreements-slas_">7.2.1. 服務層級協定(<em>Service Level Agreements (SLAs)</em>)</h3>
+<blockquote>
+<ol>
+<li>服務級別協定(<em>SLAs</em>)描述了 <em>Microsoft</em> 對正常運行時間和連接性的承諾</li>
+<li>服務等級協定是一項合約義務, 讓微軟承諾該特定服務的啟動及執行時間, 需達到每月的最短時數</li>
+</ol>
+</blockquote>
+<ul>
+<li>每一項服務都有自己相關的 <em>SLAs</em>(不會只有一個通用的 <em>SLA</em>)</li>
+<li>關於所提供服務的詳細協定，以及 <em>SLA</em> 的任何例外情況</li>
+<li>免費和預覽功能/服務不提供 <em>SLAs</em></li>
+</ul>
+<h3 id="722-azure-產品和服務的-_slas__slas-for-azure-products-and-services_">7.2.2. <code>Azure</code> 產品和服務的 <em>SLAs</em>(<em>SLAs for Azure products and services</em>)</h3>
+<ul>
+<li>性能目標表示為正常運行時間和連接保證</li>
+<li>有效目標範圍從 99%到 99.999%</li>
+<li>如果服務未能滿足保證, 則可以記入每月服務費的一定百分比</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152676286-9fb6f456-74ae-459e-857a-0ee9b337de57.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152676286-9fb6f456-74ae-459e-857a-0ee9b337de57.png, https://user-images.githubusercontent.com/33840759/152676286-9fb6f456-74ae-459e-857a-0ee9b337de57.png 1.5x, https://user-images.githubusercontent.com/33840759/152676286-9fb6f456-74ae-459e-857a-0ee9b337de57.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152676286-9fb6f456-74ae-459e-857a-0ee9b337de57.png"
+        title="image" /></p>
+<blockquote>
+<p><em>SLA</em> 值越高, 每月遇到的停機時間越短, 如圖顯示在 <em>SLA</em> 值 99.9%部分, 每月最大停機時間為 43 分 49 秒, 這不代表每個月會停機停滿 43 分 49 秒, 那只意味著 只要 微軟 每月停機不超過 43 分 49 秒 即正在履行其可用性的合約義務</p>
+</blockquote>
+<h4 id="7221-影響-_slas_-的操作_actions-that-affect-slas_">7.2.2.1. 影響 <em>SLAs</em> 的操作(<em>Actions that affect SLAs</em>)</h4>
+<blockquote>
+<ul>
+<li>許多因素可能會提高或降低您的 SLA, 基於業務目標的設計決策將推動您的 <em>SLA</em> 目標</li>
+<li>複合 <em>SLA</em>(<em>Composite SLA</em>) : 多個服務, 將第一個資源的 <em>SLA</em> 乘上第二個資源</li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>降低您的 <em>SLA</em></p>
+<ul>
+<li>增加到解決方案中的服務越多, 因解決方案越複雜, <em>SLA</em> 也會隨之調降(因如果每項服務都是分數交互相乘後分數就會變的更小)</li>
+<li>選擇免費或非 <em>SLA</em> 服務(免費服務不提供 <em>SLA</em>)</li>
+</ul>
+</li>
+<li>
+<p>提高您的 <em>SLA</em></p>
+<ul>
+<li>可用性區域(是一種針對虛擬機器增加 <em>SLA</em> 的一種方式)</li>
+<li>冗餘構建</li>
+</ul>
+</li>
+</ol>
+<h4 id="7222-azure-預覽程式_azure-preview-program_">7.2.2.2. <code>Azure</code> 預覽程式(<em>Azure Preview Program</em>)</h4>
+<blockquote>
+<ul>
+<li>不提供與之相關的 <em>SLA</em></li>
+<li>請不要把預覽功能放進執行環境中</li>
+<li>預覽功能這些都是銷售任務的功能</li>
+<li>使用 <code>Azure</code> 預覽功能, 使用者可以測試 <em>Beta</em> 版和其他預發佈功能、產品、服務、軟體和區域，以提供反饋</li>
+</ul>
+</blockquote>
+<ul>
+<li>公共預覽版 : 所有 <code>Azure</code> 客戶都可以評估新功能</li>
+<li>正式發佈(<em>GA</em>) : 完成公共預覽版后, 所有客戶都可以使用該功能, 並且區域可用性會有所不同</li>
+</ul>
+<p><strong>只要是預覽就沒有任何類型的 <em>SLA</em> 及相關的 <em>SLA</em>, 且不要把它投入到執行環境中</strong><!-- raw HTML omitted -->
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152676972-bb4bbc4f-9c41-4ae5-a362-cdd602dbf85f.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152676972-bb4bbc4f-9c41-4ae5-a362-cdd602dbf85f.png, https://user-images.githubusercontent.com/33840759/152676972-bb4bbc4f-9c41-4ae5-a362-cdd602dbf85f.png 1.5x, https://user-images.githubusercontent.com/33840759/152676972-bb4bbc4f-9c41-4ae5-a362-cdd602dbf85f.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152676972-bb4bbc4f-9c41-4ae5-a362-cdd602dbf85f.png"
+        title="Azure Preview Program" /></p>
+<h4 id="7223-監視服務和功能更新_monitoring-service-and-feature-updates_httpstinyurlcomy8ne22wl">7.2.2.3. 監視服務和功能更新(<a href="https://tinyurl.com/y8ne22wl" target="_blank" rel="noopener noreffer"><em>Monitoring service and feature updates</em></a>)</h4>
+<blockquote>
+<p>如想知道在預覽功能時的狀態可以使用此服務, 有一個<code>Azure</code>更新頁面</p>
+</blockquote>
+<ul>
+<li><code>Azure</code> 更新提供有關 <code>Azure</code> 產品、服務和功能的資訊, 以及產品路線圖和可用性</li>
+<li>查看有關所有 <code>Azure</code> 更新及其狀態的詳細資訊</li>
+<li>瀏覽和搜尋更新</li>
+<li>訂閱 <em>RSS</em> 的 <code>Azure</code> 更新通知</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/152677182-0652fa6b-f8b1-4838-b1a4-cd242f156a7d.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/152677182-0652fa6b-f8b1-4838-b1a4-cd242f156a7d.png, https://user-images.githubusercontent.com/33840759/152677182-0652fa6b-f8b1-4838-b1a4-cd242f156a7d.png 1.5x, https://user-images.githubusercontent.com/33840759/152677182-0652fa6b-f8b1-4838-b1a4-cd242f156a7d.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/152677182-0652fa6b-f8b1-4838-b1a4-cd242f156a7d.png"
+        title="Monitoring service and feature updates" /></p>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

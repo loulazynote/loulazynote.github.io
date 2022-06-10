@@ -1,0 +1,26 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>WSL - 分類 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/categories/wsl/</link>
+        <description>WSL - 分類 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/wsl/" rel="self" type="application/rss+xml" /><item>
+    <title>關於WSL的設定檔 - 不可不知的眉角</title>
+    <link>https://loulazynote.github.io/posts/wsl2-config-note/</link>
+    <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/wsl2-config-note/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/173025439-95a74983-2194-4ff5-9f66-64eaaac44b75.png" referrerpolicy="no-referrer">
+            </div>❗這個設定檔很重要❗ ❗這個設定檔很重要❗ ❗這個設定檔很重要❗ 為什麼這麼說呢? 在前陣子我的電腦重灌後就遺忘了設定檔這件事，這幾天突然發現我的R]]></description>
+</item>
+<item>
+    <title>SQLServer use Docker image with WSL</title>
+    <link>https://loulazynote.github.io/note/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97/sqlserver-use-docker-image-with-wsl/</link>
+    <pubDate>Mon, 10 May 2021 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/note/%E5%AF%A6%E7%89%A9%E7%B6%93%E9%A9%97/sqlserver-use-docker-image-with-wsl/</guid>
+    <description><![CDATA[從 Microsoft Container Registry 提取 SQL Server 2019 Linux 容器映像 sudo docker pull mcr.microsoft.com/mssql/server:2019-latest 以 Docker 執行容器映像 1 2 3 sudo docker run -e &#34;ACCEPT_EULA=Y&#34; -e &#34;SA_PASSWORD=&lt;YourStrong@Passw0rd&gt;&#34; \ -p 1433:1433 --name DockerSQL -h DockerSQL \ -d mcr.microsoft.com/mssql/server:2019-latest 確認 Docker 是否正常 Run 起來 使用 SSMS 連結 Docker SQLServer 將 DB bak 檔複製進]]></description>
+</item>
+</channel>
+</rss>

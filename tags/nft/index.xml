@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>NFT - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/nft/</link>
+        <description>NFT - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/nft/" rel="self" type="application/rss+xml" /><item>
+    <title>NFT基本概念</title>
+    <link>https://loulazynote.github.io/note/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88/20220604_nft/</link>
+    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/note/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88/20220604_nft/</guid>
+    <description><![CDATA[What is NFT Non-Fungible Token 非同值化代幣 NFT 社群喜用 Discord 為社群 一套 NFT 就是一套 智能合約 (跑在區塊鏈的程式) 部署智能合約只需要 一個私鑰 無聊猿的 SourceCode: 1 2 // Mapping from token ID to owner address mappingg(uint256]]></description>
+</item>
+</channel>
+</rss>

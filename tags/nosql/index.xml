@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>NoSQL - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/nosql/</link>
+        <description>NoSQL - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/nosql/" rel="self" type="application/rss+xml" /><item>
+    <title>What is NoSQL</title>
+    <link>https://loulazynote.github.io/note/database-knowledge/nosql-note/</link>
+    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/note/database-knowledge/nosql-note/</guid>
+    <description><![CDATA[關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro]]></description>
+</item>
+</channel>
+</rss>

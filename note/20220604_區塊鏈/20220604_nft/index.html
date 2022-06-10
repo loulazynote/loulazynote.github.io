@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>NFT基本概念 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="NFT基本概念" />
+<meta property="og:description" content="What is NFT Non-Fungible Token 非同值化代幣 NFT 社群喜用 Discord 為社群 一套 NFT 就是一套 智能合約 (跑在區塊鏈的程式) 部署智能合約只需要 一個私鑰 無聊猿的 SourceCode: 1 2 // Mapping from token ID to owner address mappingg(uint256" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/note/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88/20220604_nft/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2022-06-10T17:26:15+08:00" />
+<meta property="article:modified_time" content="2022-06-10T17:26:15+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="NFT基本概念"/>
+<meta name="twitter:description" content="What is NFT Non-Fungible Token 非同值化代幣 NFT 社群喜用 Discord 為社群 一套 NFT 就是一套 智能合約 (跑在區塊鏈的程式) 部署智能合約只需要 一個私鑰 無聊猿的 SourceCode: 1 2 // Mapping from token ID to owner address mappingg(uint256"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/note/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88/20220604_nft/" /><link rel="prev" href="https://loulazynote.github.io/note/c#-%E5%9F%BA%E7%A4%8E%E8%A4%87%E7%BF%92/ooplearning/" /><link rel="next" href="https://loulazynote.github.io/note/20220104_azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/azure-%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98part_1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "NFT基本概念",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/note\/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88\/20220604_nft\/"
+        },"genre": "not-post-section","keywords": "NFT","wordcount":  241 ,
+        "url": "https:\/\/loulazynote.github.io\/note\/20220604_%E5%8D%80%E5%A1%8A%E9%8F%88\/20220604_nft\/","datePublished": "2022-06-10T17:26:15+08:00","dateModified": "2022-06-10T17:26:15+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">NFT基本概念</h1><div class="content" id="content"><h2 id="_what-is-nft_"><em>What is NFT</em></h2>
+<blockquote>
+<p><code>Non-Fungible Token</code> 非同值化代幣</p>
+</blockquote>
+<ul>
+<li>
+<p><em>NFT</em> 社群喜用 <em>Discord</em> 為社群</p>
+</li>
+<li>
+<p>一套 <em>NFT</em> 就是一套 <strong>智能合約</strong> (跑在區塊鏈的程式)</p>
+<ul>
+<li>
+<p>部署智能合約只需要 <strong>一個私鑰</strong></p>
+</li>
+<li>
+<p>無聊猿的 SourceCode:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">  <span class="c1">// Mapping from token ID to owner address</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mappingg</span><span class="p">(</span><span class="n">uint256</span> <span class="p">=&gt;</span> <span class="n">address</span><span class="p">)</span> <span class="k">private</span> <span class="m">_</span><span class="n">owners</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p><em>NFT</em> 可以是任何東西, 但本身就是一個程式</p>
+</li>
+<li>
+<p><em>NFT</em> 所屬的智能合約部署後就不能改動</p>
+</li>
+<li>
+<p><code>proxy</code>的智能合約可以已限制的狀況下可以改動</p>
+</li>
+</ul>
+<h3 id="where-is-the-value-of-_nft_-">Where is the value of <em>NFT</em> ?</h3>
+<ul>
+<li>Like LV Brand Bag.</li>
+</ul>
+<h2 id="use-opensea-to-deploy-_nft_">Use Opensea to deploy <em>NFT</em></h2>
+<h3 id="step">Step</h3>
+<ol>
+<li>Use Metamask</li>
+<li>Sign in Opensea</li>
+<li>Click</li>
+</ol>
+<h2 id="what-is-_opensea-nft_-different">What is <em>Opensea NFT</em> different?</h2>
+<ul>
+<li><em>Opensea&rsquo;s NFT</em>
+<ul>
+<li>所有 <em>Collection</em> 共享一個智能合約</li>
+<li>出了 <em>Opensea</em> 就沒有 <em>Collection</em> 的資訊</li>
+<li>半中心化</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>mint</em> 有鑄造的意思</p>
+</blockquote>
+<ul>
+<li>真實 <em>NFT</em> 的發行三要素
+<ul>
+<li>工程</li>
+<li>美術</li>
+<li>行銷</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>WEB3 的行銷人員 會英文 約200美/週 不會 約300美/週
+智能合約 關鍵字 <code>hardhat</code></p>
+</blockquote>
+</div><div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>OOP - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/oop/</link>
+        <description>OOP - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/oop/" rel="self" type="application/rss+xml" /><item>
+    <title>OOP 物件導向學習筆記</title>
+    <link>https://loulazynote.github.io/note/c#-%E5%9F%BA%E7%A4%8E%E8%A4%87%E7%BF%92/ooplearning/</link>
+    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/note/c#-%E5%9F%BA%E7%A4%8E%E8%A4%87%E7%BF%92/ooplearning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
