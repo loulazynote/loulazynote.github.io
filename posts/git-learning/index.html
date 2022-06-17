@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/git-learning\/"
-        },"genre": "posts","keywords": "Git","wordcount":  1285 ,
+        },"genre": "posts","keywords": "Git","wordcount":  1287 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/git-learning\/","datePublished": "2022-06-08T23:20:17+08:00","dateModified": "2022-06-08T23:20:17+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git 學習筆記</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-08">2022-06-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1285 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-08">2022-06-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1287 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -199,8 +199,10 @@
 <li>
 <p><code>--name-status</code> = 列出工作目錄及索引之間有多少檔案是被異動的</p>
 <blockquote>
-<p><code>git diff 'src-commit' 'tgt-commit'</code> commit 與 commit 比較差異
-<code>git diff 'commit'</code> 與目標 commit 差異</p>
+<ul>
+<li><code>git diff 'src-commit' 'tgt-commit'</code> commit 與 commit 比較差異</li>
+<li><code>git diff 'commit'</code> 與目標 commit 差異</li>
+</ul>
 </blockquote>
 </li>
 </ul>
@@ -224,8 +226,10 @@
 <h3 id="git-clone"><code>git clone</code></h3>
 <p><em>下載遠端儲存庫</em></p>
 <blockquote>
-<p><code>git clone --no-checkout 'URL' 'Filename'</code> 會以 filename 為主並且不做 checkout
-<code>git clone --bare 'url'</code> 把儲存庫的本身下載下來</p>
+<ul>
+<li><code>git clone --no-checkout 'URL' 'Filename'</code> 會以 filename 為主並且不做 checkout</li>
+<li><code>git clone --bare 'url'</code> 把儲存庫的本身下載下來</li>
+</ul>
 </blockquote>
 <h3 id="git-log"><code>git log</code></h3>
 <p><em>看紀錄</em></p>
@@ -286,9 +290,11 @@
 <li>
 <p><code>-a</code> = 列出所有遠端+本地分支</p>
 <blockquote>
-<p><code>git branch --merged</code> 列出所有已合併過的分支
-<code>git branch --no-merged</code> 列出所有未合併過的分支
-<code>git branch --merged | egrep -v &quot;(^\*|master|develop)&quot; | xargs git branch -d</code> 刪除所有已合併過的分支(CMD/Powershell 不可用)</p>
+<ul>
+<li><code>git branch --merged</code> 列出所有已合併過的分支</li>
+<li><code>git branch --no-merged</code> 列出所有未合併過的分支</li>
+<li><code>git branch --merged | egrep -v &quot;(^\*|master|develop)&quot; | xargs git branch -d</code> 刪除所有已合併過的分支(CMD/Powershell 不可用)</li>
+</ul>
 </blockquote>
 </li>
 </ul>
@@ -322,7 +328,7 @@
 <ul>
 <li><code>-i</code></li>
 <li><code>--continue</code> = 繼續</li>
-<li><code>--skip</code> =</li>
+<li><code>--skip</code> = 跳過</li>
 <li><code>--abort</code> = 取消</li>
 </ul>
 <h3 id="git-cherry-pick"><code>git cherry-pick</code></h3>
@@ -338,8 +344,10 @@
 <li>
 <p><code>--all</code> = 全部分支推送</p>
 <blockquote>
-<p><code>git push -u origin master</code> 將本地分支(master)與遠端分支(origin)建立連結
-<code>git push origin --delete</code> &lsquo;branchName&rsquo; 刪除遠端分支(要先把本地刪除)</p>
+<ul>
+<li><code>git push -u origin master</code> 將本地分支(master)與遠端分支(origin)建立連結</li>
+<li><code>git push origin --delete</code> &lsquo;branchName&rsquo; 刪除遠端分支(要先把本地刪除)</li>
+</ul>
 </blockquote>
 </li>
 </ul>
@@ -351,8 +359,10 @@
 <h3 id="git-pull"><code>git pull</code></h3>
 <p><em>將遠端儲存庫拉下來</em></p>
 <blockquote>
-<p><code>pull</code> = <code>git fetch</code> + <code>git merge</code>
-<code>git pull --rebase</code> = <code>git fetch</code> + <code>git rebase</code></p>
+<ul>
+<li><code>pull</code> = <code>git fetch</code> + <code>git merge</code></li>
+<li><code>git pull --rebase</code> = <code>git fetch</code> + <code>git rebase</code></li>
+</ul>
 </blockquote>
 <h3 id="git-remote"><code>git remote</code></h3>
 <p><em>遠端</em></p>
@@ -398,10 +408,12 @@
 <p>git bash 以外的環境要改中文
 <code>set LC_ALL=C.UTF-8</code></p>
 <blockquote>
-<p>更改環境變數 (永久儲存)
-<code>setx LC_ALL C.UTF-8</code>
-MAC/Linux
-<code>export LC_ALL=C.UTF-8</code></p>
+<ul>
+<li>更改環境變數 (永久儲存)
+<code>setx LC_ALL C.UTF-8</code></li>
+<li>MAC/Linux
+<code>export LC_ALL=C.UTF-8</code></li>
+</ul>
 </blockquote>
 </li>
 </ul>
