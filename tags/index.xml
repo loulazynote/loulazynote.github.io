@@ -5,14 +5,6 @@
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
             <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Azure</title>
-    <link>https://loulazynote.github.io/tags/azure/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/azure/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>C#</title>
     <link>https://loulazynote.github.io/tags/c#/</link>
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
@@ -21,51 +13,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>MongoDB</title>
-    <link>https://loulazynote.github.io/tags/mongodb/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/mongodb/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>NFT</title>
-    <link>https://loulazynote.github.io/tags/nft/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/nft/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>NoSQL</title>
-    <link>https://loulazynote.github.io/tags/nosql/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/nosql/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>OOP</title>
     <link>https://loulazynote.github.io/tags/oop/</link>
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/oop/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>RDBMS</title>
-    <link>https://loulazynote.github.io/tags/rdbms/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/rdbms/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>SQL</title>
-    <link>https://loulazynote.github.io/tags/sql/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/sql/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -82,6 +34,54 @@
     <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/windows/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>WSL</title>
+    <link>https://loulazynote.github.io/tags/wsl/</link>
+    <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/wsl/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Basic Level</title>
+    <link>https://loulazynote.github.io/tags/basic-level/</link>
+    <pubDate>Thu, 09 Jun 2022 22:37:31 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/basic-level/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>C＃</title>
+    <link>https://loulazynote.github.io/tags/c/</link>
+    <pubDate>Thu, 09 Jun 2022 22:37:31 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/c/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Kerberos</title>
+    <link>https://loulazynote.github.io/tags/kerberos/</link>
+    <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/kerberos/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Asp.Net MVC</title>
+    <link>https://loulazynote.github.io/tags/asp.net-mvc/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/asp.net-mvc/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Git</title>
+    <link>https://loulazynote.github.io/tags/git/</link>
+    <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/git/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
