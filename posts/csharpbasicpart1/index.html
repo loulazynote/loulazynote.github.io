@@ -126,7 +126,13 @@
             <li><a href="#變數宣告中指定類型">變數宣告中指定類型</a></li>
             <li><a href="#內建類型">內建類型</a></li>
             <li><a href="#自訂類型">自訂類型</a></li>
-            <li><a href="#一般型別系統_cts_">一般型別系統(<em>CTS</em>)</a></li>
+            <li><a href="#一般型別系統_cts_">一般型別系統(<em>CTS</em>)</a>
+              <ul>
+                <li><a href="#類別是參考型別">類別是參考型別</a></li>
+                <li><a href="#結構是實值型別">結構是實值型別</a></li>
+                <li><a href="#記錄類型可以是參考型別record-class或實值型別record-struct">記錄類型可以是參考型別(<code>record class</code>)或實值型別(<code>record struct</code>)</a></li>
+              </ul>
+            </li>
             <li><a href="#值類型">值類型</a></li>
             <li><a href="#參考型別httpstinyurlcom2j9vb5wj"><a href="https://tinyurl.com/2j9vb5wj">參考型別</a></a></li>
             <li><a href="#泛型類型">泛型類型</a></li>
@@ -142,13 +148,32 @@
         <li><a href="#類別">類別</a></li>
         <li><a href="#記錄">記錄</a>
           <ul>
-            <li><a href="#使用記錄的時機">使用記錄的時機</a></li>
-            <li><a href="#記錄與類別和結構有何不同">記錄與類別和結構有何不同</a></li>
+            <li><a href="#使用記錄的時機">使用記錄的時機</a>
+              <ul>
+                <li><a href="#實值相等">實值相等</a></li>
+                <li><a href="#不變性">不變性</a></li>
+              </ul>
+            </li>
+            <li><a href="#記錄與類別和結構有何不同">記錄與類別和結構有何不同</a>
+              <ul>
+                <li><a href="#example">Example</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li><a href="#介面定義多個類型的行為">介面(定義多個類型的行為)</a>
           <ul>
-            <li></li>
+            <li>
+              <ul>
+                <li><a href="#example-1">Example</a>
+                  <ul>
+                    <li><a href="#如果類別實作兩個具有相同簽章成員的介面則在類別上實作該成員會造成這兩個介面都使用該成員進行實作">如果類別實作兩個具有相同簽章成員的介面，則在類別上實作該成員會造成這兩個介面都使用該成員進行實作</a></li>
+                    <li><a href="#若要同時執行這兩個介面類別必須使用明確的實作為屬性-p-或方法-p-或兩者以避免編譯器錯誤">若要同時執行這兩個介面，類別必須使用明確的實作為屬性 P 或方法 P （或兩者），以避免編譯器錯誤</a></li>
+                    <li><a href="#從-c--80開始可以為介面中所宣告的成員定義實作為">從 c # 8.0開始，可以為介面中所宣告的成員定義實作為</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li><a href="#泛型">泛型</a>
