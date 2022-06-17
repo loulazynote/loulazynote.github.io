@@ -6,11 +6,13 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
             <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/c#/" rel="self" type="application/rss+xml" /><item>
     <title>OOP 物件導向學習筆記</title>
-    <link>https://loulazynote.github.io/note/c#-%E5%9F%BA%E7%A4%8E%E8%A4%87%E7%BF%92/ooplearning/</link>
+    <link>https://loulazynote.github.io/posts/ooplearning/</link>
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
     <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/note/c#-%E5%9F%BA%E7%A4%8E%E8%A4%87%E7%BF%92/ooplearning/</guid>
-    <description><![CDATA[]]></description>
+    <guid>https://loulazynote.github.io/posts/ooplearning/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/174276650-199850f5-64a2-455e-95fa-3eb26faa9acf.png" referrerpolicy="no-referrer">
+            </div>物件導向四大原則 封裝(Encapsulation) 封裝（Encapsulation）在物件導向程式設計中是用來將資料與函式的實作內容包裝、隱]]></description>
 </item>
 </channel>
 </rss>

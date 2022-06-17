@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/posts/</link>
         <description>所有文章 | The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>OOP 物件導向學習筆記</title>
+    <link>https://loulazynote.github.io/posts/ooplearning/</link>
+    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/ooplearning/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/174276650-199850f5-64a2-455e-95fa-3eb26faa9acf.png" referrerpolicy="no-referrer">
+            </div>物件導向四大原則 封裝(Encapsulation) 封裝（Encapsulation）在物件導向程式設計中是用來將資料與函式的實作內容包裝、隱]]></description>
+</item>
+<item>
     <title>關於WSL的設定檔 - 不可不知的眉角</title>
     <link>https://loulazynote.github.io/posts/wsl2-config-note/</link>
     <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
