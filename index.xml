@@ -4,9 +4,19 @@
         <link>https://loulazynote.github.io/</link>
         <description>Take notes. Do whatever I want.</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</lastBuildDate>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</lastBuildDate>
             <atom:link href="https://loulazynote.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>ValueInjecter@3.2.0 簡單用法</title>
+    <link>https://loulazynote.github.io/posts/valueinjecter_meta/</link>
+    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/valueinjecter_meta/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/176204169-641d7ace-e7b9-4ee8-83a4-1b7f0b3300cc.png" referrerpolicy="no-referrer">
+            </div>基本用法 一般對應 var mapper = Mapper.Map&lt;TargetType&gt;(customer); var mapper = Mapper.Map&lt;FromType, TargetType&gt;(customer); 客製化對應 1 2 3 4 5 6 7 Mapper.AddMap&lt;FromType, TargetType&gt;(src =&gt; { var res = new TargetType(); res.InjectFrom(src); // 對應相同名字及型別的屬性 res.FullName = src.FirstName + &#34; &#34; + src.LastName; return res; }); InjectFrom 的用法 Inj]]></description>
+</item>
+<item>
     <title>What is NoSQL</title>
     <link>https://loulazynote.github.io/posts/nosql-knowledge/</link>
     <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>

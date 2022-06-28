@@ -2,18 +2,24 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/asp.net-core/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/asp.net-core/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/c#/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/c/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/tools/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/valueinjecter/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/valueinjecter_meta/</loc><lastmod>2022-06-28T20:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/database/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/mongodb/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/nosql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/rdbms/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/sql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/sql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/nosql-knowledge/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/c#/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/c#/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/learning/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/oop/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
@@ -26,7 +32,6 @@
             <loc>https://loulazynote.github.io/posts/wsl2-config-note/</loc><lastmod>2022-06-10T15:25:49&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/basic-level/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/c/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/c/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/csharpbasicpart1/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>

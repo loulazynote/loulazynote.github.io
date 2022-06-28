@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
-	<meta name="generator" content="Hugo 0.100.1" />
+	<meta name="generator" content="Hugo 0.101.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -99,6 +99,20 @@
         alt="/images/logo.png"
         title="/images/logo.png" /></a></div><h1 class="home-title">懶散的工程師 Lou</h1><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"><a href="https://github.com/loulazynote" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw" aria-hidden="true"></i></a><a href="https://twitter.com/Lou_Chang" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="https://www.instagram.com/mister_lou_" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw" aria-hidden="true"></i></a><a href="https://facebook.com/louDeveloper" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw" aria-hidden="true"></i></a><a href="/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw" aria-hidden="true"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/posts/valueinjecter_meta/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png, https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png 1.5x, https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png"
+        title="https://user-images.githubusercontent.com/33840759/176204868-5ed462b1-8c10-4a60-bfc2-dcf14ac93f5a.png" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/valueinjecter_meta/">ValueInjecter@3.2.0 簡單用法</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2022-06-28">2022-06-28</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>C＃</a>&nbsp;<a href="/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a></span></div><div class="content">基本用法 一般對應 var mapper = Mapper.Map&lt;TargetType&gt;(customer); var mapper = Mapper.Map&lt;FromType, TargetType&gt;(customer); 客製化對應 1 2 3 4 5 6 7 Mapper.AddMap&lt;FromType, TargetType&gt;(src =&gt; { var res = new TargetType(); res.InjectFrom(src); // 對應相同名字及型別的屬性 res.FullName = src.FirstName + &#34; &#34; + src.LastName; return res; }); InjectFrom 的用法 Inj</div><div class="post-footer">
+        <a href="/posts/valueinjecter_meta/">閱讀全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/c/">C＃</a>,&nbsp;<a href="/tags/valueinjecter/">ValueInjecter</a>,&nbsp;<a href="/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/tags/tools/">Tools</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/posts/nosql-knowledge/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -168,20 +182,6 @@
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2022-06-09">2022-06-09</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/kerberos/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Kerberos</a></span></div><div class="content">Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC</div><div class="post-footer">
         <a href="/posts/single-sign-on-with-kerberos/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/kerberos/">Kerberos</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/posts/mvc5_meta/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg"
-        data-srcset="https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg, https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg 1.5x, https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg 2x"
-        data-sizes="auto"
-        alt="https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg"
-        title="https://user-images.githubusercontent.com/33840759/174330059-8ba48a5a-6792-4a53-8a6d-f75fbccac997.jpg" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/mvc5_meta/">MVC 5 filter</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2022-06-09">2022-06-09</time></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>C＃</a>&nbsp;<a href="/categories/maintain/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Maintain</a>&nbsp;<a href="/categories/asp.net/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Asp.Net</a></span></div><div class="content">Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil</div><div class="post-footer">
-        <a href="/posts/mvc5_meta/">閱讀全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/asp.net-mvc/">Asp.Net MVC</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>

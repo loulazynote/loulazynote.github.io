@@ -4,7 +4,39 @@
         <link>https://loulazynote.github.io/tags/</link>
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ASP.NET Core</title>
+    <link>https://loulazynote.github.io/tags/asp.net-core/</link>
+    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/asp.net-core/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>C#</title>
+    <link>https://loulazynote.github.io/tags/c#/</link>
+    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/c#/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Tools</title>
+    <link>https://loulazynote.github.io/tags/tools/</link>
+    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/tools/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>ValueInjecter</title>
+    <link>https://loulazynote.github.io/tags/valueinjecter/</link>
+    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/valueinjecter/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>MongoDB</title>
     <link>https://loulazynote.github.io/tags/mongodb/</link>
     <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>
@@ -37,14 +69,6 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>C#</title>
-    <link>https://loulazynote.github.io/tags/c#/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/c#/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>OOP</title>
     <link>https://loulazynote.github.io/tags/oop/</link>
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/docker/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Windows</title>
-    <link>https://loulazynote.github.io/tags/windows/</link>
-    <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/windows/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>WSL</title>
-    <link>https://loulazynote.github.io/tags/wsl/</link>
-    <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/wsl/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Basic Level</title>
-    <link>https://loulazynote.github.io/tags/basic-level/</link>
-    <pubDate>Thu, 09 Jun 2022 22:37:31 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/basic-level/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
