@@ -4,10 +4,10 @@
         <link>https://loulazynote.github.io/categories/</link>
         <description>Categories - 分類 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
     <title>ASP.NET Core</title>
     <link>https://loulazynote.github.io/categories/asp.net-core/</link>
-    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/asp.net-core/</guid>
     <description><![CDATA[]]></description>
@@ -15,9 +15,17 @@
 <item>
     <title>C＃</title>
     <link>https://loulazynote.github.io/categories/c/</link>
-    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/c/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Learning</title>
+    <link>https://loulazynote.github.io/categories/learning/</link>
+    <pubDate>Tue, 05 Jul 2022 19:08:13 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/learning/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -42,14 +50,6 @@
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/c#/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Learning</title>
-    <link>https://loulazynote.github.io/categories/learning/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/categories/learning/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

@@ -4,10 +4,10 @@
         <link>https://loulazynote.github.io/tags/</link>
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>ASP.NET Core</title>
     <link>https://loulazynote.github.io/tags/asp.net-core/</link>
-    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/asp.net-core/</guid>
     <description><![CDATA[]]></description>
@@ -15,15 +15,23 @@
 <item>
     <title>C#</title>
     <link>https://loulazynote.github.io/tags/c#/</link>
-    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/c#/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
+    <title>SeriLog</title>
+    <link>https://loulazynote.github.io/tags/serilog/</link>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/serilog/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Tools</title>
     <link>https://loulazynote.github.io/tags/tools/</link>
-    <pubDate>Tue, 28 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <pubDate>Tue, 05 Jul 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/tools/</guid>
     <description><![CDATA[]]></description>
@@ -74,14 +82,6 @@
     <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/oop/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Docker</title>
-    <link>https://loulazynote.github.io/tags/docker/</link>
-    <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/docker/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

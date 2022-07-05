@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>SeriLog 設定之眉角 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="SeriLog 設定之眉角" />
+<meta property="og:description" content="Installation 用 NuGet 搜尋 Serilog.AspNetCore安裝套件 在 Program.cs 加入設定 1 2 3 4 5 6 7 Log.Logger = new LoggerConfiguration() .MinimumLevel.Override(&#34;Microsoft&#34;, LogEventLevel.Warning) .MinimumLevel.Override(&#34;System&#34;, LogEventLevel.Warning)/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/posts/serilogusage/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-05T20:22:05+08:00" />
+<meta property="article:modified_time" content="2022-07-05T20:22:05+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="SeriLog 設定之眉角"/>
+<meta name="twitter:description" content="Installation 用 NuGet 搜尋 Serilog.AspNetCore安裝套件 在 Program.cs 加入設定 1 2 3 4 5 6 7 Log.Logger = new LoggerConfiguration() .MinimumLevel.Override(&#34;Microsoft&#34;, LogEventLevel.Warning) .MinimumLevel.Override(&#34;System&#34;, LogEventLevel.Warning)/"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/serilogusage/" /><link rel="prev" href="https://loulazynote.github.io/posts/valueinjecter_meta/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SeriLog 設定之眉角",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/posts\/serilogusage\/"
+        },"genre": "posts","keywords": "C#, ASP.NET Core, Tools, SeriLog","wordcount":  508 ,
+        "url": "https:\/\/loulazynote.github.io\/posts\/serilogusage\/","datePublished": "2022-07-05T20:22:05+08:00","dateModified": "2022-07-05T20:22:05+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SeriLog 設定之眉角</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/c/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>C＃</a>&nbsp;<a href="/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-05">2022-07-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 508 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png, https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png 1.5x, https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png"
+        title="https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>用 NuGet 搜尋 <code>Serilog.AspNetCore</code>安裝套件
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png, https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png 1.5x, https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png"
+        title="image" /></p>
+</li>
+<li>
+<p>在 <code>Program.cs</code> 加入設定
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133586930-a45ee783-cb57-4b13-a7a7-7c1e376a02f7.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133586930-a45ee783-cb57-4b13-a7a7-7c1e376a02f7.png, https://user-images.githubusercontent.com/33840759/133586930-a45ee783-cb57-4b13-a7a7-7c1e376a02f7.png 1.5x, https://user-images.githubusercontent.com/33840759/133586930-a45ee783-cb57-4b13-a7a7-7c1e376a02f7.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133586930-a45ee783-cb57-4b13-a7a7-7c1e376a02f7.png"
+        title="image" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">Log</span><span class="p">.</span><span class="n">Logger</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LoggerConfiguration</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;Microsoft&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;System&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span><span class="c1">//使用MinimumLevel 來設定 LogLevel 層級,如果來源為 Microsoft 及 系統的訊息 則LogLevel 層級為 警告</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">Console</span><span class="p">(</span><span class="k">new</span> <span class="n">RenderedCompactJsonFormatter</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">File</span><span class="p">(</span><span class="k">new</span> <span class="n">CompactJsonFormatter</span><span class="p">().</span><span class="n">ToString</span><span class="p">())</span><span class="c1">//Output templates, 輸出至Console及檔案</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">Enrich</span><span class="p">.</span><span class="n">FromLogContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">CreateLogger</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>CompactJsonFormatter</code> 將保留消息模板、屬性和格式信息，以便稍後可以創建呈現的消息。當 JSON 旨在在沒有消息模板呈現的環境中使用時，可以改用 <code>RenderedCompactJsonFormatter</code>。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133590800-8d9a8ca5-5331-40ff-89c1-b9f54268ed93.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133590800-8d9a8ca5-5331-40ff-89c1-b9f54268ed93.png, https://user-images.githubusercontent.com/33840759/133590800-8d9a8ca5-5331-40ff-89c1-b9f54268ed93.png 1.5x, https://user-images.githubusercontent.com/33840759/133590800-8d9a8ca5-5331-40ff-89c1-b9f54268ed93.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133590800-8d9a8ca5-5331-40ff-89c1-b9f54268ed93.png"
+        title="image" />
+<code>loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration)</code> : 讀取現在的<code>Configuration</code></p>
+</li>
+<li>
+<p><code>appsetting.json</code> 加入設定
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133589515-29a327c2-f30e-4853-9cb7-52ce4b74037f.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133589515-29a327c2-f30e-4853-9cb7-52ce4b74037f.png, https://user-images.githubusercontent.com/33840759/133589515-29a327c2-f30e-4853-9cb7-52ce4b74037f.png 1.5x, https://user-images.githubusercontent.com/33840759/133589515-29a327c2-f30e-4853-9cb7-52ce4b74037f.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133589515-29a327c2-f30e-4853-9cb7-52ce4b74037f.png"
+        title="image" /></p>
+<ul>
+<li><code>Microsoft.Hosting.Lifetime</code> : 應用程式生命週期事件的通知</li>
+<li><code>Microsoft.EntityFrameworkCore.Database.Command</code> : 紀錄 EF Core 自動產生的 SQL 命令</li>
+</ul>
+</li>
+<li>
+<p><code>Startup.cs</code> 設定
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133591350-7ed75a24-714f-49ee-acc7-9cfea26737d5.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133591350-7ed75a24-714f-49ee-acc7-9cfea26737d5.png, https://user-images.githubusercontent.com/33840759/133591350-7ed75a24-714f-49ee-acc7-9cfea26737d5.png 1.5x, https://user-images.githubusercontent.com/33840759/133591350-7ed75a24-714f-49ee-acc7-9cfea26737d5.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133591350-7ed75a24-714f-49ee-acc7-9cfea26737d5.png"
+        title="image" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">app</span><span class="p">.</span><span class="n">UseSerilogRequestLogging</span><span class="p">(</span><span class="n">options</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// Customize the message template</span>
+</span></span><span class="line"><span class="cl">             <span class="n">options</span><span class="p">.</span><span class="n">MessageTemplate</span> <span class="p">=</span> <span class="s">&#34;Handled {RequestPath}&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">             <span class="c1">// Emit debug-level events instead of the defaults</span>
+</span></span><span class="line"><span class="cl">             <span class="n">options</span><span class="p">.</span><span class="n">GetLevel</span> <span class="p">=</span> <span class="p">(</span><span class="n">httpContext</span><span class="p">,</span> <span class="n">elapsed</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Debug</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">             <span class="c1">// Attach additional properties to the request completion event</span>
+</span></span><span class="line"><span class="cl">             <span class="n">options</span><span class="p">.</span><span class="n">EnrichDiagnosticContext</span> <span class="p">=</span> <span class="p">(</span><span class="n">diagnosticContext</span><span class="p">,</span> <span class="n">httpContext</span><span class="p">)</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">diagnosticContext</span><span class="p">.</span><span class="n">Set</span><span class="p">(</span><span class="s">&#34;RequestHost&#34;</span><span class="p">,</span> <span class="n">httpContext</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Host</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">diagnosticContext</span><span class="p">.</span><span class="n">Set</span><span class="p">(</span><span class="s">&#34;RequestScheme&#34;</span><span class="p">,</span> <span class="n">httpContext</span><span class="p">.</span><span class="n">Request</span><span class="p">.</span><span class="n">Scheme</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="p">};</span>
+</span></span><span class="line"><span class="cl">         <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="usage">Usage</h2>
+<ol>
+<li>
+<p>在需要的地方加入 log</p>
+<ol>
+<li>先 using <code>Microsoft.Extensions.Logging</code></li>
+<li>加入建構式
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133592365-f6999f05-a23d-46a9-b4c6-92aa37d59464.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133592365-f6999f05-a23d-46a9-b4c6-92aa37d59464.png, https://user-images.githubusercontent.com/33840759/133592365-f6999f05-a23d-46a9-b4c6-92aa37d59464.png 1.5x, https://user-images.githubusercontent.com/33840759/133592365-f6999f05-a23d-46a9-b4c6-92aa37d59464.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133592365-f6999f05-a23d-46a9-b4c6-92aa37d59464.png"
+        title="image" /></li>
+<li>在需要 log 的部分加入 log 記錄
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133592580-aa25b116-f21f-4315-a60c-ff8b54ba8a77.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133592580-aa25b116-f21f-4315-a60c-ff8b54ba8a77.png, https://user-images.githubusercontent.com/33840759/133592580-aa25b116-f21f-4315-a60c-ff8b54ba8a77.png 1.5x, https://user-images.githubusercontent.com/33840759/133592580-aa25b116-f21f-4315-a60c-ff8b54ba8a77.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133592580-aa25b116-f21f-4315-a60c-ff8b54ba8a77.png"
+        title="image" />
+<blockquote>
+<p>可以自訂訊息等級
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/133593069-74b65aef-44bc-4cd8-946f-0edb50a0a159.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/133593069-74b65aef-44bc-4cd8-946f-0edb50a0a159.png, https://user-images.githubusercontent.com/33840759/133593069-74b65aef-44bc-4cd8-946f-0edb50a0a159.png 1.5x, https://user-images.githubusercontent.com/33840759/133593069-74b65aef-44bc-4cd8-946f-0edb50a0a159.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/133593069-74b65aef-44bc-4cd8-946f-0edb50a0a159.png"
+        title="image" /></p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>
+<p>因在<code>Program.cs</code>及<code>appsetting.json</code>有加入設定,其餘 System 的操作及 Database 的讀取皆會被 log 下來
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177325685-4459ae33-4eba-446f-843d-8dfa075e401a.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177325685-4459ae33-4eba-446f-843d-8dfa075e401a.png, https://user-images.githubusercontent.com/33840759/177325685-4459ae33-4eba-446f-843d-8dfa075e401a.png 1.5x, https://user-images.githubusercontent.com/33840759/177325685-4459ae33-4eba-446f-843d-8dfa075e401a.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177325685-4459ae33-4eba-446f-843d-8dfa075e401a.png"
+        title="image" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177326054-00631a19-c92d-468c-b060-acb5aab39591.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177326054-00631a19-c92d-468c-b060-acb5aab39591.png, https://user-images.githubusercontent.com/33840759/177326054-00631a19-c92d-468c-b060-acb5aab39591.png 1.5x, https://user-images.githubusercontent.com/33840759/177326054-00631a19-c92d-468c-b060-acb5aab39591.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177326054-00631a19-c92d-468c-b060-acb5aab39591.png"
+        title="image" /></p>
+</li>
+</ol>
+<h2 id="參考資料">參考資料</h2>
+<ol>
+<li><a href="https://tinyurl.com/yfq24pmk" target="_blank" rel="noopener noreffer">Github - serilog-aspnetcore</a></li>
+<li><a href="https://tinyurl.com/yj4kvqgu" target="_blank" rel="noopener noreffer">Github - Serilog.Formatting.Compact</a></li>
+<li><a href="https://tinyurl.com/yffdxzrq" target="_blank" rel="noopener noreffer">Microsoft - .NET Core 與 ASP.NET Core 中的記錄</a></li>
+<li><a href="https://tinyurl.com/yjsjsmdh" target="_blank" rel="noopener noreffer">WilL Blog - ASP.NET Core 如何紀錄 Entity Framework Core 5.0 自動產生的 SQL 命令</a></li>
+<li><a href="https://tinyurl.com/y3ujh2vf" target="_blank" rel="noopener noreffer">m@rcus 學習筆記 - [NETCore] 結構化日誌 Serilog - 配置設定</a></li>
+<li><a href="https://tinyurl.com/yej7xtfu" target="_blank" rel="noopener noreffer">C# Corner - How To Implement Logging Using Serilog In ASP.NET Core 5.0 Application With Database</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-07-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/serilogusage/" data-title="SeriLog 設定之眉角" data-via="Lou_Chang" data-hashtags="C#,ASP.NET Core,Tools,SeriLog"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/serilogusage/" data-hashtag="C#"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/serilogusage/" data-title="SeriLog 設定之眉角"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/c/">C＃</a>,&nbsp;<a href="/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/tags/tools/">Tools</a>,&nbsp;<a href="/tags/serilog/">SeriLog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/valueinjecter_meta/" class="prev" rel="prev" title="ValueInjecter@3.2.0 簡單用法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>ValueInjecter@3.2.0 簡單用法</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>
