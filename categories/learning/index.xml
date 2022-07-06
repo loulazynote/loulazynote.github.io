@@ -4,13 +4,15 @@
         <link>https://loulazynote.github.io/categories/learning/</link>
         <description>Learning - 分類 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 05 Jul 2022 19:08:13 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/learning/" rel="self" type="application/rss+xml" /><item>
-    <title>MicrosoftPowerPlatformInfo</title>
-    <link>https://loulazynote.github.io/note/microsoftpowerplatforminfo/</link>
-    <pubDate>Tue, 05 Jul 2022 19:08:13 &#43;0800</pubDate>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/learning/" rel="self" type="application/rss+xml" /><item>
+    <title>認識微軟生產力平台 - Microsoft Power Platform</title>
+    <link>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</link>
+    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/note/microsoftpowerplatforminfo/</guid>
-    <description><![CDATA[Test ]]></description>
+    <guid>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/177532467-0549fc5d-a2ad-4a92-a230-da97ae0eba46.png" referrerpolicy="no-referrer">
+            </div>Microsoft Power Platform是什麼? Power Platform是微軟的一個 SaaS 的雲端服務, 看字面感覺很陌生對吧? 其實就是由四種產品整合成的平台, 這四種產品分別]]></description>
 </item>
 <item>
     <title>OOP 物件導向學習筆記</title>
