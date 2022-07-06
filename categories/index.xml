@@ -29,11 +29,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>C＃</title>
-    <link>https://loulazynote.github.io/categories/c/</link>
+    <title>C#</title>
+    <link>https://loulazynote.github.io/categories/c#/</link>
     <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/categories/c/</guid>
+    <guid>https://loulazynote.github.io/categories/c#/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -50,14 +50,6 @@
     <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/sql/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>C#</title>
-    <link>https://loulazynote.github.io/categories/c#/</link>
-    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/categories/c#/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -82,6 +74,14 @@
     <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/kerberos/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Asp.Net</title>
+    <link>https://loulazynote.github.io/categories/asp.net/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/asp.net/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
