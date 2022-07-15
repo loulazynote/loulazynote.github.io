@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/posts/</link>
         <description>所有文章 | The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Microsoft Dataverse概觀</title>
+    <link>https://loulazynote.github.io/posts/microsoft_dataverse_intro/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/microsoft_dataverse_intro/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
+            </div>什麼是Dataverse? Dataverse是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建]]></description>
+</item>
+<item>
     <title>認識微軟生產力平台 - Microsoft Power Platform</title>
     <link>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</link>
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
@@ -93,16 +103,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172867969-536885e4-152e-423b-9ca6-026634e4fd7e.jpg" referrerpolicy="no-referrer">
             </div>Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil]]></description>
-</item>
-<item>
-    <title>Git 學習筆記</title>
-    <link>https://loulazynote.github.io/posts/git-learning/</link>
-    <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/posts/git-learning/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Microsoft Dataverse概觀 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Microsoft Dataverse概觀" />
+<meta property="og:description" content="什麼是Dataverse? Dataverse是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-07T18:00:00+08:00" />
+<meta property="article:modified_time" content="2022-07-07T18:00:00+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="Microsoft Dataverse概觀"/>
+<meta name="twitter:description" content="什麼是Dataverse? Dataverse是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" /><link rel="prev" href="https://loulazynote.github.io/posts/microsoftpowerplatforminfo/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Microsoft Dataverse概觀",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/posts\/microsoft_dataverse_intro\/"
+        },"genre": "posts","keywords": "Microsoft Power Platform, Microsoft Dataverse, Dataverse","wordcount":  1373 ,
+        "url": "https:\/\/loulazynote.github.io\/posts\/microsoft_dataverse_intro\/","datePublished": "2022-07-07T18:00:00+08:00","dateModified": "2022-07-07T18:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Microsoft Dataverse概觀</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a>&nbsp;<a href="/categories/microsoft-power-platform/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Microsoft Power Platform</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-07">2022-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1373 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png, https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png 1.5x, https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png"
+        title="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什麼是dataverse">什麼是Dataverse?</a>
+          <ul>
+            <li><a href="#使用microsoft-dataverse的好處">使用Microsoft Dataverse的好處</a></li>
+            <li><a href="#dynamics-365-和-dataverse">Dynamics 365 和 Dataverse</a></li>
+            <li><a href="#邏輯和驗證">邏輯和驗證</a></li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="什麼是dataverse">什麼是Dataverse?</h2>
+<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>
+<blockquote>
+<p><code>Dataverse</code>的數據管理系統中定義了三個重要的層次：<code>Dataverse</code>、資料集(<code>dataset</code>) 和文件(<code>file</code>)</p>
+<ul>
+<li>資料集是由一個或多個文件及詮釋資料(<code>metadata</code>)所組成的集合</li>
+<li>而文件是組成資料集的最小單位，它可以是資料使用說明、資料檔、問卷或純文字檔等任何形式的檔案</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>Microsoft Dataverse</code> 的資料會存放在一組資料表中, 資料表中的每個資料列都是用來儲存特定類型的資料，例如姓名、年齡和薪水等</li>
+<li><code>Microsoft Dataverse</code> 包含一組適用於一般案例的基本標準資料表，但也可以建立組織專屬的自訂資料表，然後使用 Power Query 將資料填入其中</li>
+<li>應用程式製作者可以接著使用 Power Apps 來建置使用這項資料的豐富應用程式</li>
+<li><code>Microsoft Dataverse</code> 中的標準及自訂資料表可提供安全的雲端型儲存空間選項, 資料表允許您建立著重於業務的組織資料定義，以供應用程式內使用</li>
+<li><code>Microsoft Dataverse</code> 不需要編寫或只需編寫很少的程式碼，因此從知識工作者到專業開發人員，每個人都可以輕鬆使用它</li>
+</ul>
+<h3 id="使用microsoft-dataverse的好處">使用Microsoft Dataverse的好處</h3>
+<ul>
+<li><strong>便於管理</strong> : 不論是中繼資料(<code>metadata</code>) 或 一般data都存在雲端, 所以不用擔心如何儲存資料</li>
+<li>輕鬆資料保護 : 資料以安全的方式儲存, User只有在你授予他們使用權限時才能看到, 可以使用角色權限管理控制組織/公司/團隊 內不同User對資料的存取</li>
+<li><strong>存取你的 <code>Dynamics 365</code> 資料</strong> : <code>Dynamics 365</code> 應用程式的資料也存在 <code>Dataverse</code> 中, 可以快速組建使用<code>Dynamics 365</code> 資料的應用程式, 並使用 Power Apps 拓展應用程式</li>
+<li><strong>豐富的中繼資料(<code>metadata</code>)</strong> : 資料類型及資料關聯皆直接在Power Apps中使用</li>
+<li><strong>邏輯和驗證</strong> : 定義 計算結果欄位、商業規則、工作流程、業務流程以確保資料品質及推動商務程序進展</li>
+<li><strong>生產力工具</strong> : 資料表可在 Microsoft Excel 增益集中用來提高生產力並確保資料可及性</li>
+</ul>
+<h3 id="dynamics-365-和-dataverse">Dynamics 365 和 Dataverse</h3>
+<ul>
+<li>Dynamics 365 的應用程式：
+<ul>
+<li>Dynamics 365 Sales</li>
+<li>Dynamics 365 Customer Service</li>
+<li>Dynamics 365 Talent</li>
+</ul>
+</li>
+</ul>
+<p>以上皆使用 <code>Dataverse</code> 來儲存和保護所使用的資料，這讓其組建應用程式時，可用 Power Apps 及 <code>Dataverse</code> 來直接連結 Dynamics 365 中已使用的核心商務資料，而不需要進行整合</p>
+<ul>
+<li><strong>根據 Dynamics 365 資料建置應用程式</strong> : Power Apps 中或使用可擴充的平台針對您的業務資料快速建置應用程式，該平台可讓專業開發人員以程式設計方式資料和中繼資料進行互動，套用商務規則，建立自訂連接器，並與外部資料整合</li>
+<li><strong>管理可重複使用的商務規則與邏輯</strong> : <code>Dataverse</code> 資料表中定義的商務規則與邏輯會套用至使用 Power Apps 建立的應用程式，以確保資料一致性，不論使用者如何存取資料，或透過哪些應用程式存取</li>
+<li><strong>Dynamics 365 和 Power Apps 中可重複使用技能</strong> : 在 Power Apps 或 Dynamics 365 的熟練使用者現在可以在 Dataverse 平台上利用這些技能, 而現在，建立表格、表單和圖表是跨應用程式執行的一般工作</li>
+</ul>
+<h3 id="邏輯和驗證">邏輯和驗證</h3>
+<p><code>Dataverse</code> 中的資料表可使用豐富的伺服器端邏輯和驗證，以確保資料品質，並讓建立及使用資料表內資料的每個應用程式，能減少重複程式碼</p>
+<ul>
+<li>商務規則：對多個資料行和資料表驗證資料，並對所有應用程式建立的資料，提供警告和錯誤訊息</li>
+<li>商務程序流程 : 引導使用者，以確保他們以一致的方式輸入資料，並且每次都遵循相同的步驟
+<blockquote>
+<p>目前只有模型導向應用程式支援商務程序流程</p>
+</blockquote>
+</li>
+<li>工作流程 : 可使其自動化商務程序，不需要使用者互動</li>
+<li>使用程式碼的商務規則 : 支援進階開發人員案例，以直接透過程式碼擴充應用程式</li>
+</ul>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://bit.ly/3bYU7SA" target="_blank" rel="noopener noreffer">MSDN - Power Apps</a></li>
+<li><a href="https://bit.ly/3Atcb1a" target="_blank" rel="noopener noreffer">SRDA&rsquo;s blog - 10分鐘帶你認識Dataverse與 R「dataverse」套件</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-07-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" data-title="Microsoft Dataverse概觀" data-via="Lou_Chang" data-hashtags="Microsoft Power Platform,Microsoft Dataverse,Dataverse"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" data-hashtag="Microsoft Power Platform"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" data-title="Microsoft Dataverse概觀"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/microsoft-power-platform/">Microsoft Power Platform</a>,&nbsp;<a href="/tags/microsoft-dataverse/">Microsoft Dataverse</a>,&nbsp;<a href="/tags/dataverse/">Dataverse</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/microsoftpowerplatforminfo/" class="prev" rel="prev" title="認識微軟生產力平台 - Microsoft Power Platform"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>認識微軟生產力平台 - Microsoft Power Platform</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

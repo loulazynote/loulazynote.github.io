@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/tags/microsoft-power-platform/</link>
         <description>Microsoft Power Platform - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/microsoft-power-platform/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/microsoft-power-platform/" rel="self" type="application/rss+xml" /><item>
+    <title>Microsoft Dataverse概觀</title>
+    <link>https://loulazynote.github.io/posts/microsoft_dataverse_intro/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/microsoft_dataverse_intro/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
+            </div>什麼是Dataverse? Dataverse是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建]]></description>
+</item>
+<item>
     <title>認識微軟生產力平台 - Microsoft Power Platform</title>
     <link>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</link>
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>

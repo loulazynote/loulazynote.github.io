@@ -4,7 +4,31 @@
         <link>https://loulazynote.github.io/tags/</link>
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Dataverse</title>
+    <link>https://loulazynote.github.io/tags/dataverse/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/dataverse/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Microsoft Dataverse</title>
+    <link>https://loulazynote.github.io/tags/microsoft-dataverse/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/microsoft-dataverse/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Microsoft Power Platform</title>
+    <link>https://loulazynote.github.io/tags/microsoft-power-platform/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/microsoft-power-platform/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Microsoft Flow</title>
     <link>https://loulazynote.github.io/tags/microsoft-flow/</link>
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
@@ -26,14 +50,6 @@
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/microsoft-power-bi/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Microsoft Power Platform</title>
-    <link>https://loulazynote.github.io/tags/microsoft-power-platform/</link>
-    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/microsoft-power-platform/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -66,22 +82,6 @@
     <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/c#/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>SeriLog</title>
-    <link>https://loulazynote.github.io/tags/serilog/</link>
-    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/serilog/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Tools</title>
-    <link>https://loulazynote.github.io/tags/tools/</link>
-    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/tools/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
