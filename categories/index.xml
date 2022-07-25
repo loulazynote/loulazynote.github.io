@@ -4,7 +4,23 @@
         <link>https://loulazynote.github.io/categories/</link>
         <description>Categories - 分類 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Teams</title>
+    <link>https://loulazynote.github.io/categories/teams/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/teams/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>TeamsApp</title>
+    <link>https://loulazynote.github.io/categories/teamsapp/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/categories/teamsapp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Learning</title>
     <link>https://loulazynote.github.io/categories/learning/</link>
     <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/categories/wsl/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Kerberos</title>
-    <link>https://loulazynote.github.io/categories/kerberos/</link>
-    <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/categories/kerberos/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Asp.Net</title>
-    <link>https://loulazynote.github.io/categories/asp.net/</link>
-    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/categories/asp.net/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

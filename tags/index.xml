@@ -4,7 +4,47 @@
         <link>https://loulazynote.github.io/tags/</link>
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Angular</title>
+    <link>https://loulazynote.github.io/tags/angular/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/angular/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Teams</title>
+    <link>https://loulazynote.github.io/tags/teams/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/teams/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>TeamsApp</title>
+    <link>https://loulazynote.github.io/tags/teamsapp/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/teamsapp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>TeamsAppTab</title>
+    <link>https://loulazynote.github.io/tags/teamsapptab/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/teamsapptab/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>TeamsToolKit</title>
+    <link>https://loulazynote.github.io/tags/teamstoolkit/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/teamstoolkit/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Dataverse</title>
     <link>https://loulazynote.github.io/tags/dataverse/</link>
     <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
@@ -42,46 +82,6 @@
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/microsoft-power-automate/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Microsoft Power BI</title>
-    <link>https://loulazynote.github.io/tags/microsoft-power-bi/</link>
-    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/microsoft-power-bi/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Microsoft Power Virtual Agents</title>
-    <link>https://loulazynote.github.io/tags/microsoft-power-virtual-agents/</link>
-    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/microsoft-power-virtual-agents/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Microsoft PowerApps</title>
-    <link>https://loulazynote.github.io/tags/microsoft-powerapps/</link>
-    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/microsoft-powerapps/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>ASP.NET Core</title>
-    <link>https://loulazynote.github.io/tags/asp.net-core/</link>
-    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/asp.net-core/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>C#</title>
-    <link>https://loulazynote.github.io/tags/c#/</link>
-    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/c#/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

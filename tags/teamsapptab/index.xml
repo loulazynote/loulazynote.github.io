@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>TeamsAppTab - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/teamsapptab/</link>
+        <description>TeamsAppTab - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/teamsapptab/" rel="self" type="application/rss+xml" /><item>
+    <title>使用Angular及Teams ToolKit建立Teams App</title>
+    <link>https://loulazynote.github.io/posts/teamsappwithangular/</link>
+    <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/teamsappwithangular/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png" referrerpolicy="no-referrer">
+            </div>在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了]]></description>
+</item>
+</channel>
+</rss>
