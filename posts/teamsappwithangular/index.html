@@ -1,710 +1,358 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>使用Angular及Teams ToolKit建立Teams App - The Lazy Engineer Lou&#39;s Note</title>
-        <meta name="Description" content="Take notes. Do whatever I want." />
-        <meta property="og:title" content="使用Angular及Teams ToolKit建立Teams App" />
-        <meta
-            property="og:description"
-            content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了"
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://loulazynote.github.io/posts/teamsappwithangular/" />
-        <meta property="og:image" content="https://loulazynote.github.io/images/logo.png" />
-        <meta property="article:section" content="posts" />
-        <meta property="article:published_time" content="2022-07-25T18:00:00+08:00" />
-        <meta property="article:modified_time" content="2022-07-25T17:46:26+08:00" />
-        <meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+        <title>使用Angular及Teams ToolKit建立Teams App - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="使用Angular及Teams ToolKit建立Teams App" />
+<meta property="og:description" content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/posts/teamsappwithangular/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-25T18:00:00+08:00" />
+<meta property="article:modified_time" content="2022-07-25T17:46:26+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
-        <meta name="twitter:title" content="使用Angular及Teams ToolKit建立Teams App" />
-        <meta
-            name="twitter:description"
-            content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了"
-        />
-        <meta name="application-name" content="The Lazy Engineer Lou&#39;s Note" />
-        <meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <link rel="icon" href="/images/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="canonical" href="https://loulazynote.github.io/posts/teamsappwithangular/" />
-        <link rel="prev" href="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" />
-        <link rel="stylesheet" href="/css/style.min.css" />
-        <link
-            rel="preload"
-            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"
-            as="style"
-            onload="this.onload=null;this.rel='stylesheet'"
-        />
-        <noscript
-            ><link
-                rel="stylesheet"
-                href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"
-        /></noscript>
-        <link
-            rel="preload"
-            href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"
-            as="style"
-            onload="this.onload=null;this.rel='stylesheet'"
-        />
-        <noscript
-            ><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"
-        /></noscript>
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "BlogPosting",
-                "headline": "使用Angular及Teams ToolKit建立Teams App",
-                "inLanguage": "zh-TW",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/"
-                },
-                "genre": "posts",
-                "keywords": "Teams, TeamsApp, TeamsToolKit, Angular, TeamsAppTab",
-                "wordcount": 1392,
-                "url": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/",
-                "datePublished": "2022-07-25T18:00:00+08:00",
-                "dateModified": "2022-07-25T17:46:26+08:00",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Lou Chang",
-                    "logo": "https:\/\/loulazynote.github.io\/images\/logo.png"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Lou Chang"
-                },
-                "description": ""
-            }
-        </script>
-    </head>
-    <body data-header-desktop="fixed" data-header-mobile="auto">
-        <script type="text/javascript">
-            (window.localStorage && localStorage.getItem('theme')
-                ? localStorage.getItem('theme') === 'dark'
-                : 'auto' === 'auto'
-                ? window.matchMedia('(prefers-color-scheme: dark)').matches
-                : 'auto' === 'dark') && document.body.setAttribute('theme', 'dark');
-        </script>
+<meta name="twitter:title" content="使用Angular及Teams ToolKit建立Teams App"/>
+<meta name="twitter:description" content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/teamsappwithangular/" /><link rel="prev" href="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "使用Angular及Teams ToolKit建立Teams App",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/"
+        },"genre": "posts","keywords": "Teams, TeamsApp, TeamsToolKit, Angular, TeamsAppTab","wordcount":  1392 ,
+        "url": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/","datePublished": "2022-07-25T18:00:00+08:00","dateModified": "2022-07-25T17:46:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-        <div id="mask"></div>
-        <div class="wrapper">
-            <header class="desktop" id="header-desktop">
-                <div class="header-wrapper">
-                    <div class="header-title">
-                        <a href="/" title="The Lazy Engineer Lou&#39;s Note"
-                            ><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer
-                            Lou&#39;s Note</a
-                        >
-                    </div>
-                    <div class="menu">
-                        <div class="menu-inner">
-                            <a class="menu-item" href="/posts/"><i class="fa-solid fa-pen-to-square"></i> Posts </a
-                            ><a class="menu-item" href="/tags/"><i class="fa-solid fa-hashtag"></i> Tags </a
-                            ><a class="menu-item" href="/categories/"
-                                ><i class="fa-solid fa-book-bookmark"></i> Categories </a
-                            ><span class="menu-item delimiter"></span
-                            ><span class="menu-item search" id="search-desktop">
-                                <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop" />
-                                <a
-                                    href="javascript:void(0);"
-                                    class="search-button search-toggle"
-                                    id="search-toggle-desktop"
-                                    title="搜索"
-                                >
-                                    <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                                </a>
-                                <a
-                                    href="javascript:void(0);"
-                                    class="search-button search-clear"
-                                    id="search-clear-desktop"
-                                    title="清空"
-                                >
-                                    <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                                </a>
-                                <span class="search-button search-loading" id="search-loading-desktop">
-                                    <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                                </span> </span
-                            ><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <header class="mobile" id="header-mobile">
-                <div class="header-container">
-                    <div class="header-wrapper">
-                        <div class="header-title">
-                            <a href="/" title="The Lazy Engineer Lou&#39;s Note"
-                                ><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy
-                                Engineer Lou&#39;s Note</a
-                            >
-                        </div>
-                        <div class="menu-toggle" id="menu-toggle-mobile"><span></span><span></span><span></span></div>
-                    </div>
-                    <div class="menu" id="menu-mobile">
-                        <div class="search-wrapper">
-                            <div class="search mobile" id="search-mobile">
-                                <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile" />
-                                <a
-                                    href="javascript:void(0);"
-                                    class="search-button search-toggle"
-                                    id="search-toggle-mobile"
-                                    title="搜索"
-                                >
-                                    <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                                </a>
-                                <a
-                                    href="javascript:void(0);"
-                                    class="search-button search-clear"
-                                    id="search-clear-mobile"
-                                    title="清空"
-                                >
-                                    <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                                </a>
-                                <span class="search-button search-loading" id="search-loading-mobile">
-                                    <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile"> 取消 </a>
-                        </div>
-                        <a class="menu-item" href="/posts/" title=""><i class="fa-solid fa-pen-to-square"></i>Posts</a
-                        ><a class="menu-item" href="/tags/" title=""><i class="fa-solid fa-hashtag"></i>Tags</a
-                        ><a class="menu-item" href="/categories/" title=""
-                            ><i class="fa-solid fa-book-bookmark"></i>Categories</a
-                        ><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
-                            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
                         </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
                     </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用Angular及Teams ToolKit建立Teams App</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Teams</a>&nbsp;<a href="/categories/teamsapp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>TeamsApp</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-25">2022-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1392 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png, https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png 1.5x, https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png"
+        title="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-            </header>
-            <div class="search-dropdown desktop">
-                <div id="search-dropdown-desktop"></div>
-            </div>
-            <div class="search-dropdown mobile">
-                <div id="search-dropdown-mobile"></div>
-            </div>
-            <main class="main">
-                <div class="container">
-                    <div class="toc" id="toc-auto">
-                        <h2 class="toc-title">目錄</h2>
-                        <div class="toc-content" id="toc-content-auto"></div>
-                    </div>
-                    <article class="page single">
-                        <h1 class="single-title animate__animated animate__flipInX">
-                            使用Angular及Teams ToolKit建立Teams App
-                        </h1>
-                        <div class="post-meta">
-                            <div class="post-meta-line">
-                                <span class="post-author"
-                                    ><a href="/" title="Author" rel=" author" class="author"
-                                        ><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a
-                                    ></span
-                                >&nbsp;<span class="post-category"
-                                    >收錄於
-                                    <a href="/categories/teams/"
-                                        ><i class="far fa-folder fa-fw" aria-hidden="true"></i>Teams</a
-                                    >&nbsp;<a href="/categories/teamsapp/"
-                                        ><i class="far fa-folder fa-fw" aria-hidden="true"></i>TeamsApp</a
-                                    ></span
-                                >
-                            </div>
-                            <div class="post-meta-line">
-                                <i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time
-                                    datetime="2022-07-25"
-                                    >2022-07-25</time
-                                >&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1392 字&nbsp;
-                                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;
-                            </div>
-                        </div>
-                        <div class="featured-image">
-                            <img
-                                class="lazyload"
-                                src="/svg/loading.min.svg"
-                                data-src="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png"
-                                data-srcset="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png, https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png 1.5x, https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png 2x"
-                                data-sizes="auto"
-                                alt="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png"
-                                title="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png"
-                            />
-                        </div>
-                        <div class="details toc" id="toc-static" data-kept="">
-                            <div class="details-summary toc-title">
-                                <span>目錄</span>
-                                <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                            </div>
-                            <div class="details-content toc-content" id="toc-content-static">
-                                <nav id="TableOfContents">
-                                    <ul>
-                                        <li>
-                                            <ul>
-                                                <li><a href="#準備-microsoft-365-組織">準備 Microsoft 365 組織</a></li>
-                                                <li><a href="#必要開發工具">必要開發工具</a></li>
-                                                <li>
-                                                    <a href="#建立步驟">建立步驟</a>
-                                                    <ul>
-                                                        <li><a href="#可能出現的錯誤">可能出現的錯誤</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#參考資料">參考資料</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="content" id="content">
-                            <p>
-                                在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 <em>Teams App</em> 的活動，
-                                也剛剛好~公司也有小小的需求希望能在 <em>Teams</em> 上做一些操作， 所以就順便動手研究了。<!-- raw HTML omitted -->
-                            </p>
-                            <p>
-                                爬了很多文看了很多Doc， 發現大部分都是用 <em>React</em> 寫的， 關於
-                                <em>Angular</em>
-                                的部分可以說是幾乎沒有（不知道是太少人用還是太Easy🤣）。<!-- raw HTML omitted -->
-                            </p>
-                            <p>所以這篇就記錄一下研究的過程！</p>
-                            <h2 id="準備-microsoft-365-組織">準備 Microsoft 365 組織</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://bit.ly/3cDbE2O" target="_blank" rel="noopener noreffer"
-                                        >Prepare your Microsoft 365 tenant - Teams | Microsoft Docs</a
-                                    >
-                                    <blockquote>
-                                        <p>
-                                            申請免費的
-                                            <a href="https://bit.ly/3cFbDvp" target="_blank" rel="noopener noreffer"
-                                                >Microsoft 365 Developer Program</a
-                                            >
-                                        </p>
-                                    </blockquote>
-                                </li>
-                            </ul>
-                            <h2 id="必要開發工具">必要開發工具</h2>
-                            <ul>
-                                <li>
-                                    <p>
-                                        <a href="https://bit.ly/3JavZZx" target="_blank" rel="noopener noreffer"
-                                            ><em>Visual Studio Code</em></a
-                                        >
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install vscode -y
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>
-                                        <a href="https://bit.ly/3z25wZD" target="_blank" rel="noopener noreffer"
-                                            ><em>Teams Toolkit extension</em></a
-                                        >
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">code --install-extension TeamsDevApp.ms-teams-vscode-extension
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>
-                                        <a href="https://bit.ly/3zurFRv" target="_blank" rel="noopener noreffer"
-                                            ><em>Node.js LTS</em></a
-                                        >
-                                    </p>
-                                    <p>
-                                        有裝
-                                        <a href="https://bit.ly/3oyNSYl" target="_blank" rel="noopener noreffer"
-                                            ><em>NVM</em></a
-                                        >
-                                        的直接下此 Command 就好
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvm install lts
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <p>
-                                        沒有的話就用
-                                        <a href="https://bit.ly/3PxTUEN" target="_blank" rel="noopener noreffer"
-                                            ><em>Chocolatey</em></a
-                                        >
-                                        或到<a href="https://bit.ly/3SbQ1Hp" target="_blank" rel="noopener noreffer"
-                                            >Node.js 官網</a
-                                        >下載了
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install nodejs-lts -y
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>
-                                        <a href="https://bit.ly/3zueoIM" target="_blank" rel="noopener noreffer"
-                                            ><em>TeamsFx CLI</em></a
-                                        >
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g @microsoft/teamsfx-cli
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>
-                                        <a href="https://bit.ly/3z2KtGh" target="_blank" rel="noopener noreffer"
-                                            ><em>Angular Cli</em></a
-                                        >
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g @angular/cli
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <h2 id="建立步驟">建立步驟</h2>
-                            <ol>
-                                <li>
-                                    <p>建立一個新資料夾</p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#準備-microsoft-365-組織">準備 Microsoft 365 組織</a></li>
+        <li><a href="#必要開發工具">必要開發工具</a></li>
+        <li><a href="#建立步驟">建立步驟</a>
+          <ul>
+            <li><a href="#可能出現的錯誤">可能出現的錯誤</a></li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 <em>Teams App</em> 的活動， 也剛剛好~公司也有小小的需求希望能在 <em>Teams</em> 上做一些操作， 所以就順便動手研究了。<!-- raw HTML omitted --></p>
+<p>爬了很多文看了很多Doc， 發現大部分都是用 <em>React</em> 寫的， 關於 <em>Angular</em> 的部分可以說是幾乎沒有（不知道是太少人用還是太Easy🤣）。<!-- raw HTML omitted --></p>
+<p>所以這篇就記錄一下研究的過程！</p>
+<h2 id="準備-microsoft-365-組織">準備 Microsoft 365 組織</h2>
+<ul>
+<li><a href="https://bit.ly/3cDbE2O" target="_blank" rel="noopener noreffer">Prepare your Microsoft 365 tenant - Teams | Microsoft Docs</a>
+<blockquote>
+<p>申請免費的 <a href="https://bit.ly/3cFbDvp" target="_blank" rel="noopener noreffer">Microsoft 365 Developer Program</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="必要開發工具">必要開發工具</h2>
+<ul>
+<li>
+<p><a href="https://bit.ly/3JavZZx" target="_blank" rel="noopener noreffer"><em>Visual Studio Code</em></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install vscode -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><a href="https://bit.ly/3z25wZD" target="_blank" rel="noopener noreffer"><em>Teams Toolkit extension</em></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">code --install-extension TeamsDevApp.ms-teams-vscode-extension
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><a href="https://bit.ly/3zurFRv" target="_blank" rel="noopener noreffer"><em>Node.js LTS</em></a></p>
+<p>有裝 <a href="https://bit.ly/3oyNSYl" target="_blank" rel="noopener noreffer"><em>NVM</em></a> 的直接下此 Command 就好</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvm install lts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>沒有的話就用 <a href="https://bit.ly/3PxTUEN" target="_blank" rel="noopener noreffer"><em>Chocolatey</em></a> 或到<a href="https://bit.ly/3SbQ1Hp" target="_blank" rel="noopener noreffer">Node.js 官網</a>下載了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">choco install nodejs-lts -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><a href="https://bit.ly/3zueoIM" target="_blank" rel="noopener noreffer"><em>TeamsFx CLI</em></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g @microsoft/teamsfx-cli
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><a href="https://bit.ly/3z2KtGh" target="_blank" rel="noopener noreffer"><em>Angular Cli</em></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g @angular/cli
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="建立步驟">建立步驟</h2>
+<ol>
+<li>
+<p>建立一個新資料夾</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> D:<span class="se">\
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> D:<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>mkdir Demo
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>在此資料夾內以範本建立專案</p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在此資料夾內以範本建立專案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">teamsfx new template hello-world-tab-without-sso --folder <span class="s2">&#34;./Demo&#34;</span>
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">teamsfx new template hello-world-tab-without-sso --folder <span class="s2">&#34;./Demo&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ./Demo/hello-world-tab-without-sso
 </span></span><span class="line"><span class="cl">code .
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>將 tabs 資料夾內全部檔案刪除, 並新增 Angular 專案</p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png, https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png 1.5x, https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>將 tabs 資料夾內全部檔案刪除, 並新增 Angular 專案</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png" title="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png, https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png 1.5x, https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180796003-47d65766-49d6-48e5-9323-b55285092bd9.png" width="800" />
+        </a>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ng new tabs
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ng new tabs
 </span></span><span class="line"><span class="cl"> <span class="nb">cd</span> ./tabs
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>加入Teams App 在 Compiler 時必要套件</p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>加入Teams App 在 Compiler 時必要套件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> npm install @microsoft/teams-js
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> npm install @microsoft/teams-js
 </span></span><span class="line"><span class="cl"> npm install @types/node env-cmd cross-env --save-dev <span class="c1">#後兩套件是對於開發環境變數做操做的, 如不需要可以不用裝(根據TeamsToolKit預設是有安裝的)</span>
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>開啟 tabs內的<code>Package.json</code> 加入以下命令</p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>開啟 tabs內的<code>Package.json</code> 加入以下命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-json" data-lang="json"><span class="line"><span class="cl"> <span class="s2">&#34;dev:teamsfx&#34;</span><span class="err">:</span> <span class="s2">&#34;env-cmd --silent -f .env.teamsfx.local npm run start&#34;</span><span class="err">,</span>
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"> <span class="s2">&#34;dev:teamsfx&#34;</span><span class="err">:</span> <span class="s2">&#34;env-cmd --silent -f .env.teamsfx.local npm run start&#34;</span><span class="err">,</span>
 </span></span><span class="line"><span class="cl"> <span class="s2">&#34;install:teamsfx&#34;</span><span class="err">:</span> <span class="s2">&#34;npm install&#34;</span><span class="err">,</span>
 </span></span><span class="line"><span class="cl"> <span class="s2">&#34;build:teamsfx&#34;</span><span class="err">:</span> <span class="s2">&#34;cross-env-shell \&#34;env-cmd -f .env.teamsfx.${TEAMS_FX_ENV} npm run build\&#34;&#34;</span><span class="err">,</span>
 </span></span><span class="line"><span class="cl"> <span class="s2">&#34;build:teamsfx:dev&#34;</span><span class="err">:</span> <span class="s2">&#34;cross-env TEAMS_FX_ENV=dev npm run build:teamsfx&#34;</span>
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png, https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png 1.5x, https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>點選 <em>Teams ToolKit</em>, 並點選 編輯 <code>manifest</code></p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png, https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png 1.5x, https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
-                                            height="1000"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>編輯 <code>manifest</code> , 修改以下欄位</p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png, https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png 1.5x, https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                    <p>安裝時所顯示的畫面</p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png, https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png 1.5x, https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>建立 <em>Teams Config Component</em></p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ng new TeamsConfig
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>
-                                        <em>import <code>teams-js</code></em> 並寫入設定(❗不加此設定,會無法顯示❗)
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png" title="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png, https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png 1.5x, https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180758144-796ba196-56ae-49ba-b9e8-f3ab0c869167.png" width="800" />
+        </a>
+</li>
+<li>
+<p>點選 <em>Teams ToolKit</em>, 並點選 編輯 <code>manifest</code></p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png" title="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png, https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png 1.5x, https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180759058-2937357d-b283-4896-b15d-c922b4d3520e.png" height="1000" />
+        </a>
+</li>
+<li>
+<p>編輯 <code>manifest</code> , 修改以下欄位</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png" title="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png, https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png 1.5x, https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180762949-7df6b1d7-660f-45ea-a678-a38ee049a9fa.png" width="800" />
+        </a>
+<p>安裝時所顯示的畫面</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png" title="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png, https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png 1.5x, https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180763375-e275734b-fd59-4ef5-87de-d837d8302e7e.png" width="800" />
+        </a>
+</li>
+<li>
+<p>建立 <em>Teams Config Component</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> ng new TeamsConfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><em>import <code>teams-js</code></em> 並寫入設定(❗不加此設定,會無法顯示❗)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -736,13 +384,9 @@
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">    <span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">    <span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kr">import</span> <span class="o">*</span> <span class="kr">as</span> <span class="nx">microsoftTeams</span> <span class="kr">from</span> <span class="s1">&#39;@microsoft/teams-js&#39;</span><span class="p">;</span><span class="c1">//引入 teams-js
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
@@ -774,78 +418,46 @@
 </span></span><span class="line"><span class="cl">        <span class="nx">microsoftTeams</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">setValidityState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <p>編輯 <code>teams-config.component.html</code></p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 1.5x, https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>建立 <em>Tab Component</em> 並撰寫內容</p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    ng new tab
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 1.5x, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>修改 <code>app-routing.module.ts</code>及<code>app.module.ts</code></p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>編輯 <code>teams-config.component.html</code></p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png" title="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 1.5x, https://user-images.githubusercontent.com/33840759/180786062-8b3631ec-4eda-4c23-b75c-25fcfe60ac98.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png" width="800" />
+        </a>
+</li>
+<li>
+<p>建立 <em>Tab Component</em> 並撰寫內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    ng new tab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png" title="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 1.5x, https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180786400-7f9a59d5-25a8-4982-86d9-1259e7b0c570.png" width="800" />
+        </a>
+</li>
+<li>
+<p>修改 <code>app-routing.module.ts</code>及<code>app.module.ts</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -863,13 +475,9 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">//app-routing.module.ts
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">//app-routing.module.ts
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">RouterModule</span><span class="p">,</span> <span class="nx">Routes</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/router&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">TabComponent</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;./components/tab/tab.component&#39;</span><span class="p">;</span>
@@ -887,18 +495,11 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">exports</span><span class="o">:</span> <span class="p">[</span><span class="nx">RouterModule</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">AppRoutingModule</span> <span class="p">{}</span>
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -914,13 +515,9 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">//app.module.ts
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">//app.module.ts
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;@angular/platform-browser&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -936,465 +533,186 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">bootstrap</span><span class="o">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
 </span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">AppModule</span> <span class="p">{}</span>
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <blockquote>
-                                        <p>
-                                            修改完別忘了將 app.component.html也加上
-                                            <code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code>
-                                        </p>
-                                    </blockquote>
-                                </li>
-                                <li>
-                                    <p>
-                                        建立
-                                        <a href="https://bit.ly/3J1nYWS" target="_blank" rel="noopener noreffer"
-                                            >開發測試用途的自簽憑證 (<em>Self-Signed Certificate</em>)</a
-                                        >, 並放入tabs資料夾的根目錄
-                                    </p>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png, https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png 1.5x, https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                </li>
-                                <li>
-                                    <p>
-                                        修改 <code>package.json</code>的 <code>scripts</code>,將
-                                        <code>ng serve</code>修改為下列命令列
-                                    </p>
-                                    <div class="highlight">
-                                        <div class="chroma">
-                                            <table class="lntable">
-                                                <tr>
-                                                    <td class="lntd">
-                                                        <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre>
-                                                    </td>
-                                                    <td class="lntd">
-                                                        <pre
-                                                            tabindex="0"
-                                                            class="chroma"
-                                                        ><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    ng serve --ssl --ssl-key server.key --ssl-cert server.crt
-</span></span></code></pre>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <a
-                                        class="lightgallery"
-                                        href="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
-                                        title="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
-                                        data-thumbnail="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
-                                    >
-                                        <img
-                                            class="lazyload"
-                                            src="/svg/loading.min.svg"
-                                            data-src="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
-                                            data-srcset="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png, https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png 1.5x, https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png 2x"
-                                            data-sizes="auto"
-                                            alt="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
-                                            width="800"
-                                        />
-                                    </a>
-                                    <blockquote>
-                                        <p>
-                                            因Teams App要Tab顯示內容,包含的網頁必須是有
-                                            <strong>SSL</strong> ,所以要為Angular加入憑證
-                                        </p>
-                                    </blockquote>
-                                </li>
-                                <li>
-                                    <p>F5執行</p>
-                                    <ul>
-                                        <li>
-                                            <p>執行時會看到 OUTPUT跑出下圖內容</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png, https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png 1.5x, https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>compiler成功後就會自動開啟網頁版Teams</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png, https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png 1.5x, https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>因選擇Add to a teams(加入到團隊頻道), 故此處要選擇團隊頻道</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png, https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png 1.5x, https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>此處顯示的是 <code>teams-config.component.html</code>的內容</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png, https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png 1.5x, https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>點選 about 裡面顯示的是 <code>manifast</code> 上 的內容</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png, https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png 1.5x, https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <p>加入安裝完後, 顯示的是 <code>tab.component.html</code>的內容</p>
-                                            <a
-                                                class="lightgallery"
-                                                href="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
-                                                title="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
-                                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
-                                            >
-                                                <img
-                                                    class="lazyload"
-                                                    src="/svg/loading.min.svg"
-                                                    data-src="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
-                                                    data-srcset="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png, https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png 1.5x, https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png 2x"
-                                                    data-sizes="auto"
-                                                    alt="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
-                                                    width="800"
-                                                />
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ol>
-                            <h3 id="可能出現的錯誤">可能出現的錯誤</h3>
-                            <p>
-                                如果有跳出有關 <code>env</code> 的錯誤訊息的話, 較有可能的就是 需要
-                                <code>env-cmd</code>或 <code>cross-env</code>這類套件(通常沒用到是不會有錯拉)
-                            </p>
-                            <p>還有就是要從 Teams Toolkit內設定<!-- raw HTML omitted --></p>
-                            <a
-                                class="lightgallery"
-                                href="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
-                                title="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
-                                data-thumbnail="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
-                            >
-                                <img
-                                    class="lazyload"
-                                    src="/svg/loading.min.svg"
-                                    data-src="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
-                                    data-srcset="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png, https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png 1.5x, https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png 2x"
-                                    data-sizes="auto"
-                                    alt="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
-                                    height="1000"
-                                />
-                            </a>
-                            <h2 id="參考資料">參考資料</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://bit.ly/3osqLyN" target="_blank" rel="noopener noreffer"
-                                        >The Will Will Web - 使用 Teams Toolkit 開發 Teams 應用程式：起手式</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3otWsb0" target="_blank" rel="noopener noreffer"
-                                        >线下活动 | 从零开始开发一款属于你的Microsoft Teams小程序</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3Bg8V9W" target="_blank" rel="noopener noreffer"
-                                        >Github - OfficeDev/TeamsFx</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3ztGJiy" target="_blank" rel="noopener noreffer"
-                                        >Github - microsoft/DevAppsForTeams</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3vdqQKG" target="_blank" rel="noopener noreffer"
-                                        >MSDN - Teams Toolkit for Visual Studio Code</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3J1Iyq7" target="_blank" rel="noopener noreffer"
-                                        >MSDN - Build apps with the Teams Toolkit and Visual Studio Code</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3cF8kUJ" target="_blank" rel="noopener noreffer"
-                                        >Microsoft Teams Blog - Build apps faster with the latest Microsoft Teams
-                                        Toolkit</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="https://bit.ly/3z5Hz3v" target="_blank" rel="noopener noreffer"
-                                        >PnP Samples</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="post-footer" id="post-footer">
-                            <div class="post-info">
-                                <div class="post-info-line">
-                                    <div class="post-info-mod">
-                                        <span>更新於 2022-07-25</span>
-                                    </div>
-                                </div>
-                                <div class="post-info-line">
-                                    <div class="post-info-md"></div>
-                                    <div class="post-info-share">
-                                        <span
-                                            ><a
-                                                href="javascript:void(0);"
-                                                title="分享到 Twitter"
-                                                data-sharer="twitter"
-                                                data-url="https://loulazynote.github.io/posts/teamsappwithangular/"
-                                                data-title="使用Angular及Teams ToolKit建立Teams App"
-                                                data-via="Lou_Chang"
-                                                data-hashtags="Teams,TeamsApp,TeamsToolKit,Angular,TeamsAppTab"
-                                                ><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a
-                                            ><a
-                                                href="javascript:void(0);"
-                                                title="分享到 Facebook"
-                                                data-sharer="facebook"
-                                                data-url="https://loulazynote.github.io/posts/teamsappwithangular/"
-                                                data-hashtag="Teams"
-                                                ><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a
-                                            ><a
-                                                href="javascript:void(0);"
-                                                title="分享到 Line"
-                                                data-sharer="line"
-                                                data-url="https://loulazynote.github.io/posts/teamsappwithangular/"
-                                                data-title="使用Angular及Teams ToolKit建立Teams App"
-                                                ><i
-                                                    data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg"
-                                                    aria-hidden="true"
-                                                ></i></a
-                                        ></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="post-info-more">
-                                <section class="post-tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/teams/"
-                                        >Teams</a
-                                    >,&nbsp;<a href="/tags/teamsapp/">TeamsApp</a>,&nbsp;<a href="/tags/teamstoolkit/"
-                                        >TeamsToolKit</a
-                                    >,&nbsp;<a href="/tags/angular/">Angular</a>,&nbsp;<a href="/tags/teamsapptab/"
-                                        >TeamsAppTab</a
-                                    >
-                                </section>
-                                <section>
-                                    <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span
-                                    >&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
-                                </section>
-                            </div>
-
-                            <div class="post-nav">
-                                <a
-                                    href="/posts/microsoft_dataverse_intro/"
-                                    class="prev"
-                                    rel="prev"
-                                    title="Microsoft Dataverse概觀"
-                                    ><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Microsoft
-                                    Dataverse概觀</a
-                                >
-                            </div>
-                        </div>
-                        <div id="comments">
-                            <div id="disqus_thread" class="comment"></div>
-                            <noscript>
-                                Please enable JavaScript to view the comments powered by
-                                <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-                            </noscript>
-                        </div>
-                    </article>
-                </div>
-            </main>
-            <footer class="footer">
-                <div class="footer-container">
-                    <div class="footer-line">
-                        Copyright <i class="fa-regular fa-copyright"></i> 2022 By
-                        <a href="https://github.com/loulazynote" target="_blank">Lou Chang</a> - Powered By
-                        <a href="https://gohugo.io/" target="_blank">Hugo</a> - Design By
-                        <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"
-                            ><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a
-                        >
-                    </div>
-                    <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
-                </div>
-            </footer>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>修改完別忘了將 app.component.html也加上 <code>&lt;router-outlet&gt;&lt;/router-outlet&gt;</code></p>
+</blockquote>
+</li>
+<li>
+<p>建立 <a href="https://bit.ly/3J1nYWS" target="_blank" rel="noopener noreffer">開發測試用途的自簽憑證 (<em>Self-Signed Certificate</em>)</a>, 並放入tabs資料夾的根目錄</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png" title="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png, https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png 1.5x, https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180790126-6a3cc4e6-960f-4378-bc03-575451c707ed.png" width="800" />
+        </a>
+</li>
+<li>
+<p>修改 <code>package.json</code>的 <code>scripts</code>,將 <code>ng serve</code>修改為下列命令列</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    ng serve --ssl --ssl-key server.key --ssl-cert server.crt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png" title="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png">
+            <img
+                class="lazyload"
+                src="/svg/loading.min.svg"
+                data-src="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png"
+                data-srcset="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png, https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png 1.5x, https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png 2x"
+                data-sizes="auto"
+                alt="https://user-images.githubusercontent.com/33840759/180790641-375f0c3e-9bde-4e9f-a89a-b5f78f9f2fe2.png" width="800" />
+        </a>
+<blockquote>
+<p>因Teams App要Tab顯示內容,包含的網頁必須是有 <strong>SSL</strong> ,所以要為Angular加入憑證</p>
+</blockquote>
+</li>
+<li>
+<p>F5執行</p>
+<ul>
+<li>
+<p>執行時會看到 OUTPUT跑出下圖內容</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png" title="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png, https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png 1.5x, https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180791651-71a5ef4a-f518-424a-b7b6-f59cbddd5f9d.png" width="800" />
+            </a>
+</li>
+<li>
+<p>compiler成功後就會自動開啟網頁版Teams</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png" title="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png, https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png 1.5x, https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180792325-737075f3-d75c-47de-a4fa-c8014972ba5e.png" width="800" />
+            </a>
+</li>
+<li>
+<p>因選擇Add to a teams(加入到團隊頻道), 故此處要選擇團隊頻道</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png" title="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png, https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png 1.5x, https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180792638-9c763695-abfc-48c6-8307-6f40d80186e3.png" width="800" />
+            </a>
+</li>
+<li>
+<p>此處顯示的是 <code>teams-config.component.html</code>的內容</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png" title="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png, https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png 1.5x, https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180794247-e521c1cc-4141-474b-b69e-e8adc305318b.png" width="800" />
+            </a>
+</li>
+<li>
+<p>點選 about 裡面顯示的是 <code>manifast</code> 上 的內容</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png" title="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png, https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png 1.5x, https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180794518-825852a3-705b-4d4f-8de3-264bae189314.png" width="800" />
+            </a>
+</li>
+<li>
+<p>加入安裝完後, 顯示的是 <code>tab.component.html</code>的內容</p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png" title="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png">
+                <img
+                    class="lazyload"
+                    src="/svg/loading.min.svg"
+                    data-src="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png"
+                    data-srcset="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png, https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png 1.5x, https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png 2x"
+                    data-sizes="auto"
+                    alt="https://user-images.githubusercontent.com/33840759/180794772-ec94b426-c7a5-4e78-87b9-7c37547139b1.png" width="800" />
+            </a>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="可能出現的錯誤">可能出現的錯誤</h3>
+<p>如果有跳出有關 <code>env</code> 的錯誤訊息的話, 較有可能的就是 需要 <code>env-cmd</code>或 <code>cross-env</code>這類套件(通常沒用到是不會有錯拉)</p>
+<p>還有就是要從 Teams Toolkit內設定<!-- raw HTML omitted --></p>
+<a class="lightgallery" href="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png" title="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png" data-thumbnail="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png"
+            data-srcset="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png, https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png 1.5x, https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png 2x"
+            data-sizes="auto"
+            alt="https://user-images.githubusercontent.com/33840759/180797830-74fe2060-1e97-475a-aae9-7134e5f18275.png" height="1000" />
+    </a>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://bit.ly/3osqLyN" target="_blank" rel="noopener noreffer">The Will Will Web - 使用 Teams Toolkit 開發 Teams 應用程式：起手式</a></li>
+<li><a href="https://bit.ly/3otWsb0" target="_blank" rel="noopener noreffer">线下活动 | 从零开始开发一款属于你的Microsoft Teams小程序</a></li>
+<li><a href="https://bit.ly/3Bg8V9W" target="_blank" rel="noopener noreffer">Github - OfficeDev/TeamsFx</a></li>
+<li><a href="https://bit.ly/3ztGJiy" target="_blank" rel="noopener noreffer">Github - microsoft/DevAppsForTeams</a></li>
+<li><a href="https://bit.ly/3vdqQKG" target="_blank" rel="noopener noreffer">MSDN - Teams Toolkit for Visual Studio Code</a></li>
+<li><a href="https://bit.ly/3J1Iyq7" target="_blank" rel="noopener noreffer">MSDN - Build apps with the Teams Toolkit and Visual Studio Code</a></li>
+<li><a href="https://bit.ly/3cF8kUJ" target="_blank" rel="noopener noreffer">Microsoft Teams Blog - Build apps faster with the latest Microsoft Teams Toolkit</a></li>
+<li><a href="https://bit.ly/3z5Hz3v" target="_blank" rel="noopener noreffer">PnP Samples</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-07-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/teamsappwithangular/" data-title="使用Angular及Teams ToolKit建立Teams App" data-via="Lou_Chang" data-hashtags="Teams,TeamsApp,TeamsToolKit,Angular,TeamsAppTab"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/teamsappwithangular/" data-hashtag="Teams"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/teamsappwithangular/" data-title="使用Angular及Teams ToolKit建立Teams App"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
         </div>
+    </div>
 
-        <div id="fixed-buttons">
-            <a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i> </a
-            ><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/teams/">Teams</a>,&nbsp;<a href="/tags/teamsapp/">TeamsApp</a>,&nbsp;<a href="/tags/teamstoolkit/">TeamsToolKit</a>,&nbsp;<a href="/tags/angular/">Angular</a>,&nbsp;<a href="/tags/teamsapptab/">TeamsAppTab</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/microsoft_dataverse_intro/" class="prev" rel="prev" title="Microsoft Dataverse概觀"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Microsoft Dataverse概觀</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"
-        /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
-        <script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"
-        ></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"
-        ></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"
-        ></script>
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"
-        ></script>
-        <script type="text/javascript">
-            window.config = {
-                code: { copyTitle: '複製到剪貼板', maxShownLines: 50 },
-                comment: {},
-                lightgallery: true,
-                math: {
-                    delimiters: [
-                        { display: true, left: '$$', right: '$$' },
-                        { display: true, left: '\\[', right: '\\]' },
-                        { display: true, left: '\\begin{equation}', right: '\\end{equation}' },
-                        { display: true, left: '\\begin{equation*}', right: '\\end{equation*}' },
-                        { display: true, left: '\\begin{align}', right: '\\end{align}' },
-                        { display: true, left: '\\begin{align*}', right: '\\end{align*}' },
-                        { display: true, left: '\\begin{alignat}', right: '\\end{alignat}' },
-                        { display: true, left: '\\begin{alignat*}', right: '\\end{alignat*}' },
-                        { display: true, left: '\\begin{gather}', right: '\\end{gather}' },
-                        { display: true, left: '\\begin{CD}', right: '\\end{CD}' },
-                        { display: false, left: '$', right: '$' },
-                        { display: false, left: '\\(', right: '\\)' },
-                    ],
-                    strict: false,
-                },
-                search: {
-                    algoliaAppID: 'WKHFRE1Z9G',
-                    algoliaIndex: 'github_Lou_blog',
-                    algoliaSearchKey: '4201c971ae81b7b5f43d10ca36d55b95',
-                    highlightTag: 'em',
-                    maxResultLength: 10,
-                    noResultsFound: '沒有找到結果',
-                    snippetLength: 30,
-                    type: 'algolia',
-                },
-            };
-        </script>
-        <script type="text/javascript" src="/js/theme.min.js"></script>
-        <script type="text/javascript">
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'G-RTSLRX2QNZ', { anonymize_ip: true });
-        </script>
-        <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script>
-    </body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://loulazynote.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
 </html>
