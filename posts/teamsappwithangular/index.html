@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>使用Angular及Teams ToolKit建立Teams App - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="使用Angular及Teams ToolKit建立Teams App" />
-<meta property="og:description" content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了" />
+<meta property="og:description" content="在B站看到 2021年9月 在對岸 微軟 Reactor 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了。 爬了很多文看了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://loulazynote.github.io/posts/teamsappwithangular/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-25T18:00:00+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
 <meta name="twitter:title" content="使用Angular及Teams ToolKit建立Teams App"/>
-<meta name="twitter:description" content="在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了"/>
+<meta name="twitter:description" content="在B站看到 2021年9月 在對岸 微軟 Reactor 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了。 爬了很多文看了"/>
 <meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/teamsappwithangular/" /><link rel="prev" href="https://loulazynote.github.io/posts/microsoft_dataverse_intro/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/"
-        },"genre": "posts","keywords": "Teams, TeamsApp, TeamsToolKit, Angular, TeamsAppTab","wordcount":  1392 ,
+        },"genre": "posts","keywords": "Teams, TeamsApp, TeamsToolKit, Angular, TeamsAppTab","wordcount":  1384 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/teamsappwithangular\/","datePublished": "2022-07-25T18:00:00+08:00","dateModified": "2022-07-25T17:46:26+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">使用Angular及Teams ToolKit建立Teams App</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Teams</a>&nbsp;<a href="/categories/teamsapp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>TeamsApp</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-25">2022-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1392 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-25">2022-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1384 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -133,7 +133,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>在B站看到 2021年9月 在對岸 微軟_Reactor_ 關於 <em>Teams App</em> 的活動， 也剛剛好~公司也有小小的需求希望能在 <em>Teams</em> 上做一些操作， 所以就順便動手研究了。<!-- raw HTML omitted --></p>
+            </div><div class="content" id="content"><p>在B站看到 2021年9月 在對岸 微軟 <em>Reactor</em> 關於 <em>Teams App</em> 的活動， 也剛剛好~公司也有小小的需求希望能在 <em>Teams</em> 上做一些操作， 所以就順便動手研究了。<!-- raw HTML omitted --></p>
 <p>爬了很多文看了很多Doc， 發現大部分都是用 <em>React</em> 寫的， 關於 <em>Angular</em> 的部分可以說是幾乎沒有（不知道是太少人用還是太Easy🤣）。<!-- raw HTML omitted --></p>
 <p>所以這篇就記錄一下研究的過程！</p>
 <h2 id="準備-microsoft-365-組織">準備 Microsoft 365 組織</h2>
