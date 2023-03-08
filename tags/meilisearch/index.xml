@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MeiliSearch - 標籤 - The Lazy Engineer Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/tags/meilisearch/</link>
+        <description>MeiliSearch - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/meilisearch/" rel="self" type="application/rss+xml" /><item>
+    <title>MeiliSearch基本用法</title>
+    <link>https://loulazynote.github.io/posts/meilisearchbasicusage/</link>
+    <pubDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/meilisearchbasicusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
+            </div>MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記]]></description>
+</item>
+</channel>
+</rss>

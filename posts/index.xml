@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/posts/</link>
         <description>所有文章 | The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>MeiliSearch基本用法</title>
+    <link>https://loulazynote.github.io/posts/meilisearchbasicusage/</link>
+    <pubDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/meilisearchbasicusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
+            </div>MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記]]></description>
+</item>
+<item>
     <title>使用Angular及Teams ToolKit建立Teams App</title>
     <link>https://loulazynote.github.io/posts/teamsappwithangular/</link>
     <pubDate>Mon, 25 Jul 2022 17:46:26 &#43;0800</pubDate>
@@ -93,16 +103,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" referrerpolicy="no-referrer">
             </div>型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最]]></description>
-</item>
-<item>
-    <title>Single Sign On with Kerberos</title>
-    <link>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</link>
-    <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://user-images.githubusercontent.com/33840759/172865460-c29ef20d-59d0-4836-8e91-e87b397a6ead.png" referrerpolicy="no-referrer">
-            </div>Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC]]></description>
 </item>
 </channel>
 </rss>

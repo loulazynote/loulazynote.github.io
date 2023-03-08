@@ -2,17 +2,27 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://loulazynote.github.io/tags/.net-core-6/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/asp.net-core/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/asp.net-core/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/c#/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/c#/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/meilisearch/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/meilisearch-1.0.0/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/meilisearchbasicusage/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/tags/tools/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
+            <loc>https://loulazynote.github.io/categories/tools/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/angular/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/teams/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/teams/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/teamsapp/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/teamsapp/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/teamsapptab/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/teamstoolkit/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/teamsappwithangular/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/dataverse/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/learning/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
@@ -26,13 +36,8 @@
             <loc>https://loulazynote.github.io/tags/microsoft-power-virtual-agents/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/microsoft-powerapps/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/asp.net-core/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/asp.net-core/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/c#/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/c#/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/serilog/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/serilogusage/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/tools/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/tags/valueinjecter/</loc><lastmod>2022-06-22T20:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/posts/valueinjecter_meta/</loc><lastmod>2022-06-22T20:00:00&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/categories/database/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
