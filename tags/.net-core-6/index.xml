@@ -5,14 +5,14 @@
         <description>.Net Core 6 - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
             <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/.net-core-6/" rel="self" type="application/rss+xml" /><item>
-    <title>MeiliSearch 常用Cli</title>
+    <title>MeiliSearch 常用Cli 設定</title>
     <link>https://loulazynote.github.io/posts/meilisearchcliusage/</link>
     <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/posts/meilisearchcliusage/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
-            </div>MeiliSearch 常用Cli 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使用(]]></description>
+            </div>MeiliSearch 常用Cli 設定 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使]]></description>
 </item>
 <item>
     <title>MeiliSearch基本用法</title>
