@@ -156,9 +156,9 @@
 <ul>
 <li>
 <p><code>--db-path</code> : 指定DB建立的位置</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_DB_PATH</code></p>
+<ul>
+<li>環境變數: <code>MEILI_DB_PATH</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -170,9 +170,9 @@
 </div></li>
 <li>
 <p><code>--http-addr</code> : 指定Http位址及Port號</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_HTTP_ADDR</code></p>
+<ul>
+<li>環境變數: <code>MEILI_HTTP_ADDR</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -184,9 +184,9 @@
 </div></li>
 <li>
 <p><code>--env</code> : 指定開發環境或是正式環境</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_ENV</code></p>
+<ul>
+<li>環境變數: <code>MEILI_ENV</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -202,9 +202,9 @@
 </li>
 <li>
 <p><code>--master-key</code> : 設定密鑰, 至少要設定16個UTF-8的字元, 預設是沒有設定的, 如果啟動時沒有設定密鑰, 或低於16字元, 那Meilisearch會自動產生一個&quot;建議&quot;的密鑰, 可以在重新啟動時將它寫入</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_MASTER_KEY</code></p>
+<ul>
+<li>環境變數: <code>MEILI_MASTER_KEY</code></li>
+</ul>
 <blockquote>
 <p>密鑰保護除了 <a href="https://docs.meilisearch.com/reference/api/health.html" target="_blank" rel="noopener noreffer"><code>GET /health</code></a> 的API以外都包含在內</p>
 </blockquote>
@@ -227,7 +227,7 @@
 </div></li>
 <li>
 <p><code>--no-analytics</code> : 關閉分析, Meilisearch會自動收集實例的資料, 所有收集的資料只用於改進Meilisearch, 可以使用此指令關閉</p>
-</li>
+<ul>
 <li>
 <p>環境變數: <code>MEILI_NO_ANALYTICS</code></p>
 <div class="highlight"><div class="chroma">
@@ -239,21 +239,24 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
-<li>
-<p><code>--dump-dir</code> : 設定位置以產生DB的轉移dump文件, 可用於恢復Meilisearch資料或在不同版本之間<a href="https://docs.meilisearch.com/learn/advanced/updating.html" target="_blank" rel="noopener noreffer">轉移</a></p>
+</ul>
 </li>
 <li>
-<p>環境變數: <code>MEILI_DUMP_DIR</code></p>
+<p><code>--dump-dir</code> : 設定位置以產生DB的轉移dump文件, 可用於恢復Meilisearch資料或在不同版本之間<a href="https://docs.meilisearch.com/learn/advanced/updating.html" target="_blank" rel="noopener noreffer">轉移</a></p>
+<ul>
+<li>環境變數: <code>MEILI_DUMP_DIR</code></li>
+</ul>
 </li>
 <li>
 <p><code>--import-dump</code> : 匯入指定路徑的轉移dump文件, 如果Database已經存在, Meilisearch將拋出一個錯誤並中止啟動</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_IMPORT_DUMP</code></p>
+<ul>
+<li>環境變數: <code>MEILI_IMPORT_DUMP</code></li>
+</ul>
 </li>
 <li>
 <p><code>--log-level</code> : 設定MeiliSearch的Log等級, 顯示在Dos畫面上 (聽說有被正名叫命令提示字元, 那powershell/bash/docker這些畫面不就也要另外名詞?我就懶)</p>
 <ul>
+<li>環境變數: <code>MEILI_LOG_LEVEL</code></li>
 <li><code>INFO</code> : 預設值, 記錄所有事件</li>
 <li><code>ERROR</code> : 只記錄Meilisearch的意外事件及錯誤</li>
 <li><code>WARN</code> : 記錄所有意外事件,無論嚴重程度</li>
@@ -261,9 +264,6 @@
 <li><code>TRACE</code> : 記錄所有事件，包括Meilisearch內部程式流的更多詳細信息, 官方不建議使用, 因為它顯示的內容太多太冗長, 官方更建議使用 <code>DEBUG</code></li>
 <li><code>OFF</code> : 關閉記錄</li>
 </ul>
-</li>
-<li>
-<p>環境變數: <code>MEILI_LOG_LEVEL</code></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -278,10 +278,8 @@
 <ul>
 <li>
 <p><code>--max-indexing-memory</code> : 設定MeiliSearch在建立索引時可以使用的記憶體大小, 預設是使用該機器(PC/VM/Server一樣)不超過<!-- raw HTML omitted --><strong>2/3的可用記憶體</strong><!-- raw HTML omitted --></p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_MAX_INDEXING_MEMORY</code></p>
 <ul>
+<li>環境變數: <code>MEILI_MAX_INDEXING_MEMORY</code></li>
 <li>此設定必須以字元為單位, 或明確的一個基本單位, 如: <code>107374182400</code> 或 <code>'107.7Gb'</code> 或 <code>'107374Mb'</code>等</li>
 <li>如果設定大於或等於機器的總記憶體的值, 非常有可能導致實作崩潰</li>
 </ul>
@@ -299,10 +297,8 @@
 </div></li>
 <li>
 <p><code>--max-indexing-threads</code> : 設定 Meil​​isearch 在建立索引時可使用的最大核心數, 預設是避免使用機器總處理單元的一半以上</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_MAX_INDEXING_THREADS</code></p>
 <ul>
+<li>環境變數: <code>MEILI_MAX_INDEXING_THREADS</code></li>
 <li>預設是 <!-- raw HTML omitted --><strong>使用機器1/2可用內核數</strong><!-- raw HTML omitted --></li>
 <li>如果 <code>--max-indexing-threads</code> 大於機器實際可用內核數, MeiliSearch將使用最大可用內核數</li>
 <li>在單核機器上, MeiliSearch只能使用唯一可用的內核來進行索引, 這可能會導致建立索引時的搜索體驗下降 (親體驗用2 Cores也很慢)</li>
@@ -321,10 +317,10 @@
 </div></li>
 <li>
 <p><code>--http-payload-size-limit</code> : 限制Http Request的大小, 預設是100Mb,  如果超過設定值會拒絕Request並給予錯誤訊息</p>
-</li>
+<ul>
 <li>
 <p>環境變數: <code>MEILI_HTTP_PAYLOAD_SIZE_LIMIT</code></p>
-<ul>
+</li>
 <li>
 <p>此設定必須以字元為單位, 或明確的一個基本單位, 如: <code>107374182400</code> 或 <code>'107.7Gb'</code> 或 <code>'107374Mb'</code>等</p>
 <div class="highlight"><div class="chroma">
@@ -343,10 +339,10 @@
 <ul>
 <li>
 <p><code>--schedule-snapshot</code> : 自動備份Database及index, 預設是關閉的, 而啟用的方式則是加上此指令即可</p>
-</li>
+<ul>
 <li>
 <p>環境變數: <code>MEILI_SCHEDULE_SNAPSHOT</code></p>
-<ul>
+</li>
 <li>
 <p>可以直接使用, 並不指定數值, 這樣的話每24HR就會自動備份一次(<code>--schedule-snapshot=86400</code>)</p>
 </li>
@@ -378,13 +374,13 @@
 </li>
 <li>
 <p><code>--snapshot-dir</code> : 備份檔案指定位置, 預設是套件所在根目錄下的<code>snapshots/</code></p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_SNAPSHOT_DIR</code></p>
+<ul>
+<li>環境變數: <code>MEILI_SNAPSHOT_DIR</code></li>
+</ul>
 </li>
 <li>
 <p><code>--import-snapshot</code> : 匯入備份</p>
-</li>
+<ul>
 <li>
 <p>環境變數: <code>MEILI_IMPORT_SNAPSHOT</code></p>
 <div class="highlight"><div class="chroma">
@@ -395,26 +391,26 @@
 <pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-import-snapshot</span><span class="p">=</span><span class="s1">&#39;D:/MeiliSearchDemo/snapshots/&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>如果Database已存在則會失敗</li>
-<li>找不到有效的備份檔案(snapshot)則會失敗</li>
+</div></li>
+<li>
+<p>如果Database已存在則會失敗</p>
+</li>
+<li>
+<p>找不到有效的備份檔案(snapshot)則會失敗</p>
+</li>
 </ul>
 </li>
 <li>
 <p><code>--ignore-missing-snapshot</code> : 防止 Meil​​isearch 在 <code>--import-snapshot</code> 未指向有效快照文件時跳出錯誤, 如果未定義 <code>--import-snapshot</code>，此指令將跳出錯誤</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_IGNORE_MISSING_SNAPSHOT</code></p>
 <ul>
+<li>環境變數: <code>MEILI_IGNORE_MISSING_SNAPSHOT</code></li>
 <li>不需要給值, 給的話會跳錯</li>
 </ul>
 </li>
 <li>
 <p><code>--ignore-snapshot-if-db-exists</code> : 使用 <code>--import-snapshot</code> 時防止已有資料庫的 Meil​​isearch 跳出錯誤，且snapshot將被忽略, MeiliSearch將使用現有資料庫啟動</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_IGNORE_SNAPSHOT_IF_DB_EXISTS</code></p>
 <ul>
+<li>環境變數: <code>MEILI_IGNORE_SNAPSHOT_IF_DB_EXISTS</code></li>
 <li>如果未定義 <code>--import-snapshot</code>, 此指令會跳錯誤</li>
 <li>不需要給值, 給的話會跳錯</li>
 </ul>
@@ -424,7 +420,7 @@
 <ul>
 <li>
 <p><code>--ssl-auth-path</code> : 啟用客戶端身份驗證, 需要提供一個文件夾的路徑, MeiliSearch 會從該文件夾中讀取客戶端證書, 而該文件夾應包含一個或多個 PEM 格式的客戶端證書, 通常用於安全性要求較高的應用程序, 例如企業內部系統</p>
-</li>
+<ul>
 <li>
 <p>環境變數: <code>MEILI_SSL_AUTH_PATH</code></p>
 <div class="highlight"><div class="chroma">
@@ -438,6 +434,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
+</ul>
+</li>
 <li>
 <p><code>--ssl-cert-path</code> : 指定 SSL/TLS 服務器證書的路徑, 內容包含 <strong>公共證書的 PEM</strong>的檔案, 通常由 CA 驗證機構簽發的 SSL/TLS 證書,該證書用於驗證 SSL/TLS 服務器的身份</p>
 <ul>
@@ -465,37 +463,29 @@
 <ul>
 <li>
 <p><code>--ssl-ocsp-path</code> : 設定 Server的OCSP檔案 (此選項非必要)</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_SSL_OCSP_PATH</code></p>
 <ul>
+<li>環境變數: <code>MEILI_SSL_OCSP_PATH</code></li>
 <li>從 OCSPFILE 讀取 DER 編碼的 OCSP Response並將其裝訂到證書</li>
 </ul>
 </li>
 <li>
 <p><code>--ssl-require-auth</code> : 讓SSL認證變成強制性的, 如果User沒有完成認證則會發出強烈的警告(就是警告)</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_SSL_REQUIRE_AUTH</code></p>
 <ul>
+<li>環境變數: <code>MEILI_SSL_REQUIRE_AUTH</code></li>
 <li>不需要給任何值, 直接加上這個指令即可</li>
 </ul>
 </li>
 <li>
 <p><code>--ssl-resumption</code> : SSL 會話恢復</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_SSL_RESUMPTION</code></p>
 <ul>
+<li>環境變數: <code>MEILI_SSL_RESUMPTION</code></li>
 <li>不需要給任何值, 直接加上這個指令即可</li>
 </ul>
 </li>
 <li>
 <p><code>--ssl-tickets</code> : 啟用 SSL/TLS 會話票證</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_SSL_TICKETS</code></p>
 <ul>
+<li>環境變數: <code>MEILI_SSL_TICKETS</code></li>
 <li>不需要給任何值, 直接加上這個指令即可</li>
 </ul>
 </li>
@@ -504,10 +494,8 @@
 <ul>
 <li>
 <p><code>--config-file-path</code> : 指定啟動時要讀取的設定文件的位置</p>
-</li>
-<li>
-<p>環境變數: <code>MEILI_CONFIG_FILE_PATH</code></p>
 <ul>
+<li>環境變數: <code>MEILI_CONFIG_FILE_PATH</code></li>
 <li>沒有設定的話, 會如下圖顯示
 <img
         class="lazyload"
