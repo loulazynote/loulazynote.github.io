@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/meilisearchcliusage\/"
-        },"genre": "posts","keywords": "MeiliSearch, MeiliSearch 1.0.0, .Net Core 6, C#, ASP.NET Core, Tools","wordcount":  2564 ,
+        },"genre": "posts","keywords": "MeiliSearch, MeiliSearch 1.0.0, .Net Core 6, C#, ASP.NET Core, Tools","wordcount":  2798 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/meilisearchcliusage\/","datePublished": "2023-03-17T19:38:36+08:00","dateModified": "2023-03-17T19:38:36+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -102,7 +102,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MeiliSearch 常用Cli</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href=""><i class="far fa-folder fa-fw" aria-hidden="true"></i></a>&nbsp;<a href="/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-17">2023-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2564 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-17">2023-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2798 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -134,6 +134,8 @@
                     <li><a href="#--no-analytics--關閉分析-meilisearch會自動收集實例的資料-所有收集的資料只用於改進meilisearch-可以使用此指令關閉"><code>--no-analytics</code> : 關閉分析, Meilisearch會自動收集實例的資料, 所有收集的資料只用於改進Meilisearch, 可以使用此指令關閉</a></li>
                     <li><a href="#--dump-dir--設定位置以產生db的轉移dump文件-可用於恢復meilisearch資料或在不同版本之間轉移httpsdocsmeilisearchcomlearnadvancedupdatinghtml"><code>--dump-dir</code> : 設定位置以產生DB的轉移dump文件, 可用於恢復Meilisearch資料或在不同版本之間<a href="https://docs.meilisearch.com/learn/advanced/updating.html">轉移</a></a></li>
                     <li><a href="#--import-dump--匯入指定路徑的轉移dump文件-如果database已經存在-meilisearch將拋出一個錯誤並中止啟動"><code>--import-dump</code> : 匯入指定路徑的轉移dump文件, 如果Database已經存在, Meilisearch將拋出一個錯誤並中止啟動</a></li>
+                    <li><a href="#--ignore-missing-dump--防止-meilisearch-在---import-dump-未指向有效轉移dump文件時跳出錯誤-如果database已經存在-將正常啟動而不導入任何轉移dump文件"><code>--ignore-missing-dump</code> : 防止 Meil​​isearch 在 <code>--import-dump</code> 未指向有效轉移dump文件時跳出錯誤, 如果Database已經存在, 將正常啟動而不導入任何轉移dump文件</a></li>
+                    <li><a href="#--ignore-dump-if-db-exists--使用---import-dump-時防止database已經存在-而meilisearch-執行時跳出錯誤-如果database已經存在-轉移dump文件將被忽略meilisearch-將使用現有database啟動"><code>--ignore-dump-if-db-exists</code> : 使用 <code>--import-dump</code> 時防止Database已經存在 而Meil​​isearch 執行時跳出錯誤, 如果Database已經存在, 轉移dump文件將被忽略，Meilisearch 將使用現有Database啟動</a></li>
                     <li><a href="#--log-level--設定meilisearch的log等級-顯示在dos畫面上-聽說有被正名叫命令提示字元-那powershellbashdocker這些畫面不就也要另外名詞我就懶"><code>--log-level</code> : 設定MeiliSearch的Log等級, 顯示在Dos畫面上 (聽說有被正名叫命令提示字元, 那powershell/bash/docker這些畫面不就也要另外名詞?我就懶)</a></li>
                   </ul>
                 </li>
@@ -286,6 +288,16 @@
 <h5 id="--import-dump--匯入指定路徑的轉移dump文件-如果database已經存在-meilisearch將拋出一個錯誤並中止啟動"><code>--import-dump</code> : 匯入指定路徑的轉移dump文件, 如果Database已經存在, Meilisearch將拋出一個錯誤並中止啟動</h5>
 <ul>
 <li>環境變數: <code>MEILI_IMPORT_DUMP</code></li>
+</ul>
+<h5 id="--ignore-missing-dump--防止-meilisearch-在---import-dump-未指向有效轉移dump文件時跳出錯誤-如果database已經存在-將正常啟動而不導入任何轉移dump文件"><code>--ignore-missing-dump</code> : 防止 Meil​​isearch 在 <code>--import-dump</code> 未指向有效轉移dump文件時跳出錯誤, 如果Database已經存在, 將正常啟動而不導入任何轉移dump文件</h5>
+<ul>
+<li>環境變數: <code>MEILI_IGNORE_MISSING_DUMP</code></li>
+</ul>
+<h5 id="--ignore-dump-if-db-exists--使用---import-dump-時防止database已經存在-而meilisearch-執行時跳出錯誤-如果database已經存在-轉移dump文件將被忽略meilisearch-將使用現有database啟動"><code>--ignore-dump-if-db-exists</code> : 使用 <code>--import-dump</code> 時防止Database已經存在 而Meil​​isearch 執行時跳出錯誤, 如果Database已經存在, 轉移dump文件將被忽略，Meilisearch 將使用現有Database啟動</h5>
+<ul>
+<li>環境變數: <code>MEILI_IGNORE_DUMP_IF_DB_EXISTS</code></li>
+<li>此指令不需要填寫任何值, 加上指令即可, 有加上值則會跳出錯誤</li>
+<li>如果未定義 <code>--import-dump</code>此選項則跳錯誤</li>
 </ul>
 <h5 id="--log-level--設定meilisearch的log等級-顯示在dos畫面上-聽說有被正名叫命令提示字元-那powershellbashdocker這些畫面不就也要另外名詞我就懶"><code>--log-level</code> : 設定MeiliSearch的Log等級, 顯示在Dos畫面上 (聽說有被正名叫命令提示字元, 那powershell/bash/docker這些畫面不就也要另外名詞?我就懶)</h5>
 <ul>
