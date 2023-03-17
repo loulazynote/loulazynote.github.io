@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/posts/</link>
         <description>所有文章 | The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>MeiliSearch 常用Cli</title>
+    <link>https://loulazynote.github.io/posts/meilisearchcliusage/</link>
+    <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/meilisearchcliusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
+            </div>MeiliSearch 常用Cli 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使用(]]></description>
+</item>
+<item>
     <title>MeiliSearch基本用法</title>
     <link>https://loulazynote.github.io/posts/meilisearchbasicusage/</link>
     <pubDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</pubDate>
@@ -93,16 +103,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/173025439-95a74983-2194-4ff5-9f66-64eaaac44b75.png" referrerpolicy="no-referrer">
             </div>❗這個設定檔很重要❗ ❗這個設定檔很重要❗ ❗這個設定檔很重要❗ 為什麼這麼說呢? 在前陣子我的電腦重灌後就遺忘了設定檔這件事，這幾天突然發現我的R]]></description>
-</item>
-<item>
-    <title>C# 基礎複習Note(型別系統)</title>
-    <link>https://loulazynote.github.io/posts/csharpbasicpart1/</link>
-    <pubDate>Thu, 09 Jun 2022 22:37:31 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/posts/csharpbasicpart1/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" referrerpolicy="no-referrer">
-            </div>型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最]]></description>
 </item>
 </channel>
 </rss>
