@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/tags/docker/</link>
         <description>Docker - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 23 May 2023 17:30:27 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>Gitlab 淺嘗 : GitLab EE on Docker</title>
+    <link>https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/</link>
+    <pubDate>Tue, 23 May 2023 17:30:27 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/88981/234431935-fad124f6-d3d3-4aa2-bfd2-8e8fbcd45b44.png" referrerpolicy="no-referrer">
+            </div>Gitlab 淺嘗 : GitLab EE on Docker 前言 因為最近有個案子，需要使用到 Gitlab，所以就來研究一下 Gitlab 的使用方式，由於客戶使用的是舊版本，所以我也只能使用舊版本來]]></description>
+</item>
+<item>
     <title>關於WSL的設定檔 - 不可不知的眉角</title>
     <link>https://loulazynote.github.io/posts/wsl2-config-note/</link>
     <pubDate>Fri, 10 Jun 2022 15:25:49 &#43;0800</pubDate>
