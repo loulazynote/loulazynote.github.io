@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Gitlab 使用外部 PostgreSQL 方法 - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Gitlab 使用外部 PostgreSQL 方法" />
+<meta property="og:description" content="Gitlab 使用外部 PostgreSQL 方法 前言 一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同 關於" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://loulazynote.github.io/posts/gitlabexternalpostgresql/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-31T20:29:19+08:00" />
+<meta property="article:modified_time" content="2023-05-31T20:29:19+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
+
+<meta name="twitter:title" content="Gitlab 使用外部 PostgreSQL 方法"/>
+<meta name="twitter:description" content="Gitlab 使用外部 PostgreSQL 方法 前言 一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同 關於"/>
+<meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/gitlabexternalpostgresql/" /><link rel="prev" href="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Gitlab 使用外部 PostgreSQL 方法",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/posts\/gitlabexternalpostgresql\/"
+        },"genre": "posts","keywords": "Gitlab, Docker, Ubuntu, DevOps","wordcount":  803 ,
+        "url": "https:\/\/loulazynote.github.io\/posts\/gitlabexternalpostgresql\/","datePublished": "2023-05-31T20:29:19+08:00","dateModified": "2023-05-31T20:29:19+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="The Lazy Engineer Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy Engineer Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章標題或內容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Gitlab 使用外部 PostgreSQL 方法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-31">2023-05-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 803 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png"
+        data-srcset="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png, https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png 1.5x, https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png 2x"
+        data-sizes="auto"
+        alt="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png"
+        title="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</a>
+      <ul>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#關於-gitlab-與-postgresql-關係">關於 Gitlab 與 PostgreSQL 關係</a></li>
+        <li><a href="#安裝與設定">安裝與設定</a>
+          <ul>
+            <li><a href="#安裝-postgresql">安裝 PostgreSQL</a></li>
+            <li><a href="#更改gitlab設定">更改Gitlab設定</a></li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</h1>
+<h2 id="前言">前言</h2>
+<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>
+<h2 id="關於-gitlab-與-postgresql-關係">關於 Gitlab 與 PostgreSQL 關係</h2>
+<ul>
+<li><a href="https://docs.gitlab.com/omnibus/settings/database.html" target="_blank" rel="noopener noreffer">官方文件</a>有說明，如果是使用 <code>Omnibus GitLab</code> 則會內建 <code>PostgreSQL</code>，且 Gitlab 僅有支援PostgreSQL</li>
+<li>當然目前的Docker也有包含 PostgreSQL 的版本</li>
+<li>但如果是要使用外部的 PostgreSQL，則需要自行安裝 PostgreSQL，且版本需符合 Gitlab 所需的版本
+<ul>
+<li>Gitlab 16.0 以後的版本，需要 <code>PostgreSQL 13.0</code> 以上</li>
+<li>Gitlab 15.0 以後的版本，預設使用 <code>PostgreSQL 13.0</code></li>
+<li>Gitlab 13.7 以後的版本，建議 <code>PostgreSQL 12.0</code> 以上</li>
+<li>Gitlab 13.0 以前的版本，需要 <code>PostgreSQL 11.0</code> 以上</li>
+<li>Gitlab 12.8 以前的版本，需要 <code>PostgreSQL 9.6</code> 以上<code>PostgreSQL 11.7</code>以下</li>
+</ul>
+</li>
+</ul>
+<h2 id="安裝與設定">安裝與設定</h2>
+<h3 id="安裝-postgresql">安裝 PostgreSQL</h3>
+<p>我這裡是使用Docker來安裝 <code>PostgreSQL</code> ，步驟如下：</p>
+<ol>
+<li>
+<p>使用 <code>docker compose</code> 安裝</p>
+<ul>
+<li>
+<p>我在本地端建立一個資料夾 <code>postgresql</code> 來放置 <code>docker-compose.yml</code> 檔案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir postgresql
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> postgresql
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>我設定了一個路徑 <code>export POSTGRESQL_HOME=/root/postgresql</code></p>
+</li>
+<li>
+<p>建立 <code>docker-compose.yml</code> 檔案 <code>sudo vi docker-compose.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">postgres</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres:13.11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">postgres_13</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;$POSTGRESQL_HOME/data:/var/lib/postgresql/data&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;5432:5432&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l">gitlabhq_production</span><span class="w"> </span><span class="c"># Gitlab 預設的資料庫名稱</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l">postgres</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="m">1234</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>確定你所在目錄是在<code>docker-compose.yml</code> 檔案的目錄後執行 <code>docker-compose up -d</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用 Docker Engine 安裝</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> sudo docker run -d --name postgres_13 <span class="se">\ </span>
+</span></span><span class="line"><span class="cl">     --restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -p 5432:5432 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -v <span class="nv">$POSTGRESQL_HOME</span>/data:/var/lib/postgresql/data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -e <span class="nv">POSTGRES_DB</span><span class="o">=</span>eflab <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -e <span class="nv">POSTGRES_USER</span><span class="o">=</span>postgres <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -e <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span><span class="m">1234</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     postgres:13.11
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>測試看看能不能連上，沒有相關工具的可以使用<code>pgadmin4</code>查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 沒有其他工具執行下列Docker可以使用 pgadmin4，這裡設定的port號是20080，故瀏覽器輸入 http://localhost:20080</span>
+</span></span><span class="line"><span class="cl">docker run -p 20080:80 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -e <span class="s1">&#39;PGADMIN_DEFAULT_EMAIL=user@example.com&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -e <span class="s1">&#39;PGADMIN_DEFAULT_PASSWORD=admin&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d dpage/pgadmin4:latest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這是我用DBeaver連線的畫面
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/6677b460-9289-41e5-95f6-742c2270cc10"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/6677b460-9289-41e5-95f6-742c2270cc10, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/6677b460-9289-41e5-95f6-742c2270cc10 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/6677b460-9289-41e5-95f6-742c2270cc10 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/6677b460-9289-41e5-95f6-742c2270cc10"
+        title="image" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/54b1a02c-261a-48e9-b326-508462db61dc"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/54b1a02c-261a-48e9-b326-508462db61dc, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/54b1a02c-261a-48e9-b326-508462db61dc 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/54b1a02c-261a-48e9-b326-508462db61dc 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/54b1a02c-261a-48e9-b326-508462db61dc"
+        title="image" /></p>
+</li>
+</ol>
+<h3 id="更改gitlab設定">更改Gitlab設定</h3>
+<ol>
+<li>
+<p>進入到gitlab的容器內</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it gitlab bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>編輯 <code>gitlab.rb</code> 檔案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vi /etc/gitlab/gitlab.rb
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在VIM模式下搜尋 <code>postgresql</code>，並將下列設定開啟</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> /postgresql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="c1"># Disable the bundled Omnibus provided PostgreSQL</span>
+</span></span><span class="line"><span class="cl"> postgresql<span class="o">[</span><span class="s1">&#39;enable&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">false</span> <span class="c1"># 這裡要設定為false，不然會使用內建的PostgreSQL</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1"># PostgreSQL connection details</span>
+</span></span><span class="line"><span class="cl"> gitlab_rails<span class="o">[</span><span class="s1">&#39;db_adapter&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;postgresql&#39;</span>
+</span></span><span class="line"><span class="cl"> gitlab_rails<span class="o">[</span><span class="s1">&#39;db_encoding&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;unicode&#39;</span>
+</span></span><span class="line"><span class="cl"> gitlab_rails<span class="o">[</span><span class="s1">&#39;db_host&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;your IP/hostname of database server&#39;</span>
+</span></span><span class="line"><span class="cl"> gitlab_rails<span class="o">[</span><span class="s1">&#39;db_password&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;1234&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/89a71690-9ef6-4686-b890-079f7b27def8"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/89a71690-9ef6-4686-b890-079f7b27def8, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/89a71690-9ef6-4686-b890-079f7b27def8 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/89a71690-9ef6-4686-b890-079f7b27def8 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/89a71690-9ef6-4686-b890-079f7b27def8"
+        title="image" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/364a8c61-dd12-4141-9c2c-e624e8e55fda"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/364a8c61-dd12-4141-9c2c-e624e8e55fda, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/364a8c61-dd12-4141-9c2c-e624e8e55fda 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/364a8c61-dd12-4141-9c2c-e624e8e55fda 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/364a8c61-dd12-4141-9c2c-e624e8e55fda"
+        title="image" /></p>
+</li>
+<li>
+<p>執行<code>sudo gitlab-ctl reconfigure</code>(執行後可能要等2分鐘左右)</p>
+<p>完成後會看到下列畫面</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c81cfa34-8c0d-44ed-8862-4e8ba843a978"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c81cfa34-8c0d-44ed-8862-4e8ba843a978, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c81cfa34-8c0d-44ed-8862-4e8ba843a978 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c81cfa34-8c0d-44ed-8862-4e8ba843a978 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c81cfa34-8c0d-44ed-8862-4e8ba843a978"
+        title="image" />
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/a244179a-a1c4-44ff-bbd7-c9fdef72865a"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/a244179a-a1c4-44ff-bbd7-c9fdef72865a, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/a244179a-a1c4-44ff-bbd7-c9fdef72865a 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/a244179a-a1c4-44ff-bbd7-c9fdef72865a 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/a244179a-a1c4-44ff-bbd7-c9fdef72865a"
+        title="image" /></p>
+</li>
+</ol>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://docs.gitlab.com/omnibus/settings/database.html" target="_blank" rel="noopener noreffer">Gitlab Doc | Database settings</a></li>
+<li><a href="https://docs.gitlab.com/ee/administration/postgresql/external.html" target="_blank" rel="noopener noreffer">Gitlab Doc | Configure GitLab using an external PostgreSQL service</a></li>
+<li><a href="https://docs.gitlab.com/ee/raketasks/restore_gitlab.html" target="_blank" rel="noopener noreffer">Gitlab Doc | Restore GitLab</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2023-05-31</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/gitlabexternalpostgresql/" data-title="Gitlab 使用外部 PostgreSQL 方法" data-via="Lou_Chang" data-hashtags="Gitlab,Docker,Ubuntu,DevOps"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/gitlabexternalpostgresql/" data-hashtag="Gitlab"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/gitlabexternalpostgresql/" data-title="Gitlab 使用外部 PostgreSQL 方法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/gitlab/">Gitlab</a>,&nbsp;<a href="/tags/docker/">Docker</a>,&nbsp;<a href="/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/tags/devops/">DevOps</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/gitlabfordockerwithubuntuinstall/" class="prev" rel="prev" title="Gitlab 淺嘗 : GitLab EE on Docker"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Gitlab 淺嘗 : GitLab EE on Docker</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2023-05-31T20:29:19+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"Gitlab 使用外部 PostgreSQL 方法"}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>
