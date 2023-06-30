@@ -10,6 +10,7 @@
 <meta property="og:url" content="https://loulazynote.github.io/posts/wsl2-config-note/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-10T18:00:00+08:00" />
 <meta property="article:modified_time" content="2022-06-10T15:25:49+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
@@ -57,8 +58,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -101,7 +101,7 @@
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">關於WSL的設定檔 - 不可不知的眉角</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/wsl/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>WSL</a>&nbsp;<a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/wsl/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>WSL</a>&nbsp;<a href="/categories/docker/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Docker</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-10">2022-06-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 613 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
@@ -141,8 +141,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">code <span class="nv">%UserProfile%</span>\.wslconfig
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd">code <span class="nv">%UserProfile%</span>\.wslconfig
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>沒有此檔案的話，可以自行建立一個在<code>%UserProfile%</code> 根目錄下</p>
@@ -164,17 +164,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[wsl2]</span>
-</span></span><span class="line"><span class="cl"><span class="na">kernel</span><span class="o">=</span><span class="s">&lt;path&gt;              # 自定義 Linux 的絕對路徑</span>
-</span></span><span class="line"><span class="cl"><span class="na">memory</span><span class="o">=</span><span class="s">&lt;size&gt;              # 給予 WSL2 虛擬機的記憶體大小</span>
-</span></span><span class="line"><span class="cl"><span class="na">processors</span><span class="o">=</span><span class="s">&lt;number&gt;        # 給 WSL2 虛擬機分配的處理核心數</span>
-</span></span><span class="line"><span class="cl"><span class="na">swap</span><span class="o">=</span><span class="s">&lt;size&gt;                # 給 WSL2 虛擬機分配的交換空間 (設定 0 的話表示沒有給予交換空間)</span>
-</span></span><span class="line"><span class="cl"><span class="na">swapFile</span><span class="o">=</span><span class="s">&lt;path&gt;            # 自定義交換虛擬硬碟vhd的絕對路徑</span>
-</span></span><span class="line"><span class="cl"><span class="na">localhostForwarding</span><span class="o">=</span><span class="s">&lt;bool&gt; # 允許 WSL2 的port轉發至本地主機 (default true).</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># &lt;path&gt; 必須是反斜線的絕對路徑, for example: C:\\Users\\Ben\\kernel</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># &lt;size&gt; 必須在數字後加上單位, for example: 8GB or 512MB</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[wsl2]</span>
+<span class="na">kernel</span><span class="o">=</span><span class="s">&lt;path&gt;              # 自定義 Linux 的絕對路徑</span>
+<span class="na">memory</span><span class="o">=</span><span class="s">&lt;size&gt;              # 給予 WSL2 虛擬機的記憶體大小</span>
+<span class="na">processors</span><span class="o">=</span><span class="s">&lt;number&gt;        # 給 WSL2 虛擬機分配的處理核心數</span>
+<span class="na">swap</span><span class="o">=</span><span class="s">&lt;size&gt;                # 給 WSL2 虛擬機分配的交換空間 (設定 0 的話表示沒有給予交換空間)</span>
+<span class="na">swapFile</span><span class="o">=</span><span class="s">&lt;path&gt;            # 自定義交換虛擬硬碟vhd的絕對路徑</span>
+<span class="na">localhostForwarding</span><span class="o">=</span><span class="s">&lt;bool&gt; # 允許 WSL2 的port轉發至本地主機 (default true).</span>
+
+<span class="c1"># &lt;path&gt; 必須是反斜線的絕對路徑, for example: C:\\Users\\Ben\\kernel</span>
+<span class="c1"># &lt;size&gt; 必須在數字後加上單位, for example: 8GB or 512MB</span>
+</code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -234,9 +234,9 @@
 </ul>
 <h2 id="參考資料">參考資料</h2>
 <ol>
-<li><a href="https://bit.ly/3xgTnz7" target="_blank" rel="noopener noreffer">Release Notes for Windows Subsystem for Linux | Microsoft Docs - Build 18945</a></li>
-<li><a href="https://bit.ly/3trK9yC" target="_blank" rel="noopener noreffer">WSL 中的進階設定組態</a></li>
-<li><a href="https://bit.ly/3xk9ko5" target="_blank" rel="noopener noreffer">Dev on Windows with WSL - 配置 WSL 2 全局设置</a></li>
+<li><a href="https://bit.ly/3xgTnz7" target="_blank" rel="noopener noreffer ">Release Notes for Windows Subsystem for Linux | Microsoft Docs - Build 18945</a></li>
+<li><a href="https://bit.ly/3trK9yC" target="_blank" rel="noopener noreffer ">WSL 中的進階設定組態</a></li>
+<li><a href="https://bit.ly/3xk9ko5" target="_blank" rel="noopener noreffer ">Dev on Windows with WSL - 配置 WSL 2 全局设置</a></li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -247,7 +247,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-title="關於WSL的設定檔 - 不可不知的眉角" data-via="Lou_Chang" data-hashtags="WSL,Docker,Windows"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-hashtag="WSL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-title="關於WSL的設定檔 - 不可不知的眉角"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-title="關於WSL的設定檔 - 不可不知的眉角" data-via="Lou_Chang" data-hashtags="WSL,Docker,Windows"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-hashtag="WSL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/wsl2-config-note/" data-title="關於WSL的設定檔 - 不可不知的眉角"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -275,7 +275,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2022-06-10T15:25:49+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"關於WSL的設定檔 - 不可不知的眉角"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2022-06-10T15:25:49+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"關於WSL的設定檔 - 不可不知的眉角"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>

@@ -10,6 +10,7 @@
 <meta property="og:url" content="https://loulazynote.github.io/posts/meilisearchcliusage/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-17T19:38:36+08:00" />
 <meta property="article:modified_time" content="2023-03-17T19:38:36+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
@@ -27,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/meilisearchcliusage\/"
-        },"genre": "posts","keywords": "MeiliSearch, MeiliSearch 1.0.0, .Net Core 6, CSharp, ASP.NET Core, Tools","wordcount":  2800 ,
+        },"genre": "posts","keywords": "MeiliSearch, MeiliSearch 1.0.0, .Net Core 6, CSharp, ASP.NET Core, Tools","wordcount":  2781 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/meilisearchcliusage\/","datePublished": "2023-03-17T19:38:36+08:00","dateModified": "2023-03-17T19:38:36+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -57,8 +58,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -101,8 +101,8 @@
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MeiliSearch 常用Cli 設定</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-17">2023-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2800 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-17">2023-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2781 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 6 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -198,43 +198,22 @@
 <ul>
 <li>
 <p>環境變數: <code>MEILI_DB_PATH</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-db-path</span><span class="p">=</span><span class="s1">&#39;D:/MeiliSearchDemo/Database&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --db-path='D:/MeiliSearchDemo/Database'
+</code></pre></li>
 </ul>
 <h5 id="--http-addr--指定http位址及port號"><code>--http-addr</code> : 指定Http位址及Port號</h5>
 <ul>
 <li>
 <p>環境變數: <code>MEILI_HTTP_ADDR</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-http-addr</span><span class="p">=</span><span class="s1">&#39;127.0.0.1:7700&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --http-addr='127.0.0.1:7700'
+</code></pre></li>
 </ul>
 <h5 id="--env--指定開發環境或是正式環境"><code>--env</code> : 指定開發環境或是正式環境</h5>
 <ul>
 <li>
 <p>環境變數: <code>MEILI_ENV</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-env</span><span class="p">=</span><span class="n">development</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --env=development
+</code></pre></li>
 <li>
 <p><code>production</code> : 設定為正式環境會有一些限制, 必須要設定 <code>master key</code>, 且套件提供的簡易預覽畫面會關閉</p>
 </li>
@@ -247,7 +226,7 @@
 <li>
 <p>環境變數: <code>MEILI_MASTER_KEY</code></p>
 <blockquote>
-<p>密鑰保護除了 <a href="https://docs.meilisearch.com/reference/api/health.html" target="_blank" rel="noopener noreffer"><code>GET /health</code></a> 的API以外都包含在內</p>
+<p>密鑰保護除了 <a href="https://docs.meilisearch.com/reference/api/health.html" target="_blank" rel="noopener noreffer "><code>GET /health</code></a> 的API以外都包含在內</p>
 </blockquote>
 <p><img
         class="lazyload"
@@ -257,31 +236,17 @@
         data-sizes="auto"
         alt="https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png"
         title="image" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">   <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-master-key</span><span class="p">=</span><span class="s2">&#34;MASTER_KEY&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">   ./meilisearch-windows-amd64.exe --master-key=&quot;MASTER_KEY&quot;
+</code></pre></li>
 </ul>
 <h5 id="--no-analytics--關閉分析-meilisearch會自動收集實例的資料-所有收集的資料只用於改進meilisearch-可以使用此指令關閉"><code>--no-analytics</code> : 關閉分析, Meilisearch會自動收集實例的資料, 所有收集的資料只用於改進Meilisearch, 可以使用此指令關閉</h5>
 <ul>
 <li>
 <p>環境變數: <code>MEILI_NO_ANALYTICS</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">    <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-no-analytics</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">    ./meilisearch-windows-amd64.exe --no-analytics
+</code></pre></li>
 </ul>
-<h5 id="--dump-dir--設定位置以產生db的轉移dump文件-可用於恢復meilisearch資料或在不同版本之間轉移httpsdocsmeilisearchcomlearnadvancedupdatinghtml"><code>--dump-dir</code> : 設定位置以產生DB的轉移dump文件, 可用於恢復Meilisearch資料或在不同版本之間<a href="https://docs.meilisearch.com/learn/advanced/updating.html" target="_blank" rel="noopener noreffer">轉移</a></h5>
+<h5 id="--dump-dir--設定位置以產生db的轉移dump文件-可用於恢復meilisearch資料或在不同版本之間轉移httpsdocsmeilisearchcomlearnadvancedupdatinghtml"><code>--dump-dir</code> : 設定位置以產生DB的轉移dump文件, 可用於恢復Meilisearch資料或在不同版本之間<a href="https://docs.meilisearch.com/learn/advanced/updating.html" target="_blank" rel="noopener noreffer ">轉移</a></h5>
 <ul>
 <li>環境變數: <code>MEILI_DUMP_DIR</code></li>
 </ul>
@@ -345,15 +310,8 @@
 <blockquote>
 <p>在索引過程中, Meilisearch有可能超過設定的RAM限制, 但在大多數情況下, 這應該是可以忽略的量, 對穩定及性能幾乎沒有影響(官方是這樣說啦~但我感受是還是有影響)</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-max-indexing-memory</span><span class="p">=</span><span class="s1">&#39;4Gb&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --max-indexing-memory='4Gb'
+</code></pre></li>
 </ul>
 <h5 id="--max-indexing-threads--設定-meilisearch-在建立索引時可使用的最大核心數-預設是避免使用機器總處理單元的一半以上"><code>--max-indexing-threads</code> : 設定 Meil​​isearch 在建立索引時可使用的最大核心數, 預設是避免使用機器總處理單元的一半以上</h5>
 <ul>
@@ -371,15 +329,8 @@
 <blockquote>
 <p>請避免將 <code>--max-indexing-threads</code> 設定為機器處理器內核的總數, 雖然這樣可能加快建立索引速度, 但可能會嚴重影響搜索體驗</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-max-indexing-threads</span><span class="p">=</span><span class="mf">4</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --max-indexing-threads=4
+</code></pre></li>
 </ul>
 <h5 id="--http-payload-size-limit--限制http-request的大小-預設是100mb--如果超過設定值會拒絕request並給予錯誤訊息"><code>--http-payload-size-limit</code> : 限制Http Request的大小, 預設是100Mb,  如果超過設定值會拒絕Request並給予錯誤訊息</h5>
 <ul>
@@ -388,15 +339,8 @@
 </li>
 <li>
 <p>此設定必須以字元為單位, 或明確的一個基本單位, 如: <code>107374182400</code> 或 <code>'107.7Gb'</code> 或 <code>'107374Mb'</code>等</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-http-payload-size-limit</span><span class="p">=</span><span class="s1">&#39;200Mb&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --http-payload-size-limit='200Mb'
+</code></pre></li>
 </ul>
 <h4 id="關於備份cli100版本後才有的功能">關於備份Cli(1.0.0版本後才有的功能)</h4>
 <h5 id="--schedule-snapshot--自動備份database及index-預設是關閉的-而啟用的方式則是加上此指令即可"><code>--schedule-snapshot</code> : 自動備份Database及index, 預設是關閉的, 而啟用的方式則是加上此指令即可</h5>
@@ -409,17 +353,9 @@
 </li>
 <li>
 <p>提供的數值以秒計算</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">   <span class="c"># 這樣表示每一小時都備份一次</span>
-</span></span><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-schedule-snapshot</span><span class="p">=</span><span class="mf">3600</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">   # 這樣表示每一小時都備份一次
+  ./meilisearch-windows-amd64.exe --schedule-snapshot=3600
+</code></pre><blockquote>
 <p>經測試, 備份是做差異備份, 如果資料都沒有變動, 則會有一個暫存檔案會變更
 <img
         class="lazyload"
@@ -440,15 +376,8 @@
 <ul>
 <li>
 <p>環境變數: <code>MEILI_IMPORT_SNAPSHOT</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-import-snapshot</span><span class="p">=</span><span class="s1">&#39;D:/MeiliSearchDemo/snapshots/&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch-windows-amd64.exe --import-snapshot='D:/MeiliSearchDemo/snapshots/'
+</code></pre></li>
 <li>
 <p>如果Database已存在則會失敗</p>
 </li>
@@ -472,17 +401,9 @@
 <ul>
 <li>
 <p>環境變數: <code>MEILI_SSL_AUTH_PATH</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">    <span class="c"># 需要將 --ssl-cert-path 及 --ssl-key-path 和 --http-addr 選項的值更改為自己的值</span>
-</span></span><span class="line"><span class="cl">    <span class="p">./</span><span class="n">meilisearch</span> <span class="p">-</span><span class="n">-http-addr</span> <span class="s1">&#39;127.0.0.1:7700&#39;</span> <span class="p">-</span><span class="n">-ssl-cert-path</span> <span class="s1">&#39;D:/Meilisearch/ssl/cert.pem&#39;</span> <span class="p">-</span><span class="n">-ssl-key-path</span> <span class="s1">&#39;D:/Meilisearch/ssl/key.pem&#39;</span> <span class="p">-</span><span class="n">-ssl-auth-path</span> <span class="s1">&#39;D:/Meilisearch/ssl/client_certs&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">    # 需要將 --ssl-cert-path 及 --ssl-key-path 和 --http-addr 選項的值更改為自己的值
+    ./meilisearch --http-addr '127.0.0.1:7700' --ssl-cert-path 'D:/Meilisearch/ssl/cert.pem' --ssl-key-path 'D:/Meilisearch/ssl/key.pem' --ssl-auth-path 'D:/Meilisearch/ssl/client_certs'
+</code></pre></li>
 </ul>
 <h5 id="--ssl-cert-path--指定-ssltls-服務器證書的路徑-內容包含-公共證書的-pem的檔案-通常由-ca-驗證機構簽發的-ssltls-證書該證書用於驗證-ssltls-服務器的身份"><code>--ssl-cert-path</code> : 指定 SSL/TLS 服務器證書的路徑, 內容包含 <strong>公共證書的 PEM</strong>的檔案, 通常由 CA 驗證機構簽發的 SSL/TLS 證書,該證書用於驗證 SSL/TLS 服務器的身份</h5>
 <ul>
@@ -492,15 +413,8 @@
 <ul>
 <li>
 <p>環境變數: <code>MEILI_SSL_KEY_PATH</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">    <span class="p">./</span><span class="n">meilisearch</span> <span class="p">-</span><span class="n">-http-addr</span> <span class="s1">&#39;127.0.0.1:7700&#39;</span> <span class="p">-</span><span class="n">-ssl-cert-path</span> <span class="s1">&#39;D:/Meilisearch/ssl/cert.pem&#39;</span> <span class="p">-</span><span class="n">-ssl-key-path</span> <span class="s1">&#39;D:/Meilisearch/ssl/key.pem&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">    ./meilisearch --http-addr '127.0.0.1:7700' --ssl-cert-path 'D:/Meilisearch/ssl/cert.pem' --ssl-key-path 'D:/Meilisearch/ssl/key.pem'
+</code></pre></li>
 </ul>
 <h4 id="ssl選項的以下指令我還沒試過有經驗的人可以分享一下xd">SSL選項的以下指令我還沒試過(有經驗的人可以分享一下XD)</h4>
 <h5 id="--ssl-ocsp-path--設定-server的ocsp檔案-此選項非必要"><code>--ssl-ocsp-path</code> : 設定 Server的OCSP檔案 (此選項非必要)</h5>
@@ -542,15 +456,8 @@
 </li>
 <li>
 <p>一定要<code>toml</code>格式</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="p">./</span><span class="n">meilisearch</span> <span class="p">-</span><span class="n">-config</span><span class="o">-file</span><span class="n">-path</span><span class="p">=</span><span class="s2">&#34;D:/Meilisearch/config.toml&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">  ./meilisearch --config-file-path=&quot;D:/Meilisearch/config.toml&quot;
+</code></pre></li>
 </ul>
 <h6 id="那toml內的設定長什麼樣">那toml內的設定長什麼樣?</h6>
 <ul>
@@ -561,8 +468,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">   curl https://raw.githubusercontent.com/meilisearch/meilisearch/latest/config.toml &gt; config.toml
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">   curl https://raw.githubusercontent.com/meilisearch/meilisearch/latest/config.toml &gt; config.toml
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -598,61 +505,52 @@
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">db_path</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/data.ms&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">env</span> <span class="p">=</span> <span class="s2">&#34;development&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">http_addr</span> <span class="p">=</span> <span class="s2">&#34;127.0.0.1:7700&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">master_key</span> <span class="p">=</span> <span class="s2">&#34;YOUR_MASTER_KEY_VALUE&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">no_analytics</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">http_payload_size_limit</span> <span class="p">=</span> <span class="s2">&#34;150 MB&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">log_level</span> <span class="p">=</span> <span class="s2">&#34;DEBUG&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">max_indexing_memory</span> <span class="p">=</span> <span class="s2">&#34;4 GiB&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">max_indexing_threads</span> <span class="p">=</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c">#############</span>
-</span></span><span class="line"><span class="cl">  <span class="c">### DUMPS ###</span>
-</span></span><span class="line"><span class="cl">  <span class="c">#############</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">dump_dir</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/dumps/&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="c"># import_dump = &#34;D:/Meilisearch/dumps/file.dump&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">ignore_missing_dump</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">ignore_dump_if_db_exists</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c">#################</span>
-</span></span><span class="line"><span class="cl">  <span class="c">### SNAPSHOTS ###</span>
-</span></span><span class="line"><span class="cl">  <span class="c">#################</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">schedule_snapshot</span> <span class="p">=</span> <span class="mi">3600</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">snapshot_dir</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/snapshots/&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="c"># import_snapshot = &#34;D:/Meilisearch/snapshots/&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">ignore_missing_snapshot</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">ignore_snapshot_if_db_exists</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml">
+  <span class="nx">db_path</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/data.ms&#34;</span>
+  <span class="nx">env</span> <span class="p">=</span> <span class="s2">&#34;development&#34;</span>
+  <span class="nx">http_addr</span> <span class="p">=</span> <span class="s2">&#34;127.0.0.1:7700&#34;</span>
+  <span class="nx">master_key</span> <span class="p">=</span> <span class="s2">&#34;YOUR_MASTER_KEY_VALUE&#34;</span>
+  <span class="nx">no_analytics</span> <span class="p">=</span> <span class="kc">true</span>
+  <span class="nx">http_payload_size_limit</span> <span class="p">=</span> <span class="s2">&#34;150 MB&#34;</span>
+  <span class="nx">log_level</span> <span class="p">=</span> <span class="s2">&#34;DEBUG&#34;</span>
+  <span class="nx">max_indexing_memory</span> <span class="p">=</span> <span class="s2">&#34;4 GiB&#34;</span>
+  <span class="nx">max_indexing_threads</span> <span class="p">=</span> <span class="mi">2</span>
+
+  <span class="c">#############</span>
+  <span class="c">### DUMPS ###</span>
+  <span class="c">#############</span>
+
+  <span class="nx">dump_dir</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/dumps/&#34;</span>
+  <span class="c"># import_dump = &#34;D:/Meilisearch/dumps/file.dump&#34;</span>
+  <span class="nx">ignore_missing_dump</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">ignore_dump_if_db_exists</span> <span class="p">=</span> <span class="kc">false</span>
+
+  <span class="c">#################</span>
+  <span class="c">### SNAPSHOTS ###</span>
+  <span class="c">#################</span>
+
+  <span class="nx">schedule_snapshot</span> <span class="p">=</span> <span class="mi">3600</span>
+  <span class="nx">snapshot_dir</span> <span class="p">=</span> <span class="s2">&#34;D:/Meilisearch/snapshots/&#34;</span>
+  <span class="c"># import_snapshot = &#34;D:/Meilisearch/snapshots/&#34;</span>
+  <span class="nx">ignore_missing_snapshot</span> <span class="p">=</span> <span class="kc">false</span>
+  <span class="nx">ignore_snapshot_if_db_exists</span> <span class="p">=</span> <span class="kc">false</span>
+
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 <h4 id="如果是使用系統環境變數呢">如果是使用系統環境變數呢?</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">    <span class="c"># 先設定變數</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">set </span><span class="n">MEILI_DB_PATH</span><span class="p">=./</span><span class="n">meilifiles</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">set </span><span class="n">MEILI_HTTP_ADDR</span><span class="p">=</span><span class="mf">127.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">1</span><span class="err">:</span><span class="mf">7700</span>
-</span></span><span class="line"><span class="cl">    <span class="c"># 再啟動MeiliSearch</span>
-</span></span><span class="line"><span class="cl">    <span class="p">./</span><span class="n">meilisearch</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="參考資料">參考資料</h3>
+<pre tabindex="0"><code class="language-pwsh" data-lang="pwsh">    # 先設定變數
+    set MEILI_DB_PATH=./meilifiles
+    set MEILI_HTTP_ADDR=127.0.0.1:7700
+    # 再啟動MeiliSearch
+    ./meilisearch
+</code></pre><h3 id="參考資料">參考資料</h3>
 <ul>
-<li><a href="https://docs.meilisearch.com/learn/configuration/instance_options.html#command-line-options-and-flags" target="_blank" rel="noopener noreffer">MeiliSearch - Configure Meilisearch at launch</a></li>
+<li><a href="https://docs.meilisearch.com/learn/configuration/instance_options.html#command-line-options-and-flags" target="_blank" rel="noopener noreffer ">MeiliSearch - Configure Meilisearch at launch</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -663,7 +561,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-title="MeiliSearch 常用Cli 設定" data-via="Lou_Chang" data-hashtags="MeiliSearch,MeiliSearch 1.0.0,.Net Core 6,CSharp,ASP.NET Core,Tools"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-hashtag="MeiliSearch"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-title="MeiliSearch 常用Cli 設定"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-title="MeiliSearch 常用Cli 設定" data-via="Lou_Chang" data-hashtags="MeiliSearch,MeiliSearch 1.0.0,.Net Core 6,CSharp,ASP.NET Core,Tools"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-hashtag="MeiliSearch"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/meilisearchcliusage/" data-title="MeiliSearch 常用Cli 設定"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -691,7 +589,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2023-03-17T19:38:36+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"MeiliSearch 常用Cli 設定"}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2023-03-17T19:38:36+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"MeiliSearch 常用Cli 設定"}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>

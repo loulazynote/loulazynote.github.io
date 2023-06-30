@@ -12,7 +12,7 @@
     <guid>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172865460-c29ef20d-59d0-4836-8e91-e87b397a6ead.png" referrerpolicy="no-referrer">
-            </div>Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC]]></description>
+            </div>Keberos 概述 Kerberos 是一種計算機網絡認證協議它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC]]></description>
 </item>
 </channel>
 </rss>

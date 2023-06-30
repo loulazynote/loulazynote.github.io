@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/posts/</link>
         <description>所有文章 | The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 31 May 2023 20:29:19 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>如何設定GitLab Runner?</title>
+    <link>https://loulazynote.github.io/posts/gitlabrunnersettings/</link>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/gitlabrunnersettings/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
+            </div>安裝GitLab Runner 安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子 Windows GitLab Runner 建立資料夾並下載安裝檔]]></description>
+</item>
+<item>
     <title>Gitlab 使用外部 PostgreSQL 方法</title>
     <link>https://loulazynote.github.io/posts/gitlabexternalpostgresql/</link>
     <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
@@ -52,7 +62,7 @@
     <guid>https://loulazynote.github.io/posts/teamsappwithangular/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/180802567-37b4627f-b926-4b47-9e08-cc3849011f12.png" referrerpolicy="no-referrer">
-            </div>在B站看到 2021年9月 在對岸 微軟 Reactor 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了。 爬了很多文看了]]></description>
+            </div>在B站看到 2021年9月 在對岸 微軟 Reactor 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了。爬了很多文看了]]></description>
 </item>
 <item>
     <title>Microsoft Dataverse概觀</title>
@@ -93,16 +103,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/176204169-641d7ace-e7b9-4ee8-83a4-1b7f0b3300cc.png" referrerpolicy="no-referrer">
             </div>基本用法 一般對應 var mapper = Mapper.Map&lt;TargetType&gt;(customer); var mapper = Mapper.Map&lt;FromType, TargetType&gt;(customer); 客製化對應 1 2 3 4 5 6 7 Mapper.AddMap&lt;FromType, TargetType&gt;(src =&gt; { var res = new TargetType(); res.InjectFrom(src); // 對應相同名字及型別的屬性 res.FullName = src.FirstName + &#34; &#34; + src.LastName; return res; }); InjectFrom 的用法 Inj]]></description>
-</item>
-<item>
-    <title>What is NoSQL</title>
-    <link>https://loulazynote.github.io/posts/nosql-knowledge/</link>
-    <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/posts/nosql-knowledge/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png" referrerpolicy="no-referrer">
-            </div>關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro]]></description>
 </item>
 </channel>
 </rss>

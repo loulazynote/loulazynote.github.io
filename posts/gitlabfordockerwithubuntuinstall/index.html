@@ -10,6 +10,7 @@
 <meta property="og:url" content="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-23T17:30:27+08:00" />
 <meta property="article:modified_time" content="2023-05-23T17:30:27+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
@@ -27,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/gitlabfordockerwithubuntuinstall\/"
-        },"genre": "posts","keywords": "Gitlab, Docker, Ubuntu, DevOps","wordcount":  1389 ,
+        },"genre": "posts","keywords": "Gitlab, Docker, Ubuntu, DevOps","wordcount":  1412 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/gitlabfordockerwithubuntuinstall\/","datePublished": "2023-05-23T17:30:27+08:00","dateModified": "2023-05-23T17:30:27+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -57,8 +58,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -101,8 +101,8 @@
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Gitlab 淺嘗 : GitLab EE on Docker</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-23">2023-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1389 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-23">2023-05-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1412 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -148,7 +148,7 @@
 <h3 id="gitlab-安裝">Gitlab 安裝</h3>
 <blockquote>
 <ul>
-<li>這裡我所講的 OS 是 Ubuntu 22.04 LTS 安裝方式，其他 OS 可以參考<a href="https://about.gitlab.com/install/" target="_blank" rel="noopener noreffer">官方文件</a>
+<li>這裡我所講的 OS 是 Ubuntu 22.04 LTS 安裝方式，其他 OS 可以參考<a href="https://about.gitlab.com/install/" target="_blank" rel="noopener noreffer ">官方文件</a>
 且這裡會需要安裝<code>OpenSSH Server</code> 以及 <code>Docker</code>，如果是使用 Ubuntu 官方提供的 ISO 安裝的話，在安裝時就會有選項可以選擇是否安裝，如果是使用其他的方式安裝的話，就需要自己安裝</li>
 <li>為什麼不用 <code>Docker for Windows</code>，因為 Gitlab 官方有提到沒有支援，且有一些已知的問題，所以就選擇使用 <code>Ubuntu Server</code> 來安裝</li>
 </ul>
@@ -156,7 +156,7 @@
 <h4 id="1-安裝-ubuntu-server-minimized">1. 安裝 <code>Ubuntu Server (minimized)</code></h4>
 <ul>
 <li>
-<p>先到<a href="https://ubuntu.com/download/server" target="_blank" rel="noopener noreffer">Ubuntu</a>下載最新 <code>Ubuntu Server (minimized)</code> 的 ISO 檔
+<p>先到<a href="https://ubuntu.com/download/server" target="_blank" rel="noopener noreffer ">Ubuntu</a>下載最新 <code>Ubuntu Server (minimized)</code> 的 ISO 檔
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -188,8 +188,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     sudo apt install vim
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     sudo apt install vim
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -199,8 +199,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     sudo vi /etc/ssh/sshd_config
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     sudo vi /etc/ssh/sshd_config
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -208,9 +208,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     <span class="c1"># Port 22 &lt;--預設就是被註解的22 port號</span>
-</span></span><span class="line"><span class="cl">     Port <span class="m">10022</span> <span class="c1">#新增一行新port號，我設定為10022</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     <span class="c1"># Port 22 &lt;--預設就是被註解的22 port號</span>
+     Port <span class="m">10022</span> <span class="c1">#新增一行新port號，我設定為10022</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -228,8 +228,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     sudo systemctl restart sshd
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     sudo systemctl restart sshd
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -240,9 +240,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     <span class="nb">exit</span>
-</span></span><span class="line"><span class="cl">     ssh &lt;your ubuntu ip&gt; -p <span class="m">10022</span> <span class="c1">#登入時要加上-p 10022</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     <span class="nb">exit</span>
+     ssh &lt;your ubuntu ip&gt; -p <span class="m">10022</span> <span class="c1">#登入時要加上-p 10022</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>or</p>
 <div class="highlight"><div class="chroma">
@@ -250,8 +250,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     ssh root@&lt;your ubuntu ip&gt; -p <span class="m">10022</span> <span class="c1">#登入時要加上-p 10022</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     ssh root@&lt;your ubuntu ip&gt; -p <span class="m">10022</span> <span class="c1">#登入時要加上-p 10022</span>
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>要以<code>root</code> SSH 進入，需要編輯<code>/etc/ssh/sshd_config</code></p>
@@ -261,9 +261,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    <span class="c1">#PermitRootLogin prohibit-password &lt;--預設就是被註解的</span>
-</span></span><span class="line"><span class="cl">    PermitRootLogin yes <span class="c1">#新增一行，並把註解拿掉</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">    <span class="c1">#PermitRootLogin prohibit-password &lt;--預設就是被註解的</span>
+    PermitRootLogin yes <span class="c1">#新增一行，並把註解拿掉</span>
+</code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -285,8 +285,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     <span class="nb">export</span> <span class="nv">GITLAB_HOME</span><span class="o">=</span>/root/gitlab
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     <span class="nb">export</span> <span class="nv">GITLAB_HOME</span><span class="o">=</span>/root/gitlab
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -311,17 +311,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     docker run --detach <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --hostname &lt;your ubuntu ip&gt; <span class="se">\ </span><span class="c1"># 這裡可以填寫你想要的hostname或已購買的Domain，也能設定為IP</span>
-</span></span><span class="line"><span class="cl">     --publish 443:443 --publish 80:80 --publish 22:22 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --name gitlab <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --restart always <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/config:/etc/gitlab <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/logs:/var/log/gitlab <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/data:/var/opt/gitlab <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     --shm-size 256m <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     gitlab/gitlab-ee:latest
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     docker run --detach <span class="se">\
+</span><span class="se"></span>     --hostname &lt;your ubuntu ip&gt; <span class="se">\ </span><span class="c1"># 這裡可以填寫你想要的hostname或已購買的Domain，也能設定為IP</span>
+     --publish 443:443 --publish 80:80 --publish 22:22 <span class="se">\
+</span><span class="se"></span>     --name gitlab <span class="se">\
+</span><span class="se"></span>     --restart always <span class="se">\
+</span><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/config:/etc/gitlab <span class="se">\
+</span><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/logs:/var/log/gitlab <span class="se">\
+</span><span class="se"></span>     --volume <span class="nv">$GITLAB_HOME</span>/data:/var/opt/gitlab <span class="se">\
+</span><span class="se"></span>     --shm-size 256m <span class="se">\
+</span><span class="se"></span>     gitlab/gitlab-ee:latest
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>可以執行 <code>sudo docker logs -f gitlab</code> 查看 log</p>
@@ -337,8 +337,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    docker-compose --version
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">    docker-compose --version
+</code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -350,7 +350,7 @@
         title="image" /></p>
 </li>
 <li>
-<p>如果沒有安裝，可以參考<a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener noreffer">Docker 文件</a>安裝</p>
+<p>如果沒有安裝，可以參考<a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener noreffer ">Docker 文件</a>安裝</p>
 </li>
 <li>
 <p>建立 <code>docker-compose.yml</code> 檔案</p>
@@ -376,25 +376,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.6&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">web</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;gitlab/gitlab-ee:latest&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&lt;your ubuntu ip&gt;&#39;</span><span class="w"> </span><span class="c"># 這裡可以填寫你想要的hostname或已購買的Domain，也能設定為IP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">    external_url &#39;&lt;your ubuntu ip&gt;&#39;</span><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;80:80&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;443:443&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;22:22&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/config:/etc/gitlab&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/logs:/var/log/gitlab&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/data:/var/opt/gitlab&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">shm_size</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;256m&#39;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.6&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;gitlab/gitlab-ee:latest&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&lt;your ubuntu ip&gt;&#39;</span><span class="w"> </span><span class="c"># 這裡可以填寫你想要的hostname或已購買的Domain，也能設定為IP</span><span class="w">
+</span><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span><span class="sd">    </span><span class="w">    </span><span class="l">external_url &#39;&lt;your ubuntu ip&gt;&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;80:80&#39;</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;443:443&#39;</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;22:22&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/config:/etc/gitlab&#39;</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/logs:/var/log/gitlab&#39;</span><span class="w">
+</span><span class="w">    </span>- <span class="s1">&#39;$GITLAB_HOME/data:/var/opt/gitlab&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">shm_size</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;256m&#39;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -411,8 +411,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     sudo docker <span class="nb">exec</span> -it gitlab grep <span class="s1">&#39;Password:&#39;</span> /etc/gitlab/initial_root_password
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">     sudo docker <span class="nb">exec</span> -it gitlab grep <span class="s1">&#39;Password:&#39;</span> /etc/gitlab/initial_root_password
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>安裝完後，此組密碼只有 24 小時的有效期，過期後就會失效，所以要記得在 24 小時內啟用登入並修改密碼</p>
@@ -434,8 +434,8 @@
         title="image" /></p>
 <blockquote>
 <ul>
-<li>如果需要使用 <code>HTTPS</code>，可以參考<a href="https://docs.gitlab.com/omnibus/settings/nginx.html#enable-https" target="_blank" rel="noopener noreffer">Gitlab 官方文件</a></li>
-<li>保哥也有提供一些簡單的自簽憑證設定方式，可以參考<a href="https://blog.miniasp.com/post/2023/04/26/Install-GitLab-EE-on-Docker" target="_blank" rel="noopener noreffer">快速上手 GitLab EE on Docker 安裝：以 Ubuntu 22.04 LTS 為例</a></li>
+<li>如果需要使用 <code>HTTPS</code>，可以參考<a href="https://docs.gitlab.com/omnibus/settings/nginx.html#enable-https" target="_blank" rel="noopener noreffer ">Gitlab 官方文件</a></li>
+<li>保哥也有提供一些簡單的自簽憑證設定方式，可以參考<a href="https://blog.miniasp.com/post/2023/04/26/Install-GitLab-EE-on-Docker" target="_blank" rel="noopener noreffer ">快速上手 GitLab EE on Docker 安裝：以 Ubuntu 22.04 LTS 為例</a></li>
 </ul>
 </blockquote>
 </li>
@@ -443,13 +443,13 @@
 <p>下一篇會介紹 Gitlab 的一些額外設定，以及如何使用 Gitlab 來做 CI/CD</p>
 <h3 id="參考資料">參考資料</h3>
 <ul>
-<li><a href="https://docs.gitlab.com/ee/install/docker.html" target="_blank" rel="noopener noreffer">Gitlab - GitLab Docker images</a>
+<li><a href="https://docs.gitlab.com/ee/install/docker.html" target="_blank" rel="noopener noreffer ">Gitlab - GitLab Docker images</a>
 <ul>
-<li><a href="https://docs.gitlab.com/omnibus/installation/" target="_blank" rel="noopener noreffer">Gitlab - Installing GitLab with Omnibus packages</a></li>
+<li><a href="https://docs.gitlab.com/omnibus/installation/" target="_blank" rel="noopener noreffer ">Gitlab - Installing GitLab with Omnibus packages</a></li>
 </ul>
 </li>
-<li><a href="https://blog.miniasp.com/post/2023/04/26/Install-GitLab-EE-on-Docker" target="_blank" rel="noopener noreffer">Will 保哥 - 快速上手 GitLab EE on Docker 安裝：以 Ubuntu 22.04 LTS 為例</a></li>
-<li><a href="https://gitlab-book.tw/ithelp/intro/introduction/" target="_blank" rel="noopener noreffer">和艦長一起 30 天玩轉 GitLab</a></li>
+<li><a href="https://blog.miniasp.com/post/2023/04/26/Install-GitLab-EE-on-Docker" target="_blank" rel="noopener noreffer ">Will 保哥 - 快速上手 GitLab EE on Docker 安裝：以 Ubuntu 22.04 LTS 為例</a></li>
+<li><a href="https://gitlab-book.tw/ithelp/intro/introduction/" target="_blank" rel="noopener noreffer ">和艦長一起 30 天玩轉 GitLab</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -460,7 +460,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-title="Gitlab 淺嘗 : GitLab EE on Docker" data-via="Lou_Chang" data-hashtags="Gitlab,Docker,Ubuntu,DevOps"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-hashtag="Gitlab"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-title="Gitlab 淺嘗 : GitLab EE on Docker"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-title="Gitlab 淺嘗 : GitLab EE on Docker" data-via="Lou_Chang" data-hashtags="Gitlab,Docker,Ubuntu,DevOps"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-hashtag="Gitlab"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/" data-title="Gitlab 淺嘗 : GitLab EE on Docker"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -488,7 +488,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2023-05-23T17:30:27+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"Gitlab 淺嘗 : GitLab EE on Docker"}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2023-05-23T17:30:27+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"Gitlab 淺嘗 : GitLab EE on Docker"}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>

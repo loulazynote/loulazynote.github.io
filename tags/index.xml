@@ -4,10 +4,10 @@
         <link>https://loulazynote.github.io/tags/</link>
         <description>Tags - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 31 May 2023 20:29:19 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/" rel="self" type="application/rss+xml" /><item>
     <title>DevOps</title>
     <link>https://loulazynote.github.io/tags/devops/</link>
-    <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/devops/</guid>
     <description><![CDATA[]]></description>
@@ -15,7 +15,7 @@
 <item>
     <title>Docker</title>
     <link>https://loulazynote.github.io/tags/docker/</link>
-    <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/docker/</guid>
     <description><![CDATA[]]></description>
@@ -23,9 +23,25 @@
 <item>
     <title>Gitlab</title>
     <link>https://loulazynote.github.io/tags/gitlab/</link>
-    <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/gitlab/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Ubuntu</title>
+    <link>https://loulazynote.github.io/tags/ubuntu/</link>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/ubuntu/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Windows</title>
+    <link>https://loulazynote.github.io/tags/windows/</link>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/tags/windows/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -34,14 +50,6 @@
     <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/postgresql/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Ubuntu</title>
-    <link>https://loulazynote.github.io/tags/ubuntu/</link>
-    <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/ubuntu/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -74,14 +82,6 @@
     <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
     <author>Lou Chang</author>
     <guid>https://loulazynote.github.io/tags/meilisearch/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>MeiliSearch 1.0.0</title>
-    <link>https://loulazynote.github.io/tags/meilisearch-1.0.0/</link>
-    <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
-    <author>Lou Chang</author>
-    <guid>https://loulazynote.github.io/tags/meilisearch-1.0.0/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

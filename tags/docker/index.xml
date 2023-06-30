@@ -4,7 +4,17 @@
         <link>https://loulazynote.github.io/tags/docker/</link>
         <description>Docker - 標籤 - The Lazy Engineer Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 31 May 2023 20:29:19 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>如何設定GitLab Runner?</title>
+    <link>https://loulazynote.github.io/posts/gitlabrunnersettings/</link>
+    <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/posts/gitlabrunnersettings/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
+            </div>安裝GitLab Runner 安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子 Windows GitLab Runner 建立資料夾並下載安裝檔]]></description>
+</item>
+<item>
     <title>Gitlab 使用外部 PostgreSQL 方法</title>
     <link>https://loulazynote.github.io/posts/gitlabexternalpostgresql/</link>
     <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>

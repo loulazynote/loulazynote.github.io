@@ -5,16 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Single Sign On with Kerberos - The Lazy Engineer Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:title" content="Single Sign On with Kerberos" />
-<meta property="og:description" content="Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC" />
+<meta property="og:description" content="Keberos 概述 Kerberos 是一種計算機網絡認證協議它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" /><meta property="og:image" content="https://loulazynote.github.io/images/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-09T15:23:01+08:00" />
 <meta property="article:modified_time" content="2022-06-09T15:23:01+08:00" /><meta property="og:site_name" content="The Lazy Engineer Lou&#39;s Note" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png"/>
 
 <meta name="twitter:title" content="Single Sign On with Kerberos"/>
-<meta name="twitter:description" content="Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC"/>
+<meta name="twitter:description" content="Keberos 概述 Kerberos 是一種計算機網絡認證協議它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC"/>
 <meta name="application-name" content="The Lazy Engineer Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy Engineer Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" /><link rel="prev" href="https://loulazynote.github.io/posts/mvc5_meta/" /><link rel="next" href="https://loulazynote.github.io/posts/csharpbasicpart1/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/posts\/single-sign-on-with-kerberos\/"
-        },"genre": "posts","keywords": "Kerberos","wordcount":  3272 ,
+        },"genre": "posts","keywords": "Kerberos","wordcount":  3281 ,
         "url": "https:\/\/loulazynote.github.io\/posts\/single-sign-on-with-kerberos\/","datePublished": "2022-06-09T15:23:01+08:00","dateModified": "2022-06-09T15:23:01+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -57,8 +58,7 @@
                         </span>
                     </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a>
-            </div>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -101,8 +101,8 @@
             <h2 class="toc-title">目錄</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Single Sign On with Kerberos</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/kerberos/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Kerberos</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 3272 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/kerberos/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Kerberos</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 3281 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 7 分鐘&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -312,21 +312,21 @@ Kerberos 身份驗證使用 SPN 將服務實例與服務登錄帳戶關聯
 </ol>
 <h2 id="參考資料">參考資料</h2>
 <ol>
-<li><a href="https://tinyurl.com/y47k7wke" target="_blank" rel="noopener noreffer">Setting up Kerberos Authentication for a Website in IIS</a></li>
-<li><a href="https://tinyurl.com/y6abgv4q" target="_blank" rel="noopener noreffer">Single Sign On with Kerberos</a></li>
-<li><a href="https://tinyurl.com/y3n46j89" target="_blank" rel="noopener noreffer">Kerberos Wikipedia</a></li>
-<li><a href="https://tinyurl.com/y56quglw" target="_blank" rel="noopener noreffer">鳥哥的 Linux 私房菜</a></li>
-<li><a href="https://tinyurl.com/yyvyntg3" target="_blank" rel="noopener noreffer">看完您如果還不明白 Kerberos 原理，算我輸</a></li>
-<li><a href="https://tinyurl.com/y393eqc5" target="_blank" rel="noopener noreffer">翻轉工作室-資訊與網路安全技術：第十四章 Kerberos 認證系統</a></li>
-<li><a href="https://tinyurl.com/y697kz84" target="_blank" rel="noopener noreffer">The Secret Security Wiki</a></li>
-<li><a href="https://github.com/dotnet/Kerberos.NET" target="_blank" rel="noopener noreffer">Kerberos.NET</a></li>
-<li><a href="https://tinyurl.com/y3cuh2nh" target="_blank" rel="noopener noreffer">Guide To Setup Kerberos Single Sign-On (SSO)</a></li>
-<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer">瞭解 keytab 需求</a></li>
-<li><a href="https://tinyurl.com/y5adlxz5" target="_blank" rel="noopener noreffer">宅學習</a></li>
-<li><a href="https://tinyurl.com/y6ydnysx" target="_blank" rel="noopener noreffer">如何使用 Spn，當您在 [網際網路資訊服務上設定 裝載的 Web 應用程式]</a></li>
-<li><a href="https://tinyurl.com/yxs9ox83" target="_blank" rel="noopener noreffer">Microsoft Developer-Service Principal Names</a></li>
-<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer">瞭解 keytab 需求</a></li>
-<li><a href="https://tinyurl.com/y2f3yp82" target="_blank" rel="noopener noreffer">All you need to know about Keytab files</a></li>
+<li><a href="https://tinyurl.com/y47k7wke" target="_blank" rel="noopener noreffer ">Setting up Kerberos Authentication for a Website in IIS</a></li>
+<li><a href="https://tinyurl.com/y6abgv4q" target="_blank" rel="noopener noreffer ">Single Sign On with Kerberos</a></li>
+<li><a href="https://tinyurl.com/y3n46j89" target="_blank" rel="noopener noreffer ">Kerberos Wikipedia</a></li>
+<li><a href="https://tinyurl.com/y56quglw" target="_blank" rel="noopener noreffer ">鳥哥的 Linux 私房菜</a></li>
+<li><a href="https://tinyurl.com/yyvyntg3" target="_blank" rel="noopener noreffer ">看完您如果還不明白 Kerberos 原理，算我輸</a></li>
+<li><a href="https://tinyurl.com/y393eqc5" target="_blank" rel="noopener noreffer ">翻轉工作室-資訊與網路安全技術：第十四章 Kerberos 認證系統</a></li>
+<li><a href="https://tinyurl.com/y697kz84" target="_blank" rel="noopener noreffer ">The Secret Security Wiki</a></li>
+<li><a href="https://github.com/dotnet/Kerberos.NET" target="_blank" rel="noopener noreffer ">Kerberos.NET</a></li>
+<li><a href="https://tinyurl.com/y3cuh2nh" target="_blank" rel="noopener noreffer ">Guide To Setup Kerberos Single Sign-On (SSO)</a></li>
+<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer ">瞭解 keytab 需求</a></li>
+<li><a href="https://tinyurl.com/y5adlxz5" target="_blank" rel="noopener noreffer ">宅學習</a></li>
+<li><a href="https://tinyurl.com/y6ydnysx" target="_blank" rel="noopener noreffer ">如何使用 Spn，當您在 [網際網路資訊服務上設定 裝載的 Web 應用程式]</a></li>
+<li><a href="https://tinyurl.com/yxs9ox83" target="_blank" rel="noopener noreffer ">Microsoft Developer-Service Principal Names</a></li>
+<li><a href="https://tinyurl.com/y35xoqex" target="_blank" rel="noopener noreffer ">瞭解 keytab 需求</a></li>
+<li><a href="https://tinyurl.com/y2f3yp82" target="_blank" rel="noopener noreffer ">All you need to know about Keytab files</a></li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -337,7 +337,7 @@ Kerberos 身份驗證使用 SPN 將服務實例與服務登錄帳戶關聯
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign On with Kerberos" data-via="Lou_Chang" data-hashtags="Kerberos"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-hashtag="Kerberos"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign On with Kerberos"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign On with Kerberos" data-via="Lou_Chang" data-hashtags="Kerberos"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-hashtag="Kerberos"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/posts/single-sign-on-with-kerberos/" data-title="Single Sign On with Kerberos"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -365,7 +365,7 @@ Kerberos 身份驗證使用 SPN 將服務實例與服務登錄帳戶關聯
             </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2022-06-09T15:23:01+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"Single Sign On with Kerberos"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"gitalk":{"admin":["loulazynote"],"clientID":"4bddffbd80fc780b21dd","clientSecret":"c38bc4736612e24920ec96e3ce53938fcfffc316","id":"2022-06-09T15:23:01+08:00","owner":"loulazynote","repo":"loulazynote.github.io","title":"Single Sign On with Kerberos"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"WKHFRE1Z9G","algoliaIndex":"github_Lou_blog","algoliaSearchKey":"4201c971ae81b7b5f43d10ca36d55b95","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
             window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
             gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
         </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
