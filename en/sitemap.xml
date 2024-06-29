@@ -2,6 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://loulazynote.github.io/en/categories/c%23/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/en/tags/asp.net-core/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="zh-tw"
@@ -21,7 +22,6 @@
                     href="https://loulazynote.github.io/en/categories/asp.net-core/"
                     /></url><url>
             <loc>https://loulazynote.github.io/en/tags/c%23/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/en/categories/c%23/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
             <loc>https://loulazynote.github.io/en/categories/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="zh-tw"
