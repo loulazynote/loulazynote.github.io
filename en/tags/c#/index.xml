@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>C# - Tag - The Lazy developer: Lou&#39;s Note</title>
+        <title>&#39;C#&#39; - Tag - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/en/tags/c%23/</link>
-        <description>C# - Tag - The Lazy developer: Lou&#39;s Note</description>
+        <description>&#39;C#&#39; - Tag - The Lazy developer: Lou&#39;s Note</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
             <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/tags/c%23/" rel="self" type="application/rss+xml" /><item>
     <title>SeriLog setting&#39;s tips 2022</title>
