@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>C＃ - Tag - The Lazy developer: Lou&#39;s Note</title>
+        <link>http://localhost:1313/en/tags/c/</link>
+        <description>C＃ - Tag - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><atom:link href="http://localhost:1313/en/tags/c/" rel="self" type="application/rss+xml" /></channel>
+</rss>
