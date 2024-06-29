@@ -1,0 +1,48 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/en/tags/</link>
+        <description>Tags - Tag - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ASP.NET Core</title>
+    <link>https://loulazynote.github.io/en/tags/asp.net-core/</link>
+    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/en/tags/asp.net-core/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>CCSharp</title>
+    <link>https://loulazynote.github.io/en/tags/ccsharp/</link>
+    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/en/tags/ccsharp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>SeriLog</title>
+    <link>https://loulazynote.github.io/en/tags/serilog/</link>
+    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/en/tags/serilog/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Tools</title>
+    <link>https://loulazynote.github.io/en/tags/tools/</link>
+    <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/en/tags/tools/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Git</title>
+    <link>https://loulazynote.github.io/en/tags/git/</link>
+    <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/en/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,38 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tools - 分類 - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/zh-tw/categories/tools/</link>
+        <description>Tools - 分類 - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/tools/" rel="self" type="application/rss+xml" /><item>
+    <title>MeiliSearch 常用Cli 設定</title>
+    <link>https://loulazynote.github.io/zh-tw/meilisearchcliusage/</link>
+    <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/meilisearchcliusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
+            </div>MeiliSearch 常用Cli 設定 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使]]></description>
+</item>
+<item>
+    <title>MeiliSearch基本用法</title>
+    <link>https://loulazynote.github.io/zh-tw/meilisearchbasicusage/</link>
+    <pubDate>Wed, 08 Mar 2023 16:23:41 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/meilisearchbasicusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
+            </div>MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記]]></description>
+</item>
+<item>
+    <title>ValueInjecter@3.2.0 簡單用法</title>
+    <link>https://loulazynote.github.io/zh-tw/valueinjecterver-3.2.0simpleusage/</link>
+    <pubDate>Wed, 22 Jun 2022 20:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/valueinjecterver-3.2.0simpleusage/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/176204169-641d7ace-e7b9-4ee8-83a4-1b7f0b3300cc.png" referrerpolicy="no-referrer">
+            </div>基本用法 一般對應 var mapper = Mapper.Map&lt;TargetType&gt;(customer); var mapper = Mapper.Map&lt;FromType, TargetType&gt;(customer); 客製化對應 1 2 3 4 5 6 7 Mapper.AddMap&lt;FromType, TargetType&gt;(src =&gt; { var res = new TargetType(); res.InjectFrom(src); // 對應相同名字及型別的屬性 res.FullName = src.FirstName + &#34; &#34; + src.LastName; return res; }); InjectFrom 的用法 Inj]]></description>
+</item>
+</channel>
+</rss>

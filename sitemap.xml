@@ -1,80 +1,18 @@
-<urlset
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    ><url>
-            <loc>https://loulazynote.github.io/categories/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/devops/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/devops/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/docker/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/gitlab/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/gitlab/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/ubuntu/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/windows/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/gitlabrunnersettings/</loc><lastmod>2023-06-30T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/gitlabexternalpostgresql/</loc><lastmod>2023-05-31T20:29:19&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/postgresql/</loc><lastmod>2023-05-31T20:29:19&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/postgresql/</loc><lastmod>2023-05-31T20:29:19&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/gitlabfordockerwithubuntuinstall/</loc><lastmod>2023-05-23T17:30:27&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/.net-core-6/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/asp.net-core/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/asp.net-core/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/csharp/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/csharp/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/meilisearch/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/meilisearch-1.0.0/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/meilisearchcliusage/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/tools/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/tools/</loc><lastmod>2023-03-17T19:38:36&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/meilisearchbasicusage/</loc><lastmod>2023-03-08T16:23:41&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/angular/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/teams/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/teams/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/teamsapp/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/teamsapp/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/teamsapptab/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/teamstoolkit/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/teamsappwithangular/</loc><lastmod>2022-07-25T17:46:26&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/dataverse/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/learning/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-dataverse/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/microsoft_dataverse_intro/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-power-platform/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/microsoft-power-platform/</loc><lastmod>2022-07-07T18:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-flow/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-power-automate/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-power-bi/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-power-virtual-agents/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/microsoft-powerapps/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/microsoftpowerplatforminfo/</loc><lastmod>2022-07-06T19:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/ccsharp/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/serilog/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/serilogusage/</loc><lastmod>2022-06-28T20:22:05&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/valueinjecter/</loc><lastmod>2022-06-22T20:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/valueinjecter_meta/</loc><lastmod>2022-06-22T20:00:00&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/database/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/mongodb/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/nosql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/rdbms/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/sql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/sql/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/nosql-knowledge/</loc><lastmod>2022-06-17T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/oop/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/ooplearning/</loc><lastmod>2022-06-10T17:26:15&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/docker/</loc><lastmod>2022-06-10T15:25:49&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/wsl/</loc><lastmod>2022-06-10T15:25:49&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/wsl/</loc><lastmod>2022-06-10T15:25:49&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/wsl2-config-note/</loc><lastmod>2022-06-10T15:25:49&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/basic-level/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/csharpbasicpart1/</loc><lastmod>2022-06-09T22:37:31&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/single-sign-on-with-kerberos/</loc><lastmod>2022-06-09T15:23:01&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/asp.net/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/asp.net-mvc/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/categories/maintain/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/mvc5_meta/</loc><lastmod>2022-06-09T02:04:22&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/tags/git/</loc><lastmod>2022-06-08T23:20:17&#43;08:00</lastmod></url><url>
-            <loc>https://loulazynote.github.io/posts/git-learning/</loc><lastmod>2022-06-08T23:20:17&#43;08:00</lastmod></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://loulazynote.github.io/zh-tw/sitemap.xml</loc>
+    
+      <lastmod>2023-06-30T18:00:00+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://loulazynote.github.io/en/sitemap.xml</loc>
+    
+      <lastmod>2022-06-28T20:22:05+08:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>

@@ -1,0 +1,58 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Learning - 分類 - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/zh-tw/categories/learning/</link>
+        <description>Learning - 分類 - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/learning/" rel="self" type="application/rss+xml" /><item>
+    <title>Microsoft Dataverse概觀</title>
+    <link>https://loulazynote.github.io/zh-tw/dataverse/</link>
+    <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/dataverse/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
+            </div>什麼是Dataverse? Dataverse是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建]]></description>
+</item>
+<item>
+    <title>認識微軟生產力平台 - Microsoft Power Platform</title>
+    <link>https://loulazynote.github.io/zh-tw/microsoftpowerplatforminfo/</link>
+    <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/microsoftpowerplatforminfo/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/177532467-0549fc5d-a2ad-4a92-a230-da97ae0eba46.png" referrerpolicy="no-referrer">
+            </div>Microsoft Power Platform是什麼? Power Platform是微軟的一個 SaaS 的雲端服務, 看字面感覺很陌生對吧? 其實就是由四種產品整合成的平台, 這四種產品分別]]></description>
+</item>
+<item>
+    <title>OOP 物件導向學習筆記</title>
+    <link>https://loulazynote.github.io/zh-tw/ooplearning/</link>
+    <pubDate>Fri, 10 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/ooplearning/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/174276650-199850f5-64a2-455e-95fa-3eb26faa9acf.png" referrerpolicy="no-referrer">
+            </div>物件導向四大原則 封裝(Encapsulation) 封裝（Encapsulation）在物件導向程式設計中是用來將資料與函式的實作內容包裝、隱]]></description>
+</item>
+<item>
+    <title>C# 基礎複習Note(型別系統)</title>
+    <link>https://loulazynote.github.io/zh-tw/csharpbasicpart1/</link>
+    <pubDate>Thu, 09 Jun 2022 22:37:31 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/csharpbasicpart1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" referrerpolicy="no-referrer">
+            </div>型別系統 概觀 &#x2757; 是強型別語言, 每個變數和常數都有型別 &#x2757; 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最]]></description>
+</item>
+<item>
+    <title>Git 學習筆記</title>
+    <link>https://loulazynote.github.io/zh-tw/git_learning_note/</link>
+    <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/git_learning_note/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
+            </div>位於索引中的檔案 : Tracked files(追蹤的檔案) 不再索引內的檔案 : Untracked files(未被追蹤的檔案) working tree 是工作目錄 只要 被索引中的檔案內容 跟 工作目錄中]]></description>
+</item>
+</channel>
+</rss>

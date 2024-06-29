@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Asp.Net MVC - 標籤 - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/zh-tw/tags/asp.net-mvc/</link>
+        <description>Asp.Net MVC - 標籤 - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/asp.net-mvc/" rel="self" type="application/rss+xml" /><item>
+    <title>MVC 5 filter</title>
+    <link>https://loulazynote.github.io/zh-tw/mvc5_meta/</link>
+    <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/mvc5_meta/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/172867969-536885e4-152e-423b-9ca6-026634e4fd7e.jpg" referrerpolicy="no-referrer">
+            </div>Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil]]></description>
+</item>
+</channel>
+</rss>

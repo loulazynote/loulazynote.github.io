@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git Learning Note - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/en/git_learning_note/">
+  <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
+  <meta property="og:title" content="Git Learning Note">
+  <meta property="og:description" content="Files in the index: Tracked files Files not in the index: Untracked files The working tree is the working directory. As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a “Stage” state. As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an “Unstage” state.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-08T23:20:17+08:00">
+    <meta property="article:modified_time" content="2022-06-08T23:20:17+08:00">
+    <meta property="article:tag" content="Git">
+    <meta property="og:image" content="https://loulazynote.github.io/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
+  <meta name="twitter:title" content="Git Learning Note">
+  <meta name="twitter:description" content="Files in the index: Tracked files Files not in the index: Untracked files The working tree is the working directory. As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a “Stage” state. As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an “Unstage” state.">
+      <meta name="twitter:site" content="@Lou_Chang">
+<meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/en/git_learning_note/" /><link rel="next" href="https://loulazynote.github.io/en/serilogusage/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git Learning Note",
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/en\/git_learning_note\/"
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "Git","wordcount":  781 ,
+        "url": "https:\/\/loulazynote.github.io\/en\/git_learning_note\/","datePublished": "2022-06-08T23:20:17+08:00","dateModified": "2022-06-08T23:20:17+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"><i class='fa-solid fa-pen-to-square'></i> Posts </a><a class="menu-item" href="/en/tags/"><i class='fa-solid fa-hashtag'></i> Tags </a><a class="menu-item" href="/en/categories/"><i class='fa-solid fa-book-bookmark'></i> Categories </a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Please input keywords..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/git_learning_note/">🇹🇼 繁體中文</option><option value="/en/git_learning_note/" selected>🇬🇧 English</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Please input keywords..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>Posts</a><a class="menu-item" href="/en/tags/" title=""><i class='fa-solid fa-hashtag'></i>Tags</a><a class="menu-item" href="/en/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>Categories</a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/git_learning_note/">🇹🇼 繁體中文</option><option value="/en/git_learning_note/" selected>🇬🇧 English</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git Learning Note</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-08">2022-06-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;781 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;<span id="/en/git_learning_note/" class="leancloud_visitors" data-flag-title="Git Learning Note">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;views
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png, https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png 1.5x, https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png"
+        title="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#git-commands">Git Commands</a>
+          <ul>
+            <li><a href="#git-diff">git diff</a></li>
+            <li><a href="#git-reset">git reset</a></li>
+            <li><a href="#git-revert">git revert</a></li>
+            <li><a href="#git-clone">git clone</a></li>
+            <li><a href="#git-log">git log</a></li>
+            <li><a href="#git-reflog">git reflog</a></li>
+            <li><a href="#git-checkout">git checkout</a></li>
+            <li><a href="#git-switch">git switch</a></li>
+            <li><a href="#git-clean">git clean</a></li>
+            <li><a href="#git-stash">git stash</a></li>
+            <li><a href="#git-branch">git branch</a></li>
+            <li><a href="#git-merge">git merge</a></li>
+            <li><a href="#git-rebase-commit_id"><code>git rebase 'commit_id'</code></a></li>
+            <li><a href="#git-cherry-pick"><code>git cherry-pick</code></a></li>
+            <li><a href="#git-push"><code>git push</code></a></li>
+            <li><a href="#git-fetch"><code>git fetch</code></a></li>
+            <li><a href="#git-pull"><code>git pull</code></a></li>
+            <li><a href="#git-remote"><code>git remote</code></a></li>
+            <li><a href="#git-commit"><code>git commit</code></a></li>
+            <li><a href="#git-apply"><code>git apply</code></a></li>
+            <li><a href="#git-config"><code>git config</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#conflict-issues">Conflict Issues</a></li>
+        <li><a href="#reference-materials">Reference Materials</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li>Files in the index: Tracked files</li>
+<li>Files not in the index: Untracked files</li>
+</ul>
+<blockquote>
+<ul>
+<li>The working tree is the working directory.</li>
+<li>As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state.</li>
+<li>As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;<em>Unstage</em>&rdquo; state.
+<!-- raw HTML omitted --></li>
+</ul>
+</blockquote>
+<h2 id="git-commands">Git Commands</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b"
+        title="image" /></p>
+<p>Command: <strong>git</strong></p>
+<ul>
+<li><code>m</code> = message</li>
+<li><code>init</code> = initialize</li>
+<li><code>add</code> = add to the GIT index</li>
+<li><code>rm</code> = remove</li>
+<li><code>status</code> = check current status</li>
+</ul>
+<h3 id="git-diff">git diff</h3>
+<p><em>Show differences</em></p>
+<ul>
+<li><code>HEAD</code> = compare changes with the latest changes</li>
+<li><code>-cached</code> = compare changes in the index with the latest changes in the local repository</li>
+<li><code>--binary</code> = compare binary file differences</li>
+<li><code>--name-only</code> = compare files in the working directory, list file names</li>
+<li><code>--name-status</code> = list how many files have been changed between the working directory and the index</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>git diff 'src-commit' 'tgt-commit'</code> compare differences between commits</li>
+<li><code>git diff 'commit'</code> compare differences with the target commit</li>
+</ul>
+</blockquote>
+<h3 id="git-reset">git reset</h3>
+<p><em>Reset the index</em></p>
+<ul>
+<li><code>-p</code> = select which changes in the index to remove</li>
+<li><code>HEAD</code> = reset the index and branch (add ~1 to revert to the previous version, and so on)</li>
+<li><code>--mixed</code> = reset HEAD and index (default)</li>
+<li><code>--hard</code> = reset HEAD, index, and working directory</li>
+<li><code>--hard</code> ORIG_HEAD = revert to the previous version (always revert to the version before the reset)</li>
+</ul>
+<h3 id="git-revert">git revert</h3>
+<p><em>Revert to a previous version by making an opposite commit</em></p>
+<ul>
+<li><code>-h</code> = help, list functions</li>
+<li><code>--abort</code> = cancel</li>
+<li><code>--continue</code> = continue</li>
+<li><code>--quit</code> = stop</li>
+</ul>
+<h3 id="git-clone">git clone</h3>
+<p><em>Download a remote repository</em></p>
+<ul>
+<li><code>git clone --no-checkout 'URL' 'Filename'</code> will use the filename and not checkout</li>
+<li><code>git clone --bare 'url'</code> download the repository itself</li>
+</ul>
+<h3 id="git-log">git log</h3>
+<p><em>View logs</em></p>
+<ul>
+<li><code>--oneline</code> = short log version</li>
+<li><code>--oneline</code> &ndash;graph = log version + graph, can add &ldquo;-number&rdquo; to show the number of entries
+<blockquote>
+<p><code>git log --oneline --graph --all -10</code> get 10 entries of all history data</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-reflog">git reflog</h3>
+<p><em>Record every version control record under the working directory</em></p>
+<h3 id="git-checkout">git checkout</h3>
+<p><em>Check out/retrieve</em></p>
+<ul>
+<li><code>-- 'name'</code> = copy the content of the name file from the index back to the working directory</li>
+<li><code>--orphan</code> = create a new branch without parents
+<blockquote>
+<p><code>checkout -b &quot;Filename&quot;</code> can create a new branch and switch to it</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-switch">git switch</h3>
+<p><em>Switch branches</em></p>
+<h3 id="git-clean">git clean</h3>
+<p><em>Clean the working directory</em></p>
+<ul>
+<li><code>-f</code> = force delete</li>
+<li><code>-d</code> = delete the entire working directory</li>
+<li><code>-x</code> = perform clean task, ignoring .gitignore settings</li>
+<li><code>-n</code> = see which files will be cleaned</li>
+</ul>
+<h3 id="git-stash">git stash</h3>
+<p><em>Stash changes in the working directory</em></p>
+<ul>
+<li><code>save 'message'</code> = stash</li>
+<li><code>pop</code> = retrieve stash</li>
+</ul>
+<h3 id="git-branch">git branch</h3>
+<p><em>View/create branches</em></p>
+<ul>
+<li><code>-d</code> = delete branch (can only delete merged branches)</li>
+<li><code>-D</code> = force delete branch</li>
+<li><code>-r</code> = list all remote tracking branches</li>
+<li><code>-a</code> = list all remote + local branches
+<blockquote>
+<ul>
+<li><code>git branch --merged</code> list all merged branches</li>
+<li><code>git branch --no-merged</code> list all unmerged branches</li>
+<li><code>git branch --merged | egrep -v &quot;(^\*|master|develop)&quot; | xargs git branch -d</code> delete all merged branches (not available in CMD/Powershell)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-merge">git merge</h3>
+<p><em>Merge branches</em></p>
+<ul>
+<li><code>--ff</code> = fast-forward merge (default)</li>
+<li><code>--no-ff</code> = non-fast-forward merge</li>
+<li><code>--ff-only</code> = fast-forward merge only</li>
+<li><code>--no-commit</code> = merge without committing</li>
+<li><code>--abort</code> = abort merge</li>
+<li><code>--squash</code> = squash and merge (cannot be used with disabling fast-forward, and no merge graph will appear)
+<blockquote>
+<p><code>git merge --no-ff --no-commit 'branchName'</code> merge without committing</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-rebase-commit_id"><code>git rebase 'commit_id'</code></h3>
+<p><em>Rebase</em></p>
+<ul>
+<li><code>-i</code></li>
+<li><code>--continue</code> = continue</li>
+<li><code>--skip</code> = skip</li>
+<li><code>--abort</code> = cancel</li>
+</ul>
+<h3 id="git-cherry-pick"><code>git cherry-pick</code></h3>
+<p><em>Forward pick and merge</em></p>
+<ul>
+<li><code>--continue</code> = continue</li>
+<li><code>--quit</code> = stop</li>
+<li><code>--abort</code> = cancel</li>
+</ul>
+<h3 id="git-push"><code>git push</code></h3>
+<p><em>Push to remote</em></p>
+<ul>
+<li><code>--all</code> = push all branches
+<blockquote>
+<p><code>git push -u origin master</code> link the local branch (master) with the remote branch (origin)
+<code>git push origin --delete</code> &lsquo;branchName&rsquo; delete remote branch (must delete locally first)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-fetch"><code>git fetch</code></h3>
+<p><em>Download changes from the remote repository</em></p>
+<ul>
+<li><code>--prune</code> prune deleted remote branches</li>
+</ul>
+<h3 id="git-pull"><code>git pull</code></h3>
+<p><em>Pull from the remote repository</em></p>
+<blockquote>
+<ul>
+<li><code>pull</code> = git fetch + git merge</li>
+<li><code>git pull --rebase</code> = git fetch + git rebase</li>
+</ul>
+</blockquote>
+<h3 id="git-remote"><code>git remote</code></h3>
+<p><em>Remote</em></p>
+<ul>
+<li><code>-v</code> = list URLs</li>
+<li><code>-h</code> = remote help</li>
+<li><code>set-url</code> = change URL
+<blockquote>
+<p><code>git remote set-url origin 'new url'</code> change the old URL to the new URL</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="git-commit"><code>git commit</code></h3>
+<p><em>Create a version</em></p>
+<h3 id="git-apply"><code>git apply</code></h3>
+<p><em>Apply a version (commit)</em></p>
+<ul>
+<li><code>--check</code> = check files</li>
+<li><code>--reverse</code> = revert (short -R)</li>
+</ul>
+<h3 id="git-config"><code>git config</code></h3>
+<p><em>GIT settings</em></p>
+<blockquote>
+<p>Add <code>--global</code> to set globally</p>
+</blockquote>
+<ul>
+<li><code>core.quotepath</code> = set to false to display Chinese</li>
+<li><code>core.editor</code> = view current editor
+<blockquote>
+<p>git can only display ASCII characters</p>
+</blockquote>
+</li>
+<li><code>set LC_ALL=C.UTF-8</code>: To display Chinese in environments other than git bash</li>
+</ul>
+<blockquote>
+<ul>
+<li>Change environment variable (permanently save)
+&gt; <code>setx LC_ALL C.UTF-8</code></li>
+<li>MAC/Linux
+&gt; <code>export LC_ALL=C.UTF-8</code></li>
+</ul>
+</blockquote>
+<h2 id="conflict-issues">Conflict Issues</h2>
+<p>Display message:</p>
+<ol>
+<li>content = content conflict
+<blockquote>
+<p>It is recommended to merge manually</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="reference-materials">Reference Materials</h2>
+<ol>
+<li><a href="https://tinyurl.com/yfgcs498" target="_blank" rel="noopener noreffer ">為自己學 GIT-另一種合併方式（使用 rebase）</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-06-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/en/git_learning_note/" data-title="Git Learning Note" data-via="Lou_Chang" data-hashtags="Git"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/en/git_learning_note/" data-hashtag="Git"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://loulazynote.github.io/en/git_learning_note/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://loulazynote.github.io/en/git_learning_note/" data-title="Git Learning Note" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://loulazynote.github.io/en/git_learning_note/" data-title="Git Learning Note"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/git/">Git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/en/serilogusage/" class="next" rel="next" title="SeriLog setting&#39;s tips 2022">SeriLog setting's tips 2022<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"auBPg0Yg3dFkETxNZyA7Pg7C-MdYXbMMI","appKey":"JE3zQ4ZC3NLTc9xG8RzzUPFp","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"SXY3F3WOW8","algoliaIndex":"lou_blog_en","algoliaSearchKey":"2c93025118024818cada2fa4e55ad419","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

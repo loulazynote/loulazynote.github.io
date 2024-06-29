@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>What is NoSQL - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/nosql-note/">
+  <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
+  <meta property="og:title" content="What is NoSQL">
+  <meta property="og:description" content="關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-18T10:00:00+08:00">
+    <meta property="article:modified_time" content="2022-06-17T17:26:15+08:00">
+    <meta property="article:tag" content="SQL">
+    <meta property="article:tag" content="NoSQL">
+    <meta property="article:tag" content="RDBMS">
+    <meta property="article:tag" content="MongoDB">
+    <meta property="og:image" content="https://loulazynote.github.io/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
+  <meta name="twitter:title" content="What is NoSQL">
+  <meta name="twitter:description" content="關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro">
+      <meta name="twitter:site" content="@Lou_Chang">
+<meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/nosql-note/" /><link rel="prev" href="https://loulazynote.github.io/zh-tw/ooplearning/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/valueinjecterver-3.2.0simpleusage/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "What is NoSQL",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/zh-tw\/nosql-note\/"
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "SQL, NoSQL, RDBMS, MongoDB","wordcount":  1654 ,
+        "url": "https:\/\/loulazynote.github.io\/zh-tw\/nosql-note\/","datePublished": "2022-06-18T10:00:00+08:00","dateModified": "2022-06-17T17:26:15+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-tw/posts/"><i class='fa-solid fa-pen-to-square'></i> 所有文章 </a><a class="menu-item" href="/zh-tw/tags/"><i class='fa-solid fa-hashtag'></i> 標籤 </a><a class="menu-item" href="/zh-tw/categories/"><i class='fa-solid fa-book-bookmark'></i> 分類 </a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/nosql-note/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-tw/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>所有文章</a><a class="menu-item" href="/zh-tw/tags/" title=""><i class='fa-solid fa-hashtag'></i>標籤</a><a class="menu-item" href="/zh-tw/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>分類</a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/nosql-note/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">What is NoSQL</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/sql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SQL</a>&nbsp;<a href="/zh-tw/categories/database/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Database</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-18">2022-06-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 1654 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 4 分鐘&nbsp;<span id="/zh-tw/nosql-note/" class="leancloud_visitors" data-flag-title="What is NoSQL">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次閱讀
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png, https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png 1.5x, https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png"
+        title="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#關聯式資料庫_rdbms_">關聯式資料庫(<em>RDBMS</em>)</a></li>
+        <li><a href="#非關聯式資料庫_nosql_">非關聯式資料庫(<em>NOSQL</em>)</a></li>
+        <li><a href="#nosql-vs-rdbms">NoSQL v.s RDBMS</a>
+          <ul>
+            <li><a href="#rdbms">RDBMS</a></li>
+            <li><a href="#nosql">NOSQL</a></li>
+          </ul>
+        </li>
+        <li><a href="#nosql-類別">NOSQL 類別</a>
+          <ul>
+            <li><a href="#1-資料形態粗略分類">1. 資料形態(粗略分類)</a></li>
+            <li><a href="#2-cap定理httpszhmwikipediaorgzh-hantcape5ae9ae79086-consistency-availability-partition-tolerance">2. <a href="https://zh.m.wikipedia.org/zh-hant/CAP%E5%AE%9A%E7%90%86">CAP定理</a> (Consistency, Availability, Partition Tolerance)</a></li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="關聯式資料庫_rdbms_">關聯式資料庫(<em>RDBMS</em>)</h2>
+<p>目前常用的資料庫,完全遵守 <em><a href="https://zh.wikipedia.org/zh-tw/ACID" target="_blank" rel="noopener noreffer ">ACID</a></em> 原則,在任何情況下(<strong><em>Atomicity</em></strong>)都可保持每個<code>Transaction</code>不成功則<code>roll back</code>,(<strong><em>Consistency</em></strong>)資料一致性,(<strong><em>Isolation</em></strong>)讀寫不互相干擾,(<strong><em>Duration</em></strong>)資料永久性(EX:<code>SQL Server</code>,<code>PostgreSQL</code>,<code>MySQL</code>&hellip;等)
+且僅能支援垂直擴充,假設要應用在大量的資料的時候,只能透過硬體的升級(<em>CPU</em> 升級、加 <em>HDD</em>、增加 <em>RAM</em>&hellip;等)</p>
+<h2 id="非關聯式資料庫_nosql_">非關聯式資料庫(<em>NOSQL</em>)</h2>
+<p><code>NOSQL</code>(<em>Non-SQL</em>,又為 <em>Not only SQL</em>) 稱為<strong>非關聯式資料庫</strong>,跟關聯式資料庫不一樣,不需要定義 <code>schema</code>且沒有關聯的關係(EX:<code>MongoDB</code>,<code>Redis</code>,<code>MariaDB</code>&hellip;)</p>
+<ul>
+<li>
+<p>非關聯式資料庫特點：</p>
+<ul>
+<li>資料庫由 <em>collection</em> 組成</li>
+<li><em>collection</em> 中每筆資料為一份 <em>document</em>,<em>document</em> 的資料格式不需一致</li>
+<li>以 <code>CAP theorem</code> 為概念設計</li>
+<li>常用於分散式雲端系統</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://miro.medium.com/max/1400/1*zDFS4FVd1hBgIvmFm8FC7g.png"
+        data-srcset="https://miro.medium.com/max/1400/1*zDFS4FVd1hBgIvmFm8FC7g.png, https://miro.medium.com/max/1400/1*zDFS4FVd1hBgIvmFm8FC7g.png 1.5x, https://miro.medium.com/max/1400/1*zDFS4FVd1hBgIvmFm8FC7g.png 2x"
+        data-sizes="auto"
+        alt="https://miro.medium.com/max/1400/1*zDFS4FVd1hBgIvmFm8FC7g.png"
+        title="結構示意圖" /></p>
+</li>
+</ul>
+<h2 id="nosql-vs-rdbms">NoSQL v.s RDBMS</h2>
+<h3 id="rdbms">RDBMS</h3>
+<ul>
+<li><em>RDBMS</em> 因具備 <em>ACID</em> 特性,且保證了資料的一致性,若資料需在任何情況下都穩定且一致,則推薦此類(EX: 金融系統)</li>
+</ul>
+<h3 id="nosql">NOSQL</h3>
+<ol>
+<li>由於 NOSQL 的 schema 不需要固定,且資料可以為任意結構,所以在 <code>schema</code> 需要頻繁變動或者是 <code>schema</code> 不固定的時候,<em>NOSQL</em> 提供更有彈性的開發</li>
+<li>需要儲存大量資料,利用分散式系統以及雲端儲存的時候,由於 <em>NOSQL</em> 相較於 <em>RDBMS</em> 更容易做水平擴充 (<em>horizontal scaling</em>),且本身的設計就是分散式系統的設計,因此對於未來有大量擴充需求的系統,會更容易的去擴充,且擴充的成本也較低</li>
+<li>具備水平擴充,較不會有<a href="https://zh.wikipedia.org/wiki/%E5%8D%95%E7%82%B9%E6%95%85%E9%9A%9C" target="_blank" rel="noopener noreffer ">Single Failed</a></li>
+</ol>
+<h2 id="nosql-類別">NOSQL 類別</h2>
+<h3 id="1-資料形態粗略分類">1. 資料形態(粗略分類)</h3>
+<ul>
+<li><code>Key-Value</code>:
+<ul>
+<li><code>Key-Value</code>資料庫是 <em>NoSQL</em> 資料庫中最大宗的類型,這類資料最大的特色就是採用<code>Key-Value</code>資料架構,取消了原本關聯式資料庫中常用的欄位架構（<code>Schema</code>）,每筆資料各自獨立,所以,可以打造出分散式和高擴充能力的特性</li>
+<li>例如: <code>Google BigTable</code>,<code>Hadoop HBase</code>,<code>Amazon Dynamo</code>,<code>Cassandra</code>,<code>Hypertable</code>,<code>Redis</code>,<code>Firebase</code>&hellip;</li>
+</ul>
+</li>
+<li><a href="https://zh.wikipedia.org/zh-tw/%E9%9D%A2%E5%90%91%E6%96%87%E6%AA%94%E7%9A%84%E6%95%B8%E6%93%9A%E5%BA%AB" target="_blank" rel="noopener noreffer "><code>Document</code></a>:
+<ul>
+<li>也是一種<code>key-value</code>,限制 <code>value</code> 的結構為<strong>半結構化資料</strong><code>semi-structure</code>,像是 <em>JSON</em> 等</li>
+<li>將資訊存儲在文檔中的資料庫,旨在將資料儲存為類似 JSON 的文件並對其進行查詢</li>
+<li>文件資料庫主要是用來儲存非結構性的文件,例如最常見的非結構化資料就是<code>HTML</code>網頁,一個<code>HTML</code>網頁結構不像一般表格那樣有固定的欄位,每個欄位有特定資料類型和大小,例如網頁裡有<code>Head</code>和<code>Body</code>結構,<code>Body</code>元素中可能會有10個段落,段落中會有文字、連結、圖片等,文件資料庫的資料結構往往是鬆散的樹狀結構</li>
+<li>例如:<code>MongoDB</code>,<code>CouchDB</code>,<code>Lotus Notes</code>&hellip;</li>
+</ul>
+</li>
+<li><code>Wide-column</code>(圖學架構):
+<ul>
+<li>運用圖學架構來儲存節點間關係資料架構(基本的圖學資料包括了節點（<em>Node</em>）、關係（<em>Relation</em>）和屬性（<em>Property</em>）三種結構)</li>
+<li>以多個<code>raw</code>、<code>column</code>進行存取,將資料拆成小資料再進行組合,之後可透過<code>column key</code> / <code>row key</code> 進行關聯查詢(可有效的壓縮資料及取用同級的資料集)</li>
+<li>例如:<code>Neo4j</code>,<code>InfoGrid</code>,<code>AllegroGrph</code>,<code>Sparksee</code>&hellip;</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-cap定理httpszhmwikipediaorgzh-hantcape5ae9ae79086-consistency-availability-partition-tolerance">2. <a href="https://zh.m.wikipedia.org/zh-hant/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="noopener noreffer ">CAP定理</a> (Consistency, Availability, Partition Tolerance)</h3>
+<ul>
+<li><em>Consistency</em>: 一致性,讀寫都會遵循 <em>Atomicity</em> 原則,等同於所有節點訪問同一份最新的資料副本</li>
+<li><em>Availability</em>: 可用性,每次請求都能獲取到非錯的響應,但是無法保證得到的資料為最新的</li>
+<li><em><a href="https://en.wikipedia.org/wiki/Network_partition" target="_blank" rel="noopener noreffer ">Partition Tolerance</a></em>: 分區容錯性,電腦網路區分為相對獨立的子網,這些子網可以通過設計單獨優化,也可以是網絡設備的故障而導致,而分散式軟體必須設計成具有分區容錯性,也就是說,即使網路被分區後,仍然可以正常工作</li>
+</ul>
+<p>根據定理,分散式系統只能滿足三項中的兩項而不可能滿足全部三項,因為在Available的情況下,Consistency與Partition Tolerance是互相矛盾的,因此大致的分類有 <code>AP</code>、<code>CA</code>、<code>CP</code></p>
+<ul>
+<li><code>AP</code>: 只要節點可用就能持續運作</li>
+<li><code>CA</code>: 在沒有任何的例外下,都是可用並保證資料的一致性</li>
+<li><code>CP</code>: 在節點不穩定的時候不接受 <code>request</code></li>
+</ul>
+<h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/zh-tw/NoSQL" target="_blank" rel="noopener noreffer ">NoSQL | wikipedia.org</a></li>
+<li><a href="https://aws.amazon.com/tw/nosql/" target="_blank" rel="noopener noreffer ">什麼是 NoSQL？|  AWS</a></li>
+<li><a href="https://www.ithome.com.tw/news/92507" target="_blank" rel="noopener noreffer ">快速認識4類主流NoSQL資料庫 | iThome</a></li>
+<li><a href="https://tinyurl.com/y6lxc4zy" target="_blank" rel="noopener noreffer ">[淺談]-NoSQL資料庫怎麼選？ | ZiXiang-Blog</a></li>
+<li><a href="https://tinyurl.com/y3nj5tfw" target="_blank" rel="noopener noreffer ">RDBMS vs. NOSQL - 關聯式資料庫 vs. 非關聯式資料庫 | Hs-medium</a></li>
+<li><a href="https://tinyurl.com/y33fjm8o" target="_blank" rel="noopener noreffer ">結構、半結構、非結構式資料是啥意思？ | Kevin的MongoDB工作筆記</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-06-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-tw/nosql-note/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/zh-tw/nosql-note/" data-title="What is NoSQL" data-via="Lou_Chang" data-hashtags="SQL,NoSQL,RDBMS,MongoDB"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/zh-tw/nosql-note/" data-hashtag="SQL"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://loulazynote.github.io/zh-tw/nosql-note/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://loulazynote.github.io/zh-tw/nosql-note/" data-title="What is NoSQL" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/zh-tw/nosql-note/" data-title="What is NoSQL"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/sql/">SQL</a>,&nbsp;<a href="/zh-tw/tags/nosql/">NoSQL</a>,&nbsp;<a href="/zh-tw/tags/rdbms/">RDBMS</a>,&nbsp;<a href="/zh-tw/tags/mongodb/">MongoDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-tw/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-tw/ooplearning/" class="prev" rel="prev" title="OOP 物件導向學習筆記"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>OOP 物件導向學習筆記</a>
+            <a href="/zh-tw/valueinjecterver-3.2.0simpleusage/" class="next" rel="next" title="ValueInjecter@3.2.0 簡單用法">ValueInjecter@3.2.0 簡單用法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"valine":{"appId":"auBPg0Yg3dFkETxNZyA7Pg7C-MdYXbMMI","appKey":"JE3zQ4ZC3NLTc9xG8RzzUPFp","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-TW","pageSize":10,"placeholder":"你的評論 ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"SXY3F3WOW8","algoliaIndex":"lou_blog_zh","algoliaSearchKey":"2c93025118024818cada2fa4e55ad419","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Golang Learning Point - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/golanglearning/">
+  <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
+  <meta property="og:title" content="Golang Learning Point">
+  <meta property="og:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Com">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-01-30T21:00:00+08:00">
+    <meta property="article:modified_time" content="2022-01-30T21:00:00+08:00">
+    <meta property="article:tag" content="Golang">
+    <meta property="article:tag" content="GO">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Language">
+    <meta property="og:image" content="https://loulazynote.github.io/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
+  <meta name="twitter:title" content="Golang Learning Point">
+  <meta name="twitter:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Com">
+      <meta name="twitter:site" content="@Lou_Chang">
+<meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/golanglearning/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/git_learning_note/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Golang Learning Point",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/zh-tw\/golanglearning\/"
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "Golang, GO, Programming, Language","wordcount":  869 ,
+        "url": "https:\/\/loulazynote.github.io\/zh-tw\/golanglearning\/","datePublished": "2022-01-30T21:00:00+08:00","dateModified": "2022-01-30T21:00:00+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-tw/posts/"><i class='fa-solid fa-pen-to-square'></i> 所有文章 </a><a class="menu-item" href="/zh-tw/tags/"><i class='fa-solid fa-hashtag'></i> 標籤 </a><a class="menu-item" href="/zh-tw/categories/"><i class='fa-solid fa-book-bookmark'></i> 分類 </a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/golanglearning/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-tw/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>所有文章</a><a class="menu-item" href="/zh-tw/tags/" title=""><i class='fa-solid fa-hashtag'></i>標籤</a><a class="menu-item" href="/zh-tw/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>分類</a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/golanglearning/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Golang Learning Point</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/golang/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-01-30">2022-01-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 869 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;<span id="/zh-tw/golanglearning/" class="leancloud_visitors" data-flag-title="Golang Learning Point">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次閱讀
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images"
+        data-srcset="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images, https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images 1.5x, https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images 2x"
+        data-sizes="auto"
+        alt="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images"
+        title="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#golang-learning-point">Golang Learning Point</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#開發-go-的原因">開發 GO 的原因</a></li>
+            <li><a href="#適用-go-的應用情景">適用 GO 的應用情景</a></li>
+            <li><a href="#相容性compatibility-of-go">相容性(Compatibility of GO)</a></li>
+            <li><a href="#常見-go-cli-命令-執行程式">常見 GO CLI 命令 執行程式</a></li>
+            <li><a href="#常見-go-cli-命令-執行測試">常見 GO CLI 命令 執行測試</a></li>
+            <li><a href="#常見-go-cli-命令">常見 GO CLI 命令</a></li>
+          </ul>
+        </li>
+        <li><a href="#go-具有跨平台的特性">Go 具有跨平台的特性</a>
+          <ul>
+            <li><a href="#保留字keyword">保留字(KeyWord)</a></li>
+            <li><a href="#自動加分號規則">自動加分號規則</a></li>
+            <li><a href="#命名常規-naming-convertion">命名常規 (Naming Convertion)</a></li>
+            <li><a href="#宣告變數-declaration">宣告變數 (Declaration)</a></li>
+            <li><a href="#零值-zero-value">零值 (zero value)</a></li>
+            <li><a href="#自動型別推導-type-inference">自動型別推導 (Type Inference)</a></li>
+            <li><a href="#宣告常數-僅可使用基礎型別">宣告常數 (僅可使用基礎型別)</a></li>
+            <li><a href="#未定義型別的常數-untyped-constant">未定義型別的常數 (untyped constant)</a></li>
+            <li><a href="#iota-遞增常數">iota 遞增常數</a></li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="golang-learning-point">Golang Learning Point</h1>
+<h3 id="開發-go-的原因">開發 GO 的原因</h3>
+<ol>
+<li>簡潔</li>
+<li>編譯快</li>
+<li>編譯式語言</li>
+<li>強型別</li>
+<li>內建併行功能(Concurrent)</li>
+<li>自動記憶體回收</li>
+</ol>
+<h3 id="適用-go-的應用情景">適用 GO 的應用情景</h3>
+<ol>
+<li>Web Development</li>
+<li>Command-line Interfaces(CLIs)</li>
+<li>Cloud &amp; NetWork Services</li>
+</ol>
+<h3 id="相容性compatibility-of-go">相容性(Compatibility of GO)</h3>
+<blockquote>
+<p>GO 1.X 新版本保證會向下相容, 除了以下四點</p>
+</blockquote>
+<ol>
+<li>安全性錯誤</li>
+<li>規格錯誤</li>
+<li>非預期的行為</li>
+<li>Bugs</li>
+</ol>
+<h3 id="常見-go-cli-命令-執行程式">常見 GO CLI 命令 執行程式</h3>
+<ol>
+<li><code>go run .</code> (執行程式)</li>
+<li><code>go build .</code>(建置專案)
+<blockquote>
+<p><code>go build -v -o dist/main .</code> (建置時顯示詳細記錄並指定輸出路徑)</p>
+</blockquote>
+</li>
+<li><code>go clean</code> (清空專案-刪除建置過程產生的檔案)
+<ul>
+<li><code>go clean -i</code> (連同已安裝的程式一併刪除)</li>
+<li><code>go clean -i -n</code> (加上 <code>-n</code> 代表預覽會刪除的檔案)</li>
+<li><code>go clean -cache</code> (清空建置快取檔案)</li>
+<li><code>go clean -cache -n</code> (預覽清空建置快取檔案)</li>
+<li><code>go clean -modcache -x</code> (清空模組快取同時顯示刪除命令)</li>
+<li><code>go clean -i -cache -modcache -x</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="常見-go-cli-命令-執行測試">常見 GO CLI 命令 執行測試</h3>
+<ol>
+<li>檔名規則： *_test.go</li>
+<li>執行程式： 無法使用 ( 使用 go run . 會自動忽略 *_test.go 檔案 )</li>
+<li>建置專案： 不用建置 ( 使用 go build 會自動忽略 *_test.go 檔案 )
+<ul>
+<li>你可以用 <code>go test -c</code> 編譯測試程式（但不會執行測試）</li>
+<li>執行測試： <code>go test .</code></li>
+<li>清空快取： <code>go clean -testcache</code></li>
+<li>效能測試： <code>go test -bench=. -v</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="常見-go-cli-命令">常見 GO CLI 命令</h3>
+<ol>
+<li><code>go version</code> (顯示 GO 執行環境版本)</li>
+<li><code>go env</code> (顯示 GO 相關環境變數)</li>
+<li>其他被開發工具完美整合的命令
+<ul>
+<li><code>go get</code> 下載套件</li>
+<li><code>go fmt</code> 格式化程式碼</li>
+<li><code>go vet</code> 檢查原始碼品質</li>
+<li><code>go fix</code> 自動修復有問題的原始碼</li>
+<li><code>go doc</code> 從原始碼中取得 API 說明文件</li>
+</ul>
+</li>
+</ol>
+<h2 id="go-具有跨平台的特性">Go 具有跨平台的特性</h2>
+<h3 id="保留字keyword">保留字(KeyWord)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/MtmW1vo.jpg"
+        data-srcset="https://i.imgur.com/MtmW1vo.jpg, https://i.imgur.com/MtmW1vo.jpg 1.5x, https://i.imgur.com/MtmW1vo.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/MtmW1vo.jpg"
+        title="25Keyword" /></p>
+<p><a href="https://golang.org/ref/spec#Keywords" target="_blank" rel="noopener noreffer ">Keyword 參考資料</a></p>
+<h3 id="自動加分號規則">自動加分號規則</h3>
+<ol>
+<li>識別字(identifier)</li>
+<li>值(value)
+<ul>
+<li><code>integer</code>, <code>floating-point</code>, <code>imaginary</code>, <code>rune</code>, <code>string</code></li>
+<li><code>true</code> 及 <code>false</code> 並不是值</li>
+</ul>
+</li>
+<li>以下四個關鍵字
+<ul>
+<li><code>break</code></li>
+<li><code>continue</code></li>
+<li><code>return</code></li>
+<li><code>fallthrough</code></li>
+</ul>
+</li>
+<li>以下五個運算子與標點符號
+<ul>
+<li><code>)</code></li>
+<li><code>}</code></li>
+<li><code>]</code></li>
+<li><code>++</code></li>
+<li><code>--</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="命名常規-naming-convertion">命名常規 (Naming Convertion)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/mICpi7Q.jpg"
+        data-srcset="https://i.imgur.com/mICpi7Q.jpg, https://i.imgur.com/mICpi7Q.jpg 1.5x, https://i.imgur.com/mICpi7Q.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/mICpi7Q.jpg"
+        title="Naming Convertion" /></p>
+<h3 id="宣告變數-declaration">宣告變數 (Declaration)</h3>
+<blockquote>
+<p><code>var score int = 95</code></p>
+</blockquote>
+<ul>
+<li><code>var</code> 是 keyword</li>
+<li><code>score</code> 是變數名稱</li>
+<li><code>int</code> 是型別</li>
+<li><code>95</code> 是初始值</li>
+</ul>
+<p><strong>&quot;<code>:=</code>&quot; 是 宣告變數並賦值</strong>
+<strong>有 &ldquo;<code>*</code>&ldquo;在前的是指標</strong></p>
+<p>變數宣告有兩種方式</p>
+<ol>
+<li></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">i</span> <span class="p">=</span> <span class="s">&#34;G is&#34;</span> <span class="o">+</span> <span class="s">&#34; for Go &#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">j</span> <span class="p">=</span> <span class="sc">&#39;v&#39;</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">k1</span><span class="p">,</span> <span class="nx">k2</span> <span class="p">=</span> <span class="kc">true</span><span class="p">,</span> <span class="p">!</span><span class="nx">k1</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">const</span> <span class="nx">l</span> <span class="p">=</span> <span class="mi">111</span><span class="o">*</span><span class="mi">10000</span> <span class="o">+</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl"> <span class="kd">const</span> <span class="nx">m1</span> <span class="p">=</span> <span class="nx">math</span><span class="p">.</span><span class="nx">pi</span> <span class="o">/</span> <span class="mf">3.141592</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;Earth&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">desc</span> <span class="kt">string</span> <span class="p">=</span> <span class="s">&#34;Planet&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">radius</span> <span class="kt">int32</span> <span class="p">=</span> <span class="mi">6378</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mass</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mf">5.972E+24</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">active</span> <span class="kt">bool</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">satellites</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="零值-zero-value">零值 (zero value)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/ZMLgTP3.jpg"
+        data-srcset="https://i.imgur.com/ZMLgTP3.jpg, https://i.imgur.com/ZMLgTP3.jpg 1.5x, https://i.imgur.com/ZMLgTP3.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/ZMLgTP3.jpg"
+        title="零值表" /></p>
+<h3 id="自動型別推導-type-inference">自動型別推導 (Type Inference)</h3>
+<p><code>var name = &quot;will&quot;</code>
+簡略寫法
+<code>name := &quot;will&quot;</code></p>
+<h3 id="宣告常數-僅可使用基礎型別">宣告常數 (僅可使用基礎型別)</h3>
+<ul>
+<li>
+<p>數字： <code>byte</code>, <code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code>, <code>rune</code>, <code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>, <code>uintptr</code>, <code>float32</code>, <code>float64</code>, <code>complex64</code>, <code>complex128</code></p>
+</li>
+<li>
+<p>布林： <code>bool</code></p>
+</li>
+<li>
+<p>字串： <code>string</code></p>
+</li>
+</ul>
+<h3 id="未定義型別的常數-untyped-constant">未定義型別的常數 (untyped constant)</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/Xvsx2Ho.jpg"
+        data-srcset="https://i.imgur.com/Xvsx2Ho.jpg, https://i.imgur.com/Xvsx2Ho.jpg 1.5x, https://i.imgur.com/Xvsx2Ho.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/Xvsx2Ho.jpg"
+        title="untyped constant" /></p>
+<h3 id="iota-遞增常數">iota 遞增常數</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Zero</span> <span class="p">=</span> <span class="kc">iota</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">One</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Two</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Three</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Four</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>相等於</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Zero</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">One</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Two</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Three</span> <span class="p">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Four</span> <span class="p">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="參考資料">參考資料</h2>
+<ul>
+<li><a href="https://golang.org/" target="_blank" rel="noopener noreffer ">Golang 官方網站</a>
+<ul>
+<li><a href="https://golang.org/doc/" target="_blank" rel="noopener noreffer ">Golang 官方文件</a></li>
+<li><a href="https://blog.golang.org/" target="_blank" rel="noopener noreffer ">Golang 官方 Blog</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-01-30</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-tw/golanglearning/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/zh-tw/golanglearning/" data-title="Golang Learning Point" data-via="Lou_Chang" data-hashtags="Golang,GO,Programming,Language"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/zh-tw/golanglearning/" data-hashtag="Golang"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://loulazynote.github.io/zh-tw/golanglearning/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://loulazynote.github.io/zh-tw/golanglearning/" data-title="Golang Learning Point" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/zh-tw/golanglearning/" data-title="Golang Learning Point"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/golang/">Golang</a>,&nbsp;<a href="/zh-tw/tags/go/">GO</a>,&nbsp;<a href="/zh-tw/tags/programming/">Programming</a>,&nbsp;<a href="/zh-tw/tags/language/">Language</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-tw/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/zh-tw/git_learning_note/" class="next" rel="next" title="Git 學習筆記">Git 學習筆記<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"valine":{"appId":"auBPg0Yg3dFkETxNZyA7Pg7C-MdYXbMMI","appKey":"JE3zQ4ZC3NLTc9xG8RzzUPFp","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-TW","pageSize":10,"placeholder":"你的評論 ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"SXY3F3WOW8","algoliaIndex":"lou_blog_zh","algoliaSearchKey":"2c93025118024818cada2fa4e55ad419","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

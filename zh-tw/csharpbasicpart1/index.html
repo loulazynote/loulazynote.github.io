@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>C# 基礎複習Note(型別系統) - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/csharpbasicpart1/">
+  <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
+  <meta property="og:title" content="C# 基礎複習Note(型別系統)">
+  <meta property="og:description" content="型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-06-09T22:37:31+08:00">
+    <meta property="article:modified_time" content="2022-06-09T22:37:31+08:00">
+    <meta property="article:tag" content="Basic Level">
+    <meta property="article:tag" content="CSharp">
+    <meta property="og:image" content="https://loulazynote.github.io/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
+  <meta name="twitter:title" content="C# 基礎複習Note(型別系統)">
+  <meta name="twitter:description" content="型別系統 概觀 ❗ 是強型別語言, 每個變數和常數都有型別 ❗ 在 C# bool 中無法轉換成 int 儲存在類型中的資訊可以包含下列 型別的變數需要的儲存空間 它可以代表的最">
+      <meta name="twitter:site" content="@Lou_Chang">
+<meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" /><link rel="prev" href="https://loulazynote.github.io/zh-tw/single-sign-on-with-kerberos/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/wslconfignote/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "C# 基礎複習Note(型別系統)",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/zh-tw\/csharpbasicpart1\/"
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "Basic Level, CSharp","wordcount":  8834 ,
+        "url": "https:\/\/loulazynote.github.io\/zh-tw\/csharpbasicpart1\/","datePublished": "2022-06-09T22:37:31+08:00","dateModified": "2022-06-09T22:37:31+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-tw/posts/"><i class='fa-solid fa-pen-to-square'></i> 所有文章 </a><a class="menu-item" href="/zh-tw/tags/"><i class='fa-solid fa-hashtag'></i> 標籤 </a><a class="menu-item" href="/zh-tw/categories/"><i class='fa-solid fa-book-bookmark'></i> 分類 </a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/csharpbasicpart1/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-tw/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>所有文章</a><a class="menu-item" href="/zh-tw/tags/" title=""><i class='fa-solid fa-hashtag'></i>標籤</a><a class="menu-item" href="/zh-tw/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>分類</a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/csharpbasicpart1/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">C# 基礎複習Note(型別系統)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 8834 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 18 分鐘&nbsp;<span id="/zh-tw/csharpbasicpart1/" class="leancloud_visitors" data-flag-title="C# 基礎複習Note(型別系統)">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次閱讀
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png, https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png 1.5x, https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png"
+        title="https://user-images.githubusercontent.com/33840759/172874309-d5f95c7d-8359-46f0-9385-b75fa6128d39.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#型別系統-概觀">型別系統 概觀</a>
+          <ul>
+            <li><a href="#變數宣告中指定類型">變數宣告中指定類型</a></li>
+            <li><a href="#內建類型">內建類型</a></li>
+            <li><a href="#自訂類型">自訂類型</a></li>
+            <li><a href="#一般型別系統_cts_">一般型別系統(<em>CTS</em>)</a>
+              <ul>
+                <li><a href="#類別是參考型別">類別是參考型別</a></li>
+                <li><a href="#結構是實值型別">結構是實值型別</a></li>
+                <li><a href="#記錄類型可以是參考型別record-class或實值型別record-struct">記錄類型可以是參考型別(<code>record class</code>)或實值型別(<code>record struct</code>)</a></li>
+              </ul>
+            </li>
+            <li><a href="#值類型">值類型</a></li>
+            <li><a href="#參考型別httpstinyurlcom2j9vb5wj"><a href="https://tinyurl.com/2j9vb5wj">參考型別</a></a></li>
+            <li><a href="#泛型類型">泛型類型</a></li>
+            <li><a href="#隱含型別匿名型別和可為-null-的實值型別">隱含型別、匿名型別和可為 Null 的實值型別</a></li>
+            <li><a href="#編譯時間類型和執行時間類型">編譯時間類型和執行時間類型</a></li>
+          </ul>
+        </li>
+        <li><a href="#命名空間宣告命名空間以組織類型">命名空間(宣告命名空間以組織類型)</a>
+          <ul>
+            <li><a href="#命名空間概觀">命名空間概觀</a></li>
+          </ul>
+        </li>
+        <li><a href="#類別">類別</a></li>
+        <li><a href="#記錄">記錄</a>
+          <ul>
+            <li><a href="#使用記錄的時機">使用記錄的時機</a>
+              <ul>
+                <li><a href="#實值相等">實值相等</a></li>
+                <li><a href="#不變性">不變性</a></li>
+              </ul>
+            </li>
+            <li><a href="#記錄與類別和結構有何不同">記錄與類別和結構有何不同</a>
+              <ul>
+                <li><a href="#example">Example</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#介面定義多個類型的行為">介面(定義多個類型的行為)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#example-1">Example</a>
+                  <ul>
+                    <li><a href="#如果類別實作兩個具有相同簽章成員的介面則在類別上實作該成員會造成這兩個介面都使用該成員進行實作">如果類別實作兩個具有相同簽章成員的介面，則在類別上實作該成員會造成這兩個介面都使用該成員進行實作</a></li>
+                    <li><a href="#若要同時執行這兩個介面類別必須使用明確的實作為屬性-p-或方法-p-或兩者以避免編譯器錯誤">若要同時執行這兩個介面，類別必須使用明確的實作為屬性 P 或方法 P （或兩者），以避免編譯器錯誤</a></li>
+                    <li><a href="#從-c--80開始可以為介面中所宣告的成員定義實作為">從 c # 8.0開始，可以為介面中所宣告的成員定義實作為</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#泛型">泛型</a>
+          <ul>
+            <li><a href="#藉由使用泛型型別參數-t-您可以撰寫可供其他用戶端程式代碼使用的單一類別而不會產生執行時間轉換或裝箱作業的成本或風險">藉由使用泛型型別參數 <code>T</code> ，您可以撰寫可供其他用戶端程式代碼使用的<strong>單一類別</strong>，而不會產生執行時間轉換或裝箱作業的成本或風險</a></li>
+            <li><a href="#建立自訂的泛型型別和方法簡單的泛型類別">建立自訂的泛型型別和方法，簡單的泛型類別</a></li>
+            <li><a href="#泛型總覽">泛型總覽</a></li>
+          </ul>
+        </li>
+        <li><a href="#匿名類型">匿名類型</a></li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="型別系統-概觀">型別系統 概觀</h2>
+<p>&#x2757; 是強型別語言, 每個變數和常數都有型別 &#x2757;</p>
+<blockquote>
+<p>在 C# bool 中無法轉換成 int</p>
+</blockquote>
+<ul>
+<li>儲存在類型中的資訊可以包含下列
+<ul>
+<li>型別的變數需要的儲存空間</li>
+<li>它可以代表的最大值和最小值</li>
+<li>它所包含的成員 (方法、欄位、事件等等)</li>
+<li>它繼承自的基底型別</li>
+<li><code>interface</code> (實作)</li>
+<li>允許的作業類型</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>編譯器會將型別資訊視為中繼資料內嵌至可執行檔</li>
+<li>通用語言執行平台 (<em>CLR</em>) 會在執行階段使用該中繼資料，以在它配置和回收記憶體時，進一步保證型別安全</li>
+</ol>
+</blockquote>
+<h3 id="變數宣告中指定類型">變數宣告中指定類型</h3>
+<p>&#x2757; 程式中宣告變數或常數時 必須指定其類型 &#x2757;</p>
+<blockquote>
+<p>也能使用<code>var</code>關鍵字來讓編譯器推斷類型</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// Declaration only</span>
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">studentId</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">AClass</span> <span class="n">aclass</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Declaration with initializers (four examples)</span>
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">studentName</span> <span class="p">=</span> <span class="s">&#34;Lou&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="p">[]</span> <span class="n">ClassList</span> <span class="p">=</span> <span class="p">{</span><span class="s">&#34;Elaine&#34;</span><span class="p">,</span><span class="s">&#34;Louis&#34;</span><span class="p">,</span><span class="s">&#34;Kyber&#34;</span><span class="p">,</span> <span class="s">&#34;Peter&#34;</span><span class="p">,</span><span class="s">&#34;Jeff&#34;</span><span class="p">,</span><span class="s">&#34;Mary&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 型別推斷</span>
+</span></span><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">query</span> <span class="p">=</span> <span class="n">ClassList</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">q</span> <span class="p">=&gt;</span> <span class="n">q</span> <span class="p">==</span> <span class="n">studentName</span><span class="p">).</span><span class="n">First</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="內建類型">內建類型</h3>
+<ul>
+<li>C# 提供一組標準<a href="https://tinyurl.com/2j6xjgu4" target="_blank" rel="noopener noreffer ">內建類型</a>
+<ul>
+<li>整數</li>
+<li>浮點值</li>
+<li>布林運算式</li>
+<li>文字字元</li>
+<li>十進位值</li>
+<li>string</li>
+<li>object</li>
+</ul>
+</li>
+</ul>
+<h3 id="自訂類型">自訂類型</h3>
+<ul>
+<li>可以使用 結構類型(<em><a href="https://tinyurl.com/2klwttj8" target="_blank" rel="noopener noreffer ">struct</a></em>)、 類別(<em><a href="https://tinyurl.com/2ns73j68" target="_blank" rel="noopener noreffer ">Class</a></em>) 、 <code>interface</code>(<em><a href="https://tinyurl.com/2zknngl5" target="_blank" rel="noopener noreffer ">interface</a></em>)、列舉 (<em><a href="https://tinyurl.com/2l6vose2" target="_blank" rel="noopener noreffer ">enum</a></em>) 和 記錄(<em><a href="https://tinyurl.com/2m3u9yuv" target="_blank" rel="noopener noreffer ">record</a></em>) 建構來建立您自己的自訂類型</li>
+<li>當明確將專案參考新增至定義這些專案的元件時，其他專案才可用
+<blockquote>
+<p>編譯器在有該組件的參考之後，您可以針對在原始程式碼的那個組件中宣告的型別宣告變數 (或常數)</p>
+</blockquote>
+</li>
+<li><a href="https://tinyurl.com/2llr8ev4" target="_blank" rel="noopener noreffer ">.NET 類別庫</a>本身是自訂類型的集合，可以在應用程式中使用
+<blockquote>
+<p>根據預設，類別庫中最常使用的型別可用於任何 C# 程式</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="一般型別系統_cts_">一般型別系統(<em>CTS</em>)</h3>
+<ul>
+<li>
+<p>支援繼承原則</p>
+<ul>
+<li>型別可以衍生自稱為「基底型別」的其他型別, 而衍生的型別會繼承 (有部份限制) 基底型別的方法、屬性和其他成員</li>
+<li>基底型別同樣可以衍生自一些其他型別，所衍生的型別會繼承其繼承階層架構中兩個基底型別的成員</li>
+<li>所有類型 最終衍生自單一基底類型，即 <a href="https://tinyurl.com/2jzlkbkh" target="_blank" rel="noopener noreffer ">System.Object</a> (C# 關鍵字：<a href="https://tinyurl.com/2jzlkbkh" target="_blank" rel="noopener noreffer ">object</a>)</li>
+<li>這種統一型別階層架構稱為<a href="https://tinyurl.com/2olfyvgz" target="_blank" rel="noopener noreffer ">一般型別系統</a> (<em>CTS</em>)</li>
+</ul>
+</li>
+<li>
+<p><a href="https://tinyurl.com/2olfyvgz" target="_blank" rel="noopener noreffer ">一般型別系統</a> (<em>CTS</em>)中的每個型別都會定義為「實值型別」或「參考型別」</p>
+<ul>
+<li>包括 .NET 類別庫中的所有自訂類型</li>
+<li>使用者定義型別</li>
+<li>使用 結構類型(<em>struct</em>) 關鍵字定義的類型為實值型別，所有內建的數數值型別都是 結構類型(<em>struct</em>)</li>
+<li>使用 類別(<em>class</em>) 或 記錄(<em>record</em>) 關鍵字定義的類型是參考型別</li>
+<li>參考型別和實值型別有不同的編譯時期規則和不同的執行階段行為</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/types/media/index/value-reference-types-common-type-system.png"
+        data-srcset="https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/types/media/index/value-reference-types-common-type-system.png, https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/types/media/index/value-reference-types-common-type-system.png 1.5x, https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/types/media/index/value-reference-types-common-type-system.png 2x"
+        data-sizes="auto"
+        alt="https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/types/media/index/value-reference-types-common-type-system.png"
+        title="CTS 中的實值型別和參考型別之間的關聯性" /></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>C# 9.0 新增 記錄型別</li>
+<li>資料和行為是類別、結構或記錄 的成員</li>
+<li>類別、結構或記錄宣告就像是用來在執行時間建立實例或物件的藍圖</li>
+</ul>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">//p 為 Person 的物件或執行個體</span>
+</span></span><span class="line"><span class="cl"><span class="n">Person</span> <span class="n">p</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;Lou&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Age</span> <span class="p">=</span> <span class="m">18</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 可以建立多個相同 Person 型別的執行個體，且每個執行個體在其屬性與欄位中都可以有不同的值</span>
+</span></span><span class="line"><span class="cl"><span class="n">Person</span> <span class="n">p2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;Elaine&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Age</span> <span class="p">=</span> <span class="m">18</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Person 的類別、結構</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Person</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">int</span> <span class="n">Age</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="類別是參考型別">類別是參考型別</h4>
+<ol>
+<li>建立型別的物件時，指派物件的變數只會保留該記憶體的參考</li>
+<li>當物件參考指派至新的變數時，新的變數會參考到原始物件</li>
+<li>透過某個變數所做的變更會反映在其他變數中，因為它們都參考相同的資料</li>
+</ol>
+<h4 id="結構是實值型別">結構是實值型別</h4>
+<ol>
+<li>建立結構時，結構指派的變數會保留結構的實際資料</li>
+<li>當結構指派給新的變數時，就會複製它</li>
+<li>新的變數和原始變數會各自包含一份相同的資料，對一個複本所做的變更不會影響另一個複本</li>
+</ol>
+<h4 id="記錄類型可以是參考型別record-class或實值型別record-struct">記錄類型可以是參考型別(<code>record class</code>)或實值型別(<code>record struct</code>)</h4>
+<blockquote>
+<ul>
+<li>類別 是用來建立更複雜的行為模型
+<ul>
+<li>類別通常會儲存在建立類別物件之後要修改的資料</li>
+</ul>
+</li>
+<li>結構 最適合小型資料結構
+<ul>
+<li>結構通常會儲存在建立結構之後不打算修改的資料</li>
+</ul>
+</li>
+<li>記錄類型 是具有其他編譯器合成成員的資料結構
+<ul>
+<li>記錄通常會儲存在建立物件之後不打算修改的資料</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="值類型">值類型</h3>
+<blockquote>
+<p>實值型別衍生自 <a href="https://tinyurl.com/2kurpe55" target="_blank" rel="noopener noreffer ">System.ValueType</a>，該型別又衍生自 <a href="https://tinyurl.com/2jzlkbkh" target="_blank" rel="noopener noreffer ">System.Object</a></p>
+</blockquote>
+<ul>
+<li>
+<p>實數值型別變數會直接包含其值</p>
+<ul>
+<li>結構記憶體會內嵌配置於變數所宣告的任何內容中，實數值型別變數沒有個別的堆積配置或垃圾收集額外負荷</li>
+</ul>
+</li>
+<li>
+<p>實值型別有兩種類別</p>
+<blockquote>
+<p>實值型別為 <strong>密封</strong>, 無法從任何實值型別衍生型別</p>
+</blockquote>
+<ul>
+<li>結構類型(<em><a href="https://tinyurl.com/2klwttj8" target="_blank" rel="noopener noreffer ">struct</a></em>)</li>
+<li>列舉 (<em><a href="https://tinyurl.com/2l6vose2" target="_blank" rel="noopener noreffer ">enum</a></em>)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 內建的數數值型別是結構，而且其具有您可以存取的欄位和方法</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// constant field on type byte.</span>
+</span></span><span class="line"><span class="cl"><span class="kt">byte</span> <span class="n">b</span> <span class="p">=</span> <span class="kt">byte</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 宣告並指派值給它們，就像是簡單的非匯總類型</span>
+</span></span><span class="line"><span class="cl"><span class="kt">byte</span> <span class="n">num</span> <span class="p">=</span> <span class="m">0xA</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">c</span> <span class="p">=</span> <span class="sc">&#39;Z&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 結構類型 來建立自訂實值型別:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">struct</span> <span class="nc">Coords</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">Coords</span><span class="p">(</span><span class="kt">int</span> <span class="n">p1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">p2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="p">=</span> <span class="n">p1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y</span> <span class="p">=</span> <span class="n">p2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>實值型別的另一個類別是 <code>enum</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 列舉會定義一組具名的整數常數</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">FileMode</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">CreateNew</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Create</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Open</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">OpenOrCreate</span> <span class="p">=</span> <span class="m">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Truncate</span> <span class="p">=</span> <span class="m">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Append</span> <span class="p">=</span> <span class="m">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="參考型別httpstinyurlcom2j9vb5wj"><a href="https://tinyurl.com/2j9vb5wj" target="_blank" rel="noopener noreffer ">參考型別</a></h3>
+<p>其定義為  類別(<em>class</em>), 記錄(<em>record</em>), 委派(<em>delegate</em>), 陣列(<em>array</em>)或 <code>interface</code>(<em>interface</em>)的類型是參考型別</p>
+<ul>
+<li>參考型別完全支援繼承
+<ul>
+<li>當您建立類別時，可以繼承自未定義為 密封的任何其他<code>interface</code>或類別</li>
+<li>其他類別可以繼承自您的類別，並覆寫您的虛擬方法</li>
+</ul>
+</li>
+</ul>
+<p>類別的建立和指派 Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 建立</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">myClass</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 指派</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">myClass2</span> <span class="p">=</span> <span class="n">myClass</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>interface</code>(interface) 無法使用<code>new</code> 運算子直接具現化，請建立並指派實作 <code>interface</code>之類別的實例 Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 建立</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">myClass</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 用現值宣告及賦值</span>
+</span></span><span class="line"><span class="cl"><span class="n">IMyInterface</span> <span class="n">myInterface</span> <span class="p">=</span> <span class="n">myClass</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 或 建立並賦值 給`interface`</span>
+</span></span><span class="line"><span class="cl"><span class="n">IMyInterface</span> <span class="n">myInterface2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>所有陣列都是參考型別，即使其元素都是實值型別</p>
+<ul>
+<li>陣列會隱含衍生自<a href="https://tinyurl.com/2mvstzr3" target="_blank" rel="noopener noreffer ">System.Array</a> 類別，可以宣告並使用 搭配 C# 提供的簡化語法</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 宣告並初始化一個數字陣列</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="p">[]</span> <span class="n">nums</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 訪問 System.Array 的實例屬性</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">len</span> <span class="p">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="泛型類型">泛型類型</h3>
+<p>類型可以使用一或多個 類型參數 來宣告，做為實際型別的預留位置</p>
+<p>建立 類型的實例時，可以指定清單將包含的物件類型，例如 <code>string</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// &lt;&gt;即為泛型,此處為 包含string型別的清單</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">stringList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">stringList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;String example&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// compile time error adding a type other than a string:</span>
+</span></span><span class="line"><span class="cl"><span class="n">stringList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li>使用型別參數(&lt;T&gt;)讓您能夠重複使用相同的類別來保存任何元素型別，而不需要將每個元素都轉換成 <code>object</code></li>
+<li>泛型集合類別稱為 <strong>強型別集合</strong> ，因為編譯器知道集合元素的特定類型</li>
+</ul>
+</blockquote>
+<h3 id="隱含型別匿名型別和可為-null-的實值型別">隱含型別、匿名型別和可為 Null 的實值型別</h3>
+<ul>
+<li>隱含型別 : 可以使用 <code>var</code> 隱含輸入區域變數（但不能輸入類別成員），其變數還是會在編譯時期收到型別，但其是由編譯器所提供的型別</li>
+<li>匿名型別 : 針對不想要在外部方法 儲存或傳遞的簡單相關值集合，建立具名類型可能很不方便，為此，可以建立「匿名型別」</li>
+<li>可為 Null 的實值型別 : 一般實值型別不能有 <a href="https://tinyurl.com/2zpsr3m3" target="_blank" rel="noopener noreffer "><code>null</code></a> 的值, 在類別後附加<code>?</code>後，允許建立可為 Null 的實值型別，例如， <code>int?</code> 是一種 <code>int</code> 類型，也可以有 值 <a href="https://tinyurl.com/2zpsr3m3" target="_blank" rel="noopener noreffer "><code>null</code></a>
+<ul>
+<li>可為 Null 的實值型別是泛型結構類型的 <a href="https://tinyurl.com/2hpary95" target="_blank" rel="noopener noreffer "><code>System.Nullable&lt;T&gt;</code></a> 實例。 當您將資料傳入資料庫時，可為 Null 的實值型別特別有用，其中數值可能是 <a href="https://tinyurl.com/2zpsr3m3" target="_blank" rel="noopener noreffer "><code>null</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="編譯時間類型和執行時間類型">編譯時間類型和執行時間類型</h3>
+<ul>
+<li>
+<p>變數可以有不同的編譯時間和執行時間類型</p>
+<ol>
+<li>編譯時間類型是原始程式碼中變數的宣告或推斷類型</li>
+<li>執行時間類型是該變數所參考之實例的類型</li>
+</ol>
+<ul>
+<li>
+<p>這兩種類型通常相同,Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">&#34;This is a string of characters&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在其他情況下，編譯時間類型不同,Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 編譯時間類型位於 object, 執行時間類型為 string</span>
+</span></span><span class="line"><span class="cl"><span class="kt">object</span> <span class="n">anotherMessage</span> <span class="p">=</span> <span class="s">&#34;This is another string of characters&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 編譯時間類型位於 IEnumerable&lt;char&gt;, 執行時間類型為 string</span>
+</span></span><span class="line"><span class="cl"><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">&gt;</span> <span class="n">someCharacters</span> <span class="p">=</span><span class="s">&#34;abcdefghijklmnopqrstuvwxyz&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>變數的兩種類型不同，請務必瞭解編譯時間類型和執行時間類型套用的時間，而編譯時間類型會決定編譯器所採取的所有動作</p>
+</blockquote>
+<h2 id="命名空間宣告命名空間以組織類型">命名空間(宣告命名空間以組織類型)</h2>
+<ul>
+<li>C# 程式設計大量使用命名空間的原因有兩個
+<ol>
+<li>
+<p>.NET 會使用命名空間來組織其許多類別</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// System 是命名空間，而 Console 是該命名空間中的類別</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// using關鍵字可用來讓完整名稱不需要</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>宣告您自己的命名空間，將有助於在較大型的程式設計專案中控制類別和方法名稱的範圍</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 使用 namespace 關鍵字宣告命名空間</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nn">SampleNamespace</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">class</span> <span class="nc">SampleClass</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="kd">public</span> <span class="k">void</span> <span class="n">SampleMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                 <span class="s">&#34;SampleMethod inside SampleNamespace&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>命名空間的名稱必須是有效的 C# <a href="https://tinyurl.com/2logktpn" target="_blank" rel="noopener noreffer ">識別碼名稱</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 從 C# 10 開始，您可以針對該檔案中定義的所有類型宣告命名空間</span>
+</span></span><span class="line"><span class="cl"> <span class="k">namespace</span> <span class="nn">SampleNamespace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">class</span> <span class="nc">AnotherSampleClass</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kd">public</span> <span class="k">void</span> <span class="n">AnotherSampleMethod</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">             <span class="s">&#34;SampleMethod inside SampleNamespace&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ul>
+<h3 id="命名空間概觀">命名空間概觀</h3>
+<ul>
+<li>命名空間具有下列屬性：
+<ul>
+<li>命名空間可組織大型程式碼專案</li>
+<li>它們會使用<code>.</code>運算子來分隔</li>
+<li><code>using</code> 指示詞讓其不需要指定每個類別的命名空間名稱</li>
+<li><code>global</code> 命名空間是 &ldquo;root&rdquo; 命名空間：<code>global::System</code> 一律會參考  <a href="https://tinyurl.com/2q95y9ln" target="_blank" rel="noopener noreffer ">.NET System</a> 命名空間</li>
+</ul>
+</li>
+</ul>
+<h2 id="類別">類別</h2>
+<ul>
+<li>
+<p>參考型別 : 定義為類別(<em>Class</em>)的類型是參考型別</p>
+<ul>
+<li>
+<p>執行時間，當宣告參考型別的變數時，該變數會包含值 null ，直到使用 new 運算子明確建立類別的實例，或指派可能已在其他地方建立之相容型別的物件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">//Declaring an object of type MyClass.</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">mc</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Declaring another object of the same type, assigning it the value of the first object.</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">mc2</span> <span class="p">=</span> <span class="n">mc</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>宣告類別 : 類別是使用 class 關鍵字來宣告，後面接著唯一識別碼</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// class 關鍵字的前面會加上存取層級(public)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// [access modifier] - [class] - [identifier]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Customer</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 類別上的欄位、屬性、方法和事件統稱為「類別成員」</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Fields, properties, methods and events go here...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>建立物件 : 物件是根據類別的具體實體，而且有時稱為類別的執行個體</p>
+<blockquote>
+<p>類別會定義一種類型的物件，但不是物件本身</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">    <span class="c1">// 使用 new 關鍵字來建立物件</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// object1 是根據 Customer 之物件的參考</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Customer</span> <span class="n">object1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 可以建立物件參考，而根本不需要建立物件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Customer</span> <span class="n">object2</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>建立物件參考，如未參考上一個物件參考，嘗試透過這類參考來存取物件將會在執行時間失敗</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">   <span class="c1">//可以藉由建立新的物件，或為其指派現有的物件，來參考物件</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Customer</span> <span class="n">object3</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Customer</span> <span class="n">object4</span> <span class="p">=</span> <span class="n">object3</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>類別繼承 : 類別完全支援「繼承」，這是物件導向程式設計的基礎特性</p>
+<ul>
+<li>
+<p>建立類別時，可以繼承自任何其他未定義為 <a href="https://tinyurl.com/2zaxogyp" target="_blank" rel="noopener noreffer ">sealed</a> 的類別，而其他類別可以繼承自您的類別，並覆寫類別虛擬方法，且可以執行一或多個<code>interface</code></p>
+</li>
+<li>
+<p>使用「衍生」可完成繼承，這表示使用從中繼承資料和行為的「基底類別」來宣告類別。 附加冒號以及接著衍生類別名稱後面的基底類別名稱，以指定基底類別</p>
+</li>
+<li>
+<p>類別宣告基底類別時，會繼承基底類別的所有成員，但建構函式除外</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"> <span class="kd">public</span> <span class="k">class</span> <span class="nc">Manager</span> <span class="p">:</span> <span class="n">Employee</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// Employee fields, properties, methods and events are inherited</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// New Manager fields, properties, methods and events go here...</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>可用<a href="https://tinyurl.com/2qa5renl" target="_blank" rel="noopener noreffer "><code>abstract</code></a> 宣告類別</p>
+<ul>
+<li>抽象類別包含具有簽章定義但沒有實作的抽象方法， 無法具現化抽象類別</li>
+<li>它們僅用於實作抽象方法的衍生類別</li>
+<li>與<a href="https://tinyurl.com/2zaxogyp" target="_blank" rel="noopener noreffer "><code>sealed</code></a>類別相反，<code>sealed</code>不允許從它衍生其他類別</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="記錄">記錄</h2>
+<p>C# 中的 記錄 是一種 <strong>類別</strong> 或 <strong>結構</strong> ，可提供使用資料模型的特殊語法和行為</p>
+<h3 id="使用記錄的時機">使用記錄的時機</h3>
+<ul>
+<li>您想要定義相依于&quot;<a href="https://bit.ly/3t7a5zp" target="_blank" rel="noopener noreffer "><strong>值相等</strong></a>&ldquo;的資料模型</li>
+<li>您想要定義物件為&rdquo;<strong>不可變</strong>&ldquo;的類型</li>
+</ul>
+<h4 id="實值相等">實值相等</h4>
+<ul>
+<li>對於記錄而言，值相等表示如果類型相符且所有屬性和域值相符，則記錄類型的兩個變數會相等
+<ul>
+<li>對於其他參考型別（例如類別），相等表示 參考相等</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>並非所有資料模型都能搭配值相等來運作， 例如 : <code>Entity Framework Core</code> 取決於參考是否相等，以確保它只針對概念為一個實體的實體類型使用一個實例
+， 基於這個理由，記錄類型不適合用來做為 <code>Entity Framework Core</code> 中的實體類型</p>
+</blockquote>
+<h4 id="不變性">不變性</h4>
+<ul>
+<li>不可變的型別是一種可防止在物件具現化之後，變更該物件的任何屬性或域值
+<ul>
+<li>需要型別必須是安全線程，或者您是根據雜湊表中剩餘的雜湊碼而定時，永久性可能很有用(<code>JWTToken</code>、<code>EnycrptPassword</code>)</li>
+<li>記錄提供簡潔的語法來建立和使用不可變的類型</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>永久性並不適用于所有資料案例， 例如 : <code>Entity Framework Core</code>不支援使用不可變的實體類型進行更新</p>
+</blockquote>
+<h3 id="記錄與類別和結構有何不同">記錄與類別和結構有何不同</h3>
+<ul>
+<li>宣告和<a href="https://bit.ly/3M47VYc" target="_blank" rel="noopener noreffer ">具現化</a>類別或結構的相同語法可用於記錄
+<ul>
+<li>只需以關鍵字取代 <code>class</code> ，或使用 <code>record struct</code> 取代 <code>struct</code></li>
+</ul>
+</li>
+<li><code>record</code> 同樣地，記錄類別也支援用來表示繼承關聯性的相同語法
+<ul>
+<li>記錄與類別的差異如下：
+<ul>
+<li>您可以使用 <a href="https://bit.ly/38WXJTX" target="_blank" rel="noopener noreffer ">位置參數</a> ，利用不可變的屬性來建立和具現化型別</li>
+<li>在<strong>類別</strong>中指出參考相等或不相等的相同方法和運算子 (例如 <a href="https://bit.ly/3tcTUkp" target="_blank" rel="noopener noreffer ">Object.Equals(Object)</a> 和 <code>==</code>) ，表示<strong>記錄</strong>中的 <a href="https://bit.ly/3tcTUkp" target="_blank" rel="noopener noreffer ">Object.Equals(Object)</a> 不相等
+<blockquote>
+<p>可以用 <code>Object.Equals(Object)</code>檢測是否相等</p>
+</blockquote>
+</li>
+<li>您可以使用 運算式來建立不可變物件的複本，並在選取的屬性中包含新的值</li>
+<li>記錄的 <code>ToString</code>方法會建立格式化的字串，以顯示物件的類型名稱以及其所有公用屬性的名稱和值</li>
+<li>記錄可以 <a href="https://bit.ly/3GKv2WQ" target="_blank" rel="noopener noreffer ">繼承自另一個記錄</a>， <!-- raw HTML omitted -->記錄無法繼承自類別，而且類別無法繼承自記錄<!-- raw HTML omitted --></li>
+</ul>
+</li>
+<li>記錄結構與結構的不同之處在於
+<ol>
+<li>編譯器合成了相等的方法和 ToString</li>
+<li>編譯器為位置記錄結構合成 Deconstruct 方法</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 定義公開記錄</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">record</span> <span class="nc">Person</span><span class="p">(</span><span class="kt">string</span> <span class="n">FirstName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">LastName</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用位置參數來宣告和具現化記錄</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span><span class="p">(</span><span class="s">&#34;Nancy&#34;</span><span class="p">,</span> <span class="s">&#34;Davolio&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 列印類型名稱和屬性值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: Person { FirstName = Nancy, LastName = Davolio }</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 定義公開記錄</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">record</span> <span class="nc">Person</span><span class="p">(</span><span class="kt">string</span> <span class="n">FirstName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">LastName</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">PhoneNumbers</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">phoneNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用位置參數來宣告和具現化記錄</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">person1</span> <span class="p">=</span> <span class="k">new</span><span class="p">(</span><span class="s">&#34;Nancy&#34;</span><span class="p">,</span> <span class="s">&#34;Davolio&#34;</span><span class="p">,</span> <span class="n">phoneNumbers</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">person2</span> <span class="p">=</span> <span class="k">new</span><span class="p">(</span><span class="s">&#34;Nancy&#34;</span><span class="p">,</span> <span class="s">&#34;Davolio&#34;</span><span class="p">,</span> <span class="n">phoneNumbers</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span> <span class="p">==</span> <span class="n">person2</span><span class="p">);</span> <span class="c1">// output: True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">person1</span><span class="p">.</span><span class="n">PhoneNumbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;555-1234&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 位置及長度相同</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span> <span class="p">==</span> <span class="n">person2</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 不同的執行個體也不為 null</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ReferenceEquals</span><span class="p">(</span><span class="n">person1</span><span class="p">,</span> <span class="n">person2</span><span class="p">));</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: False</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 定義公開記錄</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">record</span> <span class="nc">Person</span><span class="p">(</span><span class="kt">string</span> <span class="n">FirstName</span><span class="p">,</span> <span class="kt">string</span> <span class="n">LastName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">PhoneNumbers</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">init</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">person1</span> <span class="p">=</span> <span class="k">new</span><span class="p">(</span><span class="s">&#34;Nancy&#34;</span><span class="p">,</span> <span class="s">&#34;Davolio&#34;</span><span class="p">)</span> <span class="p">{</span> <span class="n">PhoneNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[] }</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 with 運算式來複製不可變的物件，並變更其中一個屬性</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Person</span> <span class="n">person2</span> <span class="p">=</span> <span class="n">person1</span> <span class="n">with</span> <span class="p">{</span> <span class="n">FirstName</span> <span class="p">=</span> <span class="s">&#34;John&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: Person { FirstName = John, LastName = Davolio, PhoneNumbers = System.String[] }</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span> <span class="p">==</span> <span class="n">person2</span><span class="p">);</span> <span class="c1">// output: False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">person2</span> <span class="p">=</span> <span class="n">person1</span> <span class="n">with</span> <span class="p">{</span> <span class="n">PhoneNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: Person { FirstName = Nancy, LastName = Davolio, PhoneNumbers = System.String[] }</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span> <span class="p">==</span> <span class="n">person2</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: False</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 因 new string[1]是一個新的object與原object不相同</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">person2</span> <span class="p">=</span> <span class="n">person1</span> <span class="n">with</span> <span class="p">{</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person1</span> <span class="p">==</span> <span class="n">person2</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// output: True</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 因複製了卻無改變其值</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="介面定義多個類型的行為">介面(定義多個類型的行為)</h2>
+<ol>
+<li>
+<p><code>interface</code>包含非抽象 類別(<code>class</code>) 或 結構(<code>struct</code>) 必須實作之相關功能群組的定義</p>
+</li>
+<li>
+<p><code>interface</code>可以定義 靜態(<code>static</code>) 必須具有實作的方法</p>
+<blockquote>
+<p>從 C# 8.0 開始，<code>interface</code>可能會定義成員的預設實作</p>
+</blockquote>
+<ul>
+<li>
+<p>可以藉由使用<code>interface</code>，在類別中包含多個來源的行為(這項功能在 C# 中是很重要的，因為語言不支援類別的多重繼承)</p>
+</li>
+<li>
+<p>如果要模擬結構繼承，則必須使用<code>interface</code>，因為它們實際上無法繼承自另一個結構或類別</p>
+</li>
+<li>
+<p>使用 <a href="https://bit.ly/3targQX" target="_blank" rel="noopener noreffer "><code>interface</code></a> 關鍵字來定義<code>interface</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">interface</span> <span class="nc">IEquatable</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">Equals</span><span class="p">(</span><span class="n">T</span> <span class="n">obj</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 任何實作 IEquatable&lt;T&gt; `interface`的類別或結構，必須包含 Equals 方法的定義，該方法符合`interface`指定的簽章</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>interface</code>的名稱必須是有效的 C# 識別碼名稱(依慣例，<code>interface</code>名稱以大寫字母 I 開頭)</li>
+<li><a href="https://bit.ly/3m4YPzF" target="_blank" rel="noopener noreffer ">IEquatable&lt;T&gt;</a>的定義沒有提供 <code>Equals</code>的實作</li>
+<li>類別 或 結構 可以實現多個<code>interface</code>，但 類別 只能繼承自 單一類別</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>
+<p><code>interface</code>可以包含實作方法、屬性、事件、索引子，或這四個成員類型的任何組合</p>
+</li>
+<li>
+<p><code>interface</code>可能包含靜態建構函式、欄位、常數或運算子</p>
+<blockquote>
+<p>C# 11 開始，不是欄位的<code>interface</code>成員可能是 <code>static abstract</code></p>
+</blockquote>
+</li>
+<li>
+<p><code>interface</code>不能包含實例欄位、實例建構函式或完成項(<code>interface</code>是無法被實例化的)</p>
+</li>
+<li>
+<p><code>interface</code>成員預設為公用，而且可以明確指定協助工具修飾詞，EX: <code>public</code> 、 <code>protected</code> 、 <code>internal</code> 、 <code>private</code> 、 <code>protected internal</code> Or <code>private protected</code></p>
+</li>
+<li>
+<p>成員 <code>private</code> 必須具有預設實作</p>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>若要實作<code>interface</code>成員，實作類別的對應成員必須是公用、非靜態，且具有與<code>interface</code>成員相同的名稱和簽章</li>
+<li>&#x2757; 當<code>interface</code>宣告靜態成員時，實作該<code>interface</code>的類型也可能宣告具有<strong>相同簽章</strong>的靜態成員， 這些是宣告成員的型別有所區別且是唯一識別的， 在型別中宣告的靜態成員 <strong>不會覆寫</strong> <code>interface</code>中所宣告的靜態成員 &#x2757;</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>class</code>/<code>struct</code>繼承了<code>interface</code>必須實作該<code>interface</code>的所有成員，而不需要<code>interface</code>提供預設實作
+<ul>
+<li>如果基底類別實作<code>interface</code>，則衍生自基底類別的任何<code>class</code>/<code>struct</code>都會繼承該實作</li>
+<li><code>interface</code>也能繼承<code>interface</code>(一或多個)</li>
+<li><code>class</code>/<code>struct</code>繼承了<code>interface</code>,而此<code>interface</code>如有繼承其他<code>interface</code>,則該<code>class</code>/<code>struct</code>必須實作出所有繼承鏈中<strong>所有<code>interface</code>的成員</strong>
+<ul>
+<li>該<code>class</code>/<code>struct</code>可能會隱含轉換成衍生<code>interface</code>或其任何基底<code>interface</code></li>
+<li><code>class</code>/<code>struct</code>可能透過基底類別包含<code>interface</code>多次，繼承或透過其他<code>interface</code>繼承的<code>interface</code></li>
+</ul>
+</li>
+<li>只有在類別將<code>interface</code>宣告為類別 (<code>class ClassName : InterfaceName</code>) 定義的一部分時，類別只能提供<code>interface</code>實作一次</li>
+</ul>
+</li>
+</ul>
+<h4 id="example-1">Example</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 類別的屬性與索引子可以針對`interface`中定義的屬性或索引子定義額外的存取子</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">Car</span> <span class="p">:</span> <span class="n">IEquatable</span><span class="p">&lt;</span><span class="n">Car</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 實作`interface`的類別可以宣告具有 get 和 set 存取子的相同屬性</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string?</span> <span class="n">Make</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string?</span> <span class="n">Model</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">string?</span> <span class="n">Year</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 屬性或索引子使用明確的實作，則存取子必須相符</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Implementation of IEquatable&lt;T&gt; interface</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">bool</span> <span class="n">Equals</span><span class="p">(</span><span class="n">Car</span><span class="p">?</span> <span class="n">car</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Make</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">Model</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">Year</span><span class="p">)</span> <span class="p">==</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">car</span><span class="p">?.</span><span class="n">Make</span><span class="p">,</span> <span class="n">car</span><span class="p">?.</span><span class="n">Model</span><span class="p">,</span> <span class="n">car</span><span class="p">?.</span><span class="n">Year</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="如果類別實作兩個具有相同簽章成員的介面則在類別上實作該成員會造成這兩個介面都使用該成員進行實作">如果類別實作兩個具有相同簽章成員的介面，則在類別上實作該成員會造成這兩個介面都使用該成員進行實作</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">interface</span> <span class="nc">IControl</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">interface</span> <span class="nc">ISurface</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SampleClass</span> <span class="p">:</span> <span class="n">IControl</span><span class="p">,</span> <span class="n">ISurface</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Both ISurface.Paint and IControl.Paint call this method.</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Paint method in SampleClass&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">SampleClass</span> <span class="n">sample</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SampleClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">IControl</span> <span class="n">control</span> <span class="p">=</span> <span class="n">sample</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ISurface</span> <span class="n">surface</span> <span class="p">=</span> <span class="n">sample</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// The following lines all call the same method.</span>
+</span></span><span class="line"><span class="cl"><span class="n">sample</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">control</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">surface</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Output:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Paint method in SampleClass</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Paint method in SampleClass</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Paint method in SampleClass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>若要根據使用中的介面來呼叫不同的執行，可以明確地執行介面成員，明確的介面實作為僅透過指定介面呼叫的類別成員:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SampleClass</span> <span class="p">:</span> <span class="n">IControl</span><span class="p">,</span> <span class="n">ISurface</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">IControl</span><span class="p">.</span><span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;IControl.Paint&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">ISurface</span><span class="p">.</span><span class="n">Paint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="p">.</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;ISurface.Paint&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>類別成員 <code>IControl.Paint</code> 只能透過 <code>IControl</code> 介面取得，<code>ISurface.Paint</code> 只能透過 <code>ISurface</code> 取得(這兩種方法都是分開的，而且不會直接在類別上使用)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">SampleClass</span> <span class="n">sample</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SampleClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">IControl</span> <span class="n">control</span> <span class="p">=</span> <span class="n">sample</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ISurface</span> <span class="n">surface</span> <span class="p">=</span> <span class="n">sample</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// The following lines all call the same method.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//sample.Paint(); // Compiler error.</span>
+</span></span><span class="line"><span class="cl"><span class="n">control</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>  <span class="c1">// Calls IControl.Paint on SampleClass.</span>
+</span></span><span class="line"><span class="cl"><span class="n">surface</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>  <span class="c1">// Calls ISurface.Paint on SampleClass.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Output:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// IControl.Paint</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ISurface.Paint</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="若要同時執行這兩個介面類別必須使用明確的實作為屬性-p-或方法-p-或兩者以避免編譯器錯誤">若要同時執行這兩個介面，類別必須使用明確的實作為屬性 P 或方法 P （或兩者），以避免編譯器錯誤</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">interface</span> <span class="nc">ILeft</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">P</span> <span class="p">{</span> <span class="k">get</span><span class="p">;}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">interface</span> <span class="nc">IRight</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">P</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Middle</span> <span class="p">:</span> <span class="n">ILeft</span><span class="p">,</span> <span class="n">IRight</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="n">P</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ILeft</span><span class="p">.</span><span class="n">P</span> <span class="p">{</span> <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="從-c--80開始可以為介面中所宣告的成員定義實作為">從 c # 8.0開始，可以為介面中所宣告的成員定義實作為</h5>
+<ul>
+<li>如果類別從介面繼承方法執行，則只能透過介面類別型的參考來存取該方法，繼承的成員不會顯示為公用介面的一部分</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">interface</span> <span class="nc">IControl</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">void</span> <span class="n">Paint</span><span class="p">()</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Default Paint method&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">SampleClass</span> <span class="p">:</span> <span class="n">IControl</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Paint() is inherited from IControl.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">sample</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SampleClass</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//sample.Paint();// &#34;Paint&#34; isn&#39;t accessible.</span>
+</span></span><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">control</span> <span class="p">=</span> <span class="n">sample</span> <span class="k">as</span> <span class="n">IControl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">control</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 任何實介面的類別 IControl 都可以覆寫預設 Paint 方法，例如公用方法，或做為明確的介面執行</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="泛型">泛型</h2>
+<p>泛型會將型別參數的概念引進 .NET，讓您能夠設計類別和方法來延遲一或多個型別的規格，直到用戶端程式代碼宣告並具現化類別或方法為止</p>
+<h3 id="藉由使用泛型型別參數-t-您可以撰寫可供其他用戶端程式代碼使用的單一類別而不會產生執行時間轉換或裝箱作業的成本或風險">藉由使用泛型型別參數 <code>T</code> ，您可以撰寫可供其他用戶端程式代碼使用的<strong>單一類別</strong>，而不會產生執行時間轉換或裝箱作業的成本或風險</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// Declare the generic class.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">GenericList</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">Add</span><span class="p">(</span><span class="n">T</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TestGenericList</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="k">class</span> <span class="nc">ExampleClass</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Declare a list of type int.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GenericList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GenericList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">list1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// Declare a list of type string.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GenericList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">list2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GenericList</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">list2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// Declare a list of type ExampleClass.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">GenericList</span><span class="p">&lt;</span><span class="n">ExampleClass</span><span class="p">&gt;</span> <span class="n">list3</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GenericList</span><span class="p">&lt;</span><span class="n">ExampleClass</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">list3</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">ExampleClass</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>泛型類別和方法結合了重複使用性、型別安全和效率</li>
+<li>泛型最常搭配在其上操作的集合和方法使用</li>
+<li><a href="https://bit.ly/3x901bC" target="_blank" rel="noopener noreffer ">System.Collections.Generic</a>命名空間包含數個以泛型為基礎的集合類別</li>
+<li>非泛型集合（例如 <a href="https://bit.ly/3aCea8C" target="_blank" rel="noopener noreffer ">ArrayList</a> ）不建議使用</li>
+</ul>
+<h3 id="建立自訂的泛型型別和方法簡單的泛型類別">建立自訂的泛型型別和方法，簡單的泛型類別</h3>
+<blockquote>
+<p>當 <code>GenericArray&lt;T&gt;</code> 以具象類型具現化時 (例如具現化為 <code>GenericArray&lt;int&gt;</code>)，所出現的每個 <code>T</code> 都會以 <code>int</code> 取代</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kd">public</span> <span class="k">class</span> <span class="nc">GenericArray</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">T</span><span class="p">[]</span> <span class="n">array</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">GenericArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">[</span><span class="n">size</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">T</span> <span class="n">getItem</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">void</span> <span class="n">setItem</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">T</span> <span class="k">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>使用泛型 GenericArray<!-- raw HTML omitted --> 類別並輸出結果:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Tester</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//declaring an int array</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MyGenericArray</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">intArray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyGenericArray</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="m">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//setting values</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">c</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">c</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">intArray</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">*</span><span class="m">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//retrieving the values</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">c</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">c</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">intArray</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">+</span> <span class="s">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//declaring a character array</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MyGenericArray</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">&gt;</span> <span class="n">charArray</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyGenericArray</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">&gt;(</span><span class="m">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//setting values</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">c</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">c</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">charArray</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="kt">char</span><span class="p">)(</span><span class="n">c</span><span class="p">+</span><span class="m">97</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//retrieving the values</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">c</span><span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">c</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">charArray</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">+</span> <span class="s">&#34; &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//OutPut:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//0 5 10 15 20</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//a b c d e</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>泛型方法 Example 2:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">static</span> <span class="k">void</span> <span class="n">Swap</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">T</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">ref</span> <span class="n">T</span> <span class="n">rhs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="p">=</span> <span class="n">lhs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lhs</span> <span class="p">=</span> <span class="n">rhs</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rhs</span> <span class="p">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">a</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">b</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">c</span> <span class="p">=</span> <span class="sc">&#39;I&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d</span> <span class="p">=</span> <span class="sc">&#39;V&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//display values before swap:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Int values before calling swap:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;a = {0}, b = {1}&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Char values before calling swap:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;c = {0}, d = {1}&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//call swap</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Swap</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Swap</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">&gt;(</span><span class="k">ref</span> <span class="n">c</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">//display values after swap:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Int values after calling swap:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;a = {0}, b = {1}&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Char values after calling swap:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;c = {0}, d = {1}&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// OutPut:</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// Int values before calling swap:</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// a = 10, b = 20</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// Char values before calling swap:</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// c = I, d = V</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// Int values after calling swap:</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// a = 20, b = 10</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// Char values after calling swap:</span>
+</span></span><span class="line"><span class="cl">    <span class="cs">/// c = V, d = I</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="泛型總覽">泛型總覽</h3>
+<ul>
+<li>使用泛型型別以最佳化程式碼重複使用、型別安全和效能</li>
+<li>泛型的最常見用法是建立集合類別</li>
+<li>.NET 類別庫包含命名空間中 <a href="https://bit.ly/3x901bC" target="_blank" rel="noopener noreffer ">System.Collections.Generic</a> 有數個泛型集合類別，應該盡可能使用泛型集合，而不是命名空間中 <a href="https://bit.ly/3m5gmrt" target="_blank" rel="noopener noreffer ">System.Collections</a> 的類別 <a href="https://bit.ly/3aCea8C" target="_blank" rel="noopener noreffer ">ArrayList</a></li>
+<li>可以建立自己的泛型介面、類別、方法、事件和委派</li>
+<li>泛型類別可限制為允許存取特定資料類型上的方法</li>
+<li>泛型資料類型中所使用的類型相關資訊，可在執行階段透過反映取得</li>
+</ul>
+<h2 id="匿名類型">匿名類型</h2>
+<ul>
+<li>
+<p>匿名類型提供一個便利的方法，將一組唯讀屬性封裝成一個物件，而不需要事先明確定義類型</p>
+<ul>
+<li>類型名稱會由編譯器產生，並且無法在原始程式碼層級使用</li>
+<li>每個屬性的類型會由編譯器推斷</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="c1">// 以兩個名為 Amount 和 Message 的屬性初始化的匿名類型</span>
+</span></span><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">v</span> <span class="p">=</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Amount</span> <span class="p">=</span> <span class="m">108</span><span class="p">,</span> <span class="n">Message</span> <span class="p">=</span> <span class="s">&#34;Hello&#34;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Rest the mouse pointer over v.Amount and v.Message in the following</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// statement to verify that their inferred types are int and string.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">Amount</span> <span class="p">+</span> <span class="n">v</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<blockquote>
+<p>匿名型別通常用於查詢運算式的<code>select</code>子句中 ，以從來源序列中的每個物件傳回屬性的子集</p>
+</blockquote>
+<ul>
+<li>
+<p>匿名類型包含一個或多個公用唯讀屬性</p>
+<ul>
+<li>其他類型的類別成員 (例如方法或事件) 則無效</li>
+<li>用於初始化屬性的運算式不可以是 <code>null</code>、匿名函式或指標類型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="kt">var</span> <span class="n">productQuery</span> <span class="p">=</span> <span class="k">from</span> <span class="n">prod</span> <span class="k">in</span> <span class="n">products</span>
+</span></span><span class="line"><span class="cl">                   <span class="k">select</span> <span class="k">new</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">                              <span class="n">prod</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="n">prod</span><span class="p">.</span><span class="n">Price</span> 
+</span></span><span class="line"><span class="cl">                            <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">v</span> <span class="k">in</span> <span class="n">productQuery</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Color={0}, Price={1}&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">Price</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>可以使用 <code>var</code> 將變數宣告為隱含型別區域變數， 由於只有編譯器可以存取匿名類型的基本名稱，因此無法在變數宣告中指定類型名稱</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">  <span class="c1">// 合併隱含類型區域變數和隱含類型陣列，以建立匿名類型項目的陣列</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">var</span> <span class="n">anonArray</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="k">new</span> <span class="p">{</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="n">diam</span> <span class="p">=</span> <span class="m">4</span> <span class="p">},</span> <span class="k">new</span> <span class="p">{</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&#34;grape&#34;</span><span class="p">,</span> <span class="n">diam</span> <span class="p">=</span> <span class="m">1</span> <span class="p">}};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>匿名型別是<code>class</code>衍生自<code>object</code>的型別，而且不能轉換成除了<code>object</code>以外的任何類型</p>
+</li>
+<li>
+<p>如果組件中有兩個或多個匿名物件初始設定式，指定了順序相同並具有相同名稱和類型的屬性序列，編譯器會將這些物件視為相同類型的執行個體</p>
+<ul>
+<li>這些物件會共用編譯器產生的相同類型資訊</li>
+</ul>
+</li>
+<li>
+<p>匿名型別以 運算式的形式支援非破壞性變化，這可建立匿名型別的新實例，其中一或多個屬性具有新的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">apple</span> <span class="p">=</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Item</span> <span class="p">=</span> <span class="s">&#34;apples&#34;</span><span class="p">,</span> <span class="n">Price</span> <span class="p">=</span> <span class="m">1.35</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">var</span> <span class="n">onSale</span> <span class="p">=</span> <span class="n">apple</span> <span class="n">with</span> <span class="p">{</span> <span class="n">Price</span> <span class="p">=</span> <span class="m">0.79</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">apple</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">onSale</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>無法將欄位、屬性、事件或方法的傳回類型，宣告為具有匿名類型</p>
+</li>
+<li>
+<p>無法將方法、屬性、建構函式或索引子的型式參數宣告為具有匿名類型</p>
+</li>
+<li>
+<p>若要傳遞匿名型別或包含匿名型別的集合，做為方法的引數，可以將參數宣告為類型 <code>object</code></p>
+<ul>
+<li>&#x2757; 針對匿名型別使用 object 會破壞強型別的目的 &#x2757;</li>
+</ul>
+</li>
+<li>
+<p>如果必須在方法界限外儲存或傳遞查詢結果，請考慮使用一般具名結構或類別來取代匿名類型</p>
+</li>
+<li>
+<p>匿名類型上的 <a href="https://bit.ly/3Mc55R0" target="_blank" rel="noopener noreffer ">Equals</a> 和 <a href="https://bit.ly/3GPddWA" target="_blank" rel="noopener noreffer ">GetHashCode</a> 方法會以屬性的 <code>Equals</code> 和 <code>GetHashCode</code> 方法來定義，相同匿名類型的兩個執行個體僅在其所有屬性都相等時，這兩個執行個體才相等</p>
+</li>
+</ul>
+<h2 id="參考資料">參考資料</h2>
+<ol>
+<li><a href="https://bit.ly/3GF8SVT" target="_blank" rel="noopener noreffer ">MSDN - C# 文件</a></li>
+<li><a href="https://bit.ly/3NQ2Fsp" target="_blank" rel="noopener noreffer ">Gitbook - C#教學</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2022-06-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-tw/csharpbasicpart1/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" data-title="C# 基礎複習Note(型別系統)" data-via="Lou_Chang" data-hashtags="Basic Level,CSharp"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" data-hashtag="Basic Level"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://loulazynote.github.io/zh-tw/csharpbasicpart1/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" data-title="C# 基礎複習Note(型別系統)" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" data-title="C# 基礎複習Note(型別系統)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/basic-level/">Basic Level</a>,&nbsp;<a href="/zh-tw/tags/csharp/">CSharp</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-tw/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-tw/single-sign-on-with-kerberos/" class="prev" rel="prev" title="Single Sign On with Kerberos"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Single Sign On with Kerberos</a>
+            <a href="/zh-tw/wslconfignote/" class="next" rel="next" title="關於WSL的設定檔 - 不可不知的眉角">關於WSL的設定檔 - 不可不知的眉角<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"valine":{"appId":"auBPg0Yg3dFkETxNZyA7Pg7C-MdYXbMMI","appKey":"JE3zQ4ZC3NLTc9xG8RzzUPFp","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-TW","pageSize":10,"placeholder":"你的評論 ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"SXY3F3WOW8","algoliaIndex":"lou_blog_zh","algoliaSearchKey":"2c93025118024818cada2fa4e55ad419","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MeiliSearch基本用法 - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/">
+  <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
+  <meta property="og:title" content="MeiliSearch基本用法">
+  <meta property="og:description" content="MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-08T16:23:41+08:00">
+    <meta property="article:modified_time" content="2023-03-08T16:23:41+08:00">
+    <meta property="article:tag" content="MeiliSearch">
+    <meta property="article:tag" content="MeiliSearch 1.0.0">
+    <meta property="article:tag" content=".Net Core 6">
+    <meta property="article:tag" content="CSharp">
+    <meta property="article:tag" content="ASP.NET Core">
+    <meta property="article:tag" content="Tools">
+    <meta property="og:image" content="https://loulazynote.github.io/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
+  <meta name="twitter:title" content="MeiliSearch基本用法">
+  <meta name="twitter:description" content="MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記">
+      <meta name="twitter:site" content="@Lou_Chang">
+<meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
+<meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/" /><link rel="prev" href="https://loulazynote.github.io/zh-tw/teamsappwithangular/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/meilisearchcliusage/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MeiliSearch基本用法",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/loulazynote.github.io\/zh-tw\/meilisearchbasicusage\/"
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "MeiliSearch, MeiliSearch 1.0.0, .Net Core 6, CSharp, ASP.NET Core, Tools","wordcount":  2095 ,
+        "url": "https:\/\/loulazynote.github.io\/zh-tw\/meilisearchbasicusage\/","datePublished": "2023-03-08T16:23:41+08:00","dateModified": "2023-03-08T16:23:41+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Lou Chang"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-tw/posts/"><i class='fa-solid fa-pen-to-square'></i> 所有文章 </a><a class="menu-item" href="/zh-tw/tags/"><i class='fa-solid fa-hashtag'></i> 標籤 </a><a class="menu-item" href="/zh-tw/categories/"><i class='fa-solid fa-book-bookmark'></i> 分類 </a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a><a href="javascript:void(0);" class="menu-item language" title="選擇語言">
+                    <i class="fa fa-globe" aria-hidden="true"></i>                      
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/meilisearchbasicusage/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-tw/" title="The Lazy developer: Lou&#39;s Note"><span class="header-title-pre"><i class="fa-solid fa-house"></i> </span>The Lazy developer: Lou&#39;s Note</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="請輸入關鍵字" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-tw/posts/" title=""><i class='fa-solid fa-pen-to-square'></i>所有文章</a><a class="menu-item" href="/zh-tw/tags/" title=""><i class='fa-solid fa-hashtag'></i>標籤</a><a class="menu-item" href="/zh-tw/categories/" title=""><i class='fa-solid fa-book-bookmark'></i>分類</a><a class="menu-item" href="https://github.com/loulazynote" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">
+                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/meilisearchbasicusage/" selected>🇹🇼 繁體中文</option></select>
+                </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MeiliSearch基本用法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/zh-tw/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-08">2023-03-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 2095 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 5 分鐘&nbsp;<span id="/zh-tw/meilisearchbasicusage/" class="leancloud_visitors" data-flag-title="MeiliSearch基本用法">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次閱讀
+                    </span>&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://docs.meilisearch.com/logo.svg"
+        data-srcset="https://docs.meilisearch.com/logo.svg, https://docs.meilisearch.com/logo.svg 1.5x, https://docs.meilisearch.com/logo.svg 2x"
+        data-sizes="auto"
+        alt="https://docs.meilisearch.com/logo.svg"
+        title="https://docs.meilisearch.com/logo.svg" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#meilisearch網稱-美麗搜尋">MeiliSearch(網稱 美麗搜尋)</a>
+          <ul>
+            <li><a href="#前言">前言</a></li>
+            <li><a href="#何為meilisearch">何為MeiliSearch</a></li>
+            <li><a href="#有那些功能">有那些功能?</a></li>
+            <li><a href="#基本使用方式">基本使用方式</a>
+              <ul>
+                <li><a href="#安裝方式以windows為例">安裝方式(以Windows為例)</a></li>
+                <li><a href="#使用方法以執行檔為例">使用方法(以執行檔為例)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#參考資料">參考資料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="meilisearch網稱-美麗搜尋">MeiliSearch(網稱 美麗搜尋)</h2>
+<h3 id="前言">前言</h3>
+<p>讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記錄呢?<!-- raw HTML omitted -->
+但相比其他幾套知名的開源全文檢索套件來說, 這套真的比較輕量也比較簡單</p>
+<h3 id="何為meilisearch">何為MeiliSearch</h3>
+<p>MeiliSearch 是一個輕量級的現成全文檢索套件, 使用<code>RESTful</code>搜尋API即可使用, 並支援各大系統(Windows、MacOS、Linux), 且是 <strong>Open Source</strong>所以不必擔心商業授權問題
+而官方也有提供 <a href="https://www.meilisearch.com/pricing" target="_blank" rel="noopener noreffer "><code>MeiliSearch Cloud</code></a> 的付費方案, 讓其使用者可以不用架設自己的Server環境也能享有全文檢索的功能</p>
+<p>至於為何檔案這麼小, 卻又很快速呢?<!-- raw HTML omitted -->
+據官方文件說明, MeiliSearch在第一次啟動的時候就會自動建立Database, 其檔案在根目錄的<code>data.ms</code>的檔案夾內, 而這類Database引擎則是 <a href="http://www.lmdb.tech/doc/" target="_blank" rel="noopener noreffer "><code>Lightning Memory-Mapped Database(LMDB)</code></a>, 官方認為<code>LMDB</code>是性能、穩定性和特性的最佳組合</p>
+<blockquote>
+<ul>
+<li>可以在建立時使用<code>Cli</code>指令去更改DB的存放路徑 <code>-db-path</code>, 或使用Docker建立</li>
+<li><code>LMDB</code>是用C語言撰寫的事物型鍵值儲存，是為OpenLDAP開發的，具有ACID屬性</li>
+</ul>
+</blockquote>
+<h3 id="有那些功能">有那些功能?</h3>
+<ul>
+<li>
+<p><code>Typo tolerance</code> 錯字容錯率</p>
+</li>
+<li>
+<p><code>Custom ranking</code> 自定義搜尋時關聯性及先後順序</p>
+</li>
+<li>
+<p><code>Stop words</code> 停用字</p>
+</li>
+<li>
+<p><code>Highlighting</code> 搜尋結果中凸顯的搜索關鍵字</p>
+</li>
+<li>
+<p><code>Synonyms</code> 同義詞</p>
+</li>
+<li>
+<p><code>Filtering</code> 篩選器</p>
+</li>
+<li>
+<p><code>Sorting</code> 將搜尋結果排序</p>
+</li>
+<li>
+<p><code>Search preview</code> 簡單的預覽頁面</p>
+<blockquote>
+<p>還有更細部的功能, 之後我只會講到我用過的功能</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="基本使用方式">基本使用方式</h3>
+<h4 id="安裝方式以windows為例">安裝方式(以Windows為例)</h4>
+<ol>
+<li>
+<p>透過<code>cURL</code>安裝</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">     <span class="c1"># Install Meilisearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     curl -L &lt;https://install.meilisearch.com&gt; <span class="p">|</span> sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     <span class="c1"># Launch Meilisearch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     ./meilisearch
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用 Docker 安裝(我個人是比較推薦這種方式,因為比較方便)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">    <span class="c1"># Fetch the latest version of Meilisearch image from DockerHub</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    docker pull getmeili/meilisearch:v1.0<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    <span class="c1"># Launch Meilisearch in development mode with a master key</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    docker run -it --rm <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -p 7700:7700 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -e <span class="nv">MEILI_ENV</span><span class="o">=</span><span class="s1">&#39;development&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/meili_data:/meili_data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        getmeili/meilisearch:v1.0<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>將Source Code Clone下來自行編譯(可能需要額外安裝 <code>Rust</code> , <code>cargo</code> 等語言或套件)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    git clone https://github.com/meilisearch/meilisearch
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> meilisearch
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    git checkout latest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Update the rust toolchain to the latest version</span>
+</span></span><span class="line"><span class="cl">    rustup update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Compile the project</span>
+</span></span><span class="line"><span class="cl">    cargo build --release
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Execute the server binary</span>
+</span></span><span class="line"><span class="cl">    ./target/release/meilisearch
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下載官方已打包好的<a href="https://github.com/meilisearch/meilisearch/releases/latest" target="_blank" rel="noopener noreffer ">執行檔</a></p>
+<p>選擇好想要放的路徑及位置即可</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/220128851-accd4785-cb83-4923-9a3b-cc6992aa6577.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/220128851-accd4785-cb83-4923-9a3b-cc6992aa6577.png, https://user-images.githubusercontent.com/33840759/220128851-accd4785-cb83-4923-9a3b-cc6992aa6577.png 1.5x, https://user-images.githubusercontent.com/33840759/220128851-accd4785-cb83-4923-9a3b-cc6992aa6577.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/220128851-accd4785-cb83-4923-9a3b-cc6992aa6577.png"
+        title="meilisearch.exe" /></p>
+<ul>
+<li>
+<p>建議要建立的硬體設備或是虛擬環境 至少要 <!-- raw HTML omitted --><strong>2 cores/Ram 16G 以上</strong><!-- raw HTML omitted --> 會較順暢</p>
+<p>因為如果沒有額外設定的話, 預設Ram的使用率是該設備的2/3可用的RAM 及 1/2 可用的線程</p>
+<blockquote>
+<p>曾經我就是用了Azure VM 最低配置去跑, 結果每1.2天就要重開執行檔, 3~5天要重開機一次</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>也支援各種<a href="https://docs.meilisearch.com/learn/getting_started/installation.html#cloud-deploy" target="_blank" rel="noopener noreffer ">雲端服務</a></p>
+<ul>
+<li>AWS</li>
+<li>Azure</li>
+<li>DigitalOcean</li>
+<li>GCP</li>
+<li>Koyeb</li>
+<li>Qovery</li>
+<li>Railway</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>注意!! 如果曾經用過此套件 版本為 <code>0.X.XX</code> 版的, 這裡 <code>1.0.0</code> 版本沒辦法直接用喔, 因為他們有說大版更會 Breaking changes, 而下一次則是在<code>2.0.0</code>版本的時候
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/220133045-cb83a535-69f8-4fc6-b497-d0de2f57bdd6.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/220133045-cb83a535-69f8-4fc6-b497-d0de2f57bdd6.png, https://user-images.githubusercontent.com/33840759/220133045-cb83a535-69f8-4fc6-b497-d0de2f57bdd6.png 1.5x, https://user-images.githubusercontent.com/33840759/220133045-cb83a535-69f8-4fc6-b497-d0de2f57bdd6.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/220133045-cb83a535-69f8-4fc6-b497-d0de2f57bdd6.png"
+        title="image" /></p>
+<p><a href="https://docs.meilisearch.com/learn/advanced/updating.html" target="_blank" rel="noopener noreffer ">解決方法</a>則是匯出所有Database內的資料再匯入新版本的</p>
+</blockquote>
+<h4 id="使用方法以執行檔為例">使用方法(以執行檔為例)</h4>
+<ol>
+<li>
+<p>到放執行檔的File內後直接執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">   <span class="nb">cd </span><span class="n">D:</span><span class="p">/</span><span class="n">MeiliSearchDemo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="p">.\</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首次執行會自動產生Database相關檔案<!-- raw HTML omitted --></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/220134718-7084cef2-5ad7-41dc-bcfb-611afe3bc5c9.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/220134718-7084cef2-5ad7-41dc-bcfb-611afe3bc5c9.png, https://user-images.githubusercontent.com/33840759/220134718-7084cef2-5ad7-41dc-bcfb-611afe3bc5c9.png 1.5x, https://user-images.githubusercontent.com/33840759/220134718-7084cef2-5ad7-41dc-bcfb-611afe3bc5c9.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/220134718-7084cef2-5ad7-41dc-bcfb-611afe3bc5c9.png"
+        title="image" /></p>
+<p>而<code>1.0.0</code>版本開始 如果沒有加 <code>Master Key</code> 它則會提醒, 並提供一組雜湊值
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png, https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png 1.5x, https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/220135220-1904c75d-1348-40c7-b455-a47fe2e63975.png"
+        title="image" /></p>
+<blockquote>
+<p>建議都使用 <code>Master Key</code> 來保護自行設定的MeiliSearch</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="nb">cd </span><span class="n">D:</span><span class="p">/</span><span class="n">MeiliSearchDemo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c"># `--master-key`是設定密鑰的CLI</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.\</span><span class="nb">meilisearch-windows</span><span class="n">-amd64</span><span class="p">.</span><span class="py">exe</span> <span class="p">-</span><span class="n">-master-key</span><span class="p">=</span><span class="s2">&#34;MASTER_KEY&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>執行完成後, MeiliSearch就開始Run起來了,預設的Port都是7700,且MeiliSearch有提供簡易預覽可以到<code>localhost:7700</code>查看</p>
+<blockquote>
+<p>想要更改port及Http位址的話, 需要使用到 <code>--http-addr</code> 的CLI<!-- raw HTML omitted -->
+<code>.\meilisearch-windows-amd64.exe --master-key=&quot;MASTER_KEY&quot; --http-addr=&quot;127.0.0.1:2023&quot;</code></p>
+</blockquote>
+</li>
+<li>
+<p>增加索引內容</p>
+<ol>
+<li>
+<p>在需要使用的專案上, 開啟nuget搜尋<code>Meilisearch</code>或打開Terminal鍵入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-pwsh" data-lang="pwsh"><span class="line"><span class="cl">  <span class="n">dotnet</span> <span class="n">add</span> <span class="n">package</span> <span class="n">Meilisearch</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>先建立想要索引的欄位Model(這些欄位是可以自定義的)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-CSharp" data-lang="CSharp"><span class="line"><span class="cl">    <span class="kd">public</span> <span class="k">class</span> <span class="nc">Movie</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果有設定Id這個欄位,則MeiliSearch會自動判斷為PKey,有多個的話則不會,可以自行指定要那個欄位為PKey</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">string</span> <span class="n">Title</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">string</span> <span class="n">Poster</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">string</span> <span class="n">Overview</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">Genres</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>增加索引的方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-CSharp" data-lang="CSharp"><span class="line"><span class="cl">     <span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span> <span class="n">CreateDocumentAsync</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">var</span> <span class="n">options</span> <span class="p">=</span> <span class="k">new</span> <span class="n">JsonSerializerOptions</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="n">PropertyNameCaseInsensitive</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">         <span class="p">};</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">string</span> <span class="n">jsonString</span> <span class="p">=</span> <span class="k">await</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllTextAsync</span><span class="p">(</span><span class="s">&#34;Models/Database/movies.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">JsonSerializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="p">&lt;</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;&gt;(</span><span class="n">jsonString</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">// 如果index沒有建立過,在此會自動建立起來,如果已有此index,則會讀取相關內容</span>
+</span></span><span class="line"><span class="cl">         <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Index</span><span class="p">(</span><span class="s">&#34;movies&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">// 此方法即是增加Document,也就是增加要被索引的內容</span>
+</span></span><span class="line"><span class="cl">         <span class="k">await</span> <span class="n">index</span><span class="p">.</span><span class="n">AddDocumentsAsync</span><span class="p">(</span><span class="n">movies</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>如何搜索</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-CSharp" data-lang="CSharp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span> <span class="n">QueryAsync</span><span class="p">(</span><span class="kt">string?</span> <span class="n">keyword</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 獲取要搜尋的Index索引</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Index</span><span class="p">(</span><span class="s">&#34;movies&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 使用SearchAsync方法來搜尋鍵入的關鍵字</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="k">await</span> <span class="n">index</span><span class="p">.</span><span class="n">SearchAsync</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;(</span><span class="n">keyword</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 搜尋與索引內容相關的都在Hits內, 而上一層有其他欄位(EX: query =&gt; 輸入的關鍵字, limit =&gt; 最多獲取的筆數, offset =&gt; 跳過的筆數)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">movie</span> <span class="k">in</span> <span class="n">movies</span><span class="p">.</span><span class="n">Hits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">movie</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>完整範例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-CSharp" data-lang="CSharp"><span class="line"><span class="cl">     <span class="kd">public</span> <span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="kd">public</span> <span class="n">MeilisearchClient</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MeilisearchClient</span><span class="p">(</span><span class="s">&#34;http://127.0.0.1:7700&#34;</span><span class="p">,</span> <span class="s">&#34;jdWLTzfPHZK46YB8aQOXEPPD8RrPkU0E2505ixbMco8&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="kd">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">p</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Program</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Wait for create Document...&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="n">p</span><span class="p">.</span><span class="n">CreateDocumentAsync</span><span class="p">().</span><span class="n">Wait</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Input Your Search Keyword:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">keyword</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;=================================&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="n">p</span><span class="p">.</span><span class="n">QueryAsync</span><span class="p">(</span><span class="n">keyword</span><span class="p">).</span><span class="n">Wait</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span> <span class="n">CreateDocumentAsync</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">options</span> <span class="p">=</span> <span class="k">new</span> <span class="n">JsonSerializerOptions</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">PropertyNameCaseInsensitive</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">             <span class="p">};</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">string</span> <span class="n">jsonString</span> <span class="p">=</span> <span class="k">await</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllTextAsync</span><span class="p">(</span><span class="s">&#34;Models/Database/movies.json&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="n">JsonSerializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="p">&lt;</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;&gt;(</span><span class="n">jsonString</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 如果index沒有建立過,在此會自動建立起來,如果已有此index,則會讀取相關內容</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Index</span><span class="p">(</span><span class="s">&#34;movies&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 此方法即是增加Document,也就是增加要被索引的內容</span>
+</span></span><span class="line"><span class="cl">             <span class="k">await</span> <span class="n">index</span><span class="p">.</span><span class="n">AddDocumentsAsync</span><span class="p">(</span><span class="n">movies</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 取得當前新增後的Task,裡面會有當前狀態</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">await</span> <span class="n">client</span><span class="p">.</span><span class="n">GetTaskAsync</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Create Result:&#34;</span> <span class="p">+</span> <span class="n">task</span><span class="p">.</span><span class="n">Status</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">         <span class="kd">public</span> <span class="kd">async</span> <span class="n">Task</span> <span class="n">QueryAsync</span><span class="p">(</span><span class="kt">string?</span> <span class="n">keyword</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">{</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 獲取要搜尋的Index索引</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">index</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="n">Index</span><span class="p">(</span><span class="s">&#34;movies&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 使用SearchAsync方法來搜尋鍵入的關鍵字</span>
+</span></span><span class="line"><span class="cl">             <span class="kt">var</span> <span class="n">movies</span> <span class="p">=</span> <span class="k">await</span> <span class="n">index</span><span class="p">.</span><span class="n">SearchAsync</span><span class="p">&lt;</span><span class="n">Movie</span><span class="p">&gt;(</span><span class="n">keyword</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="c1">// 搜尋與索引內容相關的都在Hits內, 而上一層有其他欄位(EX: query =&gt; 輸入的關鍵字, limit =&gt; 最多獲取的筆數, offset =&gt; 跳過的筆數)</span>
+</span></span><span class="line"><span class="cl">             <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">movie</span> <span class="k">in</span> <span class="n">movies</span><span class="p">.</span><span class="n">Hits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">             <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">movie</span><span class="p">.</span><span class="n">Title</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">             <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>程式執行結果
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/223657985-c390d3bb-74c7-40ef-8334-a027c170f308.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/223657985-c390d3bb-74c7-40ef-8334-a027c170f308.png, https://user-images.githubusercontent.com/33840759/223657985-c390d3bb-74c7-40ef-8334-a027c170f308.png 1.5x, https://user-images.githubusercontent.com/33840759/223657985-c390d3bb-74c7-40ef-8334-a027c170f308.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/223657985-c390d3bb-74c7-40ef-8334-a027c170f308.png"
+        title="image" /></p>
+<p>MeiliSearch提供的簡易Demo結果
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/223658581-80ce0314-5d22-44ee-9278-65a5dda4698c.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/223658581-80ce0314-5d22-44ee-9278-65a5dda4698c.png, https://user-images.githubusercontent.com/33840759/223658581-80ce0314-5d22-44ee-9278-65a5dda4698c.png 1.5x, https://user-images.githubusercontent.com/33840759/223658581-80ce0314-5d22-44ee-9278-65a5dda4698c.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/223658581-80ce0314-5d22-44ee-9278-65a5dda4698c.png"
+        title="image" /></p>
+</li>
+</ol>
+<h2 id="參考資料">參考資料</h2>
+<ol>
+<li><a href="https://docs.meilisearch.com/learn/what_is_meilisearch/overview.html" target="_blank" rel="noopener noreffer ">Meilisearch Documentation v1.0</a></li>
+<li><a href="https://github.com/meilisearch" target="_blank" rel="noopener noreffer ">Meilisearch Github</a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2023-03-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-tw/meilisearchbasicusage/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/" data-title="MeiliSearch基本用法" data-via="Lou_Chang" data-hashtags="MeiliSearch,MeiliSearch 1.0.0,.Net Core 6,CSharp,ASP.NET Core,Tools"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/" data-hashtag="MeiliSearch"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/" data-title="MeiliSearch基本用法" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://loulazynote.github.io/zh-tw/meilisearchbasicusage/" data-title="MeiliSearch基本用法"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/meilisearch/">MeiliSearch</a>,&nbsp;<a href="/zh-tw/tags/meilisearch-1.0.0/">MeiliSearch 1.0.0</a>,&nbsp;<a href="/zh-tw/tags/.net-core-6/">.Net Core 6</a>,&nbsp;<a href="/zh-tw/tags/csharp/">CSharp</a>,&nbsp;<a href="/zh-tw/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/zh-tw/tags/tools/">Tools</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-tw/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-tw/teamsappwithangular/" class="prev" rel="prev" title="使用Angular及Teams ToolKit建立Teams App"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>使用Angular及Teams ToolKit建立Teams App</a>
+            <a href="/zh-tw/meilisearchcliusage/" class="next" rel="next" title="MeiliSearch 常用Cli 設定">MeiliSearch 常用Cli 設定<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Copyright <i class="fa-regular fa-copyright"></i> 2022 By <a href="https://github.com/loulazynote"  target="_blank">Lou Chang</a> - Powered By <a href="https://gohugo.io/"  target="_blank">Hugo</a> - Design By <a href="https://github.com/dillonzq/LoveIt" target="_blank" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼板","maxShownLines":50},"comment":{"valine":{"appId":"auBPg0Yg3dFkETxNZyA7Pg7C-MdYXbMMI","appKey":"JE3zQ4ZC3NLTc9xG8RzzUPFp","avatar":"robohash","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-TW","pageSize":10,"placeholder":"你的評論 ...","recordIP":true,"visitor":true}},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"SXY3F3WOW8","algoliaIndex":"lou_blog_zh","algoliaSearchKey":"2c93025118024818cada2fa4e55ad419","highlightTag":"em","maxResultLength":10,"noResultsFound":"沒有找到結果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-RTSLRX2QNZ', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-RTSLRX2QNZ" async></script></body>
+</html>

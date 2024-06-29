@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kerberos - 標籤 - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/zh-tw/tags/kerberos/</link>
+        <description>Kerberos - 標籤 - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/kerberos/" rel="self" type="application/rss+xml" /><item>
+    <title>Single Sign On with Kerberos</title>
+    <link>https://loulazynote.github.io/zh-tw/single-sign-on-with-kerberos/</link>
+    <pubDate>Thu, 09 Jun 2022 15:23:01 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/single-sign-on-with-kerberos/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/172865460-c29ef20d-59d0-4836-8e91-e87b397a6ead.png" referrerpolicy="no-referrer">
+            </div>Keberos 概述 Kerberos 是一種計算機網絡認證協議 它允許某實體在非安全網絡環境下通信 向另一個實體以一種安全的方式證明自己的身份 Kerberos 伺服器本身稱為鑰匙分配中心或 KDC]]></description>
+</item>
+</channel>
+</rss>

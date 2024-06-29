@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MongoDB - 標籤 - The Lazy developer: Lou&#39;s Note</title>
+        <link>https://loulazynote.github.io/zh-tw/tags/mongodb/</link>
+        <description>MongoDB - 標籤 - The Lazy developer: Lou&#39;s Note</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/mongodb/" rel="self" type="application/rss+xml" /><item>
+    <title>What is NoSQL</title>
+    <link>https://loulazynote.github.io/zh-tw/nosql-note/</link>
+    <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>
+    <author>Lou Chang</author>
+    <guid>https://loulazynote.github.io/zh-tw/nosql-note/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png" referrerpolicy="no-referrer">
+            </div>關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro]]></description>
+</item>
+</channel>
+</rss>
