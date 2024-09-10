@@ -3,8 +3,7 @@
         <title>The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/en/</link>
         <description>Take notes. Do whatever I want.</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate>
             <atom:link href="https://loulazynote.github.io/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>SeriLog setting&#39;s tips 2022</title>
@@ -14,7 +13,11 @@
     <guid>https://loulazynote.github.io/en/serilogusage/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177329007-4e2a8b4c-5458-4d2f-83d0-00d51dada175.png" referrerpolicy="no-referrer">
-            </div>Installation Use NuGet to search for and install the Serilog.AspNetCore package Add configuration in Program.cs 1 2 3 4 5 6 7 Log.Logger = new LoggerConfiguration() .MinimumLevel.Override(&#34;Microsoft&#34;, LogEventLevel.Warning) .MinimumLevel.Override(&#34;System&#34;, LogEventLevel.Warning)//Use MinimumLevel to set the LogLevel. If the source is from Microsoft or system messages, then the LogLevel is set to Warning .WriteTo.Console(new RenderedCompactJsonFormatter()) .WriteTo.File(new CompactJsonFormatter().ToString())//Output templates, output to Console and File .Enrich.FromLogContext() .CreateLogger(); CompactJsonFormatter will preserve message templates, properties, and formatting information so that rendered messages can be created later.]]></description>
+            </div><h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Use NuGet to search for and install the <code>Serilog.AspNetCore</code> package
+</p>]]></description>
 </item>
 <item>
     <title>Git Learning Note</title>
@@ -24,7 +27,20 @@
     <guid>https://loulazynote.github.io/en/git_learning_note/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>Files in the index: Tracked files Files not in the index: Untracked files The working tree is the working directory. As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state. As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;Unstage&rdquo; state.]]></description>
+            </div><ul>
+<li>Files in the index: Tracked files</li>
+<li>Files not in the index: Untracked files</li>
+</ul>
+<blockquote>
+<ul>
+<li>The working tree is the working directory.</li>
+<li>As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state.</li>
+<li>As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;<em>Unstage</em>&rdquo; state.
+<!-- raw HTML omitted --></li>
+</ul>
+</blockquote>
+<h2 id="git-commands">Git Commands</h2>
+<p></p>]]></description>
 </item>
 </channel>
 </rss>

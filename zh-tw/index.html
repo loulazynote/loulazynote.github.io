@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
     <head>
-	<meta name="generator" content="Hugo 0.128.0">
+	<meta name="generator" content="Hugo 0.134.1">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -26,10 +26,7 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "https:\/\/loulazynote.github.io\/zh-tw\/","inLanguage": "zh-TW","author": {
-                "@type": "Person",
-                "name": "Lou Chang"
-            },"description": "Take notes. Do whatever I want.","name": "The Lazy developer: Lou's Note"
+        "url": "https:\/\/loulazynote.github.io\/zh-tw\/","inLanguage": "zh-TW","description": "Take notes. Do whatever I want.","name": "The Lazy developer: Lou's Note"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -117,7 +114,8 @@
         title="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/gitlabrunnersettings/">如何設定GitLab Runner?</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-06-30">2023-06-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div><div class="content">安裝GitLab Runner 安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子 Windows GitLab Runner 建立資料夾並下載安裝檔</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-06-30">2023-06-30</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div><div class="content"><h2 id="安裝gitlab-runner">安裝GitLab Runner</h2>
+<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p></div><div class="post-footer">
         <a href="/zh-tw/gitlabrunnersettings/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/gitlab/">Gitlab</a>,&nbsp;<a href="/zh-tw/tags/docker/">Docker</a>,&nbsp;<a href="/zh-tw/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/zh-tw/tags/windows/">Windows</a>,&nbsp;<a href="/zh-tw/tags/devops/">DevOps</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -131,7 +129,9 @@
         title="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/gitlabexternalpostgresql/">Gitlab 使用外部 PostgreSQL 方法</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a>&nbsp;<a href="/zh-tw/categories/postgresql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PostgreSQL</a></span></div><div class="content">Gitlab 使用外部 PostgreSQL 方法 前言 一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同 關於</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-05-31">2023-05-31</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a>&nbsp;<a href="/zh-tw/categories/postgresql/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PostgreSQL</a></span></div><div class="content"><h1 id="gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</h1>
+<h2 id="前言">前言</h2>
+<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p></div><div class="post-footer">
         <a href="/zh-tw/gitlabexternalpostgresql/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/gitlab/">Gitlab</a>,&nbsp;<a href="/zh-tw/tags/docker/">Docker</a>,&nbsp;<a href="/zh-tw/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/zh-tw/tags/devops/">DevOps</a>,&nbsp;<a href="/zh-tw/tags/postgresql/">PostgreSQL</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -145,7 +145,9 @@
         title="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/c55d9e89-b10d-4850-abc4-a35f7a07e794" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/gitlabfordockerwithubuntuinstall/">Gitlab 淺嘗 : GitLab EE on Docker</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-05-23">2023-05-23</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div><div class="content">Gitlab 淺嘗 : GitLab EE on Docker 前言 因為最近有個案子，需要使用到 Gitlab，所以就來研究一下 Gitlab 的使用方式，由於客戶使用的是舊版本，所以我也只能使用舊版本來</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-05-23">2023-05-23</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/devops/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>DevOps</a>&nbsp;<a href="/zh-tw/categories/gitlab/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Gitlab</a></span></div><div class="content"><h2 id="gitlab-淺嘗--gitlab-ee-on-docker">Gitlab 淺嘗 : GitLab EE on Docker</h2>
+<h3 id="前言">前言</h3>
+<p>因為最近有個案子，需要使用到 Gitlab，所以就來研究一下 Gitlab 的使用方式，由於客戶使用的是舊版本，所以我也只能使用舊版本來研究，不過基本上新版本的操作方式都差不多，只是介面改變而已</p></div><div class="post-footer">
         <a href="/zh-tw/gitlabfordockerwithubuntuinstall/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/gitlab/">Gitlab</a>,&nbsp;<a href="/zh-tw/tags/docker/">Docker</a>,&nbsp;<a href="/zh-tw/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/zh-tw/tags/devops/">DevOps</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -159,7 +161,9 @@
         title="https://avatars.githubusercontent.com/u/43250847?s=200&amp;v=4" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/meilisearchcliusage/">MeiliSearch 常用Cli 設定</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-03-17">2023-03-17</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/zh-tw/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content">MeiliSearch 常用Cli 設定 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-03-17">2023-03-17</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/zh-tw/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content"><h2 id="meilisearch-常用cli-設定">MeiliSearch 常用Cli 設定</h2>
+<h3 id="前言">前言</h3>
+<p>關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使用(主要以Cli方式)</p></div><div class="post-footer">
         <a href="/zh-tw/meilisearchcliusage/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/meilisearch/">MeiliSearch</a>,&nbsp;<a href="/zh-tw/tags/meilisearch-1.0.0/">MeiliSearch 1.0.0</a>,&nbsp;<a href="/zh-tw/tags/.net-core-6/">.Net Core 6</a>,&nbsp;<a href="/zh-tw/tags/csharp/">CSharp</a>,&nbsp;<a href="/zh-tw/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/zh-tw/tags/tools/">Tools</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -173,7 +177,10 @@
         title="https://avatars.githubusercontent.com/u/43250847?s=200&amp;v=4" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/meilisearchbasicusage/">MeiliSearch基本用法</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-03-08">2023-03-08</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/zh-tw/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content">MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2023-03-08">2023-03-08</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/csharp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>CSharp</a>&nbsp;<a href="/zh-tw/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href="/zh-tw/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div><div class="content"><h2 id="meilisearch網稱-美麗搜尋">MeiliSearch(網稱 美麗搜尋)</h2>
+<h3 id="前言">前言</h3>
+<p>讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記錄呢?<!-- raw HTML omitted -->
+但相比其他幾套知名的開源全文檢索套件來說, 這套真的比較輕量也比較簡單</p></div><div class="post-footer">
         <a href="/zh-tw/meilisearchbasicusage/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/meilisearch/">MeiliSearch</a>,&nbsp;<a href="/zh-tw/tags/meilisearch-1.0.0/">MeiliSearch 1.0.0</a>,&nbsp;<a href="/zh-tw/tags/.net-core-6/">.Net Core 6</a>,&nbsp;<a href="/zh-tw/tags/csharp/">CSharp</a>,&nbsp;<a href="/zh-tw/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/zh-tw/tags/tools/">Tools</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -187,7 +194,7 @@
         title="https://user-images.githubusercontent.com/33840759/180812757-b4e5dc7d-c8fa-4131-a318-a705b0e81ff7.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/zh-tw/teamsappwithangular/">使用Angular及Teams ToolKit建立Teams App</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2022-07-25">2022-07-25</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Teams</a>&nbsp;<a href="/zh-tw/categories/teamsapp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>TeamsApp</a></span></div><div class="content">在B站看到 2021年9月 在對岸 微軟 Reactor 關於 Teams App 的活動， 也剛剛好~公司也有小小的需求希望能在 Teams 上做一些操作， 所以就順便動手研究了。 爬了很多文看了</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">發佈於 <time datetime="2022-07-25">2022-07-25</time></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Teams</a>&nbsp;<a href="/zh-tw/categories/teamsapp/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>TeamsApp</a></span></div><div class="content"><p>在B站看到 2021年9月 在對岸 微軟 <em>Reactor</em> 關於 <em>Teams App</em> 的活動， 也剛剛好~公司也有小小的需求希望能在 <em>Teams</em> 上做一些操作， 所以就順便動手研究了。<!-- raw HTML omitted --></p></div><div class="post-footer">
         <a href="/zh-tw/teamsappwithangular/">閱讀全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-tw/tags/teams/">Teams</a>,&nbsp;<a href="/zh-tw/tags/teamsapp/">TeamsApp</a>,&nbsp;<a href="/zh-tw/tags/teamstoolkit/">TeamsToolKit</a>,&nbsp;<a href="/zh-tw/tags/angular/">Angular</a>,&nbsp;<a href="/zh-tw/tags/teamsapptab/">TeamsAppTab</a></div></div>
 </article><ul class="pagination"><li class="page-item active">

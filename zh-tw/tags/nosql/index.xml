@@ -3,8 +3,7 @@
         <title>NoSQL - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/nosql/</link>
         <description>NoSQL - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/nosql/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/nosql/" rel="self" type="application/rss+xml" /><item>
     <title>What is NoSQL</title>
     <link>https://loulazynote.github.io/zh-tw/nosql-note/</link>
     <pubDate>Fri, 17 Jun 2022 17:26:15 &#43;0800</pubDate>
@@ -12,7 +11,9 @@
     <guid>https://loulazynote.github.io/zh-tw/nosql-note/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/174421460-6dcc57b0-c879-484a-a3cf-d1a92a4d216f.png" referrerpolicy="no-referrer">
-            </div>關聯式資料庫(RDBMS) 目前常用的資料庫,完全遵守 ACID 原則,在任何情況下(Atomicity)都可保持每個Transaction不成功則ro]]></description>
+            </div><h2 id="關聯式資料庫_rdbms_">關聯式資料庫(<em>RDBMS</em>)</h2>
+<p>目前常用的資料庫,完全遵守 <em><a href="https://zh.wikipedia.org/zh-tw/ACID" target="_blank" rel="noopener noreffer ">ACID</a></em> 原則,在任何情況下(<strong><em>Atomicity</em></strong>)都可保持每個<code>Transaction</code>不成功則<code>roll back</code>,(<strong><em>Consistency</em></strong>)資料一致性,(<strong><em>Isolation</em></strong>)讀寫不互相干擾,(<strong><em>Duration</em></strong>)資料永久性(EX:<code>SQL Server</code>,<code>PostgreSQL</code>,<code>MySQL</code>&hellip;等)
+且僅能支援垂直擴充,假設要應用在大量的資料的時候,只能透過硬體的升級(<em>CPU</em> 升級、加 <em>HDD</em>、增加 <em>RAM</em>&hellip;等)</p>]]></description>
 </item>
 </channel>
 </rss>

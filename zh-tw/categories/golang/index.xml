@@ -3,8 +3,7 @@
         <title>Golang - 分類 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/categories/golang/</link>
         <description>Golang - 分類 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Sun, 30 Jan 2022 21:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/golang/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Sun, 30 Jan 2022 21:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/golang/" rel="self" type="application/rss+xml" /><item>
     <title>Golang Learning Point</title>
     <link>https://loulazynote.github.io/zh-tw/golanglearning/</link>
     <pubDate>Sun, 30 Jan 2022 21:00:00 &#43;0800</pubDate>
@@ -12,7 +11,25 @@
     <guid>https://loulazynote.github.io/zh-tw/golanglearning/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F2699%2FPNG%2F512%2Fgolang_logo_icon_171073.png&amp;f=1&amp;nofb=1&amp;ipt=5e4d2e7422b316c3f1d8299dec15c9c2b3b8c5ef6f0d8b3e9446be32719ed003&amp;ipo=images" referrerpolicy="no-referrer">
-            </div>Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Com]]></description>
+            </div><h1 id="golang-learning-point">Golang Learning Point</h1>
+<h3 id="開發-go-的原因">開發 GO 的原因</h3>
+<ol>
+<li>簡潔</li>
+<li>編譯快</li>
+<li>編譯式語言</li>
+<li>強型別</li>
+<li>內建併行功能(Concurrent)</li>
+<li>自動記憶體回收</li>
+</ol>
+<h3 id="適用-go-的應用情景">適用 GO 的應用情景</h3>
+<ol>
+<li>Web Development</li>
+<li>Command-line Interfaces(CLIs)</li>
+<li>Cloud &amp; NetWork Services</li>
+</ol>
+<h3 id="相容性compatibility-of-go">相容性(Compatibility of GO)</h3>
+<blockquote>
+<p>GO 1.X 新版本保證會向下相容, 除了以下四點</p>]]></description>
 </item>
 </channel>
 </rss>

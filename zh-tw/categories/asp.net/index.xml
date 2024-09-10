@@ -3,8 +3,7 @@
         <title>Asp.Net - 分類 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/categories/asp.net/</link>
         <description>Asp.Net - 分類 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/asp.net/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/asp.net/" rel="self" type="application/rss+xml" /><item>
     <title>MVC 5 filter</title>
     <link>https://loulazynote.github.io/zh-tw/mvc5_meta/</link>
     <pubDate>Thu, 09 Jun 2022 02:04:22 &#43;0800</pubDate>
@@ -12,7 +11,26 @@
     <guid>https://loulazynote.github.io/zh-tw/mvc5_meta/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172867969-536885e4-152e-423b-9ca6-026634e4fd7e.jpg" referrerpolicy="no-referrer">
-            </div>Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil]]></description>
+            </div><h2 id="filter">Filter</h2>
+<blockquote>
+<p><!-- raw HTML omitted --><em>Filter 的作用是在 Action 執行前或執行後做一些加工處理</em><!-- raw HTML omitted --></p>
+</blockquote>
+<ul>
+<li>Authorization Filter：
+Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。</li>
+<li>Resource Filter：
+Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處裡才用。</li>
+<li>Action Filter：
+最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。</li>
+<li>Exception Filter：
+異常處理的 Exception。</li>
+<li>Result Filter：
+當 Action 完成後，最終會經過的 Filter。</li>
+</ul>
+<h3 id="運作方式">運作方式</h3>
+<p>ASP .NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處裡封包。
+Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖：
+</p>]]></description>
 </item>
 </channel>
 </rss>

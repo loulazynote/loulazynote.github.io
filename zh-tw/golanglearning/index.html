@@ -7,7 +7,7 @@
         <title>Golang Learning Point - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/golanglearning/">
   <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
   <meta property="og:title" content="Golang Learning Point">
-  <meta property="og:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Com">
+  <meta property="og:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Compatibility of GO) GO 1.X 新版本保證會向下相容, 除了以下四點">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
   <meta name="twitter:title" content="Golang Learning Point">
-  <meta name="twitter:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Com">
+  <meta name="twitter:description" content="Golang Learning Point 開發 GO 的原因 簡潔 編譯快 編譯式語言 強型別 內建併行功能(Concurrent) 自動記憶體回收 適用 GO 的應用情景 Web Development Command-line Interfaces(CLIs) Cloud &amp; NetWork Services 相容性(Compatibility of GO) GO 1.X 新版本保證會向下相容, 除了以下四點">
       <meta name="twitter:site" content="@Lou_Chang">
 <meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/golanglearning/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/git_learning_note/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -36,7 +36,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/loulazynote.github.io\/zh-tw\/golanglearning\/"
-        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "Golang, GO, Programming, Language","wordcount":  869 ,
+        },"image": ["https:\/\/loulazynote.github.io\/images\/logo.png"],"genre": "posts","keywords": "Golang, GO, Programming, Language","wordcount":  871 ,
         "url": "https:\/\/loulazynote.github.io\/zh-tw\/golanglearning\/","datePublished": "2022-01-30T21:00:00+08:00","dateModified": "2022-01-30T21:00:00+08:00","publisher": {
             "@type": "Organization",
             "name": "Lou Chang","logo": "https:\/\/loulazynote.github.io\/images\/logo.png"},"author": {
@@ -116,7 +116,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Golang Learning Point</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/zh-tw/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/golang/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-01-30">2022-01-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 869 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-01-30">2022-01-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 871 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;<span id="/zh-tw/golanglearning/" class="leancloud_visitors" data-flag-title="Golang Learning Point">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次閱讀
                     </span>&nbsp;</div>
@@ -296,9 +296,7 @@
 <p><strong>&quot;<code>:=</code>&quot; 是 宣告變數並賦值</strong>
 <strong>有 &ldquo;<code>*</code>&ldquo;在前的是指標</strong></p>
 <p>變數宣告有兩種方式</p>
-<ol>
-<li></li>
-</ol>
+<p>1.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -315,9 +313,7 @@
 </span></span><span class="line"><span class="cl"> <span class="kd">const</span> <span class="nx">m1</span> <span class="p">=</span> <span class="nx">math</span><span class="p">.</span><span class="nx">pi</span> <span class="o">/</span> <span class="mf">3.141592</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="2">
-<li></li>
-</ol>
+</div><p>2.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

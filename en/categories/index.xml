@@ -3,12 +3,11 @@
         <title>Categories - Category - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/en/categories/</link>
         <description>Categories - Category - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/categories/" rel="self" type="application/rss+xml" /><item>
     <title>ASP.NET Core</title>
     <link>https://loulazynote.github.io/en/categories/asp.net-core/</link>
     <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
+    <author>Author</author>
     <guid>https://loulazynote.github.io/en/categories/asp.net-core/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -16,7 +15,7 @@
     <title>C#</title>
     <link>https://loulazynote.github.io/en/categories/c%23/</link>
     <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
-    <author>Lou Chang</author>
+    <author>Author</author>
     <guid>https://loulazynote.github.io/en/categories/c%23/</guid>
     <description><![CDATA[]]></description>
 </item>
@@ -24,7 +23,7 @@
     <title>Learning</title>
     <link>https://loulazynote.github.io/en/categories/learning/</link>
     <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
-    <author>Lou Chang</author>
+    <author>Author</author>
     <guid>https://loulazynote.github.io/en/categories/learning/</guid>
     <description><![CDATA[]]></description>
 </item>

@@ -3,8 +3,7 @@
         <title>PostgreSQL - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/postgresql/</link>
         <description>PostgreSQL - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 31 May 2023 20:29:19 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/postgresql/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Wed, 31 May 2023 20:29:19 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/postgresql/" rel="self" type="application/rss+xml" /><item>
     <title>Gitlab 使用外部 PostgreSQL 方法</title>
     <link>https://loulazynote.github.io/zh-tw/gitlabexternalpostgresql/</link>
     <pubDate>Wed, 31 May 2023 20:29:19 &#43;0800</pubDate>
@@ -12,7 +11,9 @@
     <guid>https://loulazynote.github.io/zh-tw/gitlabexternalpostgresql/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
-            </div>Gitlab 使用外部 PostgreSQL 方法 前言 一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同 關於]]></description>
+            </div><h1 id="gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</h1>
+<h2 id="前言">前言</h2>
+<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>]]></description>
 </item>
 </channel>
 </rss>

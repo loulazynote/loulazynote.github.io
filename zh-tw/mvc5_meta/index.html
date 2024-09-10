@@ -7,7 +7,8 @@
         <title>MVC 5 filter - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/mvc5_meta/">
   <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
   <meta property="og:title" content="MVC 5 filter">
-  <meta property="og:description" content="Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil">
+  <meta property="og:description" content="Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理
+Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Filter： Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處裡才用。 Action Filter： 最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。 Exception Filter： 異常處理的 Exception。 Result Filter： 當 Action 完成後，最終會經過的 Filter。 運作方式 ASP .NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處裡封包。 Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖： ">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -19,7 +20,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
   <meta name="twitter:title" content="MVC 5 filter">
-  <meta name="twitter:description" content="Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理 Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Fil">
+  <meta name="twitter:description" content="Filter Filter 的作用是在 Action 執行前或執行後做一些加工處理
+Authorization Filter： Authorization 是五種 Filter 中優先序最高的，通常用於驗證 Request 合不合法，不合法後面就直接跳過。 Resource Filter： Resource 是第二優先，會在 Authorization 之後，Model Binding 之前執行。通常會是需要對 Model 加工處裡才用。 Action Filter： 最容易使用的 Filter，封包進出都會經過它，使用上沒什麼需要特別注意的。跟 Resource Filter 很類似，但並不會經過 Model Binding。 Exception Filter： 異常處理的 Exception。 Result Filter： 當 Action 完成後，最終會經過的 Filter。 運作方式 ASP .NET Core 的每個 Request 都會先經過已註冊的 Middleware 接著才會執行 Filter，除了會依照上述的順序外，同類型的 Filter 預設都會以先進後出的方式處裡封包。 Response 在某些 Filter 並不會做處理，會值接 Bypass。Request 及 Response 的運作流程如下圖： ">
       <meta name="twitter:site" content="@Lou_Chang">
 <meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/mvc5_meta/" /><link rel="prev" href="https://loulazynote.github.io/zh-tw/git_learning_note/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/single-sign-on-with-kerberos/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

@@ -3,8 +3,7 @@
         <title>.Net Core 6 - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/.net-core-6/</link>
         <description>.Net Core 6 - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/.net-core-6/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/.net-core-6/" rel="self" type="application/rss+xml" /><item>
     <title>MeiliSearch 常用Cli 設定</title>
     <link>https://loulazynote.github.io/zh-tw/meilisearchcliusage/</link>
     <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
@@ -12,7 +11,9 @@
     <guid>https://loulazynote.github.io/zh-tw/meilisearchcliusage/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
-            </div>MeiliSearch 常用Cli 設定 前言 關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使]]></description>
+            </div><h2 id="meilisearch-常用cli-設定">MeiliSearch 常用Cli 設定</h2>
+<h3 id="前言">前言</h3>
+<p>關於MeiliSearch有一些在使用前可以做的設定, 官方也提供多種方式都與安裝方式有關, 這篇就記錄一下這些設定要怎麼使用(主要以Cli方式)</p>]]></description>
 </item>
 <item>
     <title>MeiliSearch基本用法</title>
@@ -22,7 +23,10 @@
     <guid>https://loulazynote.github.io/zh-tw/meilisearchbasicusage/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://docs.meilisearch.com/logo.svg" referrerpolicy="no-referrer">
-            </div>MeiliSearch(網稱 美麗搜尋) 前言 讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記]]></description>
+            </div><h2 id="meilisearch網稱-美麗搜尋">MeiliSearch(網稱 美麗搜尋)</h2>
+<h3 id="前言">前言</h3>
+<p>讓我玩了接近4個月的套件, 讓我踩雷滿滿的套件, 還要應付User腦洞大開的奇幻冒險, 怎麼可以不留下記錄呢?<!-- raw HTML omitted -->
+但相比其他幾套知名的開源全文檢索套件來說, 這套真的比較輕量也比較簡單</p>]]></description>
 </item>
 </channel>
 </rss>

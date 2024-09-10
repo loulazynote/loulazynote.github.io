@@ -7,7 +7,9 @@
         <title>關於WSL的設定檔 - 不可不知的眉角 - The Lazy developer: Lou&#39;s Note</title><meta name="Description" content="Take notes. Do whatever I want."><meta property="og:url" content="https://loulazynote.github.io/zh-tw/wslconfignote/">
   <meta property="og:site_name" content="The Lazy developer: Lou&#39;s Note">
   <meta property="og:title" content="關於WSL的設定檔 - 不可不知的眉角">
-  <meta property="og:description" content="❗這個設定檔很重要❗ ❗這個設定檔很重要❗ ❗這個設定檔很重要ɵ">
+  <meta property="og:description" content="❗這個設定檔很重要❗
+❗這個設定檔很重要❗
+❗這個設定檔很重要❗">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -21,7 +23,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://loulazynote.github.io/images/logo.png">
   <meta name="twitter:title" content="關於WSL的設定檔 - 不可不知的眉角">
-  <meta name="twitter:description" content="❗這個設定檔很重要❗ ❗這個設定檔很重要❗ ❗這個設定檔很重要ɵ">
+  <meta name="twitter:description" content="❗這個設定檔很重要❗
+❗這個設定檔很重要❗
+❗這個設定檔很重要❗">
       <meta name="twitter:site" content="@Lou_Chang">
 <meta name="application-name" content="The Lazy developer: Lou&#39;s Note">
 <meta name="apple-mobile-web-app-title" content="The Lazy developer: Lou&#39;s Note"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://loulazynote.github.io/zh-tw/wslconfignote/" /><link rel="prev" href="https://loulazynote.github.io/zh-tw/csharpbasicpart1/" /><link rel="next" href="https://loulazynote.github.io/zh-tw/ooplearning/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -192,58 +196,58 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><table>
-<thead>
-<tr>
-<th>參數</th>
-<th>參數類型</th>
-<th>預設值</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>kernel</td>
-<td>string</td>
-<td>微軟預設提供的 WSL 核心</td>
-<td>連接自定義 Linux 的絕對路徑</td>
-</tr>
-<tr>
-<td>memory</td>
-<td>size</td>
-<td>Windows 全部記憶體的 80%</td>
-<td>給予 WSL2 虛擬機的記憶體大小</td>
-</tr>
-<tr>
-<td>processors</td>
-<td>number</td>
-<td>相同於Windows 本地主機的處理器核心</td>
-<td>給 WSL2 虛擬機分配的處理核心數</td>
-</tr>
-<tr>
-<td>localhostForwarding</td>
-<td>boolean</td>
-<td>TRUE</td>
-<td>是否應可通過 <code>localhost:port</code> 指定綁定到 WSL2 VM 中的通配符或本地主機的埠連接到本地主機的布林值 (允許 WSL2 的port轉發至本地主機)</td>
-</tr>
-<tr>
-<td>kernelCommandLine</td>
-<td>string</td>
-<td>none</td>
-<td>額外的核心命令列參數</td>
-</tr>
-<tr>
-<td>swap</td>
-<td>size</td>
-<td>Windows 上所有記憶體的的 25%</td>
-<td>給 WSL2 虛擬機分配的交換空間，設定 0 的話表示沒有給予交換空間</td>
-</tr>
-<tr>
-<td>swapFile</td>
-<td>string</td>
-<td><code>%USERPROFILE%\AppData\Local\Temp\swap.vhdx</code></td>
-<td>交換虛擬硬碟vhd的絕對路徑</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">參數</th>
+          <th style="text-align: left">參數類型</th>
+          <th style="text-align: left">預設值</th>
+          <th style="text-align: left">說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">kernel</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">微軟預設提供的 WSL 核心</td>
+          <td style="text-align: left">連接自定義 Linux 的絕對路徑</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">memory</td>
+          <td style="text-align: left">size</td>
+          <td style="text-align: left">Windows 全部記憶體的 80%</td>
+          <td style="text-align: left">給予 WSL2 虛擬機的記憶體大小</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">processors</td>
+          <td style="text-align: left">number</td>
+          <td style="text-align: left">相同於Windows 本地主機的處理器核心</td>
+          <td style="text-align: left">給 WSL2 虛擬機分配的處理核心數</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">localhostForwarding</td>
+          <td style="text-align: left">boolean</td>
+          <td style="text-align: left">TRUE</td>
+          <td style="text-align: left">是否應可通過 <code>localhost:port</code> 指定綁定到 WSL2 VM 中的通配符或本地主機的埠連接到本地主機的布林值 (允許 WSL2 的port轉發至本地主機)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">kernelCommandLine</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left">none</td>
+          <td style="text-align: left">額外的核心命令列參數</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">swap</td>
+          <td style="text-align: left">size</td>
+          <td style="text-align: left">Windows 上所有記憶體的的 25%</td>
+          <td style="text-align: left">給 WSL2 虛擬機分配的交換空間，設定 0 的話表示沒有給予交換空間</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">swapFile</td>
+          <td style="text-align: left">string</td>
+          <td style="text-align: left"><code>%USERPROFILE%\AppData\Local\Temp\swap.vhdx</code></td>
+          <td style="text-align: left">交換虛擬硬碟vhd的絕對路徑</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ul>

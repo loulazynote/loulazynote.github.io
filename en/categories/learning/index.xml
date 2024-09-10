@@ -3,8 +3,7 @@
         <title>Learning - Category - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/en/categories/learning/</link>
         <description>Learning - Category - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
-            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/categories/learning/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/categories/learning/" rel="self" type="application/rss+xml" /><item>
     <title>Git Learning Note</title>
     <link>https://loulazynote.github.io/en/git_learning_note/</link>
     <pubDate>Wed, 08 Jun 2022 23:20:17 &#43;0800</pubDate>
@@ -12,7 +11,20 @@
     <guid>https://loulazynote.github.io/en/git_learning_note/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" referrerpolicy="no-referrer">
-            </div>Files in the index: Tracked files Files not in the index: Untracked files The working tree is the working directory. As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state. As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;Unstage&rdquo; state.]]></description>
+            </div><ul>
+<li>Files in the index: Tracked files</li>
+<li>Files not in the index: Untracked files</li>
+</ul>
+<blockquote>
+<ul>
+<li>The working tree is the working directory.</li>
+<li>As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state.</li>
+<li>As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;<em>Unstage</em>&rdquo; state.
+<!-- raw HTML omitted --></li>
+</ul>
+</blockquote>
+<h2 id="git-commands">Git Commands</h2>
+<p></p>]]></description>
 </item>
 </channel>
 </rss>

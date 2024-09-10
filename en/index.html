@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-	<meta name="generator" content="Hugo 0.128.0">
+	<meta name="generator" content="Hugo 0.134.1">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -26,10 +26,7 @@
     {
         "@context": "http://schema.org",
         "@type": "WebSite",
-        "url": "https:\/\/loulazynote.github.io\/en\/","inLanguage": "en-US","author": {
-                "@type": "Person",
-                "name": "Lou Chang"
-            },"description": "Take notes. Do whatever I want.","name": "The Lazy developer: Lou's Note"
+        "url": "https:\/\/loulazynote.github.io\/en\/","inLanguage": "en-US","description": "Take notes. Do whatever I want.","name": "The Lazy developer: Lou's Note"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -117,7 +114,18 @@
         title="https://user-images.githubusercontent.com/33840759/177329052-686f2074-7623-42d2-8c67-05a7cbdd457d.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/en/serilogusage/">SeriLog setting's tips 2022</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-06-28">2022-06-28</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href=""><i class="far fa-folder fa-fw" aria-hidden="true"></i></a></span></div><div class="content">Installation Use NuGet to search for and install the Serilog.AspNetCore package Add configuration in Program.cs 1 2 3 4 5 6 7 Log.Logger = new LoggerConfiguration() .MinimumLevel.Override(&#34;Microsoft&#34;, LogEventLevel.Warning) .MinimumLevel.Override(&#34;System&#34;, LogEventLevel.Warning)//Use MinimumLevel to set the LogLevel. If the source is from Microsoft or system messages, then the LogLevel is set to Warning .WriteTo.Console(new RenderedCompactJsonFormatter()) .WriteTo.File(new CompactJsonFormatter().ToString())//Output templates, output to Console and File .Enrich.FromLogContext() .CreateLogger(); CompactJsonFormatter will preserve message templates, properties, and formatting information so that rendered messages can be created later.</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-06-28">2022-06-28</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/asp.net-core/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ASP.NET Core</a>&nbsp;<a href=""><i class="far fa-folder fa-fw" aria-hidden="true"></i></a></span></div><div class="content"><h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Use NuGet to search for and install the <code>Serilog.AspNetCore</code> package
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png"
+        data-srcset="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png, https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png 1.5x, https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/33840759/177329564-b5a40318-2dac-4198-8308-da1751f2fce8.png"
+        title="image" /></p></div><div class="post-footer">
         <a href="/en/serilogusage/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/csharp/">CSharp</a>,&nbsp;<a href="/en/tags/asp.net-core/">ASP.NET Core</a>,&nbsp;<a href="/en/tags/tools/">Tools</a>,&nbsp;<a href="/en/tags/serilog/">SeriLog</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
@@ -131,7 +139,27 @@
         title="https://user-images.githubusercontent.com/33840759/172868224-5e506cb8-1e89-4353-ade6-d4334bbddf9a.png" /></a>
         </div><h1 class="single-title" itemprop="name headline">
         <a href="/en/git_learning_note/">Git Learning Note</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-06-08">2022-06-08</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div><div class="content">Files in the index: Tracked files Files not in the index: Untracked files The working tree is the working directory. As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state. As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;Unstage&rdquo; state.</div><div class="post-footer">
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lou Chang</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-06-08">2022-06-08</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div><div class="content"><ul>
+<li>Files in the index: Tracked files</li>
+<li>Files not in the index: Untracked files</li>
+</ul>
+<blockquote>
+<ul>
+<li>The working tree is the working directory.</li>
+<li>As long as the content of the files in the index is consistent with the content of the files in the working directory, it is called a &ldquo;Stage&rdquo; state.</li>
+<li>As long as the content of the files in the index is inconsistent with the content of the files in the working directory, it is called an &ldquo;<em>Unstage</em>&rdquo; state.
+<!-- raw HTML omitted --></li>
+</ul>
+</blockquote>
+<h2 id="git-commands">Git Commands</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b"
+        data-srcset="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b 1.5x, https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b 2x"
+        data-sizes="auto"
+        alt="https://github.com/loulazynote/loulazynote.github.io/assets/33840759/8fc28598-02b3-4b4e-a76d-03671a788d1b"
+        title="image" /></p></div><div class="post-footer">
         <a href="/en/git_learning_note/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/en/tags/git/">Git</a></div></div>
 </article></div></div>
