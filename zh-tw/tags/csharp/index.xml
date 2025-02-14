@@ -3,7 +3,8 @@
         <title>CSharp - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/csharp/</link>
         <description>CSharp - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/csharp/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/csharp/" rel="self" type="application/rss+xml" /><item>
     <title>MeiliSearch 常用Cli 設定</title>
     <link>https://loulazynote.github.io/zh-tw/meilisearchcliusage/</link>
     <pubDate>Fri, 17 Mar 2023 19:38:36 &#43;0800</pubDate>
@@ -65,7 +66,12 @@
 </span></span><span class="line"><span class="cl"> <span class="n">res</span><span class="p">.</span><span class="n">FullName</span> <span class="p">=</span> <span class="n">src</span><span class="p">.</span><span class="n">FirstName</span> <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">src</span><span class="p">.</span><span class="n">LastName</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>InjectFrom</code> 的用法
+<code>InjectFrom&lt;TInjection&gt;(source)</code>用於使用約定映射，當未指定 <code>TInjection</code> 時，它將對應具有完全相同名稱和類型的屬性</p>]]></description>
 </item>
 <item>
     <title>OOP 物件導向學習筆記</title>

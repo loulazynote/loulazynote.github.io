@@ -3,7 +3,8 @@
         <title>所有文章 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/posts/</link>
         <description>所有文章 | The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/posts/" rel="self" type="application/rss+xml" /><item>
     <title>如何設定GitLab Runner?</title>
     <link>https://loulazynote.github.io/zh-tw/gitlabrunnersettings/</link>
     <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
@@ -12,7 +13,22 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
             </div><h2 id="安裝gitlab-runner">安裝GitLab Runner</h2>
-<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>]]></description>
+<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>
+<h3 id="windows-gitlab-runner">Windows GitLab Runner</h3>
+<ol>
+<li>
+<p>建立資料夾並下載安裝檔</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir D:<span class="se">\g</span>itlab-runner
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> D:<span class="se">\g</span>itlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>點<a href="https://GitLab-runner-downloads.s3.amazonaws.com/latest/binaries/GitLab-runner-windows-amd64.exe" target="_blank" rel="noopener noreffer ">Windows GitLab Runner</a>下載安裝檔至<code>D:\\gitlab-runner</code></p>]]></description>
 </item>
 <item>
     <title>Gitlab 使用外部 PostgreSQL 方法</title>
@@ -24,7 +40,24 @@
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
             </div><h1 id="gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</h1>
 <h2 id="前言">前言</h2>
-<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>]]></description>
+<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>
+<h2 id="關於-gitlab-與-postgresql-關係">關於 Gitlab 與 PostgreSQL 關係</h2>
+<ul>
+<li><a href="https://docs.gitlab.com/omnibus/settings/database.html" target="_blank" rel="noopener noreffer ">官方文件</a>有說明，如果是使用 <code>Omnibus GitLab</code> 則會內建 <code>PostgreSQL</code>，且 Gitlab 僅有支援PostgreSQL</li>
+<li>當然目前的Docker也有包含 PostgreSQL 的版本</li>
+<li>但如果是要使用外部的 PostgreSQL，則需要自行安裝 PostgreSQL，且版本需符合 Gitlab 所需的版本
+<ul>
+<li>Gitlab 16.0 以後的版本，需要 <code>PostgreSQL 13.0</code> 以上</li>
+<li>Gitlab 15.0 以後的版本，預設使用 <code>PostgreSQL 13.0</code></li>
+<li>Gitlab 13.7 以後的版本，建議 <code>PostgreSQL 12.0</code> 以上</li>
+<li>Gitlab 13.0 以前的版本，需要 <code>PostgreSQL 11.0</code> 以上</li>
+<li>Gitlab 12.8 以前的版本，需要 <code>PostgreSQL 9.6</code> 以上<code>PostgreSQL 11.7</code>以下</li>
+</ul>
+</li>
+</ul>
+<h2 id="安裝與設定">安裝與設定</h2>
+<h3 id="安裝-postgresql">安裝 PostgreSQL</h3>
+<p>我這裡是使用Docker來安裝 <code>PostgreSQL</code> ，步驟如下：</p>]]></description>
 </item>
 <item>
     <title>Gitlab 淺嘗 : GitLab EE on Docker</title>
@@ -82,7 +115,9 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
             </div><h2 id="什麼是dataverse">什麼是Dataverse?</h2>
-<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>]]></description>
+<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>
+<blockquote>
+<p><code>Dataverse</code>的數據管理系統中定義了三個重要的層次：<code>Dataverse</code>、資料集(<code>dataset</code>) 和文件(<code>file</code>)</p>]]></description>
 </item>
 <item>
     <title>認識微軟生產力平台 - Microsoft Power Platform</title>
@@ -93,7 +128,8 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177532467-0549fc5d-a2ad-4a92-a230-da97ae0eba46.png" referrerpolicy="no-referrer">
             </div><h2 id="microsoft-power-platform是什麼">Microsoft Power Platform是什麼?</h2>
-<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>]]></description>
+<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>
+<p>其實就是由四種產品整合成的平台, 這四種產品分別為: <strong>Microsoft Power BI</strong>、<strong>Microsoft Power Automate</strong>、<strong>Microsoft Power Virtual Agents</strong> 和 <strong>Microsoft PowerApps</strong>, 而 Power Platform 是一個完全獨立的服務平台, 且還能結合 Office 365、 Dynamics 365 及 Azure等服務, 不僅如此還能整合第三方服務廠商及應用 , 使其企業的商務應用整合可以更容易、方便、快速, 並且 微軟 主打可協作且可擴充的低程式碼/無程式碼的工具平台。</p>]]></description>
 </item>
 <item>
     <title>SeriLog 設定之眉角</title>
@@ -107,7 +143,33 @@
 <ol>
 <li>
 <p>用 NuGet 搜尋 <code>Serilog.AspNetCore</code>安裝套件
-</p>]]></description>
+</p>
+</li>
+<li>
+<p>在 <code>Program.cs</code> 加入設定
+</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">Log</span><span class="p">.</span><span class="n">Logger</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LoggerConfiguration</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;Microsoft&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;System&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span><span class="c1">//使用MinimumLevel 來設定 LogLevel 層級,如果來源為 Microsoft 及 系統的訊息 則LogLevel 層級為 警告</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">Console</span><span class="p">(</span><span class="k">new</span> <span class="n">RenderedCompactJsonFormatter</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">File</span><span class="p">(</span><span class="k">new</span> <span class="n">CompactJsonFormatter</span><span class="p">().</span><span class="n">ToString</span><span class="p">())</span><span class="c1">//Output templates, 輸出至Console及檔案</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">Enrich</span><span class="p">.</span><span class="n">FromLogContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">CreateLogger</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>CompactJsonFormatter</code> 將保留消息模板、屬性和格式信息，以便稍後可以創建呈現的消息。當 JSON 旨在在沒有消息模板呈現的環境中使用時，可以改用 <code>RenderedCompactJsonFormatter</code>。</p>]]></description>
 </item>
 <item>
     <title>ValueInjecter@3.2.0 簡單用法</title>
@@ -146,7 +208,12 @@
 </span></span><span class="line"><span class="cl"> <span class="n">res</span><span class="p">.</span><span class="n">FullName</span> <span class="p">=</span> <span class="n">src</span><span class="p">.</span><span class="n">FirstName</span> <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">src</span><span class="p">.</span><span class="n">LastName</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>InjectFrom</code> 的用法
+<code>InjectFrom&lt;TInjection&gt;(source)</code>用於使用約定映射，當未指定 <code>TInjection</code> 時，它將對應具有完全相同名稱和類型的屬性</p>]]></description>
 </item>
 </channel>
 </rss>

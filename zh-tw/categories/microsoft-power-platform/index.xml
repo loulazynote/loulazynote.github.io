@@ -3,7 +3,8 @@
         <title>Microsoft Power Platform - 分類 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/categories/microsoft-power-platform/</link>
         <description>Microsoft Power Platform - 分類 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/microsoft-power-platform/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/categories/microsoft-power-platform/" rel="self" type="application/rss+xml" /><item>
     <title>Microsoft Dataverse概觀</title>
     <link>https://loulazynote.github.io/zh-tw/dataverse/</link>
     <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
@@ -12,7 +13,9 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
             </div><h2 id="什麼是dataverse">什麼是Dataverse?</h2>
-<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>]]></description>
+<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>
+<blockquote>
+<p><code>Dataverse</code>的數據管理系統中定義了三個重要的層次：<code>Dataverse</code>、資料集(<code>dataset</code>) 和文件(<code>file</code>)</p>]]></description>
 </item>
 <item>
     <title>認識微軟生產力平台 - Microsoft Power Platform</title>
@@ -23,7 +26,8 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177532467-0549fc5d-a2ad-4a92-a230-da97ae0eba46.png" referrerpolicy="no-referrer">
             </div><h2 id="microsoft-power-platform是什麼">Microsoft Power Platform是什麼?</h2>
-<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>]]></description>
+<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>
+<p>其實就是由四種產品整合成的平台, 這四種產品分別為: <strong>Microsoft Power BI</strong>、<strong>Microsoft Power Automate</strong>、<strong>Microsoft Power Virtual Agents</strong> 和 <strong>Microsoft PowerApps</strong>, 而 Power Platform 是一個完全獨立的服務平台, 且還能結合 Office 365、 Dynamics 365 及 Azure等服務, 不僅如此還能整合第三方服務廠商及應用 , 使其企業的商務應用整合可以更容易、方便、快速, 並且 微軟 主打可協作且可擴充的低程式碼/無程式碼的工具平台。</p>]]></description>
 </item>
 </channel>
 </rss>

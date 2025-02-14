@@ -3,7 +3,8 @@
         <title>SeriLog - Tag - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/en/tags/serilog/</link>
         <description>SeriLog - Tag - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/tags/serilog/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/en/tags/serilog/" rel="self" type="application/rss+xml" /><item>
     <title>SeriLog setting&#39;s tips 2022</title>
     <link>https://loulazynote.github.io/en/serilogusage/</link>
     <pubDate>Tue, 28 Jun 2022 20:22:05 &#43;0800</pubDate>
@@ -15,7 +16,33 @@
 <ol>
 <li>
 <p>Use NuGet to search for and install the <code>Serilog.AspNetCore</code> package
-</p>]]></description>
+</p>
+</li>
+<li>
+<p>Add configuration in <code>Program.cs</code>
+</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cs" data-lang="cs"><span class="line"><span class="cl"><span class="n">Log</span><span class="p">.</span><span class="n">Logger</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LoggerConfiguration</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;Microsoft&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Override</span><span class="p">(</span><span class="s">&#34;System&#34;</span><span class="p">,</span> <span class="n">LogEventLevel</span><span class="p">.</span><span class="n">Warning</span><span class="p">)</span><span class="c1">//Use MinimumLevel to set the LogLevel. If the source is from Microsoft or system messages, then the LogLevel is set to Warning</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">Console</span><span class="p">(</span><span class="k">new</span> <span class="n">RenderedCompactJsonFormatter</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">File</span><span class="p">(</span><span class="k">new</span> <span class="n">CompactJsonFormatter</span><span class="p">().</span><span class="n">ToString</span><span class="p">())</span><span class="c1">//Output templates, output to Console and File</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">Enrich</span><span class="p">.</span><span class="n">FromLogContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="n">CreateLogger</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>CompactJsonFormatter</code> will preserve message templates, properties, and formatting information so that rendered messages can be created later. When JSON is intended to be used in environments without message template rendering, <code>RenderedCompactJsonFormatter</code> can be used instead.</p>]]></description>
 </item>
 </channel>
 </rss>

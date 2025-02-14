@@ -3,7 +3,8 @@
         <title>Ubuntu - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/ubuntu/</link>
         <description>Ubuntu - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>如何設定GitLab Runner?</title>
     <link>https://loulazynote.github.io/zh-tw/gitlabrunnersettings/</link>
     <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
@@ -12,7 +13,22 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
             </div><h2 id="安裝gitlab-runner">安裝GitLab Runner</h2>
-<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>]]></description>
+<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>
+<h3 id="windows-gitlab-runner">Windows GitLab Runner</h3>
+<ol>
+<li>
+<p>建立資料夾並下載安裝檔</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir D:<span class="se">\g</span>itlab-runner
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> D:<span class="se">\g</span>itlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>點<a href="https://GitLab-runner-downloads.s3.amazonaws.com/latest/binaries/GitLab-runner-windows-amd64.exe" target="_blank" rel="noopener noreffer ">Windows GitLab Runner</a>下載安裝檔至<code>D:\\gitlab-runner</code></p>]]></description>
 </item>
 <item>
     <title>Gitlab 使用外部 PostgreSQL 方法</title>
@@ -24,7 +40,24 @@
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
             </div><h1 id="gitlab-使用外部-postgresql-方法">Gitlab 使用外部 PostgreSQL 方法</h1>
 <h2 id="前言">前言</h2>
-<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>]]></description>
+<p>一樣是因為最近的案子需求，所以就來研究一下 Gitlab 如果要使用外部的 PostgreSQL 如何設定，而新舊版本其實差不多，只是有部分指令已經不同</p>
+<h2 id="關於-gitlab-與-postgresql-關係">關於 Gitlab 與 PostgreSQL 關係</h2>
+<ul>
+<li><a href="https://docs.gitlab.com/omnibus/settings/database.html" target="_blank" rel="noopener noreffer ">官方文件</a>有說明，如果是使用 <code>Omnibus GitLab</code> 則會內建 <code>PostgreSQL</code>，且 Gitlab 僅有支援PostgreSQL</li>
+<li>當然目前的Docker也有包含 PostgreSQL 的版本</li>
+<li>但如果是要使用外部的 PostgreSQL，則需要自行安裝 PostgreSQL，且版本需符合 Gitlab 所需的版本
+<ul>
+<li>Gitlab 16.0 以後的版本，需要 <code>PostgreSQL 13.0</code> 以上</li>
+<li>Gitlab 15.0 以後的版本，預設使用 <code>PostgreSQL 13.0</code></li>
+<li>Gitlab 13.7 以後的版本，建議 <code>PostgreSQL 12.0</code> 以上</li>
+<li>Gitlab 13.0 以前的版本，需要 <code>PostgreSQL 11.0</code> 以上</li>
+<li>Gitlab 12.8 以前的版本，需要 <code>PostgreSQL 9.6</code> 以上<code>PostgreSQL 11.7</code>以下</li>
+</ul>
+</li>
+</ul>
+<h2 id="安裝與設定">安裝與設定</h2>
+<h3 id="安裝-postgresql">安裝 PostgreSQL</h3>
+<p>我這裡是使用Docker來安裝 <code>PostgreSQL</code> ，步驟如下：</p>]]></description>
 </item>
 <item>
     <title>Gitlab 淺嘗 : GitLab EE on Docker</title>

@@ -3,7 +3,8 @@
         <title>Microsoft Power BI - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/microsoft-power-bi/</link>
         <description>Microsoft Power BI - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/microsoft-power-bi/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/microsoft-power-bi/" rel="self" type="application/rss+xml" /><item>
     <title>認識微軟生產力平台 - Microsoft Power Platform</title>
     <link>https://loulazynote.github.io/zh-tw/microsoftpowerplatforminfo/</link>
     <pubDate>Wed, 06 Jul 2022 19:00:00 &#43;0800</pubDate>
@@ -12,7 +13,8 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177532467-0549fc5d-a2ad-4a92-a230-da97ae0eba46.png" referrerpolicy="no-referrer">
             </div><h2 id="microsoft-power-platform是什麼">Microsoft Power Platform是什麼?</h2>
-<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>]]></description>
+<p>Power Platform是微軟的一個 <strong>SaaS</strong> 的雲端服務, 看字面感覺很陌生對吧?</p>
+<p>其實就是由四種產品整合成的平台, 這四種產品分別為: <strong>Microsoft Power BI</strong>、<strong>Microsoft Power Automate</strong>、<strong>Microsoft Power Virtual Agents</strong> 和 <strong>Microsoft PowerApps</strong>, 而 Power Platform 是一個完全獨立的服務平台, 且還能結合 Office 365、 Dynamics 365 及 Azure等服務, 不僅如此還能整合第三方服務廠商及應用 , 使其企業的商務應用整合可以更容易、方便、快速, 並且 微軟 主打可協作且可擴充的低程式碼/無程式碼的工具平台。</p>]]></description>
 </item>
 </channel>
 </rss>

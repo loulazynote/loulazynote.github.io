@@ -3,7 +3,8 @@
         <title>ValueInjecter - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/valueinjecter/</link>
         <description>ValueInjecter - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Wed, 22 Jun 2022 20:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/valueinjecter/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Wed, 22 Jun 2022 20:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/valueinjecter/" rel="self" type="application/rss+xml" /><item>
     <title>ValueInjecter@3.2.0 簡單用法</title>
     <link>https://loulazynote.github.io/zh-tw/valueinjecterver-3.2.0simpleusage/</link>
     <pubDate>Wed, 22 Jun 2022 20:00:00 &#43;0800</pubDate>
@@ -40,7 +41,12 @@
 </span></span><span class="line"><span class="cl"> <span class="n">res</span><span class="p">.</span><span class="n">FullName</span> <span class="p">=</span> <span class="n">src</span><span class="p">.</span><span class="n">FirstName</span> <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">src</span><span class="p">.</span><span class="n">LastName</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span></code></pr]]></description>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>InjectFrom</code> 的用法
+<code>InjectFrom&lt;TInjection&gt;(source)</code>用於使用約定映射，當未指定 <code>TInjection</code> 時，它將對應具有完全相同名稱和類型的屬性</p>]]></description>
 </item>
 </channel>
 </rss>

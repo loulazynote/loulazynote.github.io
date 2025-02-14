@@ -3,7 +3,8 @@
         <title>Windows - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/windows/</link>
         <description>Windows - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/windows/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/windows/" rel="self" type="application/rss+xml" /><item>
     <title>如何設定GitLab Runner?</title>
     <link>https://loulazynote.github.io/zh-tw/gitlabrunnersettings/</link>
     <pubDate>Fri, 30 Jun 2023 18:00:00 &#43;0800</pubDate>
@@ -12,7 +13,22 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*YjOtv5OOEP744YTdzBxWsw.png" referrerpolicy="no-referrer">
             </div><h2 id="安裝gitlab-runner">安裝GitLab Runner</h2>
-<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>]]></description>
+<p>安裝Runner的方式會因為環境不同而有不同的做法，這邊會以Windows及Docker為例子</p>
+<h3 id="windows-gitlab-runner">Windows GitLab Runner</h3>
+<ol>
+<li>
+<p>建立資料夾並下載安裝檔</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir D:<span class="se">\g</span>itlab-runner
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> D:<span class="se">\g</span>itlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>點<a href="https://GitLab-runner-downloads.s3.amazonaws.com/latest/binaries/GitLab-runner-windows-amd64.exe" target="_blank" rel="noopener noreffer ">Windows GitLab Runner</a>下載安裝檔至<code>D:\\gitlab-runner</code></p>]]></description>
 </item>
 <item>
     <title>關於WSL的設定檔 - 不可不知的眉角</title>
@@ -24,7 +40,8 @@
                 <img src="https://user-images.githubusercontent.com/33840759/173025439-95a74983-2194-4ff5-9f66-64eaaac44b75.png" referrerpolicy="no-referrer">
             </div><p>&#x2757;這個設定檔很重要&#x2757;</p>
 <p>&#x2757;這個設定檔很重要&#x2757;</p>
-<p>&#x2757;這個設定檔很重要&#x2757;</p>]]></description>
+<p>&#x2757;這個設定檔很重要&#x2757;</p>
+<p>為什麼這麼說呢?</p>]]></description>
 </item>
 </channel>
 </rss>

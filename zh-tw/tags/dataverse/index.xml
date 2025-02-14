@@ -3,7 +3,8 @@
         <title>Dataverse - 標籤 - The Lazy developer: Lou&#39;s Note</title>
         <link>https://loulazynote.github.io/zh-tw/tags/dataverse/</link>
         <description>Dataverse - 標籤 - The Lazy developer: Lou&#39;s Note</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/dataverse/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>louChang.tw@gmail.com (Lou Chang)</managingEditor>
+            <webMaster>louChang.tw@gmail.com (Lou Chang)</webMaster><lastBuildDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</lastBuildDate><atom:link href="https://loulazynote.github.io/zh-tw/tags/dataverse/" rel="self" type="application/rss+xml" /><item>
     <title>Microsoft Dataverse概觀</title>
     <link>https://loulazynote.github.io/zh-tw/dataverse/</link>
     <pubDate>Thu, 07 Jul 2022 18:00:00 &#43;0800</pubDate>
@@ -12,7 +13,9 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://user-images.githubusercontent.com/33840759/177560452-b161456a-066b-4c42-8f1c-18d6d071d6a1.png" referrerpolicy="no-referrer">
             </div><h2 id="什麼是dataverse">什麼是Dataverse?</h2>
-<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>]]></description>
+<p><code>Dataverse</code>是一個用於共享、儲存、引用、探索和分析研究資料的數據管理系統，同時也代表著透過該數據管理系統而建立的資料庫。</p>
+<blockquote>
+<p><code>Dataverse</code>的數據管理系統中定義了三個重要的層次：<code>Dataverse</code>、資料集(<code>dataset</code>) 和文件(<code>file</code>)</p>]]></description>
 </item>
 </channel>
 </rss>
